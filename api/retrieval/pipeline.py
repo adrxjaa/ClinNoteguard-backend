@@ -16,9 +16,35 @@ from .hybrid import HybridRetriever
 
 logger = logging.getLogger("RetrievalPipeline")
 
-# Global singleton store and hybrid retriever to avoid reloading models on every request
+# Global singleton store, hybrid retriever, and cross-encoder reranker
 _GLOBAL_STORE: Optional[EHRStore] = None
 _GLOBAL_HYBRID: Optional[HybridRetriever] = None
+_GLOBAL_RERANKER: Optional[Any] = None
+_RERANKER_INIT_ATTEMPTED: bool = False
+
+DEFAULT_CANDIDATE_POOL_SIZE = int(os.environ.get("RERANK_POOL_SIZE", "20"))
+
+
+def get_default_reranker():
+    """
+    Lazily initializes and returns the cached singleton CrossEncoderReranker.
+    If the model or dependency cannot be loaded, logs an explicit error and returns None.
+    """
+    global _GLOBAL_RERANKER, _RERANKER_INIT_ATTEMPTED
+    if not _RERANKER_INIT_ATTEMPTED:
+        _RERANKER_INIT_ATTEMPTED = True
+        try:
+            from .reranker import CrossEncoderReranker
+            logger.info("Initializing Global CrossEncoderReranker...")
+            _GLOBAL_RERANKER = CrossEncoderReranker()
+            logger.info("CrossEncoderReranker initialized successfully.")
+        except Exception as err:
+            logger.error(
+                f"Failed to initialize CrossEncoderReranker: {err}. "
+                "Pipeline will fall back to Stage 3 Hybrid RRF candidate ranking."
+            )
+            _GLOBAL_RERANKER = None
+    return _GLOBAL_RERANKER
 
 
 def get_default_retriever() -> HybridRetriever:
@@ -64,16 +90,27 @@ def retrieve_evidence_for_claims(
     claims: List[Dict[str, Any]],
     patient_id: Optional[str] = None,
     session_code: Optional[str] = None,
-    top_k: int = 3
+    top_k: int = 3,
+    candidate_pool_size: Optional[int] = None,
 ) -> List[Dict[str, Any]]:
     """
     Enriches atomic claims with candidate supporting/conflicting EHR evidence.
+    
+    Retrieval Flow (Stage 3 Hybrid + Stage 4 Cross-Encoder):
+    1. Fetches an expanded candidate pool (default 20) via HybridRetriever (BM25 + Dense + RRF).
+    2. Reranks the candidate pool using CrossEncoderReranker and truncates to top_k.
+    3. If the CrossEncoder is unavailable or fails, falls back gracefully to top_k RRF candidates.
     
     If the patient has no EHR history yet (e.g. first encounter), sets
     'retrieved_evidence' to [] and flags 'ehr_status' as 'NO_PRIOR_EHR'.
     """
     if not claims:
         return []
+
+    effective_pool_size = max(
+        top_k,
+        candidate_pool_size if candidate_pool_size is not None else DEFAULT_CANDIDATE_POOL_SIZE,
+    )
 
     try:
         hybrid = get_default_retriever()
@@ -138,8 +175,35 @@ def retrieve_evidence_for_claims(
 
         claim["ehr_status"] = "EHR_SEARCHED"
         try:
-            candidates = hybrid.search(claim_text, target_pid, top_k=top_k)
-            claim["retrieved_evidence"] = candidates
+            # 1. Retrieve expanded candidate pool from Hybrid RRF
+            candidate_pool = hybrid.search(claim_text, target_pid, top_k=effective_pool_size)
+            if not candidate_pool:
+                claim["retrieved_evidence"] = []
+                continue
+
+            # 2. Attempt Stage 4 Cross-Encoder Reranking
+            reranker = get_default_reranker()
+            if reranker is not None:
+                try:
+                    reranked = reranker.rerank(claim_text, candidate_pool, top_k=top_k)
+                    claim["retrieved_evidence"] = reranked
+                    logger.info(
+                        f"Claim {claim.get('claim_id')}: Successfully reranked top {len(reranked)} "
+                        f"evidence candidates using CrossEncoder (from pool of {len(candidate_pool)})."
+                    )
+                except Exception as rerank_err:
+                    logger.error(
+                        f"Claim {claim.get('claim_id')}: CrossEncoder reranking failed ({rerank_err}). "
+                        f"Falling back to top-{top_k} Hybrid RRF candidates."
+                    )
+                    claim["retrieved_evidence"] = candidate_pool[:top_k]
+            else:
+                logger.info(
+                    f"Claim {claim.get('claim_id')}: CrossEncoderReranker not active. "
+                    f"Using top-{top_k} Hybrid RRF fallback candidates."
+                )
+                claim["retrieved_evidence"] = candidate_pool[:top_k]
+
         except Exception as search_err:
             logger.error(f"Search failed for claim {claim.get('claim_id')}: {search_err}")
             claim["retrieved_evidence"] = []

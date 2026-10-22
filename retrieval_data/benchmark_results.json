@@ -1,5 +1,5 @@
 {
-  "benchmark_file": "/home/statixlo/Develop/Final_year_project/clinnote_backend/retrieval_data/synthetic_complex_benchmark.json",
+  "benchmark_file": "C:\\Users\\sreej\\ClinNoteguard-Workspace\\ClinNoteguard-backend\\retrieval_data\\synthetic_complex_benchmark.json",
   "total_queries": 18,
   "ehr_pool_per_patient": 20,
   "summary_metrics": {
@@ -9,17 +9,23 @@
       "top5_acc": 0.9444,
       "mrr": 0.8858
     },
-    "Dense (fine-tuned)": {
-      "top1_acc": 0.8333,
+    "Dense (base)": {
+      "top1_acc": 0.9444,
       "top3_acc": 1.0,
       "top5_acc": 1.0,
-      "mrr": 0.9167
+      "mrr": 0.9722
     },
     "Hybrid RRF": {
       "top1_acc": 0.8889,
       "top3_acc": 0.9444,
       "top5_acc": 1.0,
       "mrr": 0.9306
+    },
+    "Hybrid RRF + Cross-Encoder": {
+      "top1_acc": 1.0,
+      "top3_acc": 1.0,
+      "top5_acc": 1.0,
+      "mrr": 1.0
     }
   },
   "detailed_query_results": [
@@ -31,8 +37,9 @@
       "target_claim_id": "EHR_C01",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "match"
     },
@@ -44,8 +51,9 @@
       "target_claim_id": "EHR_C01",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "mismatch"
     },
@@ -57,8 +65,9 @@
       "target_claim_id": "EHR_C03",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 2
+        "Dense (base)": 1,
+        "Hybrid RRF": 2,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "mismatch"
     },
@@ -70,8 +79,9 @@
       "target_claim_id": "EHR_C04",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 2,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "match"
     },
@@ -83,8 +93,9 @@
       "target_claim_id": "EHR_C09",
       "ranks": {
         "BM25": 9,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 4
+        "Dense (base)": 1,
+        "Hybrid RRF": 4,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "n/a"
     },
@@ -96,8 +107,9 @@
       "target_claim_id": "EHR_C07",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "n/a"
     },
@@ -109,8 +121,9 @@
       "target_claim_id": "EHR_O01",
       "ranks": {
         "BM25": 3,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "n/a"
     },
@@ -122,8 +135,9 @@
       "target_claim_id": "EHR_O03",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "n/a"
     },
@@ -135,8 +149,9 @@
       "target_claim_id": "EHR_O14",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "match"
     },
@@ -148,8 +163,9 @@
       "target_claim_id": "EHR_O04",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 2,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "match"
     },
@@ -161,8 +177,9 @@
       "target_claim_id": "EHR_O06",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "n/a"
     },
@@ -174,8 +191,9 @@
       "target_claim_id": "EHR_O08",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "n/a"
     },
@@ -187,8 +205,9 @@
       "target_claim_id": "EHR_N01",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "match"
     },
@@ -200,8 +219,9 @@
       "target_claim_id": "EHR_N10",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 2,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "match"
     },
@@ -213,8 +233,9 @@
       "target_claim_id": "EHR_N04",
       "ranks": {
         "BM25": 2,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 2,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "match"
     },
@@ -226,8 +247,9 @@
       "target_claim_id": "EHR_N02",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "match"
     },
@@ -239,8 +261,9 @@
       "target_claim_id": "EHR_N05",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "n/a"
     },
@@ -252,10 +275,12 @@
       "target_claim_id": "EHR_N17",
       "ranks": {
         "BM25": 1,
-        "Dense (fine-tuned)": 1,
-        "Hybrid RRF": 1
+        "Dense (base)": 1,
+        "Hybrid RRF": 1,
+        "Hybrid RRF + Cross-Encoder": 1
       },
       "dose_agreement": "n/a"
     }
-  ]
+  ],
+  "cross_encoder_status": "evaluated"
 }
