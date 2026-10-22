@@ -409,8 +409,28 @@ class Command(BaseCommand):
                 "end": round(seg["end"], 2)
             })
 
-        # 2. Simple Rule-Based/Mock SOAP Note Generation from Transcript
+        # 2. Generate SOAP Note from Transcript
         soap_note = self.generate_soap_note_from_transcript(transcript_db)
+
+        # 2.5 Extract Atomic Claims (Stage 2 -> Stage 3)
+        from api.services.claim_extractor import extractor as claim_extractor
+        atomic_claims = claim_extractor.extract_claims(soap_note, transcript_db)
+        logger.info(f"Extracted {len(atomic_claims)} atomic claims for session {session_code}")
+
+        # 2.6 Retrieve Candidate EHR Evidence (Stage 3 Hybrid Retrieval)
+        try:
+            from api.retrieval.pipeline import retrieve_evidence_for_claims
+            session_obj = ConsultationSession.objects.filter(code=session_code).first()
+            patient_id = str(session_obj.patient.id) if session_obj and session_obj.patient else None
+            atomic_claims = retrieve_evidence_for_claims(
+                atomic_claims,
+                patient_id=patient_id,
+                session_code=session_code,
+                top_k=3
+            )
+            logger.info(f"Enriched {len(atomic_claims)} atomic claims with candidate EHR evidence.")
+        except Exception as ret_err:
+            logger.warning(f"Retrieval step encountered non-blocking issue: {ret_err}")
 
         # 3. Save audio buffer to media file if audio data exists
         audio_file_path = None
@@ -433,11 +453,12 @@ class Command(BaseCommand):
                 session = ConsultationSession.objects.get(code=session_code)
                 session.transcript_json = transcript_db
                 session.soap_note_json = soap_note
+                session.atomic_claims_json = atomic_claims
                 if audio_file_path:
                     session.audio_file = audio_file_path
                 session.status = ConsultationSession.Status.ENDED
                 session.save()
-                logger.info(f"Successfully saved transcript and SOAP note for session {session_code}")
+                logger.info(f"Successfully saved transcript, SOAP note, and {len(atomic_claims)} atomic claims for session {session_code}")
             except ConsultationSession.DoesNotExist:
                 logger.error(f"Consultation session {session_code} not found in DB.")
 

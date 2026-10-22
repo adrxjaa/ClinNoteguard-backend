@@ -61,6 +61,7 @@ class ConsultationSession(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     transcript_json = models.JSONField(default=list, blank=True)
     soap_note_json = models.JSONField(default=dict, blank=True)
+    atomic_claims_json = models.JSONField(default=list, blank=True)
     audio_file = models.FileField(upload_to='consultation_audios/', null=True, blank=True)
 
     def __str__(self):

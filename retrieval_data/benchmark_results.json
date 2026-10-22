@@ -1,0 +1,261 @@
+{
+  "benchmark_file": "/home/statixlo/Develop/Final_year_project/clinnote_backend/retrieval_data/synthetic_complex_benchmark.json",
+  "total_queries": 18,
+  "ehr_pool_per_patient": 20,
+  "summary_metrics": {
+    "BM25": {
+      "top1_acc": 0.8333,
+      "top3_acc": 0.9444,
+      "top5_acc": 0.9444,
+      "mrr": 0.8858
+    },
+    "Dense (fine-tuned)": {
+      "top1_acc": 0.8333,
+      "top3_acc": 1.0,
+      "top5_acc": 1.0,
+      "mrr": 0.9167
+    },
+    "Hybrid RRF": {
+      "top1_acc": 0.8889,
+      "top3_acc": 0.9444,
+      "top5_acc": 1.0,
+      "mrr": 0.9306
+    }
+  },
+  "detailed_query_results": [
+    {
+      "query_id": "Q_CARDIAC_01",
+      "category": "DOSE_DISCRIMINATION",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "claim_text": "Patient continues on Aspirin 81 mg once daily for heart protection.",
+      "target_claim_id": "EHR_C01",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "match"
+    },
+    {
+      "query_id": "Q_CARDIAC_02",
+      "category": "DOSE_MISMATCH_CONFLICT",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "claim_text": "Patient takes Aspirin 325 mg oral tablet daily.",
+      "target_claim_id": "EHR_C01",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "mismatch"
+    },
+    {
+      "query_id": "Q_CARDIAC_03",
+      "category": "LOOKALIKE_DRUG",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "claim_text": "Patient was started on Hydralazine 25 mg oral tablet for resistant hypertension.",
+      "target_claim_id": "EHR_C03",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 2
+      },
+      "dose_agreement": "mismatch"
+    },
+    {
+      "query_id": "Q_CARDIAC_04",
+      "category": "BRAND_VS_GENERIC",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "claim_text": "Patient takes Lipitor 40 mg every night for cholesterol management.",
+      "target_claim_id": "EHR_C04",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 2,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "match"
+    },
+    {
+      "query_id": "Q_CARDIAC_05",
+      "category": "LAYMAN_SYNONYM",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "claim_text": "Patient has sugar trouble with an A1c over eight percent.",
+      "target_claim_id": "EHR_C09",
+      "ranks": {
+        "BM25": 9,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 4
+      },
+      "dose_agreement": "n/a"
+    },
+    {
+      "query_id": "Q_CARDIAC_06",
+      "category": "PROCEDURE_MATCH",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "claim_text": "Patient previously had a heart stent placed in the LAD artery.",
+      "target_claim_id": "EHR_C07",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "n/a"
+    },
+    {
+      "query_id": "Q_ORTHO_01",
+      "category": "LATERALITY",
+      "patient_id": "P_SYNTH_ORTHO",
+      "claim_text": "Patient has severe wear-and-tear arthritis in the left knee.",
+      "target_claim_id": "EHR_O01",
+      "ranks": {
+        "BM25": 3,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "n/a"
+    },
+    {
+      "query_id": "Q_ORTHO_02",
+      "category": "LATERALITY_CONFLICT",
+      "patient_id": "P_SYNTH_ORTHO",
+      "claim_text": "Patient underwent rotator cuff repair on the left shoulder.",
+      "target_claim_id": "EHR_O03",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "n/a"
+    },
+    {
+      "query_id": "Q_ORTHO_03",
+      "category": "BRAND_VS_GENERIC",
+      "patient_id": "P_SYNTH_ORTHO",
+      "claim_text": "Patient takes Tylenol 500 mg as needed for joint pain.",
+      "target_claim_id": "EHR_O14",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "match"
+    },
+    {
+      "query_id": "Q_ORTHO_04",
+      "category": "DOSE_DISCRIMINATION",
+      "patient_id": "P_SYNTH_ORTHO",
+      "claim_text": "Patient is on Methotrexate 15 mg weekly for rheumatoid arthritis.",
+      "target_claim_id": "EHR_O04",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 2,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "match"
+    },
+    {
+      "query_id": "Q_ORTHO_05",
+      "category": "LAYMAN_SYNONYM",
+      "patient_id": "P_SYNTH_ORTHO",
+      "claim_text": "Patient was diagnosed with brittle bone disease in the lower back based on a bone density test.",
+      "target_claim_id": "EHR_O06",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "n/a"
+    },
+    {
+      "query_id": "Q_ORTHO_06",
+      "category": "ALLERGY_ADVERSE",
+      "patient_id": "P_SYNTH_ORTHO",
+      "claim_text": "Patient developed stomach ulcer bleeding after taking high-dose Ibuprofen.",
+      "target_claim_id": "EHR_O08",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "n/a"
+    },
+    {
+      "query_id": "Q_NEURO_01",
+      "category": "BRAND_VS_GENERIC",
+      "patient_id": "P_SYNTH_NEURO",
+      "claim_text": "Patient takes Keppra 500 mg twice daily for seizures.",
+      "target_claim_id": "EHR_N01",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "match"
+    },
+    {
+      "query_id": "Q_NEURO_02",
+      "category": "HISTORICAL_REACTION_CONFLICT",
+      "patient_id": "P_SYNTH_NEURO",
+      "claim_text": "Patient previously experienced severe walking unsteadiness and sleepiness on Keppra 1000 mg twice daily.",
+      "target_claim_id": "EHR_N10",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 2,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "match"
+    },
+    {
+      "query_id": "Q_NEURO_03",
+      "category": "LOOKALIKE_DRUG",
+      "patient_id": "P_SYNTH_NEURO",
+      "claim_text": "Patient was prescribed Lorazepam 0.5 mg for nighttime sleep.",
+      "target_claim_id": "EHR_N04",
+      "ranks": {
+        "BM25": 2,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "match"
+    },
+    {
+      "query_id": "Q_NEURO_04",
+      "category": "BRAND_VS_GENERIC",
+      "patient_id": "P_SYNTH_NEURO",
+      "claim_text": "Patient takes Zoloft 100 mg daily for depression.",
+      "target_claim_id": "EHR_N02",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "match"
+    },
+    {
+      "query_id": "Q_NEURO_05",
+      "category": "LAYMAN_SYNONYM",
+      "patient_id": "P_SYNTH_NEURO",
+      "claim_text": "The patient's brain scan came back clear with no signs of bleeding or tumor.",
+      "target_claim_id": "EHR_N05",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "n/a"
+    },
+    {
+      "query_id": "Q_NEURO_06",
+      "category": "STATUS_OUTCOME",
+      "patient_id": "P_SYNTH_NEURO",
+      "claim_text": "Patient has remained seizure-free for nine months.",
+      "target_claim_id": "EHR_N17",
+      "ranks": {
+        "BM25": 1,
+        "Dense (fine-tuned)": 1,
+        "Hybrid RRF": 1
+      },
+      "dose_agreement": "n/a"
+    }
+  ]
+}

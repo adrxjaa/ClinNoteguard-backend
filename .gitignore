@@ -93,3 +93,6 @@ logs/
 htmlcov/
 .pytest_cache/
 .mypy_cache/
+retrieval_models/
+demo_atomic_claims.json
+demo_retrieval_output.json

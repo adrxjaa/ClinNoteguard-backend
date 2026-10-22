@@ -4,7 +4,7 @@ from .views import (
     health_check, PatientProfileUpdateView, DoctorProfileUpdateView,
     PatientCreateSessionView, DoctorJoinSessionView, DoctorEndSessionView,
     ActiveSessionStatusView, ConsultationDetailView,
-    PatientSessionListView, DoctorSessionListView
+    PatientSessionListView, DoctorSessionListView, ExtractSessionClaimsView
 )
 
 urlpatterns = [
@@ -21,6 +21,7 @@ urlpatterns = [
     path('consultation/end/', DoctorEndSessionView.as_view(), name='end_session'),
     path('consultation/status/', ActiveSessionStatusView.as_view(), name='session_status'),
     path('consultation/detail/<str:code>/', ConsultationDetailView.as_view(), name='consultation_detail'),
+    path('consultation/extract-claims/<str:code>/', ExtractSessionClaimsView.as_view(), name='extract_claims'),
     path('consultation/patient/list/', PatientSessionListView.as_view(), name='patient_sessions'),
     path('consultation/doctor/list/', DoctorSessionListView.as_view(), name='doctor_sessions'),
 ]

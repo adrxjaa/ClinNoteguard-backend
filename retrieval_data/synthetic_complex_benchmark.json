@@ -1,0 +1,620 @@
+{
+  "benchmark_name": "ClinNoteGuard Synthetic Complex EHR Retrieval Benchmark",
+  "description": "Benchmark with 20 historical EHR claims per patient and complex adversarial queries testing dose, laterality, look-alikes, brand names, and layman terms.",
+  "patients": [
+    {
+      "patient_id": "P_SYNTH_CARDIAC",
+      "demographics": {
+        "name": "Robert Miller",
+        "age": 64,
+        "gender": "male"
+      },
+      "ehr_claims": [
+        {
+          "claim_id": "EHR_C01",
+          "section": "Medication",
+          "relative_time": "T-6 months",
+          "claim_text": "Patient is maintained on Aspirin 81 mg oral tablet once daily for cardiovascular prophylaxis.",
+          "entities": ["Aspirin", "81mg", "prophylaxis"]
+        },
+        {
+          "claim_id": "EHR_C02",
+          "section": "Medication",
+          "relative_time": "T-1 year",
+          "claim_text": "Patient takes Metformin 500 mg orally twice daily with meals for blood glucose control.",
+          "entities": ["Metformin", "500mg", "twice daily"]
+        },
+        {
+          "claim_id": "EHR_C03",
+          "section": "Medication",
+          "relative_time": "T-3 months",
+          "claim_text": "Patient was prescribed Lisinopril 20 mg oral tablet once daily for essential hypertension.",
+          "entities": ["Lisinopril", "20mg", "hypertension"]
+        },
+        {
+          "claim_id": "EHR_C04",
+          "section": "Medication",
+          "relative_time": "T-2 years",
+          "claim_text": "Patient takes Atorvastatin 40 mg orally every night for hyperlipidemia.",
+          "entities": ["Atorvastatin", "40mg", "hyperlipidemia"]
+        },
+        {
+          "claim_id": "EHR_C05",
+          "section": "Medication",
+          "relative_time": "T-5 months",
+          "claim_text": "Patient was prescribed Hydroxyzine 25 mg oral capsule as needed for acute urticaria and pruritus.",
+          "entities": ["Hydroxyzine", "25mg", "urticaria", "pruritus"]
+        },
+        {
+          "claim_id": "EHR_C06",
+          "section": "Investigation",
+          "relative_time": "T-8 months",
+          "claim_text": "Echocardiogram demonstrated a left ventricular ejection fraction of 50% with mild diastolic dysfunction.",
+          "entities": ["echocardiogram", "ejection fraction", "50%"]
+        },
+        {
+          "claim_id": "EHR_C07",
+          "section": "Procedure",
+          "relative_time": "T-3 years",
+          "claim_text": "Patient underwent percutaneous coronary intervention with a drug-eluting stent to the left anterior descending artery.",
+          "entities": ["PCI", "stent", "LAD", "coronary intervention"]
+        },
+        {
+          "claim_id": "EHR_C08",
+          "section": "Investigation",
+          "relative_time": "T-2 months",
+          "claim_text": "Fasting lipid panel demonstrated total cholesterol 210 mg/dL, LDL 128 mg/dL, HDL 42 mg/dL, and triglycerides 195 mg/dL.",
+          "entities": ["lipid panel", "cholesterol", "LDL", "triglycerides"]
+        },
+        {
+          "claim_id": "EHR_C09",
+          "section": "Investigation",
+          "relative_time": "T-1 month",
+          "claim_text": "Glycated hemoglobin (HbA1c) level was measured at 8.4% indicating suboptimally controlled type 2 diabetes.",
+          "entities": ["HbA1c", "8.4%", "type 2 diabetes"]
+        },
+        {
+          "claim_id": "EHR_C10",
+          "section": "Allergy",
+          "relative_time": "T-4 years",
+          "claim_text": "Patient reported severe cutaneous reaction and facial angioedema after receiving Ciprofloxacin.",
+          "entities": ["Ciprofloxacin", "angioedema", "allergy"]
+        },
+        {
+          "claim_id": "EHR_C11",
+          "section": "Diagnosis",
+          "relative_time": "T-1 year",
+          "claim_text": "Patient has documented mild peripheral neuropathy affecting bilateral feet with tingling and sensory loss.",
+          "entities": ["peripheral neuropathy", "bilateral feet", "tingling"]
+        },
+        {
+          "claim_id": "EHR_C12",
+          "section": "Investigation",
+          "relative_time": "T-1 month",
+          "claim_text": "Serum creatinine was measured at 1.1 mg/dL with estimated glomerular filtration rate (eGFR) of 72 mL/min.",
+          "entities": ["creatinine", "eGFR", "renal function"]
+        },
+        {
+          "claim_id": "EHR_C13",
+          "section": "Investigation",
+          "relative_time": "T-6 months",
+          "claim_text": "12-lead electrocardiogram (ECG) demonstrated normal sinus rhythm at 68 bpm with non-specific ST-T wave changes.",
+          "entities": ["ECG", "sinus rhythm", "68 bpm"]
+        },
+        {
+          "claim_id": "EHR_C14",
+          "section": "Investigation",
+          "relative_time": "T-10 months",
+          "claim_text": "Dilated funduscopic examination by ophthalmology revealed mild non-proliferative diabetic retinopathy in both eyes.",
+          "entities": ["funduscopic", "diabetic retinopathy", "ophthalmology"]
+        },
+        {
+          "claim_id": "EHR_C15",
+          "section": "Procedure",
+          "relative_time": "T-7 months",
+          "claim_text": "Patient received seasonal influenza vaccine administered in the right deltoid muscle.",
+          "entities": ["influenza vaccine", "immunization"]
+        },
+        {
+          "claim_id": "EHR_C16",
+          "section": "Vitals",
+          "relative_time": "T-3 months",
+          "claim_text": "Sitting clinic blood pressure was recorded as 148/92 mmHg with heart rate of 74 bpm.",
+          "entities": ["blood pressure", "148/92 mmHg", "heart rate"]
+        },
+        {
+          "claim_id": "EHR_C17",
+          "section": "Plan",
+          "relative_time": "T-1 year",
+          "claim_text": "Patient was educated on a low-sodium Mediterranean cardiac diet and advised 30 minutes of daily aerobic walking.",
+          "entities": ["diet", "low-sodium", "exercise"]
+        },
+        {
+          "claim_id": "EHR_C18",
+          "section": "Diagnosis",
+          "relative_time": "T-5 years",
+          "claim_text": "Patient has chronic gastroesophageal reflux disease without esophageal stricture or Barrett's esophagus.",
+          "entities": ["GERD", "reflux"]
+        },
+        {
+          "claim_id": "EHR_C19",
+          "section": "Social",
+          "relative_time": "T-6 years",
+          "claim_text": "Patient is an ex-smoker with a 15 pack-year smoking history who successfully quit 6 years ago.",
+          "entities": ["ex-smoker", "smoking cessation", "15 pack-year"]
+        },
+        {
+          "claim_id": "EHR_C20",
+          "section": "Medication",
+          "relative_time": "T-2 years",
+          "claim_text": "Patient takes Vitamin D3 1000 IU oral softgel once daily for moderate vitamin D deficiency.",
+          "entities": ["Vitamin D3", "1000 IU", "deficiency"]
+        }
+      ]
+    },
+    {
+      "patient_id": "P_SYNTH_ORTHO",
+      "demographics": {
+        "name": "Eleanor Vance",
+        "age": 58,
+        "gender": "female"
+      },
+      "ehr_claims": [
+        {
+          "claim_id": "EHR_O01",
+          "section": "Diagnosis",
+          "relative_time": "T-2 years",
+          "claim_text": "Radiographs revealed advanced tricompartmental osteoarthritis in the left knee with medial joint space obliteration.",
+          "entities": ["osteoarthritis", "left knee", "joint space"]
+        },
+        {
+          "claim_id": "EHR_O02",
+          "section": "Diagnosis",
+          "relative_time": "T-1 year",
+          "claim_text": "Radiographs of the right knee demonstrated mild patellofemoral degenerative changes without joint effusion.",
+          "entities": ["right knee", "mild degenerative changes"]
+        },
+        {
+          "claim_id": "EHR_O03",
+          "section": "Procedure",
+          "relative_time": "T-3 years",
+          "claim_text": "Patient underwent right shoulder arthroscopic rotator cuff tendon repair with subacromial decompression.",
+          "entities": ["rotator cuff", "right shoulder", "arthroscopic"]
+        },
+        {
+          "claim_id": "EHR_O04",
+          "section": "Medication",
+          "relative_time": "T-18 months",
+          "claim_text": "Patient was prescribed Methotrexate 15 mg orally once weekly accompanied by daily folic acid 1 mg.",
+          "entities": ["Methotrexate", "15mg", "once weekly", "folic acid"]
+        },
+        {
+          "claim_id": "EHR_O05",
+          "section": "Medication",
+          "relative_time": "T-6 months",
+          "claim_text": "Patient takes Prednisone 5 mg orally once daily for systemic rheumatoid arthritis inflammation control.",
+          "entities": ["Prednisone", "5mg", "rheumatoid arthritis"]
+        },
+        {
+          "claim_id": "EHR_O06",
+          "section": "Investigation",
+          "relative_time": "T-1 year",
+          "claim_text": "DEXA bone density scan demonstrated a T-score of -2.6 in the lumbar spine meeting diagnostic criteria for osteoporosis.",
+          "entities": ["DEXA", "T-score", "-2.6", "lumbar spine", "osteoporosis"]
+        },
+        {
+          "claim_id": "EHR_O07",
+          "section": "Medication",
+          "relative_time": "T-11 months",
+          "claim_text": "Patient takes Alendronate 70 mg oral tablet once weekly on an empty stomach with a full glass of water.",
+          "entities": ["Alendronate", "70mg", "once weekly"]
+        },
+        {
+          "claim_id": "EHR_O08",
+          "section": "Allergy",
+          "relative_time": "T-4 years",
+          "claim_text": "Patient suffered acute gastric erosions and upper gastrointestinal bleeding secondary to Ibuprofen 800 mg therapy.",
+          "entities": ["Ibuprofen", "GI bleeding", "gastric ulceration"]
+        },
+        {
+          "claim_id": "EHR_O09",
+          "section": "Diagnosis",
+          "relative_time": "T-10 years",
+          "claim_text": "Patient has mild persistent asthma triggered by viral upper respiratory infections and cold dry air.",
+          "entities": ["asthma", "persistent asthma", "bronchospasm"]
+        },
+        {
+          "claim_id": "EHR_O10",
+          "section": "Medication",
+          "relative_time": "T-10 years",
+          "claim_text": "Patient uses Albuterol sulfate 90 mcg inhaler 2 puffs every 4 to 6 hours as needed for bronchospasm and wheezing.",
+          "entities": ["Albuterol", "90mcg", "inhaler"]
+        },
+        {
+          "claim_id": "EHR_O11",
+          "section": "Procedure",
+          "relative_time": "T-5 years",
+          "claim_text": "Patient had closed reduction and fiberglass casting of an extra-articular distal radius fracture of the left wrist.",
+          "entities": ["distal radius fracture", "left wrist", "casting"]
+        },
+        {
+          "claim_id": "EHR_O12",
+          "section": "Investigation",
+          "relative_time": "T-2 months",
+          "claim_text": "Erythrocyte sedimentation rate (ESR) was elevated at 48 mm/hr and C-reactive protein (CRP) was 14 mg/L.",
+          "entities": ["ESR", "48 mm/hr", "CRP", "14 mg/L"]
+        },
+        {
+          "claim_id": "EHR_O13",
+          "section": "Investigation",
+          "relative_time": "T-2 years",
+          "claim_text": "Serologic testing was strongly positive for rheumatoid factor (RF) and anti-cyclic citrullinated peptide (anti-CCP > 200 U/mL).",
+          "entities": ["rheumatoid factor", "anti-CCP", "serology"]
+        },
+        {
+          "claim_id": "EHR_O14",
+          "section": "Medication",
+          "relative_time": "T-8 months",
+          "claim_text": "Patient uses Acetaminophen 500 mg orally every 6 hours as needed for non-inflammatory joint discomfort.",
+          "entities": ["Acetaminophen", "500mg", "analgesic"]
+        },
+        {
+          "claim_id": "EHR_O15",
+          "section": "Procedure",
+          "relative_time": "T-4 months",
+          "claim_text": "Patient received an ultrasound-guided corticosteroid injection of triamcinolone 40 mg into the left knee joint.",
+          "entities": ["corticosteroid injection", "left knee", "triamcinolone"]
+        },
+        {
+          "claim_id": "EHR_O16",
+          "section": "Procedure",
+          "relative_time": "T-2 years",
+          "claim_text": "Patient completed a 12-week course of outpatient physical therapy focusing on right shoulder rotator cuff strengthening.",
+          "entities": ["physical therapy", "right shoulder", "rehabilitation"]
+        },
+        {
+          "claim_id": "EHR_O17",
+          "section": "Allergy",
+          "relative_time": "T-8 years",
+          "claim_text": "Patient is documented to have tolerated cephalexin without allergic manifestations or hypersensitivity rash.",
+          "entities": ["cephalexin", "tolerance", "no allergy"]
+        },
+        {
+          "claim_id": "EHR_O18",
+          "section": "Investigation",
+          "relative_time": "T-3 months",
+          "claim_text": "Serum calcium was within normal limits at 9.4 mg/dL and alkaline phosphatase was 78 U/L.",
+          "entities": ["calcium", "alkaline phosphatase", "bone panel"]
+        },
+        {
+          "claim_id": "EHR_O19",
+          "section": "Family",
+          "relative_time": "T-10 years",
+          "claim_text": "Family medical history is significant for maternal subcapital femoral neck fracture at age 72.",
+          "entities": ["family history", "hip fracture", "osteoporosis"]
+        },
+        {
+          "claim_id": "EHR_O20",
+          "section": "Equipment",
+          "relative_time": "T-1 year",
+          "claim_text": "Patient was fitted with a customized medial compartment unloader knee orthosis for the left leg.",
+          "entities": ["knee brace", "unloader brace", "left leg"]
+        }
+      ]
+    },
+    {
+      "patient_id": "P_SYNTH_NEURO",
+      "demographics": {
+        "name": "David Chen",
+        "age": 42,
+        "gender": "male"
+      },
+      "ehr_claims": [
+        {
+          "claim_id": "EHR_N01",
+          "section": "Medication",
+          "relative_time": "T-14 months",
+          "claim_text": "Patient is treated with Levetiracetam 500 mg oral tablet twice daily for focal onset seizures.",
+          "entities": ["Levetiracetam", "500mg", "focal seizures"]
+        },
+        {
+          "claim_id": "EHR_N02",
+          "section": "Medication",
+          "relative_time": "T-2 years",
+          "claim_text": "Patient takes Sertraline 100 mg oral tablet once daily in the morning for major depressive disorder.",
+          "entities": ["Sertraline", "100mg", "depression"]
+        },
+        {
+          "claim_id": "EHR_N03",
+          "section": "Medication",
+          "relative_time": "T-1 year",
+          "claim_text": "Patient was prescribed Sumatriptan 50 mg oral tablet at onset of acute migraine headache attacks.",
+          "entities": ["Sumatriptan", "50mg", "migraine"]
+        },
+        {
+          "claim_id": "EHR_N04",
+          "section": "Medication",
+          "relative_time": "T-8 months",
+          "claim_text": "Patient takes Clonazepam 0.5 mg orally at bedtime for periodic limb movement disorder and nocturnal myoclonus.",
+          "entities": ["Clonazepam", "0.5mg", "myoclonus", "sleep"]
+        },
+        {
+          "claim_id": "EHR_N05",
+          "section": "Investigation",
+          "relative_time": "T-18 months",
+          "claim_text": "Brain MRI with and without gadolinium contrast showed no acute intracranial hemorrhage, mass effect, or ischemic stroke.",
+          "entities": ["Brain MRI", "no hemorrhage", "no stroke"]
+        },
+        {
+          "claim_id": "EHR_N06",
+          "section": "Investigation",
+          "relative_time": "T-14 months",
+          "claim_text": "24-hour ambulatory video-EEG monitoring recorded intermittent left anterior temporal epileptiform spike-and-wave discharges.",
+          "entities": ["EEG", "temporal spike", "epileptiform"]
+        },
+        {
+          "claim_id": "EHR_N07",
+          "section": "Allergy",
+          "relative_time": "T-3 years",
+          "claim_text": "Patient developed acute oculogyric crisis and severe dystonic reaction following intravenous Metoclopramide.",
+          "entities": ["Metoclopramide", "dystonia", "oculogyric crisis"]
+        },
+        {
+          "claim_id": "EHR_N08",
+          "section": "Diagnosis",
+          "relative_time": "T-30 years",
+          "claim_text": "Patient had simple febrile convulsions during early childhood between ages 2 and 4 with full resolution.",
+          "entities": ["febrile convulsions", "childhood"]
+        },
+        {
+          "claim_id": "EHR_N09",
+          "section": "Medication",
+          "relative_time": "T-1 year",
+          "claim_text": "Patient takes Melatonin 3 mg oral tablet nightly for initial sleep onset insomnia.",
+          "entities": ["Melatonin", "3mg", "insomnia"]
+        },
+        {
+          "claim_id": "EHR_N10",
+          "section": "Reaction",
+          "relative_time": "T-1 year",
+          "claim_text": "Patient developed severe gait ataxia and somnolence when Levetiracetam was previously escalated to 1000 mg twice daily.",
+          "entities": ["Levetiracetam", "1000mg", "ataxia", "somnolence"]
+        },
+        {
+          "claim_id": "EHR_N11",
+          "section": "Investigation",
+          "relative_time": "T-6 months",
+          "claim_text": "Thyroid stimulating hormone (TSH) was normal at 2.1 mIU/L and free thyroxine (free T4) was 1.2 ng/dL.",
+          "entities": ["TSH", "2.1 mIU/L", "free T4"]
+        },
+        {
+          "claim_id": "EHR_N12",
+          "section": "Diagnosis",
+          "relative_time": "T-4 years",
+          "claim_text": "Patient experiences classical migraine with aura consisting of visual scintillating scotomas and unilateral throbbing pain.",
+          "entities": ["migraine with aura", "scotoma", "photophobia"]
+        },
+        {
+          "claim_id": "EHR_N13",
+          "section": "Procedure",
+          "relative_time": "T-9 months",
+          "claim_text": "Patient completed 16 biweekly outpatient cognitive behavioral psychotherapy sessions for dysthymic symptoms.",
+          "entities": ["CBT", "psychotherapy", "depression"]
+        },
+        {
+          "claim_id": "EHR_N14",
+          "section": "Investigation",
+          "relative_time": "T-4 months",
+          "claim_text": "Hepatic panel was within normal limits with alanine aminotransferase (ALT) 24 U/L and aspartate aminotransferase (AST) 22 U/L.",
+          "entities": ["ALT", "AST", "hepatic panel"]
+        },
+        {
+          "claim_id": "EHR_N15",
+          "section": "Allergy",
+          "relative_time": "T-5 years",
+          "claim_text": "Patient developed intractable nausea, projectile vomiting, and dysphoria with oral Tramadol.",
+          "entities": ["Tramadol", "intolerance", "nausea"]
+        },
+        {
+          "claim_id": "EHR_N16",
+          "section": "Psych",
+          "relative_time": "T-1 year",
+          "claim_text": "Comprehensive psychiatric risk evaluation confirmed zero historical episodes of suicidal intent, ideation, or self-harm.",
+          "entities": ["psychiatric evaluation", "no suicidal ideation"]
+        },
+        {
+          "claim_id": "EHR_N17",
+          "section": "Status",
+          "relative_time": "T-3 months",
+          "claim_text": "Patient has achieved complete seizure freedom over the past 9 months with strict anticonvulsant medication adherence.",
+          "entities": ["seizure-free", "anticonvulsant adherence"]
+        },
+        {
+          "claim_id": "EHR_N18",
+          "section": "Social",
+          "relative_time": "T-1 year",
+          "claim_text": "Patient was counseled regarding commercial motor vehicle driving restrictions pursuant to state Department of Transportation epilepsy laws.",
+          "entities": ["driving restrictions", "epilepsy laws"]
+        },
+        {
+          "claim_id": "EHR_N19",
+          "section": "Diagnosis",
+          "relative_time": "T-3 years",
+          "claim_text": "Patient suffers from episodic tension-type headaches occurring 1-2 days per month associated with neck muscle tightness.",
+          "entities": ["tension headache", "muscle tightness"]
+        },
+        {
+          "claim_id": "EHR_N20",
+          "section": "Family",
+          "relative_time": "T-5 years",
+          "claim_text": "Family neurological history is notable for Parkinson's disease diagnosed in paternal grandfather at age 75.",
+          "entities": ["Parkinson's disease", "family history"]
+        }
+      ]
+    }
+  ],
+  "test_queries": [
+    {
+      "query_id": "Q_CARDIAC_01",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "category": "DOSE_DISCRIMINATION",
+      "description": "Exact match for 81 mg dose among other aspirin doses and distractors",
+      "claim_text": "Patient continues on Aspirin 81 mg once daily for heart protection.",
+      "target_claim_id": "EHR_C01",
+      "notes": "BM25 with dose bonus should accurately rank 81 mg first."
+    },
+    {
+      "query_id": "Q_CARDIAC_02",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "category": "DOSE_MISMATCH_CONFLICT",
+      "description": "Consultation claim mentions 325 mg dose which conflicts with historical 81 mg dose",
+      "claim_text": "Patient takes Aspirin 325 mg oral tablet daily.",
+      "target_claim_id": "EHR_C01",
+      "notes": "Candidate EHR_C01 should be retrieved as relevant evidence, but flagged with dose_agreement=mismatch."
+    },
+    {
+      "query_id": "Q_CARDIAC_03",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "category": "LOOKALIKE_DRUG",
+      "description": "Hydralazine query must NOT be misled by historical Hydroxyzine 25 mg",
+      "claim_text": "Patient was started on Hydralazine 25 mg oral tablet for resistant hypertension.",
+      "target_claim_id": "EHR_C03",
+      "notes": "Tests whether retriever confuses Hydroxyzine (allergy/urticaria) with Hydralazine (antihypertensive)."
+    },
+    {
+      "query_id": "Q_CARDIAC_04",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "category": "BRAND_VS_GENERIC",
+      "description": "Brand name Lipitor vs generic Atorvastatin 40 mg",
+      "claim_text": "Patient takes Lipitor 40 mg every night for cholesterol management.",
+      "target_claim_id": "EHR_C04",
+      "notes": "Dense retriever and abbreviation/synonym expansion should place EHR_C04 at rank 1."
+    },
+    {
+      "query_id": "Q_CARDIAC_05",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "category": "LAYMAN_SYNONYM",
+      "description": "Patient lay description of diabetes and A1c lab result",
+      "claim_text": "Patient has sugar trouble with an A1c over eight percent.",
+      "target_claim_id": "EHR_C09",
+      "notes": "Tests semantic mapping between lay terms and medical lab/condition records."
+    },
+    {
+      "query_id": "Q_CARDIAC_06",
+      "patient_id": "P_SYNTH_CARDIAC",
+      "category": "PROCEDURE_MATCH",
+      "description": "Prior coronary stent in the anterior descending artery",
+      "claim_text": "Patient previously had a heart stent placed in the LAD artery.",
+      "target_claim_id": "EHR_C07",
+      "notes": "Tests matching 'heart stent' with 'percutaneous coronary intervention with drug-eluting stent'."
+    },
+    {
+      "query_id": "Q_ORTHO_01",
+      "patient_id": "P_SYNTH_ORTHO",
+      "category": "LATERALITY",
+      "description": "Left knee arthritis vs Right knee arthritis distractor",
+      "claim_text": "Patient has severe wear-and-tear arthritis in the left knee.",
+      "target_claim_id": "EHR_O01",
+      "notes": "Must rank EHR_O01 (left knee) strictly ahead of EHR_O02 (right knee)."
+    },
+    {
+      "query_id": "Q_ORTHO_02",
+      "patient_id": "P_SYNTH_ORTHO",
+      "category": "LATERALITY_CONFLICT",
+      "description": "Left shoulder repair claim vs right shoulder historical procedure",
+      "claim_text": "Patient underwent rotator cuff repair on the left shoulder.",
+      "target_claim_id": "EHR_O03",
+      "notes": "Retriever must bring up EHR_O03 (right shoulder) as the relevant conflict."
+    },
+    {
+      "query_id": "Q_ORTHO_03",
+      "patient_id": "P_SYNTH_ORTHO",
+      "category": "BRAND_VS_GENERIC",
+      "description": "Tylenol brand name query vs Acetaminophen 500 mg record",
+      "claim_text": "Patient takes Tylenol 500 mg as needed for joint pain.",
+      "target_claim_id": "EHR_O14",
+      "notes": "Tests brand-generic matching with exact 500mg dose alignment."
+    },
+    {
+      "query_id": "Q_ORTHO_04",
+      "patient_id": "P_SYNTH_ORTHO",
+      "category": "DOSE_DISCRIMINATION",
+      "description": "Methotrexate weekly dose",
+      "claim_text": "Patient is on Methotrexate 15 mg weekly for rheumatoid arthritis.",
+      "target_claim_id": "EHR_O04",
+      "notes": "BM25 and Dense both target Methotrexate 15 mg."
+    },
+    {
+      "query_id": "Q_ORTHO_05",
+      "patient_id": "P_SYNTH_ORTHO",
+      "category": "LAYMAN_SYNONYM",
+      "description": "Brittle bone disease lay terminology",
+      "claim_text": "Patient was diagnosed with brittle bone disease in the lower back based on a bone density test.",
+      "target_claim_id": "EHR_O06",
+      "notes": "Dense retrieval links 'brittle bone disease' to 'osteoporosis' and 'DEXA'."
+    },
+    {
+      "query_id": "Q_ORTHO_06",
+      "patient_id": "P_SYNTH_ORTHO",
+      "category": "ALLERGY_ADVERSE",
+      "description": "Adverse drug event with NSAIDs",
+      "claim_text": "Patient developed stomach ulcer bleeding after taking high-dose Ibuprofen.",
+      "target_claim_id": "EHR_O08",
+      "notes": "Semantic & lexical alignment for adverse drug reactions."
+    },
+    {
+      "query_id": "Q_NEURO_01",
+      "patient_id": "P_SYNTH_NEURO",
+      "category": "BRAND_VS_GENERIC",
+      "description": "Keppra brand name vs Levetiracetam 500 mg generic record",
+      "claim_text": "Patient takes Keppra 500 mg twice daily for seizures.",
+      "target_claim_id": "EHR_N01",
+      "notes": "Keppra should retrieve Levetiracetam 500 mg at rank 1."
+    },
+    {
+      "query_id": "Q_NEURO_02",
+      "patient_id": "P_SYNTH_NEURO",
+      "category": "HISTORICAL_REACTION_CONFLICT",
+      "description": "High-dose 1000 mg tolerance claim vs historical adverse reaction",
+      "claim_text": "Patient previously experienced severe walking unsteadiness and sleepiness on Keppra 1000 mg twice daily.",
+      "target_claim_id": "EHR_N10",
+      "notes": "Matches ataxia and somnolence on Levetiracetam 1000 mg."
+    },
+    {
+      "query_id": "Q_NEURO_03",
+      "patient_id": "P_SYNTH_NEURO",
+      "category": "LOOKALIKE_DRUG",
+      "description": "Lorazepam query vs Clonazepam in history",
+      "claim_text": "Patient was prescribed Lorazepam 0.5 mg for nighttime sleep.",
+      "target_claim_id": "EHR_N04",
+      "notes": "Tests look-alike benzodiazepine distinction."
+    },
+    {
+      "query_id": "Q_NEURO_04",
+      "patient_id": "P_SYNTH_NEURO",
+      "category": "BRAND_VS_GENERIC",
+      "description": "Zoloft brand vs Sertraline 100 mg",
+      "claim_text": "Patient takes Zoloft 100 mg daily for depression.",
+      "target_claim_id": "EHR_N02",
+      "notes": "Matches Sertraline 100 mg."
+    },
+    {
+      "query_id": "Q_NEURO_05",
+      "patient_id": "P_SYNTH_NEURO",
+      "category": "LAYMAN_SYNONYM",
+      "description": "Lay description of clean brain imaging",
+      "claim_text": "The patient's brain scan came back clear with no signs of bleeding or tumor.",
+      "target_claim_id": "EHR_N05",
+      "notes": "Matches MRI brain with no intracranial hemorrhage or mass."
+    },
+    {
+      "query_id": "Q_NEURO_06",
+      "patient_id": "P_SYNTH_NEURO",
+      "category": "STATUS_OUTCOME",
+      "description": "Seizure control duration",
+      "claim_text": "Patient has remained seizure-free for nine months.",
+      "target_claim_id": "EHR_N17",
+      "notes": "Matches seizure freedom milestone in EHR."
+    }
+  ]
+}

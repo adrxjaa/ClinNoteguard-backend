@@ -289,8 +289,49 @@ class ConsultationDetailView(APIView):
                 'status': session.status,
                 'transcript': session.transcript_json,
                 'soap_note': session.soap_note_json,
+                'atomic_claims': session.atomic_claims_json,
                 'doctor_name': session.doctor.get_full_name() or session.doctor.email if session.doctor else None,
                 'patient_name': session.patient.get_full_name() or session.patient.email,
+            }, status=status.HTTP_200_OK)
+        except ConsultationSession.DoesNotExist:
+            return Response({'error': 'Consultation not found'}, status=status.HTTP_404_NOT_FOUND)
+
+
+class ExtractSessionClaimsView(APIView):
+    """
+    On-demand atomic claim extraction for a given consultation session.
+    Takes the session's SOAP note and updates atomic_claims_json.
+    """
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, code):
+        try:
+            session = ConsultationSession.objects.get(code=code)
+            if not session.soap_note_json:
+                return Response({'error': 'No SOAP note available for this session.'}, status=status.HTTP_400_BAD_REQUEST)
+
+            from .services.claim_extractor import extractor as claim_extractor
+            claims = claim_extractor.extract_claims(session.soap_note_json, session.transcript_json)
+            
+            # Enrich with candidate EHR evidence
+            try:
+                from .retrieval.pipeline import retrieve_evidence_for_claims
+                claims = retrieve_evidence_for_claims(
+                    claims,
+                    patient_id=str(session.patient.id) if session.patient else None,
+                    session_code=session.code,
+                    top_k=3
+                )
+            except Exception as ret_err:
+                pass
+
+            session.atomic_claims_json = claims
+            session.save()
+
+            return Response({
+                'code': session.code,
+                'claims_count': len(claims),
+                'atomic_claims': claims
             }, status=status.HTTP_200_OK)
         except ConsultationSession.DoesNotExist:
             return Response({'error': 'Consultation not found'}, status=status.HTTP_404_NOT_FOUND)
