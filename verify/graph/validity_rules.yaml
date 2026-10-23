@@ -1,0 +1,43 @@
+# Validity Rules Configuration
+# Clinician-editable temporal validity definitions
+
+rules:
+  MEDICATION:
+    persistence: "latest_wins"
+    stop_event_ends: true
+    default_horizon_days: 180
+
+  CHRONIC_DX:
+    persistence: "indefinite"
+    resolve_event_ends: true
+    default_horizon_days: null
+
+  ACUTE_DX:
+    persistence: "horizon"
+    default_horizon_days: 30
+
+  ALLERGY:
+    persistence: "indefinite"
+    resolve_event_ends: true
+    default_horizon_days: null
+
+  LAB:
+    persistence: "horizon"
+    default_horizon_days: 30
+    analytes:
+      hba1c: 90
+      lipid_panel: 180
+      cbc: 14
+      electrolytes: 7
+      potassium: 7
+      creatinine: 30
+      ejection_fraction: 365
+
+  OTHER:
+    persistence: "unknown"
+
+modes:
+  - "typed"
+  - "uniform_supersede"
+  - "recency_only"
+  - "none"

@@ -1,0 +1,14 @@
+# Verification Pipeline Global Configuration
+ontology_backend: "curated" # "curated" (curated hierarchy) | "umls" (UMLS MRREL/MRCONSO)
+anchor_date: "2024-01-15T09:00:00Z"
+use_stale_class: true
+top_k: 20
+validity_mode: "typed" # "typed" | "uniform_supersede" | "recency_only" | "none"
+random_seed: 42
+
+# Ablation and Component Flags
+use_gnn: true
+use_edge_bias: true
+time_bias: "per_type" # "per_type" | "shared" | "off"
+use_aux: false
+use_nli_features: false

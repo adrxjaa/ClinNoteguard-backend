@@ -1,0 +1,76 @@
+semantic_types:
+  T121: "MEDICATION" # Pharmacologic Substance
+  T200: "MEDICATION" # Clinical Drug
+  T109: "MEDICATION" # Organic Chemical (often drugs)
+  T047: "CHRONIC_DX" # Disease or Syndrome
+  T048: "ACUTE_DX"   # Mental or Behavioral Dysfunction
+  T059: "LAB"        # Laboratory Procedure
+  T034: "LAB"        # Laboratory or Test Result
+  T061: "PROCEDURE"  # Therapeutic or Preventive Procedure
+  T060: "PROCEDURE"  # Diagnostic Procedure
+  T046: "ALLERGY"    # Pathologic Function (Allergies)
+
+cue_words:
+  ALLERGY:
+    - "allergic to"
+    - "allergy"
+    - "anaphylaxis"
+    - "hives"
+    - "adverse reaction"
+    - "intolerance"
+  CHRONIC_DX:
+    - "history of"
+    - "diagnosed with"
+    - "chronic"
+    - "longstanding"
+    - "known case of"
+    - "secondary to"
+  ACUTE_DX:
+    - "acute"
+    - "episode"
+    - "flare"
+    - "recent onset"
+    - "exacerbation"
+    - "new onset"
+  MEDICATION:
+    - "prescribed"
+    - "taking"
+    - "started on"
+    - "maintained on"
+    - "takes"
+    - "oral tablet"
+    - "mg"
+    - "mcg"
+    - "units"
+    - "daily"
+    - "bid"
+    - "tid"
+    - "qid"
+    - "prn"
+  LAB:
+    - "level"
+    - "hba1c"
+    - "serum"
+    - "panel"
+    - "hemoglobin"
+    - "creatinine"
+    - "potassium"
+    - "cholesterol"
+    - "ejection fraction"
+  PROCEDURE:
+    - "surgery"
+    - "underwent"
+    - "resection"
+    - "repair"
+    - "arthroscopy"
+    - "biopsy"
+    - "catheterization"
+    - "graft"
+
+overrides:
+  penicillin allergy: "ALLERGY"
+  sulfa allergy: "ALLERGY"
+  nsaid allergy: "ALLERGY"
+  echocardiogram: "PROCEDURE"
+  colonoscopy: "PROCEDURE"
+  endoscopy: "PROCEDURE"

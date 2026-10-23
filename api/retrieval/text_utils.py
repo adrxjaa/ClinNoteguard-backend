@@ -9,6 +9,16 @@ Clinical text utilities shared by the BM25 and Dense retrievers.
 import re
 from typing import List
 
+# Common brand-to-generic medication mappings
+BRAND_TO_GENERIC = {
+    "tylenol": "acetaminophen",
+    "lipitor": "atorvastatin",
+    "keppra": "levetiracetam",
+    "zoloft": "sertraline",
+    "lasix": "furosemide",
+    "glucophage": "metformin",
+}
+
 # Common clinical abbreviations -> expansion (so "HTN" in the EHR matches "hypertension" in a claim)
 # TODO [Checkpoint 3C]: Integrate UMLS Consumer Health Vocabulary (CHV) / lay language mapping
 # to expand patient lay terms (e.g., 'water pill' -> 'furosemide/diuretic', 'sugar problems' -> 'diabetes').
@@ -39,12 +49,7 @@ ABBREVIATIONS = {
     "ra": "rheumatoid arthritis",
     "oa": "osteoarthritis",
     "bmi": "body mass index",
-    "tylenol": "acetaminophen",
-    "lipitor": "atorvastatin",
-    "keppra": "levetiracetam",
-    "zoloft": "sertraline",
-    "lasix": "furosemide",
-    "glucophage": "metformin",
+    **BRAND_TO_GENERIC,
 }
 
 STOPWORDS = {
@@ -138,3 +143,13 @@ def tokenize(text: str, remove_stopwords: bool = True, stem: bool = True) -> Lis
 def content_terms(text: str) -> set:
     """Set of stemmed content words (no stop-words, no negations) used for silver labelling."""
     return {t for t in tokenize(text) if t not in NEGATIONS}
+
+
+def extract_dose(text: str):
+    """Convenience single-dose extractor returning (value, unit) or (None, None)."""
+    doses = extract_doses(text)
+    return doses[0] if doses else (None, None)
+
+
+tokenize_clinical = tokenize
+
