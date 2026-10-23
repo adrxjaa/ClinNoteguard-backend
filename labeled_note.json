@@ -1,0 +1,242 @@
+{
+  "patient_id": "P_D2N001",
+  "encounter_date": "2024-01-15",
+  "verified_at": "2026-10-22T21:44:06.473317Z",
+  "checkpoint": "checkpoints/verifier_demo.pt",
+  "claims": [
+    {
+      "claim_id": "CLM-001",
+      "section": "Subjective",
+      "claim_text": "Good morning Martha.",
+      "label": "STALE",
+      "calibrated_confidence": 0.4006,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U004",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.118
+        },
+        {
+          "record_id": "TRANS_D2N001_U003",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1087
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1071
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    },
+    {
+      "claim_id": "CLM-002",
+      "section": "Subjective",
+      "claim_text": "How have you been feeling since your last visit?.",
+      "label": "STALE",
+      "calibrated_confidence": 0.4009,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U004",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1178
+        },
+        {
+          "record_id": "TRANS_D2N001_U003",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1086
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1071
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    },
+    {
+      "claim_id": "CLM-003",
+      "section": "Subjective",
+      "claim_text": "Good morning doctor.",
+      "label": "STALE",
+      "calibrated_confidence": 0.4002,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U005",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1052
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1024
+        },
+        {
+          "record_id": "TRANS_D2N001_U006",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1016
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    },
+    {
+      "claim_id": "CLM-004",
+      "section": "Subjective",
+      "claim_text": "I've been feeling okay, but I had some mild tension headaches over the past weekend.",
+      "label": "STALE",
+      "calibrated_confidence": 0.4002,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U004",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1156
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0994
+        },
+        {
+          "record_id": "TRANS_D2N001_U005",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0993
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    },
+    {
+      "claim_id": "CLM-005",
+      "section": "Objective",
+      "claim_text": "BP: 120/80 mmHg  \u2022  HR: 70 bpm  \u2022  Temp: 98.6\u00b0F  \u2022  O2 Sat: 99% (Default Clinical Record).",
+      "label": "STALE",
+      "calibrated_confidence": 0.4006,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U004",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1157
+        },
+        {
+          "record_id": "TRANS_D2N001_U003",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1073
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1058
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    },
+    {
+      "claim_id": "CLM-006",
+      "section": "Assessment",
+      "claim_text": "Clinical assessment pending detailed physician review.",
+      "label": "STALE",
+      "calibrated_confidence": 0.3999,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U004",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1144
+        },
+        {
+          "record_id": "TRANS_D2N001_U003",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1071
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1055
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    },
+    {
+      "claim_id": "CLM-007",
+      "section": "Plan",
+      "claim_text": "Are you still taking your daily Atorvastatin 20 mg tablet?.",
+      "label": "HISTORY_SUPPORTED",
+      "calibrated_confidence": 0.4421,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0802
+        },
+        {
+          "record_id": "TRANS_D2N001_U005",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0794
+        },
+        {
+          "record_id": "TRANS_D2N001_U003",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0781
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    },
+    {
+      "claim_id": "CLM-008",
+      "section": "Plan",
+      "claim_text": "Excellent.",
+      "label": "STALE",
+      "calibrated_confidence": 0.4007,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U004",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1201
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1027
+        },
+        {
+          "record_id": "TRANS_D2N001_U005",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1016
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    },
+    {
+      "claim_id": "CLM-009",
+      "section": "Plan",
+      "claim_text": "For the respiratory symptoms, I am prescribing you Azithromycin 250 mg daily.",
+      "label": "HISTORY_SUPPORTED",
+      "calibrated_confidence": 0.527,
+      "top_evidence": [
+        {
+          "record_id": "TRANS_D2N001_U005",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1109
+        },
+        {
+          "record_id": "TRANS_D2N001_U001",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0964
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0837
+        }
+      ],
+      "validity_status": "UNKNOWN",
+      "checkpoint": "checkpoints/verifier_demo.pt"
+    }
+  ]
+}

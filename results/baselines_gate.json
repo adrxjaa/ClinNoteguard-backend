@@ -1,0 +1,311 @@
+{
+  "A0": {
+    "accuracy": 0.16666666666666666,
+    "macro_f1": 0.047619047619047616,
+    "per_class": {
+      "TRANSCRIPT_SUPPORTED": {
+        "precision": 0.16666666666666666,
+        "recall": 1.0,
+        "f1": 0.2857142857142857,
+        "support": 60
+      },
+      "HISTORY_SUPPORTED": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 60
+      },
+      "CLINICAL_INFERENCE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 60
+      },
+      "CLINICAL_CONFLICT": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 60
+      },
+      "STALE": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 60
+      },
+      "HALLUCINATED": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 60
+      }
+    },
+    "confusion_matrix": [
+      [
+        60,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        60,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        60,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        60,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        60,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        60,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    ],
+    "labels": [
+      "TRANSCRIPT_SUPPORTED",
+      "HISTORY_SUPPORTED",
+      "CLINICAL_INFERENCE",
+      "CLINICAL_CONFLICT",
+      "STALE",
+      "HALLUCINATED"
+    ],
+    "hallucination_precision": 0.0,
+    "hallucination_recall": 0.0,
+    "stale_as_supported_rate": 1.0
+  },
+  "A1": {
+    "accuracy": 0.5083333333333333,
+    "macro_f1": 0.4972161321545428,
+    "per_class": {
+      "TRANSCRIPT_SUPPORTED": {
+        "precision": 0.5,
+        "recall": 0.2833333333333333,
+        "f1": 0.3617021276595745,
+        "support": 60
+      },
+      "HISTORY_SUPPORTED": {
+        "precision": 0.7536231884057971,
+        "recall": 0.8666666666666667,
+        "f1": 0.8062015503875969,
+        "support": 60
+      },
+      "CLINICAL_INFERENCE": {
+        "precision": 0.6440677966101694,
+        "recall": 0.6333333333333333,
+        "f1": 0.6386554621848739,
+        "support": 60
+      },
+      "CLINICAL_CONFLICT": {
+        "precision": 0.4935064935064935,
+        "recall": 0.6333333333333333,
+        "f1": 0.5547445255474452,
+        "support": 60
+      },
+      "STALE": {
+        "precision": 0.3783783783783784,
+        "recall": 0.23333333333333334,
+        "f1": 0.28865979381443296,
+        "support": 60
+      },
+      "HALLUCINATED": {
+        "precision": 0.2857142857142857,
+        "recall": 0.4,
+        "f1": 0.3333333333333333,
+        "support": 60
+      }
+    },
+    "confusion_matrix": [
+      [
+        17,
+        2,
+        0,
+        26,
+        3,
+        12
+      ],
+      [
+        0,
+        52,
+        0,
+        4,
+        3,
+        1
+      ],
+      [
+        0,
+        0,
+        38,
+        0,
+        4,
+        18
+      ],
+      [
+        10,
+        2,
+        0,
+        38,
+        1,
+        9
+      ],
+      [
+        2,
+        11,
+        11,
+        2,
+        14,
+        20
+      ],
+      [
+        5,
+        2,
+        10,
+        7,
+        12,
+        24
+      ]
+    ],
+    "labels": [
+      "TRANSCRIPT_SUPPORTED",
+      "HISTORY_SUPPORTED",
+      "CLINICAL_INFERENCE",
+      "CLINICAL_CONFLICT",
+      "STALE",
+      "HALLUCINATED"
+    ],
+    "hallucination_precision": 0.2857142857142857,
+    "hallucination_recall": 0.4,
+    "stale_as_supported_rate": 0.21666666666666667
+  },
+  "A2": {
+    "accuracy": 0.31666666666666665,
+    "macro_f1": 0.2975592129324848,
+    "per_class": {
+      "TRANSCRIPT_SUPPORTED": {
+        "precision": 0.16666666666666666,
+        "recall": 0.06666666666666667,
+        "f1": 0.09523809523809523,
+        "support": 60
+      },
+      "HISTORY_SUPPORTED": {
+        "precision": 0.4166666666666667,
+        "recall": 0.16666666666666666,
+        "f1": 0.23809523809523808,
+        "support": 60
+      },
+      "CLINICAL_INFERENCE": {
+        "precision": 0.5692307692307692,
+        "recall": 0.6166666666666667,
+        "f1": 0.592,
+        "support": 60
+      },
+      "CLINICAL_CONFLICT": {
+        "precision": 0.3157894736842105,
+        "recall": 0.5,
+        "f1": 0.3870967741935484,
+        "support": 60
+      },
+      "STALE": {
+        "precision": 0.26436781609195403,
+        "recall": 0.38333333333333336,
+        "f1": 0.3129251700680272,
+        "support": 60
+      },
+      "HALLUCINATED": {
+        "precision": 0.15384615384615385,
+        "recall": 0.16666666666666666,
+        "f1": 0.16,
+        "support": 60
+      }
+    },
+    "confusion_matrix": [
+      [
+        4,
+        5,
+        0,
+        26,
+        13,
+        12
+      ],
+      [
+        8,
+        10,
+        0,
+        29,
+        4,
+        9
+      ],
+      [
+        0,
+        0,
+        37,
+        0,
+        15,
+        8
+      ],
+      [
+        9,
+        9,
+        0,
+        30,
+        5,
+        7
+      ],
+      [
+        2,
+        0,
+        13,
+        3,
+        23,
+        19
+      ],
+      [
+        1,
+        0,
+        15,
+        7,
+        27,
+        10
+      ]
+    ],
+    "labels": [
+      "TRANSCRIPT_SUPPORTED",
+      "HISTORY_SUPPORTED",
+      "CLINICAL_INFERENCE",
+      "CLINICAL_CONFLICT",
+      "STALE",
+      "HALLUCINATED"
+    ],
+    "hallucination_precision": 0.15384615384615385,
+    "hallucination_recall": 0.16666666666666666,
+    "stale_as_supported_rate": 0.03333333333333333
+  }
+}

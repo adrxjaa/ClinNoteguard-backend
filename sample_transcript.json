@@ -1,0 +1,44 @@
+[
+  {
+    "speaker": "Doctor",
+    "text": "Good morning Martha. How have you been feeling since your last visit?",
+    "start": 0.0,
+    "end": 3.5
+  },
+  {
+    "speaker": "Patient",
+    "text": "Good morning doctor. I've been feeling okay, but I had some mild tension headaches over the past weekend.",
+    "start": 4.0,
+    "end": 8.5
+  },
+  {
+    "speaker": "Doctor",
+    "text": "Are you still taking your daily Atorvastatin 20 mg tablet?",
+    "start": 9.0,
+    "end": 12.0
+  },
+  {
+    "speaker": "Patient",
+    "text": "Yes, every evening with dinner. I also stopped taking the Furosemide last month like you recommended.",
+    "start": 12.5,
+    "end": 17.0
+  },
+  {
+    "speaker": "Doctor",
+    "text": "Excellent. For the respiratory symptoms, I am prescribing you Azithromycin 250 mg daily.",
+    "start": 17.5,
+    "end": 22.0
+  },
+  {
+    "speaker": "Patient",
+    "text": "Thank you doctor. Just remember I had that bad rash from penicillin a few years ago.",
+    "start": 22.5,
+    "end": 26.5
+  },
+  {
+    "speaker": "Doctor",
+    "text": "Yes, we have your penicillin allergy clearly noted in your chart, so we avoid beta-lactams.",
+    "start": 27.0,
+    "end": 31.0
+  }
+]
