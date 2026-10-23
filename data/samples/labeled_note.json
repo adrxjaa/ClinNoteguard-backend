@@ -1,7 +1,7 @@
 {
   "patient_id": "P_D2N001",
-  "encounter_date": "2024-01-15",
-  "verified_at": "2026-10-22T21:44:06.473317Z",
+  "encounter_date": null,
+  "verified_at": "2026-10-23T05:19:44.251369Z",
   "checkpoint": "checkpoints/verifier_demo.pt",
   "claims": [
     {
@@ -9,22 +9,22 @@
       "section": "Subjective",
       "claim_text": "Good morning Martha.",
       "label": "STALE",
-      "calibrated_confidence": 0.4006,
+      "calibrated_confidence": 0.4008,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U004",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.118
+          "attention_weight": 0.1235
         },
         {
           "record_id": "TRANS_D2N001_U003",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1087
+          "attention_weight": 0.1052
         },
         {
           "record_id": "TRANS_D2N001_U002",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1071
+          "attention_weight": 0.1039
         }
       ],
       "validity_status": "UNKNOWN",
@@ -35,22 +35,22 @@
       "section": "Subjective",
       "claim_text": "How have you been feeling since your last visit?.",
       "label": "STALE",
-      "calibrated_confidence": 0.4009,
+      "calibrated_confidence": 0.4011,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U004",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1178
+          "attention_weight": 0.1234
         },
         {
           "record_id": "TRANS_D2N001_U003",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1086
+          "attention_weight": 0.1054
         },
         {
           "record_id": "TRANS_D2N001_U002",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1071
+          "attention_weight": 0.1042
         }
       ],
       "validity_status": "UNKNOWN",
@@ -61,22 +61,22 @@
       "section": "Subjective",
       "claim_text": "Good morning doctor.",
       "label": "STALE",
-      "calibrated_confidence": 0.4002,
+      "calibrated_confidence": 0.4004,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U005",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1052
-        },
-        {
-          "record_id": "TRANS_D2N001_U002",
-          "source": "TRANSCRIPT",
-          "attention_weight": 0.1024
+          "attention_weight": 0.1055
         },
         {
           "record_id": "TRANS_D2N001_U006",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1016
+          "attention_weight": 0.1022
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1012
         }
       ],
       "validity_status": "UNKNOWN",
@@ -87,22 +87,22 @@
       "section": "Subjective",
       "claim_text": "I've been feeling okay, but I had some mild tension headaches over the past weekend.",
       "label": "STALE",
-      "calibrated_confidence": 0.4002,
+      "calibrated_confidence": 0.4004,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U004",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1156
-        },
-        {
-          "record_id": "TRANS_D2N001_U002",
-          "source": "TRANSCRIPT",
-          "attention_weight": 0.0994
+          "attention_weight": 0.1206
         },
         {
           "record_id": "TRANS_D2N001_U005",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.0993
+          "attention_weight": 0.1003
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0987
         }
       ],
       "validity_status": "UNKNOWN",
@@ -113,22 +113,22 @@
       "section": "Objective",
       "claim_text": "BP: 120/80 mmHg  \u2022  HR: 70 bpm  \u2022  Temp: 98.6\u00b0F  \u2022  O2 Sat: 99% (Default Clinical Record).",
       "label": "STALE",
-      "calibrated_confidence": 0.4006,
+      "calibrated_confidence": 0.4008,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U004",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1157
+          "attention_weight": 0.1211
         },
         {
           "record_id": "TRANS_D2N001_U003",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1073
+          "attention_weight": 0.104
         },
         {
           "record_id": "TRANS_D2N001_U002",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1058
+          "attention_weight": 0.1029
         }
       ],
       "validity_status": "UNKNOWN",
@@ -139,22 +139,22 @@
       "section": "Assessment",
       "claim_text": "Clinical assessment pending detailed physician review.",
       "label": "STALE",
-      "calibrated_confidence": 0.3999,
+      "calibrated_confidence": 0.4002,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U004",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1144
+          "attention_weight": 0.1193
         },
         {
           "record_id": "TRANS_D2N001_U003",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1071
+          "attention_weight": 0.1043
         },
         {
           "record_id": "TRANS_D2N001_U002",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1055
+          "attention_weight": 0.1031
         }
       ],
       "validity_status": "UNKNOWN",
@@ -164,23 +164,23 @@
       "claim_id": "CLM-007",
       "section": "Plan",
       "claim_text": "Are you still taking your daily Atorvastatin 20 mg tablet?.",
-      "label": "HISTORY_SUPPORTED",
-      "calibrated_confidence": 0.4421,
+      "label": "HALLUCINATED",
+      "calibrated_confidence": 0.4867,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U002",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.0802
-        },
-        {
-          "record_id": "TRANS_D2N001_U005",
-          "source": "TRANSCRIPT",
-          "attention_weight": 0.0794
+          "attention_weight": 0.0942
         },
         {
           "record_id": "TRANS_D2N001_U003",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.0781
+          "attention_weight": 0.0871
+        },
+        {
+          "record_id": "TRANS_D2N001_U005",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.0815
         }
       ],
       "validity_status": "UNKNOWN",
@@ -191,22 +191,22 @@
       "section": "Plan",
       "claim_text": "Excellent.",
       "label": "STALE",
-      "calibrated_confidence": 0.4007,
+      "calibrated_confidence": 0.4009,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U004",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1201
-        },
-        {
-          "record_id": "TRANS_D2N001_U002",
-          "source": "TRANSCRIPT",
-          "attention_weight": 0.1027
+          "attention_weight": 0.1252
         },
         {
           "record_id": "TRANS_D2N001_U005",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1016
+          "attention_weight": 0.1019
+        },
+        {
+          "record_id": "TRANS_D2N001_U002",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1008
         }
       ],
       "validity_status": "UNKNOWN",
@@ -217,22 +217,22 @@
       "section": "Plan",
       "claim_text": "For the respiratory symptoms, I am prescribing you Azithromycin 250 mg daily.",
       "label": "HISTORY_SUPPORTED",
-      "calibrated_confidence": 0.527,
+      "calibrated_confidence": 0.4484,
       "top_evidence": [
         {
           "record_id": "TRANS_D2N001_U005",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.1109
-        },
-        {
-          "record_id": "TRANS_D2N001_U001",
-          "source": "TRANSCRIPT",
-          "attention_weight": 0.0964
+          "attention_weight": 0.1203
         },
         {
           "record_id": "TRANS_D2N001_U002",
           "source": "TRANSCRIPT",
-          "attention_weight": 0.0837
+          "attention_weight": 0.112
+        },
+        {
+          "record_id": "TRANS_D2N001_U003",
+          "source": "TRANSCRIPT",
+          "attention_weight": 0.1028
         }
       ],
       "validity_status": "UNKNOWN",

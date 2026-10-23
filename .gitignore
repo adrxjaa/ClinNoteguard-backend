@@ -68,10 +68,9 @@ consultation_audios/
 # ============================================
 *.pdf
 *.drawio.bkp
-message.txt
-330px-Google_Gemini_logo_2025.svg.webp
-clinguard-midreview.*
-CVR2026 Presentation Certificate.pdf
+docs/presentations/
+docs/assets/
+docs/methodology_notes.md
 
 # ============================================
 # IDEs & Operating System Files

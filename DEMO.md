@@ -11,16 +11,22 @@
 ### Milestone 3: Model Training, Temperature Calibration & Evaluation
 Trains the 3-layer Dense GIN + Claim-Conditioned Transformer with custom attention biases, fits temperature scaling calibration, and runs the Date-Shuffle Sensitivity Test:
 ```bash
-./venv/bin/python train_verifier.py
+./venv/bin/python scripts/train_verifier.py
 ```
 * **Output Artifacts**: `checkpoints/verifier_demo.pt`
 * **Performance Output**: Test Accuracy, Macro-F1, ECE, Per-Class F1 table, and Date-Shuffle drops.
 
 To generate the ablation study report across configurations A0 through A8 and the candidate pool size sweep $K \in \{3, 5, 10, 20, 50\}$:
 ```bash
-./venv/bin/python run_ablations.py
+./venv/bin/python scripts/run_ablations.py
 ```
 * **Output Artifact**: [`results/ablations.md`](file:///home/statixlo/Develop/Final_year_project/clinnote_backend/results/ablations.md)
+
+To generate all 6 publication-quality evaluation figures:
+```bash
+./venv/bin/python scripts/generate_evaluation_plots.py
+```
+* **Output Artifacts**: [`results/plots/`](file:///home/statixlo/Develop/Final_year_project/clinnote_backend/results/plots/)
 
 ---
 
@@ -30,20 +36,19 @@ $$\text{Transcript} \rightarrow \text{SOAP Note} \rightarrow \text{Atomic Claims
 
 ```bash
 ./venv/bin/python manage.py verify_session \
-  --transcript sample_transcript.json \
+  --transcript data/samples/sample_transcript.json \
   --patient P_D2N001 \
-  --encounter-date 2024-01-15 \
-  --output labeled_note.json
+  --output data/samples/labeled_note.json
 ```
 * **Console Output**: Formatted ASCII table with the banner `synthetic-trained, unvalidated`.
-* **Output Artifact**: [`labeled_note.json`](file:///home/statixlo/Develop/Final_year_project/clinnote_backend/labeled_note.json)
+* **Output Artifact**: [`data/samples/labeled_note.json`](file:///home/statixlo/Develop/Final_year_project/clinnote_backend/data/samples/labeled_note.json)
 
 ---
 
 ### Milestone 5: Date-Flip Clinical Demonstration
 Demonstrates the model's sensitivity to temporal state transitions (dose changes, discontinued drugs, persistent allergies) across identical patient evidence:
 ```bash
-./venv/bin/python demo_date_flip.py
+./venv/bin/python scripts/demo_date_flip.py
 ```
 * Shows side-by-side verification verdicts before vs after medication titration and discontinuation.
 
@@ -52,7 +57,7 @@ Demonstrates the model's sensitivity to temporal state transitions (dose changes
 ### Counterfactual Pair Generation
 Generates paired counterfactual evaluation instances straddling state-change events:
 ```bash
-./venv/bin/python make_counterfactual_pairs.py
+./venv/bin/python scripts/make_counterfactual_pairs.py
 ```
 * **Output Artifact**: [`data/counterfactual_pairs.jsonl`](file:///home/statixlo/Develop/Final_year_project/clinnote_backend/data/counterfactual_pairs.jsonl) (flagged with `needs_doctor_review=true`).
 

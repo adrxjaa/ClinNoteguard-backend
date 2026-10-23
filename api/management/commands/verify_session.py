@@ -14,7 +14,7 @@ import sys
 import json
 from pathlib import Path
 from typing import Dict, List, Any, Optional
-from datetime import datetime
+from datetime import datetime, timezone
 import numpy as np
 
 from django.core.management.base import BaseCommand, CommandError
@@ -43,7 +43,8 @@ class Command(BaseCommand):
         parser.add_argument("--transcript", type=str, required=True, help="Path to transcript JSON file or JSON string.")
         parser.add_argument("--note", type=str, default=None, help="Path to existing SOAP note JSON (optional).")
         parser.add_argument("--patient", type=str, required=True, help="Patient identifier (e.g. P_D2N001).")
-        parser.add_argument("--encounter-date", type=str, default="2024-01-15", help="Encounter date in YYYY-MM-DD format.")
+        parser.add_argument("--encounter-date", type=str, default=None, help="Encounter date in YYYY-MM-DD format.")
+        parser.add_argument("--encounter-time", type=str, default=None, help="Explicit encounter timestamp in ISO format (e.g. 2024-01-15T14:30:00Z).")
         parser.add_argument("--output", type=str, default="labeled_note.json", help="Destination file for verification output.")
 
     def handle(self, *args, **options):
@@ -53,9 +54,23 @@ class Command(BaseCommand):
         note_arg = options["note"]
         patient_id = options["patient"]
         encounter_date = options["encounter_date"]
+        encounter_time = options["encounter_time"]
         output_path = options["output"]
 
-        encounter_time_iso = f"{encounter_date}T09:00:00Z"
+        now_utc = datetime.now(timezone.utc)
+        if encounter_time:
+            time_str = encounter_time.strip()
+            encounter_time_iso = time_str if (time_str.endswith("Z") or "+" in time_str) else f"{time_str}Z"
+        elif encounter_date:
+            date_str = encounter_date.strip()
+            if "T" in date_str or " " in date_str:
+                normalized = date_str.replace(" ", "T")
+                encounter_time_iso = normalized if (normalized.endswith("Z") or "+" in normalized) else f"{normalized}Z"
+            else:
+                current_time_str = now_utc.strftime("%H:%M:%SZ")
+                encounter_time_iso = f"{date_str}T{current_time_str}"
+        else:
+            encounter_time_iso = now_utc.strftime("%Y-%m-%dT%H:%M:%SZ")
 
         # 1. Load Transcript
         transcript_data = self._load_json_or_file(transcript_arg)

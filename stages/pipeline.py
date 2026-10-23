@@ -7,6 +7,7 @@ Audio -> Diarized Transcript -> SOAP Note -> Atomic Claims -> Hybrid Retrieval -
 from typing import List, Dict, Any, Optional, Union
 import json
 from pathlib import Path
+from datetime import datetime, timezone
 
 from stages.stage1_audio import get_stage1_diarizer, Stage1AudioDiarizer
 from stages.stage2_soap import get_stage2_soap_generator, Stage2SOAPGenerator
@@ -40,13 +41,65 @@ class ClinicalVerificationPipeline:
         transcript_data: List[Dict[str, Any]],
         patient_records: List[Dict[str, Any]],
         patient_id: str,
-        encounter_date: str = "2024-01-15",
+        encounter_date: Optional[str] = None,
+        encounter_time: Optional[str] = None,
         existing_soap_note: Optional[Dict[str, Any]] = None,
     ) -> Dict[str, Any]:
         """
         Executes Stages 2 through 8 on a transcript and patient EHR records.
+        Dynamically resolves the encounter timestamp from encounter_time, encounter_date,
+        transcript segment metadata, or current UTC time.
         """
-        encounter_time_iso = f"{encounter_date}T09:00:00Z"
+        now_utc = datetime.now(timezone.utc)
+        if encounter_time:
+            time_str = encounter_time.strip()
+            if not (time_str.endswith("Z") or "+" in time_str or ("-" in time_str[10:] and "T" in time_str)):
+                encounter_time_iso = f"{time_str}Z"
+            else:
+                encounter_time_iso = time_str
+            if not encounter_date:
+                encounter_date = encounter_time_iso.split("T")[0]
+        elif encounter_date:
+            date_str = encounter_date.strip()
+            if "T" in date_str or " " in date_str:
+                normalized = date_str.replace(" ", "T")
+                encounter_time_iso = normalized if (normalized.endswith("Z") or "+" in normalized or "-" in normalized[10:]) else f"{normalized}Z"
+                encounter_date = normalized.split("T")[0]
+            else:
+                # Check if transcript segments provide a timestamp to preserve exact encounter time
+                seg_time = None
+                if transcript_data and isinstance(transcript_data, list):
+                    for seg in transcript_data:
+                        if isinstance(seg, dict) and seg.get("timestamp"):
+                            raw_ts = str(seg["timestamp"]).strip()
+                            if "T" in raw_ts:
+                                seg_time = raw_ts.split("T")[1]
+                                break
+                            elif " " in raw_ts:
+                                seg_time = raw_ts.split(" ")[1]
+                                break
+                if seg_time:
+                    encounter_time_iso = f"{date_str}T{seg_time}" if (seg_time.endswith("Z") or "+" in seg_time) else f"{date_str}T{seg_time}Z"
+                else:
+                    current_time_str = now_utc.strftime("%H:%M:%SZ")
+                    encounter_time_iso = f"{date_str}T{current_time_str}"
+        else:
+            # Derive dynamically from transcript metadata if available, otherwise current UTC
+            first_seg_ts = None
+            if transcript_data and isinstance(transcript_data, list):
+                for seg in transcript_data:
+                    if isinstance(seg, dict) and seg.get("timestamp"):
+                        first_seg_ts = str(seg["timestamp"]).strip()
+                        break
+            if first_seg_ts:
+                if not (first_seg_ts.endswith("Z") or "+" in first_seg_ts or ("-" in first_seg_ts[10:] and "T" in first_seg_ts)):
+                    encounter_time_iso = f"{first_seg_ts}Z"
+                else:
+                    encounter_time_iso = first_seg_ts
+                encounter_date = encounter_time_iso.split("T")[0] if "T" in encounter_time_iso else encounter_time_iso.split(" ")[0]
+            else:
+                encounter_time_iso = now_utc.strftime("%Y-%m-%dT%H:%M:%SZ")
+                encounter_date = now_utc.strftime("%Y-%m-%d")
 
         # 1. Stage 2: SOAP Generation
         if existing_soap_note:
