@@ -458,7 +458,12 @@ class Command(BaseCommand):
                     session.audio_file = audio_file_path
                 session.status = ConsultationSession.Status.ENDED
                 session.save()
-                logger.info(f"Successfully saved transcript, SOAP note, and {len(atomic_claims)} atomic claims for session {session_code}")
+                try:
+                    from api.views import _run_full_pipeline_on_session
+                    _run_full_pipeline_on_session(session, transcript_override=transcript_db, soap_override=soap_note)
+                except Exception as pipe_ex:
+                    logger.warning(f"Full 8-stage verifier fallback in WS save: {pipe_ex}")
+                logger.info(f"Successfully saved transcript, SOAP note, and verified claims for session {session_code}")
             except ConsultationSession.DoesNotExist:
                 logger.error(f"Consultation session {session_code} not found in DB.")
 

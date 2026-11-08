@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth import authenticate
-from .models import User, DoctorProfile, PatientProfile
+from .models import User, DoctorProfile, PatientProfile, DoctorClinicSlot, Appointment
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -14,7 +14,7 @@ class DoctorProfileSerializer(serializers.ModelSerializer):
         fields = [
             'qualification', 'specialization', 'council', 
             'registration_number', 'registration_date', 'hospital', 
-            'bio', 'years_of_experience'
+            'bio', 'years_of_experience', 'is_verified'
         ]
 
 
@@ -57,6 +57,7 @@ class DoctorProfileUpdateSerializer(serializers.Serializer):
     hospital            = serializers.CharField(required=False, allow_blank=True)
     bio                 = serializers.CharField(required=False, allow_blank=True)
     years_of_experience = serializers.IntegerField(required=False, allow_null=True)
+    is_verified         = serializers.BooleanField(required=False)
 
 
 
@@ -195,3 +196,49 @@ class LoginSerializer(serializers.Serializer):
 
         data['user'] = user
         return data
+
+
+class DoctorClinicSlotSerializer(serializers.ModelSerializer):
+    doctor_name = serializers.SerializerMethodField()
+    specialization = serializers.SerializerMethodField()
+    is_verified = serializers.SerializerMethodField()
+
+    class Meta:
+        model = DoctorClinicSlot
+        fields = [
+            'id', 'doctor', 'doctor_name', 'specialization', 'is_verified',
+            'clinic_name', 'address', 'day_of_week', 'start_time', 'end_time', 'is_active'
+        ]
+        read_only_fields = ['id', 'doctor', 'doctor_name', 'specialization', 'is_verified']
+
+    def get_doctor_name(self, obj):
+        return obj.doctor.get_full_name() or obj.doctor.email
+
+    def get_specialization(self, obj):
+        profile = getattr(obj.doctor, 'doctor_profile', None)
+        return profile.specialization if profile and profile.specialization else 'General Physician'
+
+    def get_is_verified(self, obj):
+        profile = getattr(obj.doctor, 'doctor_profile', None)
+        return profile.is_verified if profile else True
+
+
+class AppointmentSerializer(serializers.ModelSerializer):
+    doctor_name = serializers.SerializerMethodField()
+    patient_name = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Appointment
+        fields = [
+            'id', 'patient', 'patient_name', 'doctor', 'doctor_name',
+            'clinic_slot', 'clinic_name', 'appointment_date', 'appointment_time',
+            'reason', 'pairing_code', 'status', 'created_at'
+        ]
+        read_only_fields = ['id', 'patient', 'patient_name', 'doctor_name', 'pairing_code', 'created_at']
+
+    def get_doctor_name(self, obj):
+        return obj.doctor.get_full_name() or obj.doctor.email
+
+    def get_patient_name(self, obj):
+        return obj.patient.get_full_name() or obj.patient.email
+
