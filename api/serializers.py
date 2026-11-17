@@ -57,7 +57,6 @@ class DoctorProfileUpdateSerializer(serializers.Serializer):
     hospital            = serializers.CharField(required=False, allow_blank=True)
     bio                 = serializers.CharField(required=False, allow_blank=True)
     years_of_experience = serializers.IntegerField(required=False, allow_null=True)
-    is_verified         = serializers.BooleanField(required=False)
 
 
 
