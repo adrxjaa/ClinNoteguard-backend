@@ -20,7 +20,7 @@ import torch.nn.functional as F
 from sentence_transformers import SentenceTransformer
 
 # Path setup
-root_dir = str(Path(__file__).parent.resolve())
+root_dir = str(Path(__file__).parent.parent.resolve())
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
@@ -178,13 +178,30 @@ def train_verifier():
     test_claims = load_jsonl("verify_data/claims_test.jsonl")
     rendered_ehr = load_jsonl("verify_data/rendered_ehr.jsonl")
 
+    # Sanity check: verify zero patient_id overlap across splits
+    train_pids = {c["patient_id"] for c in train_claims}
+    val_pids = {c["patient_id"] for c in val_claims}
+    test_pids = {c["patient_id"] for c in test_claims}
+    assert not (train_pids & val_pids), "Leakage detected between train and val patients!"
+    assert not (train_pids & test_pids), "Leakage detected between train and test patients!"
+    assert not (val_pids & test_pids), "Leakage detected between val and test patients!"
+    print(f"[+] Leak-Free Patient Split Verified -> Train: {len(train_pids)} pts ({len(train_claims)} claims), "
+          f"Val: {len(val_pids)} pts ({len(val_claims)} claims), Test: {len(test_pids)} pts ({len(test_claims)} claims)")
+
+    enc_time_map = {}
+    for c in train_claims + val_claims + test_claims:
+        if c.get("encounter_id") and c.get("encounter_time"):
+            enc_time_map[c["encounter_id"]] = c["encounter_time"]
+
     # Ingest dialogues
     transcript_store = TranscriptStore()
     if os.path.exists("verify_data/dialogues.json"):
         with open("verify_data/dialogues.json", "r", encoding="utf-8") as f:
             diags = json.load(f)
         for enc_id, text in diags.items():
-            transcript_store.ingest_dialogue(enc_id, text)
+            transcript_store.ingest_dialogue(
+                enc_id, text, encounter_time=enc_time_map.get(enc_id, "2024-01-15T09:00:00Z")
+            )
 
     print("[+] Building candidate evidence pools...")
     cands_train = cache_evidence_pools(train_claims, rendered_ehr, transcript_store)
