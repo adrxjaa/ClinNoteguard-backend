@@ -4,11 +4,11 @@
       "title": "Example 1: Medication Dose Titration (Atorvastatin 10mg -> 20mg)",
       "early": {
         "label": "HALLUCINATED",
-        "confidence": 0.9924403429031372
+        "confidence": 0.9980294108390808
       },
       "late": {
         "label": "HALLUCINATED",
-        "confidence": 0.991141676902771
+        "confidence": 0.997986912727356
       },
       "expected_early": "HISTORY_SUPPORTED (10 mg was current)",
       "expected_late": "STALE (superseded by 20 mg dose)"
@@ -17,11 +17,11 @@
       "title": "Example 2: Discontinued Medication Therapy (Furosemide Stopped)",
       "early": {
         "label": "HALLUCINATED",
-        "confidence": 0.9922707080841064
+        "confidence": 0.9980886578559875
       },
       "late": {
         "label": "HALLUCINATED",
-        "confidence": 0.990566074848175
+        "confidence": 0.9980708956718445
       },
       "expected_early": "HISTORY_SUPPORTED (active prescription)",
       "expected_late": "STALE (stopped / ended prior to encounter)"
@@ -29,21 +29,21 @@
     {
       "title": "Example 3: Persistent Allergy (Penicillin Hypersensitivity Across 3 Years)",
       "early": {
-        "label": "CLINICAL_CONFLICT",
-        "confidence": 0.9796280860900879
+        "label": "TRANSCRIPT_SUPPORTED",
+        "confidence": 0.6087571382522583
       },
       "late": {
-        "label": "CLINICAL_CONFLICT",
-        "confidence": 0.9860925078392029
+        "label": "TRANSCRIPT_SUPPORTED",
+        "confidence": 0.7265711426734924
       },
       "expected_early": "HISTORY_SUPPORTED (active allergy)",
       "expected_late": "HISTORY_SUPPORTED (persists indefinitely despite >1000 day gap)"
     }
   ],
   "counterfactual_tsi": {
-    "tsi": 0.48,
+    "tsi": 0.52,
     "gold_changed_count": 50,
-    "pred_changed_count": 24,
-    "stale_as_supported_rate": 0.42
+    "pred_changed_count": 26,
+    "stale_as_supported_rate": 0.34
   }
 }

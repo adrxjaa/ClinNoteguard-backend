@@ -3,24 +3,24 @@
     "use_gnn": true,
     "use_edge_bias": true,
     "time_bias": "per_type",
-    "epochs": 12
+    "epochs": 18
   },
-  "temperature": 1.490087866783142,
-  "ece": 0.01612405460813767,
+  "temperature": 1.4597615003585815,
+  "ece": 0.009416206297667139,
   "metrics": {
-    "accuracy": 0.9686956521739131,
-    "macro_f1": 0.9589821682899423,
+    "accuracy": 0.9808695652173913,
+    "macro_f1": 0.9766091737914645,
     "per_class": {
       "TRANSCRIPT_SUPPORTED": {
-        "precision": 0.9851851851851852,
-        "recall": 1.0,
-        "f1": 0.9925373134328358,
+        "precision": 0.9777777777777777,
+        "recall": 0.9924812030075187,
+        "f1": 0.9850746268656716,
         "support": 133
       },
       "HISTORY_SUPPORTED": {
-        "precision": 0.847457627118644,
-        "recall": 0.8928571428571429,
-        "f1": 0.8695652173913043,
+        "precision": 0.8870967741935484,
+        "recall": 0.9821428571428571,
+        "f1": 0.9322033898305084,
         "support": 56
       },
       "CLINICAL_INFERENCE": {
@@ -36,22 +36,22 @@
         "support": 97
       },
       "STALE": {
-        "precision": 0.927710843373494,
-        "recall": 0.8953488372093024,
-        "f1": 0.9112426035502958,
+        "precision": 0.9876543209876543,
+        "recall": 0.9302325581395349,
+        "f1": 0.9580838323353293,
         "support": 86
       },
       "HALLUCINATED": {
-        "precision": 0.9925373134328358,
+        "precision": 1.0,
         "recall": 1.0,
-        "f1": 0.9962546816479401,
+        "f1": 1.0,
         "support": 133
       }
     },
     "confusion_matrix": [
       [
-        133,
-        0,
+        132,
+        1,
         0,
         0,
         0,
@@ -59,11 +59,11 @@
       ],
       [
         0,
-        50,
+        55,
         0,
         0,
-        5,
-        1
+        1,
+        0
       ],
       [
         0,
@@ -74,19 +74,19 @@
         0
       ],
       [
-        2,
+        3,
         0,
         0,
         94,
-        1,
+        0,
         0
       ],
       [
         0,
-        9,
+        6,
         0,
         0,
-        77,
+        80,
         0
       ],
       [
@@ -106,13 +106,13 @@
       "STALE",
       "HALLUCINATED"
     ],
-    "hallucination_precision": 0.9925373134328358,
+    "hallucination_precision": 1.0,
     "hallucination_recall": 1.0,
-    "stale_as_supported_rate": 0.10465116279069768
+    "stale_as_supported_rate": 0.06976744186046512
   },
   "date_shuffle": {
-    "history_f1_drop": 0.3379196477710512,
-    "stale_f1_drop": 0.15423325775590335
+    "history_f1_drop": 0.29854002349387476,
+    "stale_f1_drop": 0.19872554356527583
   },
   "checkpoint": "checkpoints/verifier_demo.pt"
 }

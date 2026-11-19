@@ -240,7 +240,13 @@ def train_verifier(
     ).to(device)
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-2)
-    criterion = nn.CrossEntropyLoss()
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs, eta_min=1e-5)
+
+    # Smoothed inverse-frequency class weights to balance HISTORY_SUPPORTED / STALE
+    class_counts = np.bincount([s["label_idx"] for s in ds_train.samples], minlength=len(VERIFICATION_CLASSES))
+    raw_w = len(ds_train.samples) / (len(VERIFICATION_CLASSES) * np.maximum(class_counts, 1))
+    cls_weights = torch.tensor(np.sqrt(raw_w), dtype=torch.float32, device=device)
+    criterion = nn.CrossEntropyLoss(weight=cls_weights)
 
     print("[+] Training Claim-Conditioned Transformer Verifier on GPU/CPU...")
     best_val_f1 = -1.0
@@ -305,6 +311,7 @@ def train_verifier(
                 val_targets.append(s["label_str"])
 
         val_metrics = compute_verification_metrics(val_targets, val_preds)
+        scheduler.step()
         print(f"  Epoch {ep:2d}/{epochs:2d} - Train Loss: {train_loss / len(ds_train):.4f} | Val Macro-F1: {val_metrics['macro_f1']:.4f}")
 
         if val_metrics["macro_f1"] > best_val_f1:

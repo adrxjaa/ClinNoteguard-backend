@@ -1,0 +1,4873 @@
+{
+  "description": "Demo SNOMED-CT, RxNorm, and LOINC Ontology derived from Synthea CSVs",
+  "total_concepts": 973,
+  "coded_terms": 811,
+  "codes": {
+    "medication_review_due": {
+      "code": "314529007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Medication review due (situation)"
+    },
+    "otitis_media": {
+      "code": "65363002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Otitis media (disorder)"
+    },
+    "gingivitis": {
+      "code": "66383009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Gingivitis (disorder)"
+    },
+    "gingival_disease": {
+      "code": "18718003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Gingival disease (disorder)"
+    },
+    "primary_dental_caries": {
+      "code": "109570002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Primary dental caries (disorder)"
+    },
+    "acute_bronchitis": {
+      "code": "10509002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute bronchitis (disorder)"
+    },
+    "acute_viral_pharyngitis": {
+      "code": "195662009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute viral pharyngitis (disorder)"
+    },
+    "risk_activity_involvement": {
+      "code": "160968000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Risk activity involvement (finding)"
+    },
+    "seizure_disorder": {
+      "code": "128613002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Seizure disorder (disorder)"
+    },
+    "history_of_seizure": {
+      "code": "1290882004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "History of seizure (situation)"
+    },
+    "leaking_dental_filling": {
+      "code": "278598003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Leaking dental filling (finding)"
+    },
+    "viral_sinusitis": {
+      "code": "444814009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Viral sinusitis (disorder)"
+    },
+    "sprain": {
+      "code": "384709000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sprain (morphologic abnormality)"
+    },
+    "sprain_of_wrist": {
+      "code": "70704007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sprain of wrist (disorder)"
+    },
+    "headache": {
+      "code": "25064002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Headache (finding)"
+    },
+    "sputum_finding": {
+      "code": "248595008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sputum finding (finding)"
+    },
+    "fever": {
+      "code": "386661006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fever (finding)"
+    },
+    "concussion_injury_of_brain": {
+      "code": "110030002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Concussion injury of brain (disorder)"
+    },
+    "concussion_with_no_loss_of_consciousness": {
+      "code": "62106007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Concussion with no loss of consciousness (disorder)"
+    },
+    "acute_infective_cystitis": {
+      "code": "307426000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute infective cystitis (disorder)"
+    },
+    "infection_of_tooth": {
+      "code": "427898007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Infection of tooth (disorder)"
+    },
+    "recurrent_urinary_tract_infection": {
+      "code": "197927001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Recurrent urinary tract infection (disorder)"
+    },
+    "educated_to_high_school_level": {
+      "code": "473461003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Educated to high school level (finding)"
+    },
+    "part_time_employment": {
+      "code": "160904001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Part-time employment (finding)"
+    },
+    "sprain_of_ankle": {
+      "code": "44465007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sprain of ankle (disorder)"
+    },
+    "full_time_employment": {
+      "code": "160903007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Full-time employment (finding)"
+    },
+    "stress": {
+      "code": "73595000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Stress (finding)"
+    },
+    "prediabetes": {
+      "code": "714628002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Prediabetes (finding)"
+    },
+    "anemia": {
+      "code": "271737000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Anemia (disorder)"
+    },
+    "not_in_labor_force": {
+      "code": "741062008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Not in labor force (finding)"
+    },
+    "limited_social_contact": {
+      "code": "423315002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Limited social contact (finding)"
+    },
+    "laceration_injury": {
+      "code": "312608009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Laceration - injury (disorder)"
+    },
+    "laceration_of_thigh": {
+      "code": "283385000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Laceration of thigh (disorder)"
+    },
+    "housing_unsatisfactory": {
+      "code": "105531004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Housing unsatisfactory (finding)"
+    },
+    "normal_pregnancy": {
+      "code": "72892002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Normal pregnancy (finding)"
+    },
+    "received_higher_education": {
+      "code": "224299000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Received higher education (finding)"
+    },
+    "asthma": {
+      "code": "195967001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Asthma (disorder)"
+    },
+    "social_isolation": {
+      "code": "422650009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Social isolation (finding)"
+    },
+    "aortic_valve_stenosis": {
+      "code": "60573004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Aortic valve stenosis (disorder)"
+    },
+    "transport_problem": {
+      "code": "266934004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Transport problem (finding)"
+    },
+    "lack_of_access_to_transportation": {
+      "code": "713458007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Lack of access to transportation (finding)"
+    },
+    "past_pregnancy_history_of_miscarriage": {
+      "code": "161744009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Past pregnancy history of miscarriage (situation)"
+    },
+    "has_a_criminal_record": {
+      "code": "266948004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Has a criminal record (finding)"
+    },
+    "eclampsia_in_pregnancy": {
+      "code": "198992004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Eclampsia in pregnancy (disorder)"
+    },
+    "reports_of_violence_in_the_environment": {
+      "code": "424393004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Reports of violence in the environment (finding)"
+    },
+    "misuses_drugs": {
+      "code": "361055000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Misuses drugs (finding)"
+    },
+    "laceration_of_forearm": {
+      "code": "283371005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Laceration of forearm (disorder)"
+    },
+    "fractured_dental_filling": {
+      "code": "278588009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fractured dental filling (finding)"
+    },
+    "severe_anxiety": {
+      "code": "80583007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Severe anxiety (panic) (finding)"
+    },
+    "victim_of_intimate_partner_abuse": {
+      "code": "706893006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Victim of intimate partner abuse (finding)"
+    },
+    "body_mass_index_30_obesity": {
+      "code": "162864005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Body mass index 30+ - obesity (finding)"
+    },
+    "unhealthy_alcohol_drinking_behavior": {
+      "code": "10939881000119105",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Unhealthy alcohol drinking behavior (finding)"
+    },
+    "miscarriage_in_first_trimester": {
+      "code": "19169002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Miscarriage in first trimester (disorder)"
+    },
+    "complete_miscarriage": {
+      "code": "156073000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Complete miscarriage (disorder)"
+    },
+    "chronic_sinusitis": {
+      "code": "40055000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic sinusitis (disorder)"
+    },
+    "chronic_pain": {
+      "code": "82423001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic pain (finding)"
+    },
+    "chronic_low_back_pain": {
+      "code": "278860009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic low back pain (finding)"
+    },
+    "streptococcal_sore_throat": {
+      "code": "43878008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Streptococcal sore throat (disorder)"
+    },
+    "diabetes_mellitus_type_2": {
+      "code": "44054006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Diabetes mellitus type 2 (disorder)"
+    },
+    "dental_filling_lost": {
+      "code": "278558000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Dental filling lost (finding)"
+    },
+    "hyperglycemia": {
+      "code": "80394007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Hyperglycemia (disorder)"
+    },
+    "hypertriglyceridemia": {
+      "code": "302870006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Hypertriglyceridemia (disorder)"
+    },
+    "metabolic_syndrome_x": {
+      "code": "237602007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Metabolic syndrome X (disorder)"
+    },
+    "essential_hypertension": {
+      "code": "59621000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Essential hypertension (disorder)"
+    },
+    "hyperlipidemia": {
+      "code": "55822004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Hyperlipidemia (disorder)"
+    },
+    "unemployed": {
+      "code": "73438004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Unemployed (finding)"
+    },
+    "impacted_molars": {
+      "code": "196416002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Impacted molars (disorder)"
+    },
+    "dependent_drug_abuse": {
+      "code": "6525002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Dependent drug abuse (disorder)"
+    },
+    "polyp_of_colon": {
+      "code": "68496003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Polyp of colon (disorder)"
+    },
+    "overdose": {
+      "code": "1149222004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Overdose (disorder)"
+    },
+    "loss_of_teeth": {
+      "code": "37320007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Loss of teeth (disorder)"
+    },
+    "cough": {
+      "code": "49727002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Cough (finding)"
+    },
+    "loss_of_taste": {
+      "code": "36955009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Loss of taste (finding)"
+    },
+    "laceration_of_foot": {
+      "code": "284551006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Laceration of foot (disorder)"
+    },
+    "seasonal_allergic_rhinitis": {
+      "code": "367498001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Seasonal allergic rhinitis (disorder)"
+    },
+    "chronic_neck_pain": {
+      "code": "1121000119107",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic neck pain (finding)"
+    },
+    "chronic_intractable_migraine_without_aura": {
+      "code": "124171000119105",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic intractable migraine without aura (disorder)"
+    },
+    "only_received_primary_school_education": {
+      "code": "224295006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Only received primary school education (finding)"
+    },
+    "loose_dental_filling": {
+      "code": "278602001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Loose dental filling (finding)"
+    },
+    "refugee": {
+      "code": "446654005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Refugee (person)"
+    },
+    "sinusitis": {
+      "code": "36971009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sinusitis (disorder)"
+    },
+    "history_of_tubal_ligation": {
+      "code": "267020005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "History of tubal ligation (situation)"
+    },
+    "idiopathic_atrophic_hypothyroidism": {
+      "code": "83664006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Idiopathic atrophic hypothyroidism (disorder)"
+    },
+    "malignant_neoplasm_of_breast": {
+      "code": "254837009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Malignant neoplasm of breast (disorder)"
+    },
+    "chronic_congestive_heart_failure": {
+      "code": "88805009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic congestive heart failure (disorder)"
+    },
+    "shock": {
+      "code": "27942005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Shock (disorder)"
+    },
+    "resorption_of_alveolar_process_due_to_dental_trauma": {
+      "code": "1255252008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Resorption of alveolar process due to dental trauma (disorder)"
+    },
+    "serving_in_military_service": {
+      "code": "1187604002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Serving in military service (finding)"
+    },
+    "opioid_abuse": {
+      "code": "5602001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Opioid abuse"
+    },
+    "localized_primary_osteoarthritis_of_the_hand": {
+      "code": "201834006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Localized  primary osteoarthritis of the hand (disorder)"
+    },
+    "ischemic_heart_disease": {
+      "code": "414545008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Ischemic heart disease (disorder)"
+    },
+    "abnormal_findings_diagnostic_imaging_heart_coronary_circulat": {
+      "code": "274531002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Abnormal findings diagnostic imaging heart+coronary circulat (finding)"
+    },
+    "fracture_of_bone": {
+      "code": "125605004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fracture of bone (disorder)"
+    },
+    "fracture_of_ankle": {
+      "code": "16114001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fracture of ankle (disorder)"
+    },
+    "history_of_coronary_artery_bypass_grafting": {
+      "code": "399261000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "History of coronary artery bypass grafting (situation)"
+    },
+    "facial_laceration": {
+      "code": "370247008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Facial laceration (disorder)"
+    },
+    "fracture_of_clavicle": {
+      "code": "58150001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fracture of clavicle (disorder)"
+    },
+    "injury_of_neck": {
+      "code": "90460009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Injury of neck (disorder)"
+    },
+    "whiplash_injury_to_neck": {
+      "code": "39848009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Whiplash injury to neck (disorder)"
+    },
+    "epilepsy": {
+      "code": "84757009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Epilepsy (disorder)"
+    },
+    "acute_non_st_segment_elevation_myocardial_infarction": {
+      "code": "401314000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute non-ST segment elevation myocardial infarction (disorder)"
+    },
+    "history_of_myocardial_infarction": {
+      "code": "399211009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "History of myocardial infarction (situation)"
+    },
+    "suspected_prostate_cancer": {
+      "code": "315268008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Suspected prostate cancer (situation)"
+    },
+    "neoplasm_of_prostate": {
+      "code": "126906006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Neoplasm of prostate (disorder)"
+    },
+    "carcinoma_in_situ_of_prostate": {
+      "code": "92691004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Carcinoma in situ of prostate (disorder)"
+    },
+    "childhood_asthma": {
+      "code": "233678006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Childhood asthma (disorder)"
+    },
+    "perennial_allergic_rhinitis_with_seasonal_variation": {
+      "code": "232353008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Perennial allergic rhinitis with seasonal variation (disorder)"
+    },
+    "chronic_kidney_disease_stage_1": {
+      "code": "431855005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic kidney disease stage 1 (disorder)"
+    },
+    "disorder_of_kidney_due_to_diabetes_mellitus": {
+      "code": "127013003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Disorder of kidney due to diabetes mellitus (disorder)"
+    },
+    "fracture_subluxation_of_wrist": {
+      "code": "263102004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fracture subluxation of wrist (disorder)"
+    },
+    "chronic_kidney_disease_stage_2": {
+      "code": "431856006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic kidney disease stage 2 (disorder)"
+    },
+    "microalbuminuria_due_to_type_2_diabetes_mellitus": {
+      "code": "90781000119102",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Microalbuminuria due to type 2 diabetes mellitus (disorder)"
+    },
+    "acute_st_segment_elevation_myocardial_infarction": {
+      "code": "401303003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute ST segment elevation myocardial infarction (disorder)"
+    },
+    "alveolitis_of_jaw": {
+      "code": "61804006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Alveolitis of jaw (disorder)"
+    },
+    "torus_palatinus": {
+      "code": "46752004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Torus palatinus (disorder)"
+    },
+    "sleep_disorder": {
+      "code": "39898005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sleep disorder (disorder)"
+    },
+    "obstructive_sleep_apnea_syndrome": {
+      "code": "78275009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Obstructive sleep apnea syndrome (disorder)"
+    },
+    "nasal_congestion": {
+      "code": "68235000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Nasal congestion (finding)"
+    },
+    "dyspnea": {
+      "code": "267036007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Dyspnea (finding)"
+    },
+    "wheezing": {
+      "code": "56018004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Wheezing (finding)"
+    },
+    "fracture_of_forearm": {
+      "code": "65966004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fracture of forearm (disorder)"
+    },
+    "smokes_tobacco_daily": {
+      "code": "449868002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Smokes tobacco daily (finding)"
+    },
+    "mitral_valve_regurgitation": {
+      "code": "48724000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Mitral valve regurgitation (disorder)"
+    },
+    "adolescent_idiopathic_scoliosis": {
+      "code": "203646004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Adolescent idiopathic scoliosis (disorder)"
+    },
+    "perennial_allergic_rhinitis": {
+      "code": "446096008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Perennial allergic rhinitis (disorder)"
+    },
+    "child_attention_deficit_disorder": {
+      "code": "192127007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Child attention deficit disorder (disorder)"
+    },
+    "fatigue": {
+      "code": "84229001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fatigue (finding)"
+    },
+    "muscle_pain": {
+      "code": "68962001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Muscle pain (finding)"
+    },
+    "joint_pain": {
+      "code": "57676002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Joint pain"
+    },
+    "pneumonia": {
+      "code": "233604007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Pneumonia (disorder)"
+    },
+    "hypoxemia": {
+      "code": "389087006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Hypoxemia (disorder)"
+    },
+    "respiratory_distress": {
+      "code": "271825005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Respiratory distress (finding)"
+    },
+    "acute_respiratory_failure": {
+      "code": "65710008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute respiratory failure (disorder)"
+    },
+    "sepsis_caused_by_virus": {
+      "code": "770349000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sepsis caused by virus (disorder)"
+    },
+    "acute_deep_venous_thrombosis": {
+      "code": "132281000119108",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute deep venous thrombosis (disorder)"
+    },
+    "acute_bacterial_sinusitis": {
+      "code": "75498004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute bacterial sinusitis (disorder)"
+    },
+    "burn_injury": {
+      "code": "48333001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Burn injury (morphologic abnormality)"
+    },
+    "epidermal_burn_of_skin": {
+      "code": "403190006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Epidermal burn of skin (disorder)"
+    },
+    "history_of_appendectomy": {
+      "code": "428251008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "History of appendectomy (situation)"
+    },
+    "acute_allergic_reaction": {
+      "code": "241929008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute allergic reaction (disorder)"
+    },
+    "traumatic_or_nontraumatic_brain_injury": {
+      "code": "127294003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Traumatic or nontraumatic brain injury (disorder)"
+    },
+    "concussion_with_loss_of_consciousness": {
+      "code": "62564004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Concussion with loss of consciousness (disorder)"
+    },
+    "pulmonary_emphysema": {
+      "code": "87433001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Pulmonary emphysema (disorder)"
+    },
+    "atopic_dermatitis": {
+      "code": "24079001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Atopic dermatitis (disorder)"
+    },
+    "major_depressive_disorder": {
+      "code": "370143000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Major depressive disorder (disorder)"
+    },
+    "recurrent_rectal_polyp": {
+      "code": "713197008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Recurrent rectal polyp (disorder)"
+    },
+    "homeless": {
+      "code": "32911000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Homeless (finding)"
+    },
+    "injury_of_knee": {
+      "code": "125601008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Injury of knee (disorder)"
+    },
+    "tear_of_meniscus_of_knee": {
+      "code": "239720000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Tear of meniscus of knee (disorder)"
+    },
+    "fracture_of_rib": {
+      "code": "33737001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fracture of rib (disorder)"
+    },
+    "transformed_migraine": {
+      "code": "427419006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Transformed migraine (disorder)"
+    },
+    "pre_eclampsia": {
+      "code": "398254007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Pre-eclampsia (disorder)"
+    },
+    "chronic_obstructive_bronchitis": {
+      "code": "185086009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic obstructive bronchitis (disorder)"
+    },
+    "injury_of_tendon_of_the_rotator_cuff_of_shoulder": {
+      "code": "307731004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Injury of tendon of the rotator cuff of shoulder (disorder)"
+    },
+    "closed_fracture_of_hip": {
+      "code": "359817006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Closed fracture of hip (disorder)"
+    },
+    "osteoporosis": {
+      "code": "64859006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Osteoporosis (disorder)"
+    },
+    "osteoporotic_fracture_of_bone": {
+      "code": "443165006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Osteoporotic fracture of bone (disorder)"
+    },
+    "sepsis": {
+      "code": "91302008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sepsis (disorder)"
+    },
+    "alzheimer_s_disease": {
+      "code": "26929004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Alzheimer's disease (disorder)"
+    },
+    "injury_of_medial_collateral_ligament_of_knee": {
+      "code": "444448004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Injury of medial collateral ligament of knee (disorder)"
+    },
+    "miscarriage_in_second_trimester": {
+      "code": "85116003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Miscarriage in second trimester (disorder)"
+    },
+    "fetus_with_chromosomal_abnormality": {
+      "code": "267253006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fetus with chromosomal abnormality (disorder)"
+    },
+    "acute_respiratory_distress_syndrome": {
+      "code": "67782005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute respiratory distress syndrome (disorder)"
+    },
+    "sterilization_requested": {
+      "code": "183996000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sterilization requested (situation)"
+    },
+    "suspected_lung_cancer": {
+      "code": "162573006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Suspected lung cancer (situation)"
+    },
+    "non_small_cell_lung_cancer": {
+      "code": "254637007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Non-small cell lung cancer (disorder)"
+    },
+    "non_small_cell_carcinoma_of_lung_tnm_stage_1": {
+      "code": "424132000",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Non-small cell carcinoma of lung  TNM stage 1 (disorder)"
+    },
+    "cerebrovascular_accident": {
+      "code": "230690007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Cerebrovascular accident (disorder)"
+    },
+    "chronic_kidney_disease_stage_3": {
+      "code": "433144002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic kidney disease stage 3 (disorder)"
+    },
+    "proteinuria_due_to_type_2_diabetes_mellitus": {
+      "code": "157141000119108",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Proteinuria due to type 2 diabetes mellitus (disorder)"
+    },
+    "traumatic_injury_of_spinal_cord_and_or_vertebral_column": {
+      "code": "262521009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Traumatic injury of spinal cord and/or vertebral column (disorder)"
+    },
+    "fracture_of_vertebral_column_without_spinal_cord_injury": {
+      "code": "15724005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Fracture of vertebral column without spinal cord injury (disorder)"
+    },
+    "traumatic_dislocation_of_temporomandibular_joint": {
+      "code": "81629009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Traumatic dislocation of temporomandibular joint (disorder)"
+    },
+    "sore_throat": {
+      "code": "267102003",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Sore throat (finding)"
+    },
+    "osteoarthritis_of_knee": {
+      "code": "239873007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Osteoarthritis of knee (disorder)"
+    },
+    "rupture_of_patellar_tendon": {
+      "code": "30832001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Rupture of patellar tendon (disorder)"
+    },
+    "myocardial_infarction": {
+      "code": "22298006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Myocardial infarction (disorder)"
+    },
+    "osteoarthritis_of_hip": {
+      "code": "239872002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Osteoarthritis of hip (disorder)"
+    },
+    "diarrhea_symptom": {
+      "code": "267060006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Diarrhea symptom (finding)"
+    },
+    "awaiting_transplantation_of_kidney": {
+      "code": "698306007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Awaiting transplantation of kidney (situation)"
+    },
+    "chronic_kidney_disease_stage_4": {
+      "code": "431857002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Chronic kidney disease stage 4 (disorder)"
+    },
+    "laceration_of_hand": {
+      "code": "284549007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Laceration of hand (disorder)"
+    },
+    "blighted_ovum": {
+      "code": "35999006",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Blighted ovum (disorder)"
+    },
+    "injury_of_anterior_cruciate_ligament": {
+      "code": "444470001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Injury of anterior cruciate ligament (disorder)"
+    },
+    "acute_cholecystitis": {
+      "code": "65275009",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Acute cholecystitis (disorder)"
+    },
+    "gallbladder_calculus": {
+      "code": "235919008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Gallbladder calculus (disorder)"
+    },
+    "partial_thickness_burn": {
+      "code": "403191005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Partial thickness burn (disorder)"
+    },
+    "bleeding_from_anus": {
+      "code": "6072007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Bleeding from anus (disorder)"
+    },
+    "protracted_diarrhea": {
+      "code": "236077008",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Protracted diarrhea (finding)"
+    },
+    "metastatic_malignant_neoplasm_to_colon": {
+      "code": "94260004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Metastatic malignant neoplasm to colon (disorder)"
+    },
+    "died_in_hospice": {
+      "code": "876882001",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Died in hospice (finding)"
+    },
+    "atrial_fibrillation": {
+      "code": "49436004",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Atrial fibrillation (disorder)"
+    },
+    "neuropathy_due_to_type_2_diabetes_mellitus": {
+      "code": "368581000119106",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Neuropathy due to type 2 diabetes mellitus (disorder)"
+    },
+    "alcoholism": {
+      "code": "7200002",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "Alcoholism (disorder)"
+    },
+    "end_stage_renal_disease": {
+      "code": "46177005",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "End-stage renal disease (disorder)"
+    },
+    "history_of_renal_transplant": {
+      "code": "161665007",
+      "system": "SNOMED-CT",
+      "kind": "condition",
+      "label": "History of renal transplant (situation)"
+    },
+    "medication_reconciliation": {
+      "code": "430193006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Medication reconciliation (procedure)"
+    },
+    "patient_referral_for_dental_care": {
+      "code": "103697008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Patient referral for dental care (procedure)"
+    },
+    "dental_consultation_and_report": {
+      "code": "34043003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Dental consultation and report (procedure)"
+    },
+    "dental_care": {
+      "code": "225362009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Dental care (regime/therapy)"
+    },
+    "examination_of_gingivae": {
+      "code": "274788003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Examination of gingivae (procedure)"
+    },
+    "dental_surgical_procedure": {
+      "code": "81733005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Dental surgical procedure (procedure)"
+    },
+    "dental_plain_x_ray_bitewing": {
+      "code": "241046008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Dental plain X-ray bitewing (procedure)"
+    },
+    "dental_fluoride_treatment": {
+      "code": "68071007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Dental fluoride treatment (procedure)"
+    },
+    "oral_health_education": {
+      "code": "243085009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Oral health education (procedure)"
+    },
+    "dental_application_of_desensitizing_medicament": {
+      "code": "3802001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Dental application of desensitizing medicament (procedure)"
+    },
+    "gingivectomy_or_gingivoplasty_per_tooth": {
+      "code": "64544008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Gingivectomy or gingivoplasty  per tooth (procedure)"
+    },
+    "postoperative_care_for_dental_procedure": {
+      "code": "456191000124101",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Postoperative care for dental procedure (regime/therapy)"
+    },
+    "measurement_of_respiratory_function": {
+      "code": "23426006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Measurement of respiratory function (procedure)"
+    },
+    "throat_culture": {
+      "code": "117015009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Throat culture (procedure)"
+    },
+    "assessment_of_anxiety": {
+      "code": "710841007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Assessment of anxiety (procedure)"
+    },
+    "assessment_of_substance_use": {
+      "code": "428211000124100",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Assessment of substance use (procedure)"
+    },
+    "health_risks_education": {
+      "code": "370995009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Health risks education (procedure)"
+    },
+    "depression_screening": {
+      "code": "171207006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Depression screening (procedure)"
+    },
+    "electroencephalogram": {
+      "code": "54550000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Electroencephalogram (procedure)"
+    },
+    "anticipatory_guidance": {
+      "code": "386516004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Anticipatory guidance (procedure)"
+    },
+    "sputum_examination": {
+      "code": "269911007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Sputum examination (procedure)"
+    },
+    "face_mask": {
+      "code": "261352009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Face mask (physical object)"
+    },
+    "history_taking": {
+      "code": "84100007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "History taking (procedure)"
+    },
+    "discussion_about_signs_and_symptoms": {
+      "code": "223470000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Discussion about signs and symptoms (procedure)"
+    },
+    "history_and_physical_examination_limited": {
+      "code": "67879005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "History and physical examination  limited (procedure)"
+    },
+    "evaluation_procedure": {
+      "code": "386053000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Evaluation procedure (procedure)"
+    },
+    "discussion_about_pregnancy": {
+      "code": "440546007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Discussion about pregnancy (procedure)"
+    },
+    "urine_specimen_collection": {
+      "code": "57617002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Urine specimen collection (procedure)"
+    },
+    "urinalysis_with_reflex_to_microscopy_and_culture": {
+      "code": "441550005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Urinalysis with reflex to microscopy and culture (procedure)"
+    },
+    "antibiotic_therapy": {
+      "code": "281789004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Antibiotic therapy (procedure)"
+    },
+    "simple_extraction_of_tooth": {
+      "code": "173291009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Simple extraction of tooth (procedure)"
+    },
+    "assessment_of_health_and_social_care_needs": {
+      "code": "710824005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Assessment of health and social care needs (procedure)"
+    },
+    "screening_for_drug_abuse": {
+      "code": "713106006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Screening for drug abuse (procedure)"
+    },
+    "telemedicine_consultation_with_patient": {
+      "code": "448337001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Telemedicine consultation with patient (procedure)"
+    },
+    "standard_pregnancy_test": {
+      "code": "252160004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Standard pregnancy test (procedure)"
+    },
+    "referral_for_laboratory_tests": {
+      "code": "266753000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral for laboratory tests (procedure)"
+    },
+    "patient_informed_test_result": {
+      "code": "165355002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Patient informed - test result (situation)"
+    },
+    "lab_findings_education_guidance_and_counseling": {
+      "code": "410299006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Lab findings education  guidance  and counseling (procedure)"
+    },
+    "discussion_about_treatment": {
+      "code": "223484005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Discussion about treatment (procedure)"
+    },
+    "evaluating_response_to_treatment": {
+      "code": "225953001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Evaluating response to treatment (procedure)"
+    },
+    "peripheral_blood_smear_interpretation": {
+      "code": "14768001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Peripheral blood smear interpretation (procedure)"
+    },
+    "review_of_systems": {
+      "code": "415300000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Review of systems (procedure)"
+    },
+    "brief_general_examination": {
+      "code": "162676008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Brief general examination (procedure)"
+    },
+    "suture_open_wound": {
+      "code": "288086009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Suture open wound (procedure)"
+    },
+    "injection_of_tetanus_antitoxin": {
+      "code": "384700001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Injection of tetanus antitoxin (procedure)"
+    },
+    "ultrasound_scan_for_fetal_viability": {
+      "code": "169230002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Ultrasound scan for fetal viability (procedure)"
+    },
+    "counseling_for_termination_of_pregnancy": {
+      "code": "10383002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Counseling for termination of pregnancy (procedure)"
+    },
+    "induced_termination_of_pregnancy": {
+      "code": "714812005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Induced termination of pregnancy (procedure)"
+    },
+    "pregnancy_termination_care": {
+      "code": "386394001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Pregnancy termination care (regime/therapy)"
+    },
+    "physical_examination_procedure": {
+      "code": "5880005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Physical examination procedure (procedure)"
+    },
+    "evaluation_of_uterine_fundal_height": {
+      "code": "274804006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Evaluation of uterine fundal height (procedure)"
+    },
+    "auscultation_of_the_fetal_heart": {
+      "code": "225158009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Auscultation of the fetal heart (procedure)"
+    },
+    "blood_group_typing": {
+      "code": "44608003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Blood group typing (procedure)"
+    },
+    "hepatitis_b_surface_antigen_measurement": {
+      "code": "47758006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Hepatitis B surface antigen measurement (procedure)"
+    },
+    "human_immunodeficiency_virus_antigen_test": {
+      "code": "31676001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Human immunodeficiency virus antigen test (procedure)"
+    },
+    "chlamydia_antigen_test": {
+      "code": "310861008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Chlamydia antigen test (procedure)"
+    },
+    "gonorrhea_infection_titer_test": {
+      "code": "165829005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Gonorrhea infection titer test (procedure)"
+    },
+    "syphilis_infectious_titer_test": {
+      "code": "269828009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Syphilis infectious titer test (procedure)"
+    },
+    "urine_culture": {
+      "code": "117010004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Urine culture (procedure)"
+    },
+    "cytopathology_procedure_preparation_of_smear_genital_source": {
+      "code": "90226004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Cytopathology procedure  preparation of smear  genital source (procedure)"
+    },
+    "urine_screening_test_for_diabetes": {
+      "code": "395123002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Urine screening test for diabetes (procedure)"
+    },
+    "hepatitis_c_antibody_confirmatory_test": {
+      "code": "104375008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Hepatitis C antibody  confirmatory test (procedure)"
+    },
+    "rubella_screening_test": {
+      "code": "314098000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Rubella screening test (procedure)"
+    },
+    "measurement_of_varicella_zoster_virus_antibody": {
+      "code": "104326007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Measurement of Varicella-zoster virus antibody (procedure)"
+    },
+    "skin_test_for_tuberculosis_tine_test": {
+      "code": "28163009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Skin test for tuberculosis  Tine test (procedure)"
+    },
+    "urinalysis_protein_qualitative": {
+      "code": "60218003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Urinalysis  protein  qualitative (procedure)"
+    },
+    "fetal_anatomy_study": {
+      "code": "271442007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Fetal anatomy study (procedure)"
+    },
+    "alpha_fetoprotein_test_antenatal": {
+      "code": "275833003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Alpha-fetoprotein test - antenatal (procedure)"
+    },
+    "allergy_screening_test": {
+      "code": "395142003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Allergy screening test (procedure)"
+    },
+    "streptococcus_pneumoniae_group_b_antigen_assay": {
+      "code": "118001005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Streptococcus pneumoniae group B antigen assay (procedure)"
+    },
+    "augmentation_of_labor": {
+      "code": "237001001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Augmentation of labor (procedure)"
+    },
+    "human_parturition_function": {
+      "code": "386216000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Human parturition  function (observable entity)"
+    },
+    "referral_for_echocardiography": {
+      "code": "390791001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral for echocardiography (procedure)"
+    },
+    "transthoracic_echocardiography": {
+      "code": "433236007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Transthoracic echocardiography (procedure)"
+    },
+    "screening_for_domestic_abuse": {
+      "code": "866148006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Screening for domestic abuse (procedure)"
+    },
+    "insertion_of_intrauterine_contraceptive_device": {
+      "code": "65200003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Insertion of intrauterine contraceptive device (procedure)"
+    },
+    "urine_screening_for_glucose": {
+      "code": "268556000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Urine screening for glucose (procedure)"
+    },
+    "epidural_anesthesia": {
+      "code": "18946005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Epidural anesthesia (procedure)"
+    },
+    "intramuscular_injection": {
+      "code": "76601001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Intramuscular injection (procedure)"
+    },
+    "replacement_of_contraceptive_intrauterine_device": {
+      "code": "46706006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Replacement of contraceptive intrauterine device (procedure)"
+    },
+    "removal_of_intrauterine_contraceptive_device": {
+      "code": "1263416007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Removal of intrauterine contraceptive device (procedure)"
+    },
+    "medical_induction_of_labor": {
+      "code": "31208007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Medical induction of labor (procedure)"
+    },
+    "implantation_of_subcutaneous_contraceptive": {
+      "code": "169553002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Implantation of subcutaneous contraceptive (procedure)"
+    },
+    "instrumental_delivery": {
+      "code": "236974004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Instrumental delivery (procedure)"
+    },
+    "cesarean_section": {
+      "code": "11466000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Cesarean section (procedure)"
+    },
+    "visual_acuity_testing": {
+      "code": "16830007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Visual acuity testing (procedure)"
+    },
+    "intraocular_pressure_test": {
+      "code": "252832004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Intraocular pressure test (procedure)"
+    },
+    "ocular_slit_lamp_examination": {
+      "code": "55468007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Ocular slit lamp examination (procedure)"
+    },
+    "indirect_gonioscopy": {
+      "code": "389153003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Indirect gonioscopy (procedure)"
+    },
+    "camera_fundoscopy": {
+      "code": "314971001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Camera fundoscopy (procedure)"
+    },
+    "diabetic_retinal_eye_exam": {
+      "code": "722161008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Diabetic retinal eye exam (procedure)"
+    },
+    "extraction_of_wisdom_tooth": {
+      "code": "65546002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Extraction of wisdom tooth (procedure)"
+    },
+    "referral_to_hypertension_clinic": {
+      "code": "183856001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral to hypertension clinic (procedure)"
+    },
+    "colonoscopy": {
+      "code": "73761001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Colonoscopy (procedure)"
+    },
+    "screening_for_occult_blood_in_feces": {
+      "code": "104435004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Screening for occult blood in feces (procedure)"
+    },
+    "rectal_polypectomy": {
+      "code": "274031008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Rectal polypectomy (procedure)"
+    },
+    "removal_of_subcutaneous_contraceptive": {
+      "code": "301807007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Removal of subcutaneous contraceptive (procedure)"
+    },
+    "rehabilitation_therapy": {
+      "code": "52052004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Rehabilitation therapy (regime/therapy)"
+    },
+    "subcutaneous_immunotherapy": {
+      "code": "180256009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Subcutaneous immunotherapy (procedure)"
+    },
+    "intravenous_blood_transfusion_of_packed_cells": {
+      "code": "180207008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Intravenous blood transfusion of packed cells (procedure)"
+    },
+    "take_oral_or_dental_impression": {
+      "code": "234745004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Take oral or dental impression (procedure)"
+    },
+    "fitting_of_denture": {
+      "code": "1269321004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Fitting of denture (procedure)"
+    },
+    "triage_emergency_center": {
+      "code": "386478007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Triage: emergency center (procedure)"
+    },
+    "taking_patient_vital_signs": {
+      "code": "61746007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Taking patient vital signs (procedure)"
+    },
+    "complete_blood_count": {
+      "code": "26604007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Complete blood count (procedure)"
+    },
+    "comprehensive_metabolic_panel": {
+      "code": "371361000119107",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Comprehensive metabolic panel (procedure)"
+    },
+    "patient_discharge": {
+      "code": "58000006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Patient discharge (procedure)"
+    },
+    "screening_mammography": {
+      "code": "24623002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Screening mammography (procedure)"
+    },
+    "magnetic_resonance_imaging_of_breast": {
+      "code": "241615005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Magnetic resonance imaging of breast (procedure)"
+    },
+    "biopsy_of_breast": {
+      "code": "122548005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Biopsy of breast (procedure)"
+    },
+    "discussion_about_options": {
+      "code": "223487003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Discussion about options (procedure)"
+    },
+    "lumpectomy_of_breast": {
+      "code": "392021009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Lumpectomy of breast (procedure)"
+    },
+    "external_beam_radiation_therapy_procedure": {
+      "code": "33195004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "External beam radiation therapy procedure (procedure)"
+    },
+    "physical_examination_complete": {
+      "code": "25656009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Physical examination  complete (procedure)"
+    },
+    "electrocardiographic_procedure": {
+      "code": "29303009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Electrocardiographic procedure (procedure)"
+    },
+    "cardiovascular_stress_testing": {
+      "code": "76746007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Cardiovascular stress testing (procedure)"
+    },
+    "assessment_using_new_york_heart_association_classification": {
+      "code": "762998009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Assessment using New York Heart Association Classification (procedure)"
+    },
+    "echocardiography": {
+      "code": "40701008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Echocardiography (procedure)"
+    },
+    "certification_procedure": {
+      "code": "310417005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Certification procedure (procedure)"
+    },
+    "notifications": {
+      "code": "185087000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Notifications (procedure)"
+    },
+    "initial_patient_assessment": {
+      "code": "315639002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Initial patient assessment (procedure)"
+    },
+    "development_of_individualized_plan_of_care": {
+      "code": "370789001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Development of individualized plan of care (procedure)"
+    },
+    "hospice_care": {
+      "code": "385763009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Hospice care (regime/therapy)"
+    },
+    "mammography": {
+      "code": "71651007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Mammography (procedure)"
+    },
+    "bone_density_scan": {
+      "code": "312681000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Bone density scan (procedure)"
+    },
+    "oxygen_administration_by_mask": {
+      "code": "371908008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Oxygen administration by mask (procedure)"
+    },
+    "placing_subject_in_prone_position": {
+      "code": "431182000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Placing subject in prone position (procedure)"
+    },
+    "plain_x_ray_of_chest": {
+      "code": "399208008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of chest (procedure)"
+    },
+    "assessment_using_morse_fall_scale": {
+      "code": "762993000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Assessment using Morse Fall Scale (procedure)"
+    },
+    "grafting_of_periodontal_bone_defect": {
+      "code": "234687006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Grafting of periodontal bone defect (procedure)"
+    },
+    "heart_failure_education": {
+      "code": "423475008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Heart failure education (procedure)"
+    },
+    "referral_to_cardiology_service": {
+      "code": "183519002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral to cardiology service (procedure)"
+    },
+    "consultation_for_treatment": {
+      "code": "698314001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Consultation for treatment (procedure)"
+    },
+    "angiography_of_coronary_artery": {
+      "code": "33367005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Angiography of coronary artery (procedure)"
+    },
+    "post_anesthesia_care_management": {
+      "code": "736169004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Post anesthesia care management (procedure)"
+    },
+    "referral_to_cardiac_surgery_service": {
+      "code": "306185001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral to cardiac surgery service (procedure)"
+    },
+    "plain_x_ray_of_ankle_region": {
+      "code": "1290459008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of ankle region (procedure)"
+    },
+    "bone_immobilization": {
+      "code": "274474001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Bone immobilization (procedure)"
+    },
+    "pre_surgery_testing": {
+      "code": "110467000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Pre-surgery testing (procedure)"
+    },
+    "notification_of_treatment_plan": {
+      "code": "709138001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Notification of treatment plan (procedure)"
+    },
+    "scheduling": {
+      "code": "410538000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Scheduling (procedure)"
+    },
+    "transfusion_of_fresh_frozen_plasma": {
+      "code": "116861002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Transfusion of fresh frozen plasma (procedure)"
+    },
+    "insertion_of_catheter_into_artery": {
+      "code": "392247006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Insertion of catheter into artery (procedure)"
+    },
+    "administration_of_anesthesia_for_procedure": {
+      "code": "410770002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Administration of anesthesia for procedure (procedure)"
+    },
+    "intubation": {
+      "code": "52765003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Intubation (procedure)"
+    },
+    "pulmonary_catheterization_with_swan_ganz_catheter": {
+      "code": "65677008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Pulmonary catheterization with Swan-Ganz catheter (procedure)"
+    },
+    "preparation_of_patient_for_procedure": {
+      "code": "223495004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Preparation of patient for procedure (regime/therapy)"
+    },
+    "cannulation": {
+      "code": "42825003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Cannulation (procedure)"
+    },
+    "cardiopulmonary_bypass_operation": {
+      "code": "63697000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Cardiopulmonary bypass operation (procedure)"
+    },
+    "placement_of_aortic_cross_clamp": {
+      "code": "301882004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Placement of aortic cross clamp (procedure)"
+    },
+    "induced_cardioplegia": {
+      "code": "8290005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Induced cardioplegia (procedure)"
+    },
+    "median_sternotomy": {
+      "code": "359672006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Median sternotomy (procedure)"
+    },
+    "coronary_artery_bypass_grafting": {
+      "code": "232717009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Coronary artery bypass grafting (procedure)"
+    },
+    "cardioassist_by_aortic_balloon_pump": {
+      "code": "399217008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Cardioassist by aortic balloon pump (procedure)"
+    },
+    "removal_of_aortic_cross_clamp": {
+      "code": "301884003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Removal of aortic cross clamp (procedure)"
+    },
+    "vascular_cannula_removal": {
+      "code": "233553003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Vascular cannula removal (procedure)"
+    },
+    "documentation_procedure": {
+      "code": "23745001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Documentation procedure (procedure)"
+    },
+    "removal_of_endotracheal_tube": {
+      "code": "271280005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Removal of endotracheal tube (procedure)"
+    },
+    "discharge_to_ward": {
+      "code": "306706006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Discharge to ward (procedure)"
+    },
+    "postoperative_procedure_education": {
+      "code": "243063003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Postoperative procedure education (procedure)"
+    },
+    "walking_exercise_test": {
+      "code": "302761001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Walking exercise test (procedure)"
+    },
+    "stair_climbing_test": {
+      "code": "252482003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Stair-climbing test (procedure)"
+    },
+    "discharge_from_hospital": {
+      "code": "308283009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Discharge from hospital (procedure)"
+    },
+    "plain_x_ray_of_clavicle": {
+      "code": "168594001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of clavicle (procedure)"
+    },
+    "admission_to_orthopedic_department": {
+      "code": "305428000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Admission to orthopedic department (procedure)"
+    },
+    "history_and_physical_examination": {
+      "code": "63332003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "History AND physical examination (procedure)"
+    },
+    "nursing_care_supplementary_surveillance": {
+      "code": "410401003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Nursing care/supplementary surveillance (regime/therapy)"
+    },
+    "physical_therapy_procedure": {
+      "code": "91251008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Physical therapy procedure (regime/therapy)"
+    },
+    "professional_ancillary_services_care": {
+      "code": "409023009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Professional / ancillary services care (regime/therapy)"
+    },
+    "pre_discharge_assessment": {
+      "code": "225386006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Pre-discharge assessment (procedure)"
+    },
+    "digital_examination_of_rectum": {
+      "code": "410006001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Digital examination of rectum (procedure)"
+    },
+    "biopsy_of_prostate": {
+      "code": "65575008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Biopsy of prostate (procedure)"
+    },
+    "plain_x_ray_of_wrist_region": {
+      "code": "713024005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of wrist region (procedure)"
+    },
+    "prostatectomy": {
+      "code": "90470006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Prostatectomy (procedure)"
+    },
+    "tooth_socket_procedure": {
+      "code": "284053004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Tooth socket procedure (procedure)"
+    },
+    "excision_of_maxillary_torus_palatinus": {
+      "code": "79345008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Excision of maxillary torus palatinus (procedure)"
+    },
+    "sleep_apnea_assessment": {
+      "code": "103750000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Sleep apnea assessment (procedure)"
+    },
+    "referral_to_sleep_apnea_clinic": {
+      "code": "698560000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral to sleep apnea clinic (procedure)"
+    },
+    "sleep_apnea_monitoring_with_alarm": {
+      "code": "82808001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Sleep apnea monitoring with alarm (regime/therapy)"
+    },
+    "sentinel_lymph_node_biopsy": {
+      "code": "396487001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Sentinel lymph node biopsy (procedure)"
+    },
+    "excision_of_sentinel_lymph_node": {
+      "code": "443497002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Excision of sentinel lymph node (procedure)"
+    },
+    "plain_x_ray_of_humerus": {
+      "code": "713026007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of humerus (procedure)"
+    },
+    "manual_pelvic_examination": {
+      "code": "35025007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Manual pelvic examination (procedure)"
+    },
+    "child_examination_school_screening": {
+      "code": "170245002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Child examination: school screening (procedure)"
+    },
+    "referral_to_orthopedic_surgeon": {
+      "code": "308481009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral to orthopedic surgeon (procedure)"
+    },
+    "osteopathic_postural_examination": {
+      "code": "417656005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Osteopathic postural examination (procedure)"
+    },
+    "referral_for_x_ray": {
+      "code": "183830008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral for X-ray (procedure)"
+    },
+    "plain_x_ray_of_spine_and_pelvis": {
+      "code": "1290953004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of spine and pelvis (procedure)"
+    },
+    "measurement_procedure": {
+      "code": "122869004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Measurement procedure (procedure)"
+    },
+    "referral_for_further_care": {
+      "code": "183444007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral for further care (procedure)"
+    },
+    "speech_and_language_therapy_regime": {
+      "code": "311555007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Speech and language therapy regime (regime/therapy)"
+    },
+    "referral_to_home_health_care_service": {
+      "code": "417511005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral to home health care service (procedure)"
+    },
+    "comprehensive_interview_and_evaluation": {
+      "code": "200619008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Comprehensive interview and evaluation (procedure)"
+    },
+    "coordination_of_care_plan": {
+      "code": "711069006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Coordination of care plan (procedure)"
+    },
+    "cognitive_and_behavioral_therapy": {
+      "code": "228557008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Cognitive and behavioral therapy (regime/therapy)"
+    },
+    "occupational_therapy": {
+      "code": "84478008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Occupational therapy (regime/therapy)"
+    },
+    "injection_of_epinephrine": {
+      "code": "313191000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Injection of epinephrine (procedure)"
+    },
+    "movement_therapy": {
+      "code": "229064008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Movement therapy (regime/therapy)"
+    },
+    "spirometry": {
+      "code": "127783003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Spirometry (procedure)"
+    },
+    "pulmonary_rehabilitation": {
+      "code": "15081005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Pulmonary rehabilitation (regime/therapy)"
+    },
+    "information_gathering": {
+      "code": "311791003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Information gathering (procedure)"
+    },
+    "plain_x_ray_of_knee_region": {
+      "code": "1290407002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of knee region (procedure)"
+    },
+    "treatment_changed": {
+      "code": "445528004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Treatment changed (situation)"
+    },
+    "antenatal_rhd_antibody_screening": {
+      "code": "169673001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Antenatal RhD antibody screening (procedure)"
+    },
+    "passive_immunization": {
+      "code": "51116004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Passive immunization (procedure)"
+    },
+    "episiotomy": {
+      "code": "85548006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Episiotomy (procedure)"
+    },
+    "premature_birth_of_newborn": {
+      "code": "367494004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Premature birth of newborn (finding)"
+    },
+    "lung_volume_reduction_surgery": {
+      "code": "429609002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Lung volume reduction surgery (procedure)"
+    },
+    "postoperative_care": {
+      "code": "133899007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Postoperative care (regime/therapy)"
+    },
+    "surgical_manipulation_of_shoulder_joint": {
+      "code": "387685009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Surgical manipulation of shoulder joint (procedure)"
+    },
+    "plain_x_ray_of_pelvis": {
+      "code": "713021002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of pelvis (procedure)"
+    },
+    "care_regimes_assessment": {
+      "code": "392091000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Care regimes assessment (procedure)"
+    },
+    "resuscitation_using_intravenous_fluid": {
+      "code": "430701006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Resuscitation using intravenous fluid (procedure)"
+    },
+    "transfer_to_stepdown_unit": {
+      "code": "449214001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Transfer to stepdown unit (procedure)"
+    },
+    "admission_to_intensive_care_unit": {
+      "code": "305351004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Admission to intensive care unit (procedure)"
+    },
+    "asthma_screening": {
+      "code": "171231001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Asthma screening (procedure)"
+    },
+    "sterilization_education": {
+      "code": "268533009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Sterilization education (procedure)"
+    },
+    "ligation_of_bilateral_fallopian_tubes": {
+      "code": "287664005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Ligation of bilateral fallopian tubes (procedure)"
+    },
+    "computed_tomography_of_chest_and_abdomen": {
+      "code": "418891003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Computed tomography of chest and abdomen (procedure)"
+    },
+    "fiberoptic_bronchoscopy": {
+      "code": "85765000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Fiberoptic bronchoscopy (procedure)"
+    },
+    "magnetic_resonance_imaging_for_measurement_of_brain_volume": {
+      "code": "698354004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Magnetic resonance imaging for measurement of brain volume (procedure)"
+    },
+    "hearing_examination": {
+      "code": "398171003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Hearing examination (procedure)"
+    },
+    "combined_chemotherapy_and_radiation_therapy": {
+      "code": "703423002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Combined chemotherapy and radiation therapy (procedure)"
+    },
+    "high_resolution_computed_tomography_of_chest_without_contrast": {
+      "code": "16335031000119103",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "High resolution computed tomography of chest without contrast (procedure)"
+    },
+    "optical_coherence_tomography_of_retina": {
+      "code": "700070005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Optical coherence tomography of retina (procedure)"
+    },
+    "percutaneous_coronary_intervention": {
+      "code": "415070008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Percutaneous coronary intervention"
+    },
+    "surgical_manipulation_of_joint_of_knee": {
+      "code": "699253003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Surgical manipulation of joint of knee (procedure)"
+    },
+    "psychosocial_care": {
+      "code": "408919008",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Psychosocial care (regime/therapy)"
+    },
+    "ultrasonography_of_bilateral_breasts": {
+      "code": "1571000087109",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Ultrasonography of bilateral breasts (procedure)"
+    },
+    "excision_of_lesion_of_breast": {
+      "code": "392023007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Excision of lesion of breast (procedure)"
+    },
+    "chemotherapy": {
+      "code": "367336001",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Chemotherapy (procedure)"
+    },
+    "plain_x_ray_of_mandible": {
+      "code": "1290789000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Plain X-ray of mandible (procedure)"
+    },
+    "closed_reduction_of_dislocation_of_temporomandibular_joint": {
+      "code": "179632003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Closed reduction of dislocation of temporomandibular joint (procedure)"
+    },
+    "posttreatment_stabilization_orthodontic_device": {
+      "code": "37542007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Posttreatment stabilization  orthodontic device (procedure)"
+    },
+    "oral_examination": {
+      "code": "122856003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Oral examination (procedure)"
+    },
+    "range_of_motion_testing": {
+      "code": "69212005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Range of motion testing (procedure)"
+    },
+    "assessment_of_cardiac_status_using_monitoring_device": {
+      "code": "710839006",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Assessment of cardiac status using monitoring device (procedure)"
+    },
+    "laboratory_test": {
+      "code": "15220000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Laboratory test (procedure)"
+    },
+    "diagnostic_assessment": {
+      "code": "165197003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Diagnostic assessment (procedure)"
+    },
+    "renal_dialysis": {
+      "code": "265764009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Renal dialysis (procedure)"
+    },
+    "referral_to_transplant_surgeon": {
+      "code": "306316000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral to transplant surgeon (procedure)"
+    },
+    "serum_metabolic_panel": {
+      "code": "866146005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Serum metabolic panel (procedure)"
+    },
+    "ultrasonography_of_abdomen_right_upper_quadrant_and_epigastrium": {
+      "code": "426701000119108",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Ultrasonography of abdomen  right upper quadrant and epigastrium (procedure)"
+    },
+    "laparoscopic_cholecystectomy": {
+      "code": "45595009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Laparoscopic cholecystectomy (procedure)"
+    },
+    "risk_assessment": {
+      "code": "225338004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Risk assessment (procedure)"
+    },
+    "continuous_subcutaneous_infusion_of_insulin": {
+      "code": "180178009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Continuous subcutaneous infusion of insulin (procedure)"
+    },
+    "transfusion_of_packed_red_blood_cells": {
+      "code": "71493000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Transfusion of packed red blood cells (procedure)"
+    },
+    "direct_current_cardioversion": {
+      "code": "180325003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Direct current cardioversion (procedure)"
+    },
+    "off_pump_coronary_artery_bypass": {
+      "code": "418824004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Off-pump coronary artery bypass (procedure)"
+    },
+    "doppler_ultrasonography_of_artery": {
+      "code": "709979004",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Doppler ultrasonography of artery (procedure)"
+    },
+    "computed_tomography_of_head": {
+      "code": "303653007",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Computed tomography of head (procedure)"
+    },
+    "platelet_transfusion": {
+      "code": "12719002",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Platelet transfusion (procedure)"
+    },
+    "pretransplant_evaluation_of_kidney_recipient": {
+      "code": "428830000",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Pretransplant evaluation of kidney recipient (procedure)"
+    },
+    "transplant_of_kidney": {
+      "code": "70536003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Transplant of kidney (procedure)"
+    },
+    "transplantation_of_kidney_regime": {
+      "code": "711446003",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Transplantation of kidney regime (regime/therapy)"
+    },
+    "renal_disorder_medication_review": {
+      "code": "473231009",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Renal disorder medication review (procedure)"
+    },
+    "referral_to_service": {
+      "code": "306206005",
+      "system": "SNOMED-CT",
+      "kind": "procedure",
+      "label": "Referral to service (procedure)"
+    },
+    "sodium_fluoride_0_0272_mg_mg_oral_gel": {
+      "code": "1535362",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "sodium fluoride 0.0272 MG/MG Oral Gel"
+    },
+    "acetaminophen_325_mg_oral_tablet": {
+      "code": "313782",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Acetaminophen 325 MG Oral Tablet"
+    },
+    "diazepam_5_mg_oral_tablet": {
+      "code": "197591",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Diazepam 5 MG Oral Tablet"
+    },
+    "21_7_pack_levora_0_15_30_28_day": {
+      "code": "748879",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "{21 (ethinyl estradiol 0.03 MG / levonorgestrel 0.15 MG Oral Tablet) / 7 (inert ingredients 1 MG Oral Tablet) } Pack [Levora 0.15/30 28 Day]"
+    },
+    "amoxicillin_250_mg_clavulanate_125_mg_oral_tablet": {
+      "code": "562251",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Amoxicillin 250 MG / Clavulanate 125 MG Oral Tablet"
+    },
+    "amoxicillin_500_mg_oral_tablet": {
+      "code": "308192",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Amoxicillin 500 MG Oral Tablet"
+    },
+    "ibuprofen_100_mg_oral_tablet": {
+      "code": "198405",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Ibuprofen 100 MG Oral Tablet"
+    },
+    "28_pack_jolivette_28_day": {
+      "code": "757594",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Jolivette 28 Day]"
+    },
+    "acetaminophen_160_mg_chewable_tablet": {
+      "code": "313820",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Acetaminophen 160 MG Chewable Tablet"
+    },
+    "24_4_pack_yaz_28_day": {
+      "code": "748856",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "{24 (drospirenone 3 MG / ethinyl estradiol 0.02 MG Oral Tablet) / 4 (inert ingredients 1 MG Oral Tablet) } Pack [Yaz 28 Day]"
+    },
+    "sulfamethoxazole_800_mg_trimethoprim_160_mg_oral_tablet": {
+      "code": "198335",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "sulfamethoxazole 800 MG / trimethoprim 160 MG Oral Tablet"
+    },
+    "ibuprofen_200_mg_oral_tablet": {
+      "code": "310965",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Ibuprofen 200 MG Oral Tablet"
+    },
+    "fosfomycin_3000_mg_granules_for_oral_solution": {
+      "code": "808917",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "fosfomycin 3000 MG Granules for Oral Solution"
+    },
+    "7_84_pack_seasonique": {
+      "code": "749762",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "{7 (ethinyl estradiol 0.01 MG Oral Tablet) / 84 (ethinyl estradiol 0.03 MG / levonorgestrel 0.15 MG Oral Tablet) } Pack [Seasonique]"
+    },
+    "7_7_7_7_pack_trinessa_28_day": {
+      "code": "751905",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "{7 (ethinyl estradiol 0.035 MG / norgestimate 0.18 MG Oral Tablet) / 7 (ethinyl estradiol 0.035 MG / norgestimate 0.215 MG Oral Tablet) / 7 (ethinyl estradiol 0.035 MG / norgestimate 0.25 MG Oral Tablet) / 7 (inert ingredients 1 MG Oral Tablet) } Pack [Trinessa 28 Day]"
+    },
+    "naproxen_sodium_220_mg_oral_tablet": {
+      "code": "849574",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Naproxen sodium 220 MG Oral Tablet"
+    },
+    "albuterol_0_83_mg_ml_inhalation_solution": {
+      "code": "630208",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "albuterol 0.83 MG/ML Inhalation Solution"
+    },
+    "fexofenadine_hydrochloride_30_mg_oral_tablet": {
+      "code": "997488",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Fexofenadine hydrochloride 30 MG Oral Tablet"
+    },
+    "nda020800_0_3_ml_epinephrine_1_mg_ml_auto_injector": {
+      "code": "1870230",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "NDA020800 0.3 ML Epinephrine 1 MG/ML Auto-Injector"
+    },
+    "1_ml_medroxyprogesterone_acetate_150_mg_ml_injection": {
+      "code": "1000126",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "1 ML medroxyPROGESTERone acetate 150 MG/ML Injection"
+    },
+    "etonogestrel_68_mg_drug_implant": {
+      "code": "389221",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Etonogestrel 68 MG Drug Implant"
+    },
+    "72_hr_fentanyl_0_025_mg_hr_transdermal_system": {
+      "code": "245134",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "72 HR Fentanyl 0.025 MG/HR Transdermal System"
+    },
+    "acetaminophen_300_mg_hydrocodone_bitartrate_5_mg_oral_tablet": {
+      "code": "856987",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Acetaminophen 300 MG / HYDROcodone Bitartrate 5 MG Oral Tablet"
+    },
+    "penicillin_v_potassium_500_mg_oral_tablet": {
+      "code": "834102",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Penicillin V Potassium 500 MG Oral Tablet"
+    },
+    "ibuprofen_400_mg_oral_tablet_ibu": {
+      "code": "206905",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Ibuprofen 400 MG Oral Tablet [Ibu]"
+    },
+    "tropicamide_5_mg_ml_ophthalmic_solution": {
+      "code": "313521",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "tropicamide 5 MG/ML Ophthalmic Solution"
+    },
+    "amlodipine_2_5_mg_oral_tablet": {
+      "code": "308136",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "amLODIPine 2.5 MG Oral Tablet"
+    },
+    "simvastatin_10_mg_oral_tablet": {
+      "code": "314231",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Simvastatin 10 MG Oral Tablet"
+    },
+    "lisinopril_10_mg_oral_tablet": {
+      "code": "314076",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "lisinopril 10 MG Oral Tablet"
+    },
+    "hydrochlorothiazide_25_mg_oral_tablet": {
+      "code": "310798",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Hydrochlorothiazide 25 MG Oral Tablet"
+    },
+    "levonorgestrel_0_000813_mg_hr_intrauterine_system_liletta": {
+      "code": "1605257",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "levonorgestrel 0.000813 MG/HR Intrauterine System [Liletta]"
+    },
+    "levonorgestrel_0_000729_mg_hr_intrauterine_system_kyleena": {
+      "code": "1856546",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "levonorgestrel 0.000729 MG/HR Intrauterine System [Kyleena]"
+    },
+    "hydrocortisone_10_mg_ml_topical_cream": {
+      "code": "106258",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Hydrocortisone 10 MG/ML Topical Cream"
+    },
+    "loratadine_10_mg_oral_tablet": {
+      "code": "311372",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Loratadine 10 MG Oral Tablet"
+    },
+    "ferrous_sulfate_325_mg_oral_tablet": {
+      "code": "310325",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "ferrous sulfate 325 MG Oral Tablet"
+    },
+    "vitamin_b12_5_mg_ml_injectable_solution": {
+      "code": "2001499",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Vitamin B12 5 MG/ML Injectable Solution"
+    },
+    "budesonide_0_25_mg_ml_inhalation_suspension": {
+      "code": "351109",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "budesonide 0.25 MG/ML Inhalation Suspension"
+    },
+    "albuterol_0_21_mg_ml_inhalation_solution": {
+      "code": "351137",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "albuterol 0.21 MG/ML Inhalation Solution"
+    },
+    "albuterol_5_mg_ml_inhalation_solution": {
+      "code": "245314",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "albuterol 5 MG/ML Inhalation Solution"
+    },
+    "budesonide_0_125_mg_ml_inhalation_suspension": {
+      "code": "349094",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "budesonide 0.125 MG/ML Inhalation Suspension"
+    },
+    "28_pack_camila_28_day": {
+      "code": "748962",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Camila 28 Day]"
+    },
+    "acetaminophen_325_mg_oxycodone_hydrochloride_5_mg_oral_tablet": {
+      "code": "1049221",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Acetaminophen 325 MG / Oxycodone Hydrochloride 5 MG Oral Tablet"
+    },
+    "5_17_2_2_2_pack_natazia_28_day": {
+      "code": "978950",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "{5 (dienogest 2 MG / estradiol valerate 2 MG Oral Tablet) / 17 (dienogest 3 MG / estradiol valerate 2 MG Oral Tablet) / 2 (estradiol valerate 1 MG Oral Tablet) / 2 (estradiol valerate 3 MG Oral Tablet) / 2 (inert ingredients 1 MG Oral Tablet) } Pack [Natazia 28 Day]"
+    },
+    "cephalexin_500_mg_oral_tablet": {
+      "code": "197454",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "cephalexin 500 MG Oral Tablet"
+    },
+    "amoxicillin_500_mg_clavulanate_125_mg_oral_tablet": {
+      "code": "617296",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "amoxicillin 500 MG / clavulanate 125 MG Oral Tablet"
+    },
+    "meperidine_hydrochloride_50_mg_oral_tablet": {
+      "code": "861467",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Meperidine Hydrochloride 50 MG Oral Tablet"
+    },
+    "levothyroxine_sodium_0_075_mg_oral_tablet": {
+      "code": "966222",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Levothyroxine Sodium 0.075 MG Oral Tablet"
+    },
+    "anastrozole_1_mg_oral_tablet": {
+      "code": "199224",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "anastrozole 1 MG Oral Tablet"
+    },
+    "abemaciclib_100_mg_oral_tablet_verzenio": {
+      "code": "1946840",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "abemaciclib 100 MG Oral Tablet [Verzenio]"
+    },
+    "furosemide_40_mg_oral_tablet": {
+      "code": "313988",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Furosemide 40 MG Oral Tablet"
+    },
+    "10_ml_furosemide_10_mg_ml_injection": {
+      "code": "1719286",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "10 ML Furosemide 10 MG/ML Injection"
+    },
+    "loratadine_5_mg_chewable_tablet": {
+      "code": "665078",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Loratadine 5 MG Chewable Tablet"
+    },
+    "penicillin_v_potassium_250_mg_oral_tablet": {
+      "code": "834061",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Penicillin V Potassium 250 MG Oral Tablet"
+    },
+    "amoxicillin_250_mg_oral_capsule": {
+      "code": "308182",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Amoxicillin 250 MG Oral Capsule"
+    },
+    "clopidogrel_75_mg_oral_tablet": {
+      "code": "309362",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Clopidogrel 75 MG Oral Tablet"
+    },
+    "simvastatin_20_mg_oral_tablet": {
+      "code": "312961",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Simvastatin 20 MG Oral Tablet"
+    },
+    "24_hr_metoprolol_succinate_100_mg_extended_release_oral_tablet": {
+      "code": "866412",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "24 HR metoprolol succinate 100 MG Extended Release Oral Tablet"
+    },
+    "nitroglycerin_0_4_mg_actuat_mucosal_spray": {
+      "code": "705129",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Nitroglycerin 0.4 MG/ACTUAT Mucosal Spray"
+    },
+    "cefazolin_2000_mg_injection": {
+      "code": "1665060",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "cefazolin 2000 MG Injection"
+    },
+    "1_ml_heparin_sodium_porcine_5000_unt_ml_injection": {
+      "code": "1659263",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "1 ML heparin sodium  porcine 5000 UNT/ML Injection"
+    },
+    "25_ml_protamine_sulfate_10_mg_ml_injection": {
+      "code": "1796676",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "25 ML protamine sulfate (USP) 10 MG/ML Injection"
+    },
+    "2_ml_ondansetron_2_mg_ml_injection": {
+      "code": "1740467",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "2 ML Ondansetron 2 MG/ML Injection"
+    },
+    "midazolam_1_mg_ml_injectable_solution": {
+      "code": "311700",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Midazolam 1 MG/ML Injectable Solution"
+    },
+    "100_ml_propofol_10_mg_ml_injection": {
+      "code": "1808217",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "100 ML Propofol 10 MG/ML Injection"
+    },
+    "rocuronium_bromide_10_mg_ml_injectable_solution": {
+      "code": "1234995",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Rocuronium bromide 10 MG/ML Injectable Solution"
+    },
+    "isoflurane_999_mg_ml_inhalation_solution": {
+      "code": "542347",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "isoflurane 999 MG/ML Inhalation Solution"
+    },
+    "10_ml_fentanyl_0_05_mg_ml_injection": {
+      "code": "1735006",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "10 ML Fentanyl 0.05 MG/ML Injection"
+    },
+    "aspirin_81_mg_oral_tablet": {
+      "code": "243670",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "aspirin 81 MG Oral Tablet"
+    },
+    "24_hr_metoprolol_succinate_25_mg_extended_release_oral_tablet": {
+      "code": "866427",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "24 HR metoprolol succinate 25 MG Extended Release Oral Tablet"
+    },
+    "atorvastatin_10_mg_oral_tablet": {
+      "code": "617312",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "atorvastatin 10 MG Oral Tablet"
+    },
+    "hydrochlorothiazide_12_5_mg_lisinopril_10_mg_oral_tablet": {
+      "code": "197885",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "hydrochlorothiazide 12.5 MG / lisinopril 10 MG Oral Tablet"
+    },
+    "prasugrel_10_mg_oral_tablet": {
+      "code": "855812",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "prasugrel 10 MG Oral Tablet"
+    },
+    "terfenadine_60_mg_oral_tablet": {
+      "code": "141918",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Terfenadine 60 MG Oral Tablet"
+    },
+    "cetirizine_hydrochloride_5_mg_oral_tablet": {
+      "code": "1014676",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "cetirizine hydrochloride 5 MG Oral Tablet"
+    },
+    "diphenhydramine_hydrochloride_25_mg_oral_tablet": {
+      "code": "1049630",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "diphenhydrAMINE Hydrochloride 25 MG Oral Tablet"
+    },
+    "1_ml_docetaxel_20_mg_ml_injection": {
+      "code": "1860480",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "1 ML DOCEtaxel 20 MG/ML Injection"
+    },
+    "0_25_ml_leuprolide_acetate_30_mg_ml_prefilled_syringe": {
+      "code": "752899",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "0.25 ML Leuprolide Acetate 30 MG/ML Prefilled Syringe"
+    },
+    "carvedilol_6_25_mg_oral_tablet": {
+      "code": "200031",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "carvedilol 6.25 MG Oral Tablet"
+    },
+    "atorvastatin_40_mg_oral_tablet": {
+      "code": "617311",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "atorvastatin 40 MG Oral Tablet"
+    },
+    "acetaminophen_325_mg_hydrocodone_bitartrate_7_5_mg_oral_tablet": {
+      "code": "857005",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Acetaminophen 325 MG / HYDROcodone Bitartrate 7.5 MG Oral Tablet"
+    },
+    "astemizole_10_mg_oral_tablet": {
+      "code": "197378",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Astemizole 10 MG Oral Tablet"
+    },
+    "24_hr_nicotine_0_292_mg_hr_transdermal_system": {
+      "code": "198031",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "24 HR nicotine 0.292 MG/HR Transdermal System"
+    },
+    "tamoxifen_10_mg_oral_tablet": {
+      "code": "198240",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Tamoxifen 10 MG Oral Tablet"
+    },
+    "atomoxetine_100_mg_oral_capsule": {
+      "code": "608139",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "atomoxetine 100 MG Oral Capsule"
+    },
+    "cefuroxime_250_mg_oral_tablet": {
+      "code": "309097",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Cefuroxime 250 MG Oral Tablet"
+    },
+    "0_4_ml_enoxaparin_sodium_100_mg_ml_prefilled_syringe": {
+      "code": "854235",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "0.4 ML Enoxaparin sodium 100 MG/ML Prefilled Syringe"
+    },
+    "acetaminophen_500_mg_oral_tablet": {
+      "code": "198440",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Acetaminophen 500 MG Oral Tablet"
+    },
+    "1_ml_enoxaparin_sodium_150_mg_ml_prefilled_syringe": {
+      "code": "854252",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "1 ML Enoxaparin sodium 150 MG/ML Prefilled Syringe"
+    },
+    "28_pack_errin_28_day": {
+      "code": "831533",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "{28 (norethindrone 0.35 MG Oral Tablet) } Pack [Errin 28 Day]"
+    },
+    "levonorgestrel_0_000833_mg_hr_intrauterine_system_mirena": {
+      "code": "807283",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "levonorgestrel 0.000833 MG/HR Intrauterine System [Mirena]"
+    },
+    "doxycycline_hyclate_100_mg": {
+      "code": "1649987",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "doxycycline hyclate 100 MG"
+    },
+    "prednisone_5_mg_oral_tablet": {
+      "code": "312617",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "predniSONE 5 MG Oral Tablet"
+    },
+    "ciprofloxacin_250_mg_oral_tablet": {
+      "code": "197511",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "ciprofloxacin 250 MG Oral Tablet"
+    },
+    "tramadol_hydrochloride_50_mg_oral_tablet": {
+      "code": "835603",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "tramadol hydrochloride 50 MG Oral Tablet"
+    },
+    "labetalol_hydrochloride_300_mg_oral_tablet": {
+      "code": "896766",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "labetalol hydrochloride 300 MG Oral Tablet"
+    },
+    "losartan_potassium_100_mg_oral_tablet": {
+      "code": "979480",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "losartan potassium 100 MG Oral Tablet"
+    },
+    "acetaminophen_300_mg_codeine_phosphate_15_mg_oral_tablet": {
+      "code": "993770",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Acetaminophen 300 MG / Codeine Phosphate 15 MG Oral Tablet"
+    },
+    "fluoxetine_20_mg_oral_capsule": {
+      "code": "310385",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "FLUoxetine 20 MG Oral Capsule"
+    },
+    "chlorpheniramine_maleate_2_mg_ml_oral_solution": {
+      "code": "477045",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Chlorpheniramine Maleate 2 MG/ML Oral Solution"
+    },
+    "cyclosporine_modified_100_mg_oral_capsule": {
+      "code": "241834",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "cycloSPORINE  modified 100 MG Oral Capsule"
+    },
+    "acetaminophen_325_mg_oral_tablet_tylenol": {
+      "code": "209387",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Acetaminophen 325 MG Oral Tablet [Tylenol]"
+    },
+    "12_hr_hydrocodone_bitartrate_10_mg_extended_release_oral_capsule": {
+      "code": "1860491",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "12 HR Hydrocodone Bitartrate 10 MG Extended Release Oral Capsule"
+    },
+    "atenolol_50_mg_oral_tablet": {
+      "code": "197381",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "atenolol 50 MG Oral Tablet"
+    },
+    "enalapril_maleate_2_5_mg_oral_tablet": {
+      "code": "858804",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "enalapril maleate 2.5 MG Oral Tablet"
+    },
+    "piperacillin_2000_mg_tazobactam_250_mg_injection": {
+      "code": "1659131",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "piperacillin 2000 MG / tazobactam 250 MG Injection"
+    },
+    "150_ml_vancomycin_5_mg_ml_injection": {
+      "code": "1807510",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "150 ML vancomycin 5 MG/ML Injection"
+    },
+    "alendronic_acid_10_mg_oral_tablet": {
+      "code": "904419",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Alendronic acid 10 MG Oral Tablet"
+    },
+    "galantamine_4_mg_oral_tablet": {
+      "code": "310436",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Galantamine 4 MG Oral Tablet"
+    },
+    "memantine_hydrochloride_2_mg_ml_oral_solution": {
+      "code": "996740",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Memantine hydrochloride 2 MG/ML Oral Solution"
+    },
+    "lisinopril_20_mg_oral_tablet": {
+      "code": "314077",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "lisinopril 20 MG Oral Tablet"
+    },
+    "clonazepam_0_25_mg_oral_tablet": {
+      "code": "204892",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "clonazePAM 0.25 MG Oral Tablet"
+    },
+    "cisplatin_50_mg_injection": {
+      "code": "1736854",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Cisplatin 50 MG Injection"
+    },
+    "paclitaxel_100_mg_injection": {
+      "code": "583214",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "PACLitaxel 100 MG Injection"
+    },
+    "buprenorphine_2_mg_naloxone_0_5_mg_sublingual_tablet": {
+      "code": "351266",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "buprenorphine 2 MG / naloxone 0.5 MG Sublingual Tablet"
+    },
+    "alteplase_100_mg_injection": {
+      "code": "1804799",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Alteplase 100 MG Injection"
+    },
+    "methylphenidate_hydrochloride_20_mg_oral_tablet": {
+      "code": "1091392",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Methylphenidate Hydrochloride 20 MG Oral Tablet"
+    },
+    "100_ml_epirubicin_hydrochloride_2_mg_ml_injection": {
+      "code": "1732186",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "100 ML Epirubicin Hydrochloride 2 MG/ML Injection"
+    },
+    "ciprofloxacin_500_mg_oral_tablet": {
+      "code": "309309",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "ciprofloxacin 500 MG Oral Tablet"
+    },
+    "aspirin_325_mg_oral_tablet": {
+      "code": "212033",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "aspirin 325 MG Oral Tablet"
+    },
+    "nitroglycerin_0_4_mg_sublingual_tablet": {
+      "code": "198039",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "nitroglycerin 0.4 MG Sublingual Tablet"
+    },
+    "50_ml_bivalirudin_5_mg_ml_injection": {
+      "code": "1997015",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "50 ML bivalirudin 5 MG/ML Injection"
+    },
+    "ticagrelor_90_mg_oral_tablet": {
+      "code": "1116635",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "ticagrelor 90 MG Oral Tablet"
+    },
+    "metoprolol_tartrate_50_mg_oral_tablet": {
+      "code": "866514",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "metoprolol tartrate 50 MG Oral Tablet"
+    },
+    "pravastatin_sodium_40_mg_oral_tablet": {
+      "code": "904475",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "pravastatin sodium 40 MG Oral Tablet"
+    },
+    "1_ml_epoetin_alfa_4000_unt_ml_injection_epogen": {
+      "code": "205923",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "1 ML Epoetin Alfa 4000 UNT/ML Injection [Epogen]"
+    },
+    "penicillin_g_375_mg_ml_injectable_solution": {
+      "code": "105078",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Penicillin G 375 MG/ML Injectable Solution"
+    },
+    "donepezil_hydrochloride_10_mg_oral_tablet": {
+      "code": "997223",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Donepezil hydrochloride 10 MG Oral Tablet"
+    },
+    "donepezil_hydrochloride_23_mg_oral_tablet": {
+      "code": "1100184",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Donepezil hydrochloride 23 MG Oral Tablet"
+    },
+    "sodium_chloride_9_mg_ml_injectable_solution": {
+      "code": "313002",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Sodium Chloride 9 MG/ML Injectable Solution"
+    },
+    "1_ml_morphine_sulfate_5_mg_ml_injection": {
+      "code": "1732136",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "1 ML Morphine Sulfate 5 MG/ML Injection"
+    },
+    "piperacillin_4000_mg_tazobactam_500_mg_injection": {
+      "code": "1659149",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Piperacillin 4000 MG / tazobactam 500 MG Injection"
+    },
+    "10_ml_alfentanil_0_5_mg_ml_injection": {
+      "code": "1723208",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "10 ML Alfentanil 0.5 MG/ML Injection"
+    },
+    "2_ml_morphine_sulfate_1_mg_ml_injection": {
+      "code": "1728805",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "2 ML morphine sulfate 1 MG/ML Injection"
+    },
+    "heparin_sodium_porcine_100_unt_ml_injectable_solution": {
+      "code": "1361048",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "heparin sodium  porcine 100 UNT/ML Injectable Solution"
+    },
+    "24_hr_metoprolol_succinate_50_mg_extended_release_oral_tablet": {
+      "code": "866436",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "24 HR metoprolol succinate 50 MG Extended Release Oral Tablet"
+    },
+    "atorvastatin_20_mg_oral_tablet": {
+      "code": "617310",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "atorvastatin 20 MG Oral Tablet"
+    },
+    "enalapril_maleate_10_mg_oral_tablet": {
+      "code": "858817",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "enalapril maleate 10 MG Oral Tablet"
+    },
+    "leucovorin_100_mg_injection": {
+      "code": "1803932",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Leucovorin 100 MG Injection"
+    },
+    "10_ml_oxaliplatin_5_mg_ml_injection": {
+      "code": "1736776",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "10 ML oxaliplatin 5 MG/ML Injection"
+    },
+    "insulin_regular_human_100_unt_ml_injectable_solution": {
+      "code": "311034",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "insulin  regular  human 100 UNT/ML Injectable Solution"
+    },
+    "verapamil_hydrochloride_80_mg_oral_tablet_calan": {
+      "code": "897685",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "verapamil hydrochloride 80 MG Oral Tablet [Calan]"
+    },
+    "warfarin_sodium_5_mg_oral_tablet": {
+      "code": "855332",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Warfarin Sodium 5 MG Oral Tablet"
+    },
+    "digoxin_0_125_mg_oral_tablet": {
+      "code": "197604",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "Digoxin 0.125 MG Oral Tablet"
+    },
+    "sevoflurane_1000_mg_ml_inhalation_solution": {
+      "code": "200243",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "sevoflurane 1000 MG/ML Inhalation Solution"
+    },
+    "remifentanil_2_mg_injection": {
+      "code": "1729584",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "remifentanil 2 MG Injection"
+    },
+    "losartan_potassium_25_mg_oral_tablet": {
+      "code": "979485",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "losartan potassium 25 MG Oral Tablet"
+    },
+    "amlodipine_2_5_mg_benazepril_hydrochloride_10_mg_oral_capsule": {
+      "code": "898350",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "amlodipine 2.5 MG / benazepril hydrochloride 10 MG Oral Capsule"
+    },
+    "1_ml_tacrolimus_5_mg_ml_injection_prograf": {
+      "code": "108515",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "1 ML tacrolimus 5 MG/ML Injection [Prograf]"
+    },
+    "24_hr_tacrolimus_1_mg_extended_release_oral_tablet_envarsus": {
+      "code": "1664463",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "24 HR tacrolimus 1 MG Extended Release Oral Tablet [Envarsus]"
+    },
+    "atorvastatin_80_mg_oral_tablet": {
+      "code": "259255",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "atorvastatin 80 MG Oral Tablet"
+    },
+    "atenolol_100_mg_oral_tablet": {
+      "code": "197379",
+      "system": "RxNorm",
+      "kind": "medication",
+      "label": "atenolol 100 MG Oral Tablet"
+    },
+    "body_height": {
+      "code": "8302-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Body Height"
+    },
+    "pain_severity_0_10_verbal_numeric_rating_score_reported": {
+      "code": "72514-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Pain severity - 0-10 verbal numeric rating [Score] - Reported"
+    },
+    "body_weight": {
+      "code": "29463-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Body Weight"
+    },
+    "weight_for_length_per_age_and_sex": {
+      "code": "77606-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Weight-for-length Per age and sex"
+    },
+    "head_occipital_frontal_circumference_percentile": {
+      "code": "8289-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Head Occipital-frontal circumference Percentile"
+    },
+    "head_occipital_frontal_circumference": {
+      "code": "9843-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Head Occipital-frontal circumference"
+    },
+    "diastolic_blood_pressure": {
+      "code": "8462-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Diastolic Blood Pressure"
+    },
+    "systolic_blood_pressure": {
+      "code": "8480-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Systolic Blood Pressure"
+    },
+    "heart_rate": {
+      "code": "8867-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Heart rate"
+    },
+    "respiratory_rate": {
+      "code": "9279-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Respiratory rate"
+    },
+    "leukocytes_volume_in_blood_by_automated_count": {
+      "code": "6690-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Leukocytes [#/volume] in Blood by Automated count"
+    },
+    "erythrocytes_volume_in_blood_by_automated_count": {
+      "code": "789-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Erythrocytes [#/volume] in Blood by Automated count"
+    },
+    "hemoglobin_mass_volume_in_blood": {
+      "code": "718-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Hemoglobin [Mass/volume] in Blood"
+    },
+    "hematocrit_volume_fraction_of_blood_by_automated_count": {
+      "code": "4544-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Hematocrit [Volume Fraction] of Blood by Automated count"
+    },
+    "mcv_entitic_mean_volume_in_red_blood_cells_by_automated_count": {
+      "code": "787-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "MCV [Entitic mean volume] in Red Blood Cells by Automated count"
+    },
+    "mch_entitic_mass_by_automated_count": {
+      "code": "785-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "MCH [Entitic mass] by Automated count"
+    },
+    "body_mass_index_ratio": {
+      "code": "39156-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Body mass index (BMI) [Ratio]"
+    },
+    "body_mass_index_percentile_per_age_and_sex": {
+      "code": "59576-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Body mass index (BMI) [Percentile] Per age and sex"
+    },
+    "tobacco_smoking_status": {
+      "code": "72166-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Tobacco smoking status"
+    },
+    "mchc_entitic_mass_volume_in_red_blood_cells_by_automated_count": {
+      "code": "786-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "MCHC [Entitic Mass/volume] in Red Blood Cells by Automated count"
+    },
+    "erythrocyte_distwidth_in_blood_by_automated_count": {
+      "code": "788-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Erythrocyte [DistWidth] in Blood by Automated count"
+    },
+    "platelets_volume_in_blood_by_automated_count": {
+      "code": "777-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Platelets [#/volume] in Blood by Automated count"
+    },
+    "platelet_entitic_mean_volume_in_blood_by_automated_count": {
+      "code": "32623-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Platelet [Entitic mean volume] in Blood by Automated count"
+    },
+    "body_temperature": {
+      "code": "8310-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Body temperature"
+    },
+    "generalized_anxiety_disorder_7_item_total_score_reported_phq": {
+      "code": "70274-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Generalized anxiety disorder 7 item (GAD-7) total score [Reported.PHQ]"
+    },
+    "qaly": {
+      "code": "QALY",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "QALY"
+    },
+    "daly": {
+      "code": "DALY",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "DALY"
+    },
+    "qols": {
+      "code": "QOLS",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "QOLS"
+    },
+    "oxygen_saturation_in_arterial_blood": {
+      "code": "2708-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Oxygen saturation in Arterial blood"
+    },
+    "glucose_mass_volume_in_urine_by_test_strip": {
+      "code": "5792-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Glucose [Mass/volume] in Urine by Test strip"
+    },
+    "ketones_presence_in_urine_by_test_strip": {
+      "code": "2514-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Ketones [Presence] in Urine by Test strip"
+    },
+    "specific_gravity_of_urine_by_test_strip": {
+      "code": "5811-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Specific gravity of Urine by Test strip"
+    },
+    "ph_of_urine_by_test_strip": {
+      "code": "5803-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "pH of Urine by Test strip"
+    },
+    "protein_mass_volume_in_urine_by_test_strip": {
+      "code": "5804-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Protein [Mass/volume] in Urine by Test strip"
+    },
+    "nitrite_presence_in_urine_by_test_strip": {
+      "code": "5802-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Nitrite [Presence] in Urine by Test strip"
+    },
+    "hemoglobin_presence_in_urine_by_test_strip": {
+      "code": "5794-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Hemoglobin [Presence] in Urine by Test strip"
+    },
+    "leukocyte_esterase_presence_in_urine_by_test_strip": {
+      "code": "5799-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Leukocyte esterase [Presence] in Urine by Test strip"
+    },
+    "leukocytes_area_in_urine_sediment_by_microscopy_high_power_field": {
+      "code": "5821-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Leukocytes [#/area] in Urine sediment by Microscopy high power field"
+    },
+    "casts_presence_in_urine_sediment_by_light_microscopy": {
+      "code": "24124-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Casts [Presence] in Urine sediment by Light microscopy"
+    },
+    "mucus_presence_in_urine_sediment_by_light_microscopy": {
+      "code": "8247-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Mucus [Presence] in Urine sediment by Light microscopy"
+    },
+    "bacteria_area_in_urine_sediment_by_microscopy_high_power_field": {
+      "code": "5769-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Bacteria [#/area] in Urine sediment by Microscopy high power field"
+    },
+    "bacteria_identified_in_urine_by_culture": {
+      "code": "630-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Bacteria identified in Urine by Culture"
+    },
+    "are_you_a_refugee": {
+      "code": "93027-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Are you a refugee"
+    },
+    "stress_level": {
+      "code": "93038-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Stress level"
+    },
+    "primary_insurance": {
+      "code": "76437-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Primary insurance"
+    },
+    "employment_status_current": {
+      "code": "67875-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Employment status - current"
+    },
+    "highest_level_of_education": {
+      "code": "82589-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Highest level of education"
+    },
+    "address": {
+      "code": "56799-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Address"
+    },
+    "are_you_worried_about_losing_your_housing_prapare": {
+      "code": "93033-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Are you worried about losing your housing [PRAPARE]"
+    },
+    "housing_status": {
+      "code": "71802-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Housing status"
+    },
+    "how_many_people_are_living_or_staying_at_this_address": {
+      "code": "63512-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "How many people are living or staying at this address [#]"
+    },
+    "preferred_language": {
+      "code": "54899-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Preferred language"
+    },
+    "discharged_from_the_u_s_armed_forces": {
+      "code": "93034-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Discharged from the U.S. Armed Forces"
+    },
+    "race": {
+      "code": "32624-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Race"
+    },
+    "hispanic_or_latino": {
+      "code": "56051-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Hispanic or Latino"
+    },
+    "patient_health_questionnaire_2_item_total_score_reported": {
+      "code": "55758-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Patient Health Questionnaire 2 item (PHQ-2) total score [Reported]"
+    },
+    "total_score_dast_10": {
+      "code": "82667-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Total score [DAST-10]"
+    },
+    "choriogonadotropin_presence_in_urine": {
+      "code": "2106-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Choriogonadotropin [Presence] in Urine"
+    },
+    "hemoglobin_a1c_hemoglobin_total_in_blood": {
+      "code": "4548-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Hemoglobin A1c/Hemoglobin.total in Blood"
+    },
+    "glucose_mass_volume_in_blood": {
+      "code": "2339-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Glucose [Mass/volume] in Blood"
+    },
+    "urea_nitrogen_mass_volume_in_blood": {
+      "code": "6299-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Urea nitrogen [Mass/volume] in Blood"
+    },
+    "creatinine_mass_volume_in_blood": {
+      "code": "38483-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Creatinine [Mass/volume] in Blood"
+    },
+    "calcium_mass_volume_in_blood": {
+      "code": "49765-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Calcium [Mass/volume] in Blood"
+    },
+    "sodium_moles_volume_in_blood": {
+      "code": "2947-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Sodium [Moles/volume] in Blood"
+    },
+    "potassium_moles_volume_in_blood": {
+      "code": "6298-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Potassium [Moles/volume] in Blood"
+    },
+    "chloride_moles_volume_in_blood": {
+      "code": "2069-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Chloride [Moles/volume] in Blood"
+    },
+    "carbon_dioxide_total_moles_volume_in_blood": {
+      "code": "20565-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Carbon dioxide  total [Moles/volume] in Blood"
+    },
+    "hematocrit_volume_fraction_of_blood_by_calculation": {
+      "code": "20570-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Hematocrit [Volume Fraction] of Blood by calculation"
+    },
+    "patient_health_questionnaire_9_item_total_score_reported": {
+      "code": "44261-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Patient Health Questionnaire 9 item (PHQ-9) total score [Reported]"
+    },
+    "pregnancy_status": {
+      "code": "82810-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Pregnancy status"
+    },
+    "peanut_ige_ab_units_volume_in_serum": {
+      "code": "6206-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Peanut IgE Ab [Units/volume] in Serum"
+    },
+    "walnut_ige_ab_units_volume_in_serum": {
+      "code": "6273-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Walnut IgE Ab [Units/volume] in Serum"
+    },
+    "codfish_ige_ab_units_volume_in_serum": {
+      "code": "6082-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Codfish IgE Ab [Units/volume] in Serum"
+    },
+    "shrimp_ige_ab_units_volume_in_serum": {
+      "code": "6246-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Shrimp IgE Ab [Units/volume] in Serum"
+    },
+    "wheat_ige_ab_units_volume_in_serum": {
+      "code": "6276-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Wheat IgE Ab [Units/volume] in Serum"
+    },
+    "egg_white_ige_ab_units_volume_in_serum": {
+      "code": "6106-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Egg white IgE Ab [Units/volume] in Serum"
+    },
+    "soybean_ige_ab_units_volume_in_serum": {
+      "code": "6248-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Soybean IgE Ab [Units/volume] in Serum"
+    },
+    "cow_milk_ige_ab_units_volume_in_serum": {
+      "code": "7258-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Cow milk IgE Ab [Units/volume] in Serum"
+    },
+    "white_oak_ige_ab_units_volume_in_serum": {
+      "code": "6189-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "White oak IgE Ab [Units/volume] in Serum"
+    },
+    "common_ragweed_ige_ab_units_volume_in_serum": {
+      "code": "6085-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Common Ragweed IgE Ab [Units/volume] in Serum"
+    },
+    "cat_dander_ige_ab_units_volume_in_serum": {
+      "code": "6833-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Cat dander IgE Ab [Units/volume] in Serum"
+    },
+    "american_house_dust_mite_ige_ab_units_volume_in_serum": {
+      "code": "6095-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "American house dust mite IgE Ab [Units/volume] in Serum"
+    },
+    "cladosporium_herbarum_ige_ab_units_volume_in_serum": {
+      "code": "6075-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Cladosporium herbarum IgE Ab [Units/volume] in Serum"
+    },
+    "honey_bee_ige_ab_units_volume_in_serum": {
+      "code": "6844-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Honey bee IgE Ab [Units/volume] in Serum"
+    },
+    "latex_ige_ab_units_volume_in_serum": {
+      "code": "6158-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Latex IgE Ab [Units/volume] in Serum"
+    },
+    "total_score_hark": {
+      "code": "76504-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Total score [HARK]"
+    },
+    "total_score_audit_c": {
+      "code": "75626-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Total score [AUDIT-C]"
+    },
+    "cholesterol_mass_volume_in_serum_or_plasma": {
+      "code": "2093-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Cholesterol [Mass/volume] in Serum or Plasma"
+    },
+    "triglyceride_mass_volume_in_serum_or_plasma": {
+      "code": "2571-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Triglyceride [Mass/volume] in Serum or Plasma"
+    },
+    "cholesterol_in_hdl_mass_volume_in_serum_or_plasma": {
+      "code": "2085-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Cholesterol in HDL [Mass/volume] in Serum or Plasma"
+    },
+    "microalbumin_creatinine_mass_ratio_in_urine": {
+      "code": "14959-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Microalbumin/Creatinine [Mass Ratio] in Urine"
+    },
+    "logmar_visual_acuity_left_eye": {
+      "code": "413077008",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "LogMAR visual acuity left eye (observable entity)"
+    },
+    "logmar_visual_acuity_right_eye": {
+      "code": "413078003",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "LogMAR visual acuity right eye (observable entity)"
+    },
+    "left_eye_intraocular_pressure": {
+      "code": "79893-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Left eye Intraocular pressure"
+    },
+    "right_eye_intraocular_pressure": {
+      "code": "79892-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Right eye Intraocular pressure"
+    },
+    "left_eye_diabetic_retinopathy_severity_level_by_ophthalmoscopy": {
+      "code": "71490-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Left eye Diabetic retinopathy severity level by Ophthalmoscopy"
+    },
+    "right_eye_diabetic_retinopathy_severity_level_by_ophthalmoscopy": {
+      "code": "71491-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Right eye Diabetic retinopathy severity level by Ophthalmoscopy"
+    },
+    "protein_mass_volume_in_serum_or_plasma": {
+      "code": "2885-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Protein [Mass/volume] in Serum or Plasma"
+    },
+    "albumin_mass_volume_in_serum_or_plasma": {
+      "code": "1751-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Albumin [Mass/volume] in Serum or Plasma"
+    },
+    "globulin_mass_volume_in_serum_by_calculation": {
+      "code": "10834-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Globulin [Mass/volume] in Serum by calculation"
+    },
+    "bilirubin_total_mass_volume_in_serum_or_plasma": {
+      "code": "1975-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Bilirubin.total [Mass/volume] in Serum or Plasma"
+    },
+    "polyp_size_greatest_dimension": {
+      "code": "33756-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Polyp size greatest dimension"
+    },
+    "cause_of_death_us_standard_certificate_of_death": {
+      "code": "69453-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Cause of Death [US Standard Certificate of Death]"
+    },
+    "emergency_severity_index_esi": {
+      "code": "75636-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Emergency severity index [ESI]"
+    },
+    "glucose_mass_volume_in_serum_or_plasma": {
+      "code": "2345-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Glucose [Mass/volume] in Serum or Plasma"
+    },
+    "urea_nitrogen_mass_volume_in_serum_or_plasma": {
+      "code": "3094-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Urea nitrogen [Mass/volume] in Serum or Plasma"
+    },
+    "creatinine_mass_volume_in_serum_or_plasma": {
+      "code": "2160-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Creatinine [Mass/volume] in Serum or Plasma"
+    },
+    "calcium_mass_volume_in_serum_or_plasma": {
+      "code": "17861-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Calcium [Mass/volume] in Serum or Plasma"
+    },
+    "sodium_moles_volume_in_serum_or_plasma": {
+      "code": "2951-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Sodium [Moles/volume] in Serum or Plasma"
+    },
+    "potassium_moles_volume_in_serum_or_plasma": {
+      "code": "2823-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Potassium [Moles/volume] in Serum or Plasma"
+    },
+    "chloride_moles_volume_in_serum_or_plasma": {
+      "code": "2075-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Chloride [Moles/volume] in Serum or Plasma"
+    },
+    "carbon_dioxide_total_moles_volume_in_serum_or_plasma": {
+      "code": "2028-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Carbon dioxide  total [Moles/volume] in Serum or Plasma"
+    },
+    "site_of_distant_metastasis_in_breast_tumor": {
+      "code": "44667-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Site of distant metastasis in Breast tumor"
+    },
+    "distant_metastases_clinical_class_cancer": {
+      "code": "21907-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Distant metastases.clinical [Class] Cancer"
+    },
+    "size_maximum_dimension_in_tumor": {
+      "code": "33728-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Size.maximum dimension in Tumor"
+    },
+    "primary_tumor_clinical_class_cancer": {
+      "code": "21905-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Primary tumor.clinical [Class] Cancer"
+    },
+    "regional_lymph_nodes_clinical_class_cancer": {
+      "code": "21906-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Regional lymph nodes.clinical [Class] Cancer"
+    },
+    "her2_presence_in_breast_cancer_specimen_by_immune_stain": {
+      "code": "85319-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "HER2 [Presence] in Breast cancer specimen by Immune stain"
+    },
+    "stage_group_clinical_cancer": {
+      "code": "21908-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Stage group.clinical Cancer"
+    },
+    "treatment_status_cancer": {
+      "code": "59557-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Treatment status Cancer"
+    },
+    "response_to_cancer_treatment": {
+      "code": "88040-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Response to cancer treatment"
+    },
+    "symptom": {
+      "code": "75325-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Symptom"
+    },
+    "magnesium_mass_volume_in_serum_or_plasma": {
+      "code": "19123-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Magnesium [Mass/volume] in Serum or Plasma"
+    },
+    "ferritin_mass_volume_in_serum_or_plasma": {
+      "code": "2276-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Ferritin [Mass/volume] in Serum or Plasma"
+    },
+    "iron_mass_volume_in_serum_or_plasma": {
+      "code": "2498-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Iron [Mass/volume] in Serum or Plasma"
+    },
+    "iron_binding_capacity_mass_volume_in_serum_or_plasma": {
+      "code": "2500-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Iron binding capacity [Mass/volume] in Serum or Plasma"
+    },
+    "iron_saturation_mass_fraction_in_serum_or_plasma": {
+      "code": "2502-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Iron saturation [Mass Fraction] in Serum or Plasma"
+    },
+    "functional_capacity_nyha": {
+      "code": "88020-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Functional capacity NYHA"
+    },
+    "objective_assessment_of_cardiovascular_disease_nyha": {
+      "code": "88021-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Objective assessment of cardiovascular disease NYHA"
+    },
+    "left_ventricular_ejection_fraction": {
+      "code": "10230-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Left ventricular Ejection fraction"
+    },
+    "fall_risk_total_morse_fall_scale": {
+      "code": "59460-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Fall risk total [Morse Fall Scale]"
+    },
+    "fall_risk_level_morse_fall_scale": {
+      "code": "59461-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Fall risk level [Morse Fall Scale]"
+    },
+    "priority_level": {
+      "code": "X9999-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Priority Level"
+    },
+    "operative_status_value": {
+      "code": "X9999-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Operative Status Value"
+    },
+    "phosphate_mass_volume_in_serum_or_plasma": {
+      "code": "2777-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Phosphate [Mass/volume] in Serum or Plasma"
+    },
+    "prothrombin_time": {
+      "code": "5902-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Prothrombin time (PT)"
+    },
+    "inr_in_platelet_poor_plasma_by_coagulation_assay": {
+      "code": "6301-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "INR in Platelet poor plasma by Coagulation assay"
+    },
+    "aptt_in_blood_by_coagulation_assay": {
+      "code": "3173-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "aPTT in Blood by Coagulation assay"
+    },
+    "ph_of_arterial_blood": {
+      "code": "2744-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "pH of Arterial blood"
+    },
+    "carbon_dioxide_partial_pressure_in_arterial_blood": {
+      "code": "2019-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Carbon dioxide [Partial pressure] in Arterial blood"
+    },
+    "oxygen_partial_pressure_in_arterial_blood": {
+      "code": "2703-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Oxygen [Partial pressure] in Arterial blood"
+    },
+    "bicarbonate_moles_volume_in_arterial_blood": {
+      "code": "1960-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Bicarbonate [Moles/volume] in Arterial blood"
+    },
+    "thyrotropin_units_volume_in_serum_or_plasma": {
+      "code": "3016-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Thyrotropin [Units/volume] in Serum or Plasma"
+    },
+    "glucose_presence_in_urine_by_test_strip": {
+      "code": "25428-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Glucose [Presence] in Urine by Test strip"
+    },
+    "bilirubin_total_presence_in_urine_by_test_strip": {
+      "code": "5770-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Bilirubin.total [Presence] in Urine by Test strip"
+    },
+    "protein_presence_in_urine_by_test_strip": {
+      "code": "20454-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Protein [Presence] in Urine by Test strip"
+    },
+    "activated_clotting_time_of_blood_by_coagulation_assay": {
+      "code": "3184-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Activated clotting time (ACT) of Blood by Coagulation assay"
+    },
+    "ph_of_venous_blood": {
+      "code": "2746-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "pH of Venous blood"
+    },
+    "carbon_dioxide_partial_pressure_in_venous_blood": {
+      "code": "2021-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Carbon dioxide [Partial pressure] in Venous blood"
+    },
+    "oxygen_partial_pressure_in_venous_blood": {
+      "code": "2705-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Oxygen [Partial pressure] in Venous blood"
+    },
+    "bicarbonate_moles_volume_in_venous_blood": {
+      "code": "14627-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Bicarbonate [Moles/volume] in Venous blood"
+    },
+    "carbon_dioxide_total_moles_volume_in_venous_blood": {
+      "code": "2027-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Carbon dioxide  total [Moles/volume] in Venous blood"
+    },
+    "procedure_narrative": {
+      "code": "29554-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Procedure Narrative"
+    },
+    "physical_findings_of_prostate": {
+      "code": "32465-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Physical findings of Prostate"
+    },
+    "prostate_specific_ag_mass_volume_in_serum_or_plasma": {
+      "code": "2857-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Prostate specific Ag [Mass/volume] in Serum or Plasma"
+    },
+    "us_guidance_for_biopsy_of_prostate": {
+      "code": "46288-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "US Guidance for biopsy of Prostate"
+    },
+    "appearance_of_urine": {
+      "code": "5767-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Appearance of Urine"
+    },
+    "odor_of_urine": {
+      "code": "34533-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Odor of Urine"
+    },
+    "clarity_of_urine": {
+      "code": "32167-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Clarity of Urine"
+    },
+    "color_of_urine": {
+      "code": "5778-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Color of Urine"
+    },
+    "bilirubin_total_mass_volume_in_urine_by_test_strip": {
+      "code": "20505-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Bilirubin.total [Mass/volume] in Urine by Test strip"
+    },
+    "ketones_mass_volume_in_urine_by_test_strip": {
+      "code": "5797-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Ketones [Mass/volume] in Urine by Test strip"
+    },
+    "dxa_radius_and_ulna_t_score_bone_density": {
+      "code": "38265-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "DXA Radius and Ulna [T-score] Bone density"
+    },
+    "position_of_body_and_posture": {
+      "code": "271605009",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Position of body and posture (observable entity)"
+    },
+    "cobb_angle": {
+      "code": "285285000",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Cobb angle (observable entity)"
+    },
+    "risser_sign": {
+      "code": "870537001",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Risser sign (finding)"
+    },
+    "neutrophils_leukocytes_in_blood_by_automated_count": {
+      "code": "770-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Neutrophils/Leukocytes in Blood by Automated count"
+    },
+    "lymphocytes_leukocytes_in_blood_by_automated_count": {
+      "code": "736-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Lymphocytes/Leukocytes in Blood by Automated count"
+    },
+    "monocytes_leukocytes_in_blood_by_automated_count": {
+      "code": "5905-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Monocytes/Leukocytes in Blood by Automated count"
+    },
+    "eosinophils_leukocytes_in_blood_by_automated_count": {
+      "code": "713-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Eosinophils/Leukocytes in Blood by Automated count"
+    },
+    "basophils_leukocytes_in_blood_by_automated_count": {
+      "code": "706-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Basophils/Leukocytes in Blood by Automated count"
+    },
+    "neutrophils_volume_in_blood_by_automated_count": {
+      "code": "751-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Neutrophils [#/volume] in Blood by Automated count"
+    },
+    "lymphocytes_volume_in_blood_by_automated_count": {
+      "code": "731-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Lymphocytes [#/volume] in Blood by Automated count"
+    },
+    "monocytes_volume_in_blood_by_automated_count": {
+      "code": "742-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Monocytes [#/volume] in Blood by Automated count"
+    },
+    "eosinophils_volume_in_blood_by_automated_count": {
+      "code": "711-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Eosinophils [#/volume] in Blood by Automated count"
+    },
+    "basophils_volume_in_blood_by_automated_count": {
+      "code": "704-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Basophils [#/volume] in Blood by Automated count"
+    },
+    "oxygen_total_gas_setting_volume_fraction_ventilator": {
+      "code": "19994-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Oxygen/Total gas setting [Volume Fraction] Ventilator"
+    },
+    "fibrin_d_dimer_feu_mass_volume_in_platelet_poor_plasma": {
+      "code": "48065-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Fibrin D-dimer FEU [Mass/volume] in Platelet poor plasma"
+    },
+    "creatine_kinase_enzymatic_activity_volume_in_serum_or_plasma": {
+      "code": "2157-6",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Creatine kinase [Enzymatic activity/volume] in Serum or Plasma"
+    },
+    "c_reactive_protein_mass_volume_in_serum_or_plasma": {
+      "code": "1988-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "C reactive protein [Mass/volume] in Serum or Plasma"
+    },
+    "procalcitonin_mass_volume_in_serum_or_plasma": {
+      "code": "33959-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Procalcitonin [Mass/volume] in Serum or Plasma"
+    },
+    "pain_severity_in_the_past_week_0_10_numeric_rating_reported": {
+      "code": "75893-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Pain severity in the past week - 0-10 numeric rating [Reported]"
+    },
+    "drugs_of_abuse_5_panel_urine_by_screen_method": {
+      "code": "65750-2",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Drugs of abuse 5 panel - Urine by Screen method"
+    },
+    "pain_severity_reported": {
+      "code": "38208-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Pain severity - Reported"
+    },
+    "thyroxine_free_mass_volume_in_serum_or_plasma": {
+      "code": "3024-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Thyroxine (T4) free [Mass/volume] in Serum or Plasma"
+    },
+    "fev1_fvc": {
+      "code": "19926-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "FEV1/FVC"
+    },
+    "sexual_orientation": {
+      "code": "76690-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Sexual orientation"
+    },
+    "hiv_status": {
+      "code": "55277-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "HIV status"
+    },
+    "abuse_status_omaha": {
+      "code": "28245-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Abuse Status [OMAHA]"
+    },
+    "history_of_hospitalizations_outpatient_visits_narrative": {
+      "code": "46240-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "History of Hospitalizations+Outpatient visits Narrative"
+    },
+    "capillary_refill_time_of_nail_bed": {
+      "code": "44963-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Capillary refill [Time] of Nail bed"
+    },
+    "lactate_moles_volume_in_blood": {
+      "code": "32693-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Lactate [Moles/volume] in Blood"
+    },
+    "mean_blood_pressure": {
+      "code": "8478-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Mean blood pressure"
+    },
+    "total_score_mmse": {
+      "code": "72106-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Total score [MMSE]"
+    },
+    "study_observation_left_retina_by_oct": {
+      "code": "79819-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Study observation Left retina by OCT"
+    },
+    "study_observation_right_retina_by_oct": {
+      "code": "79818-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Study observation Right retina by OCT"
+    },
+    "craving_or_a_strong_desire_to_use_opioids": {
+      "code": "99999-4",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Craving or a strong desire to use opioids"
+    },
+    "magnesium_mass_volume_in_blood": {
+      "code": "21377-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Magnesium [Mass/volume] in Blood"
+    },
+    "weight_difference_mass_difference_pre_dialysis_post_dialysis": {
+      "code": "74006-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Weight difference [Mass difference] --pre dialysis - post dialysis"
+    },
+    "leukocytes_volume_in_blood": {
+      "code": "26464-8",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Leukocytes [#/volume] in Blood"
+    },
+    "erythrocytes_volume_in_blood": {
+      "code": "26453-1",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Erythrocytes [#/volume] in Blood"
+    },
+    "mcv_entitic_mean_volume_in_red_blood_cells": {
+      "code": "30428-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "MCV [Entitic mean volume] in Red Blood Cells"
+    },
+    "erythrocyte_distwidth_in_blood": {
+      "code": "30385-9",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Erythrocyte [DistWidth] in Blood"
+    },
+    "platelets_volume_in_blood": {
+      "code": "26515-7",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Platelets [#/volume] in Blood"
+    },
+    "bilirubin_total_mass_volume_in_blood": {
+      "code": "42719-5",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Bilirubin.total [Mass/volume] in Blood"
+    },
+    "anion_gap_in_serum_or_plasma_by_calculation": {
+      "code": "33037-3",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Anion gap in Serum or Plasma by calculation"
+    },
+    "physical_findings_of_abdomen_by_palpation": {
+      "code": "80271-0",
+      "system": "LOINC",
+      "kind": "observation",
+      "label": "Physical findings of Abdomen by Palpation"
+    }
+  }
+}

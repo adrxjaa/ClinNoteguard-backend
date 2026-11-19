@@ -22,7 +22,8 @@ root_dir = str(Path(__file__).parent.parent.resolve())
 if root_dir not in sys.path:
     sys.path.insert(0, root_dir)
 
-from api.retrieval.text_utils import dose_agreement
+from api.retrieval.text_utils import dose_agreement, tokenize_clinical
+from rank_bm25 import BM25Okapi
 from scripts.demo_date_flip import EXAMPLES
 from verify.eval.counterfactual import compute_temporal_sensitivity_index
 from verify.eval.metrics import VERIFICATION_CLASSES
@@ -41,12 +42,15 @@ def _run_forward(
     device: str,
     temp: float,
 ) -> Dict[str, Any]:
+    corpus = [tokenize_clinical(r.get("claim_text", "")) for r in ehr_timeline]
+    bm25_scores = BM25Okapi(corpus).get_scores(tokenize_clinical(claim_text)) if corpus else []
     cands = []
-    for r in ehr_timeline:
+    for idx_r, r in enumerate(ehr_timeline):
         rc = dict(r)
-        rc["score"] = 1.0
+        rc["score"] = float(bm25_scores[idx_r]) if idx_r < len(bm25_scores) else 1.0
         rc["dose_agreement"] = dose_agreement(claim_text, rc.get("claim_text", ""))
         cands.append(rc)
+    cands.sort(key=lambda x: x["score"], reverse=True)
 
     claim_obj = {
         "claim_id": "DF_V2",
@@ -67,7 +71,7 @@ def _run_forward(
     gap_days = torch.zeros(num_ev, device=device)
     for i, ev_idx in enumerate(tensors["evidence_node_indices"]):
         if i < len(cands):
-            scalars[i, 0] = 0.8
+            scalars[i, 0] = float(cands[i].get("score", 0.0)) / 10.0
             scalars[i, 1] = 1.0 / (60 + (i + 1))
             d_flag = cands[i].get("dose_agreement", "n/a")
             scalars[i, 2] = 1.0 if d_flag == "match" else 0.0

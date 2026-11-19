@@ -109,13 +109,10 @@ def _reliability_bins(probs: np.ndarray, y_idx: np.ndarray, num_bins: int = 10) 
         lo, hi = bins[i], bins[i + 1]
         mask = (confidences > lo) & (confidences <= hi) if i > 0 else (confidences >= lo) & (confidences <= hi)
         cnt = int(np.sum(mask))
-        bin_counts.append(cnt)
         if cnt > 0:
+            bin_counts.append(cnt)
             bin_centers.append(float(np.mean(confidences[mask])))
             bin_accs.append(float(np.mean(accuracies[mask])))
-        else:
-            bin_centers.append(float((lo + hi) / 2.0))
-            bin_accs.append(float((lo + hi) / 2.0))
     return {"conf_centers": bin_centers, "empirical_acc": bin_accs, "counts": bin_counts}
 
 
