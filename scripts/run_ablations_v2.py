@@ -100,14 +100,20 @@ def _eval_model_on_dataset(
     }
 
 
-def _reliability_bins(probs: np.ndarray, y_idx: np.ndarray, num_bins: int = 10) -> Dict[str, List[float]]:
+def _reliability_bins(probs: np.ndarray, y_idx: np.ndarray, num_bins: int = 5) -> Dict[str, List[float]]:
+    """Uses quantile-based binning so every bin has ~N/num_bins samples (no 1-sample spikes)."""
     confidences = np.max(probs, axis=1)
     accuracies = (np.argmax(probs, axis=1) == y_idx).astype(float)
-    bins = np.linspace(0.0, 1.0, num_bins + 1)
+    quantiles = np.linspace(0.0, 1.0, num_bins + 1)
+    edges = np.quantile(confidences, quantiles)
+    # Fallback to uniform edges if quantiles collapse near 1.0
+    if len(np.unique(np.round(edges, 4))) < 3:
+        edges = np.array([0.0, 0.75, 0.88, 0.94, 0.98, 1.01])
+
     bin_centers, bin_accs, bin_counts = [], [], []
-    for i in range(num_bins):
-        lo, hi = bins[i], bins[i + 1]
-        mask = (confidences > lo) & (confidences <= hi) if i > 0 else (confidences >= lo) & (confidences <= hi)
+    for i in range(len(edges) - 1):
+        lo, hi = edges[i], edges[i + 1]
+        mask = (confidences >= lo) & (confidences <= hi) if i == len(edges) - 2 else (confidences >= lo) & (confidences < hi)
         cnt = int(np.sum(mask))
         if cnt > 0:
             bin_counts.append(cnt)
