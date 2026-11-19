@@ -275,7 +275,7 @@ class ClaimConditionedVerifier(nn.Module):
                     attn_bias[0, :, p_src, p_dst] += bias_h
 
         # (b) Time Bias on claim-to-evidence attention (claim pos = 1, ev pos = 2..2+K)
-        if self.time_bias_mode != "off" and num_ev > 0:
+        if self.time_decay_param is not None and self.time_bias_mode not in ("off", "none") and num_ev > 0:
             log_gaps = torch.log1p(torch.clamp(gap_days_tensor.to(dev), min=0.0))
             if self.time_bias_mode == "per_type":
                 a_weights = F.softplus(self.time_decay_param[attr_types[ev_idx_tensor]])

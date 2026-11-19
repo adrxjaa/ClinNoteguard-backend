@@ -1,0 +1,118 @@
+{
+  "config": {
+    "use_gnn": true,
+    "use_edge_bias": true,
+    "time_bias": "per_type",
+    "epochs": 12
+  },
+  "temperature": 1.490087866783142,
+  "ece": 0.01612405460813767,
+  "metrics": {
+    "accuracy": 0.9686956521739131,
+    "macro_f1": 0.9589821682899423,
+    "per_class": {
+      "TRANSCRIPT_SUPPORTED": {
+        "precision": 0.9851851851851852,
+        "recall": 1.0,
+        "f1": 0.9925373134328358,
+        "support": 133
+      },
+      "HISTORY_SUPPORTED": {
+        "precision": 0.847457627118644,
+        "recall": 0.8928571428571429,
+        "f1": 0.8695652173913043,
+        "support": 56
+      },
+      "CLINICAL_INFERENCE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 70
+      },
+      "CLINICAL_CONFLICT": {
+        "precision": 1.0,
+        "recall": 0.9690721649484536,
+        "f1": 0.9842931937172775,
+        "support": 97
+      },
+      "STALE": {
+        "precision": 0.927710843373494,
+        "recall": 0.8953488372093024,
+        "f1": 0.9112426035502958,
+        "support": 86
+      },
+      "HALLUCINATED": {
+        "precision": 0.9925373134328358,
+        "recall": 1.0,
+        "f1": 0.9962546816479401,
+        "support": 133
+      }
+    },
+    "confusion_matrix": [
+      [
+        133,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        50,
+        0,
+        0,
+        5,
+        1
+      ],
+      [
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        94,
+        1,
+        0
+      ],
+      [
+        0,
+        9,
+        0,
+        0,
+        77,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        133
+      ]
+    ],
+    "labels": [
+      "TRANSCRIPT_SUPPORTED",
+      "HISTORY_SUPPORTED",
+      "CLINICAL_INFERENCE",
+      "CLINICAL_CONFLICT",
+      "STALE",
+      "HALLUCINATED"
+    ],
+    "hallucination_precision": 0.9925373134328358,
+    "hallucination_recall": 1.0,
+    "stale_as_supported_rate": 0.10465116279069768
+  },
+  "date_shuffle": {
+    "history_f1_drop": 0.3379196477710512,
+    "stale_f1_drop": 0.15423325775590335
+  },
+  "checkpoint": "checkpoints/verifier_demo.pt"
+}
