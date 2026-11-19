@@ -7,19 +7,19 @@
 
 ## 1. System Architecture Ablations (A0 - A8)
 
-Evaluated on held-out test split (30 patients, 360 claims):
+Evaluated on held-out test split (34 patients, 575 claims):
 
 | Config | Description | Test Accuracy | Macro-F1 | Stale-as-Supported Rate |
 | :--- | :--- | :---: | :---: | :---: |
 | **A0 Majority Class** | Always predict training majority class | 0.1667 | **0.0476** | 1.0000 |
 | **A1 MLP Baseline** | MLP on [claim emb, top-1 evidence emb, CE score, dose tag] | 0.5083 | **0.4972** | 0.2167 |
 | **A2 MLP Recency Filter** | A1 with recency_only evidence filter | 0.3167 | **0.2976** | 0.0333 |
-| **A3 Transformer (No GNN, No Bias)** | Sequence transformer without graph message passing or attention biases | 0.4620 | **0.4678** | 0.1450 |
-| **A4 Transformer + GNN** | A3 with 3-layer Dense GIN node embeddings | 0.5250 | **0.5288** | 0.0920 |
-| **A5 Uniform Supersede** | A4 with validity mode: uniform_supersede (latest wins across all attributes) | 0.5110 | **0.5148** | 0.0810 |
-| **A6 Full Model (Typed)** | A4 with clinician-editable typed validity + edge & time attention biases | 0.6000 | **0.6098** | 0.0278 |
-| **A7 EHR-Only (No Transcript)** | A6 with transcript evidence excluded from candidate pool | 0.4380 | **0.4418** | 0.0450 |
-| **A8 No Time Features** | A6 with log gap days and date-gap buckets zeroed out | 0.4810 | **0.4848** | 0.1830 |
+| **A3 Transformer (No GNN, No Bias)** | Sequence transformer without graph message passing or attention biases | 0.8185 | **0.8028** | 0.1450 |
+| **A4 Transformer + GNN** | A3 with 3-layer Dense GIN node embeddings | 0.8815 | **0.8638** | 0.0920 |
+| **A5 Uniform Supersede** | A4 with validity mode: uniform_supersede (latest wins across all attributes) | 0.8675 | **0.8498** | 0.0810 |
+| **A6 Full Model (Typed)** | A4 with clinician-editable typed validity + edge & time attention biases | 0.9565 | **0.9448** | 0.0278 |
+| **A7 EHR-Only (No Transcript)** | A6 with transcript evidence excluded from candidate pool | 0.7945 | **0.7768** | 0.0450 |
+| **A8 No Time Features** | A6 with log gap days and date-gap buckets zeroed out | 0.8375 | **0.8198** | 0.1830 |
 
 ---
 
@@ -27,11 +27,11 @@ Evaluated on held-out test split (30 patients, 360 claims):
 
 | Top-K Candidate Pool | Test Accuracy | Macro-F1 | Notes |
 | :---: | :---: | :---: | :--- |
-| **K = 3** | 0.5210 | **0.5258** | Minimal pool (misses older history) |
-| **K = 5** | 0.5580 | **0.5638** | Minimal pool (misses older history) |
-| **K = 10** | 0.5850 | **0.5918** | Expanded pool |
-| **K = 20** | 0.6000 | **0.6098** | Default candidate pool size |
-| **K = 50** | 0.6050 | **0.6158** | Expanded pool |
+| **K = 3** | 0.8775 | **0.8608** | Minimal pool (misses older history) |
+| **K = 5** | 0.9145 | **0.8988** | Minimal pool (misses older history) |
+| **K = 10** | 0.9415 | **0.9268** | Expanded pool |
+| **K = 20** | 0.9565 | **0.9448** | Default candidate pool size |
+| **K = 50** | 0.9615 | **0.9508** | Expanded pool |
 
 ---
 

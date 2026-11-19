@@ -89,7 +89,7 @@ def generate_ablation_report():
 
 ## 1. System Architecture Ablations (A0 - A8)
 
-Evaluated on held-out test split (30 patients, 360 claims):
+Evaluated on held-out test split (34 patients, 575 claims):
 
 | Config | Description | Test Accuracy | Macro-F1 | Stale-as-Supported Rate |
 | :--- | :--- | :---: | :---: | :---: |
