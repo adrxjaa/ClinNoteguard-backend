@@ -1,0 +1,389 @@
+{
+  "dataset": "Synthea + Gemini Longitudinal EHR (v2)",
+  "test_patients": 34,
+  "test_claims": 575,
+  "classes": [
+    "TRANSCRIPT_SUPPORTED",
+    "HISTORY_SUPPORTED",
+    "CLINICAL_INFERENCE",
+    "CLINICAL_CONFLICT",
+    "STALE",
+    "HALLUCINATED"
+  ],
+  "full_model_metrics": {
+    "accuracy": 0.9686956521739131,
+    "macro_f1": 0.9589821682899423,
+    "per_class": {
+      "TRANSCRIPT_SUPPORTED": {
+        "precision": 0.9851851851851852,
+        "recall": 1.0,
+        "f1": 0.9925373134328358,
+        "support": 133
+      },
+      "HISTORY_SUPPORTED": {
+        "precision": 0.847457627118644,
+        "recall": 0.8928571428571429,
+        "f1": 0.8695652173913043,
+        "support": 56
+      },
+      "CLINICAL_INFERENCE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 70
+      },
+      "CLINICAL_CONFLICT": {
+        "precision": 1.0,
+        "recall": 0.9690721649484536,
+        "f1": 0.9842931937172775,
+        "support": 97
+      },
+      "STALE": {
+        "precision": 0.927710843373494,
+        "recall": 0.8953488372093024,
+        "f1": 0.9112426035502958,
+        "support": 86
+      },
+      "HALLUCINATED": {
+        "precision": 0.9925373134328358,
+        "recall": 1.0,
+        "f1": 0.9962546816479401,
+        "support": 133
+      }
+    },
+    "confusion_matrix": [
+      [
+        133,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        50,
+        0,
+        0,
+        5,
+        1
+      ],
+      [
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      [
+        2,
+        0,
+        0,
+        94,
+        1,
+        0
+      ],
+      [
+        0,
+        9,
+        0,
+        0,
+        77,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        133
+      ]
+    ],
+    "labels": [
+      "TRANSCRIPT_SUPPORTED",
+      "HISTORY_SUPPORTED",
+      "CLINICAL_INFERENCE",
+      "CLINICAL_CONFLICT",
+      "STALE",
+      "HALLUCINATED"
+    ],
+    "hallucination_precision": 0.9925373134328358,
+    "hallucination_recall": 1.0,
+    "stale_as_supported_rate": 0.10465116279069768
+  },
+  "transformer_only_metrics": {
+    "accuracy": 0.9686956521739131,
+    "macro_f1": 0.9599268590594489,
+    "per_class": {
+      "TRANSCRIPT_SUPPORTED": {
+        "precision": 0.9779411764705882,
+        "recall": 1.0,
+        "f1": 0.9888475836431226,
+        "support": 133
+      },
+      "HISTORY_SUPPORTED": {
+        "precision": 0.8909090909090909,
+        "recall": 0.875,
+        "f1": 0.8828828828828829,
+        "support": 56
+      },
+      "CLINICAL_INFERENCE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 70
+      },
+      "CLINICAL_CONFLICT": {
+        "precision": 1.0,
+        "recall": 0.9484536082474226,
+        "f1": 0.9735449735449735,
+        "support": 97
+      },
+      "STALE": {
+        "precision": 0.898876404494382,
+        "recall": 0.9302325581395349,
+        "f1": 0.9142857142857143,
+        "support": 86
+      },
+      "HALLUCINATED": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 133
+      }
+    },
+    "confusion_matrix": [
+      [
+        133,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        49,
+        0,
+        0,
+        7,
+        0
+      ],
+      [
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        92,
+        2,
+        0
+      ],
+      [
+        0,
+        6,
+        0,
+        0,
+        80,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        133
+      ]
+    ],
+    "labels": [
+      "TRANSCRIPT_SUPPORTED",
+      "HISTORY_SUPPORTED",
+      "CLINICAL_INFERENCE",
+      "CLINICAL_CONFLICT",
+      "STALE",
+      "HALLUCINATED"
+    ],
+    "hallucination_precision": 1.0,
+    "hallucination_recall": 1.0,
+    "stale_as_supported_rate": 0.06976744186046512
+  },
+  "calibration": {
+    "temperature": 1.490087866783142,
+    "ece_uncalibrated": 0.025738333515499,
+    "ece_calibrated": 0.01612417039663891,
+    "uncalibrated_bins": {
+      "conf_centers": [
+        0.05,
+        0.15000000000000002,
+        0.25,
+        0.35000000000000003,
+        0.45,
+        0.5455688834190369,
+        0.6504732966423035,
+        0.7842328548431396,
+        0.8528805375099182,
+        0.9983453750610352
+      ],
+      "empirical_acc": [
+        0.05,
+        0.15000000000000002,
+        0.25,
+        0.35000000000000003,
+        0.45,
+        0.6666666666666666,
+        0.3333333333333333,
+        0.5,
+        0.0,
+        0.9770318021201413
+      ],
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        3,
+        3,
+        2,
+        1,
+        566
+      ]
+    },
+    "calibrated_bins": {
+      "conf_centers": [
+        0.05,
+        0.15000000000000002,
+        0.25,
+        0.35000000000000003,
+        0.49434158205986023,
+        0.5445783138275146,
+        0.6475660800933838,
+        0.7299030423164368,
+        0.8774388432502747,
+        0.990907609462738
+      ],
+      "empirical_acc": [
+        0.05,
+        0.15000000000000002,
+        0.25,
+        0.35000000000000003,
+        1.0,
+        0.25,
+        0.5,
+        0.5,
+        0.6666666666666666,
+        0.9820466786355476
+      ],
+      "counts": [
+        0,
+        0,
+        0,
+        0,
+        1,
+        4,
+        2,
+        2,
+        9,
+        557
+      ]
+    }
+  },
+  "date_shuffle_sensitivity": {
+    "original_history_f1": 0.8695652173913043,
+    "shuffled_history_f1": 0.5679012345679012,
+    "original_stale_f1": 0.9112426035502958,
+    "shuffled_stale_f1": 0.7942583732057417
+  },
+  "ablations": [
+    {
+      "config": "A0 Majority Class",
+      "desc": "Always predict training majority class",
+      "accuracy": 0.23130434782608697,
+      "macro_f1": 0.06261770244821092,
+      "stale_as_supp": 1.0
+    },
+    {
+      "config": "A1 MLP Base",
+      "desc": "MLP on [claim emb, top-1 evidence emb, BM25 score, dose tag]",
+      "accuracy": 0.9130434782608695,
+      "macro_f1": 0.88897393881394,
+      "stale_as_supp": 0.4186046511627907
+    },
+    {
+      "config": "A2 MLP Recency",
+      "desc": "A1 with recency_only evidence filter",
+      "accuracy": 0.9026086956521739,
+      "macro_f1": 0.8781356027905559,
+      "stale_as_supp": 0.37209302325581395
+    },
+    {
+      "config": "A3 Transf (No GNN)",
+      "desc": "Claim-Conditioned Transformer without DenseGIN, edge bias, or time bias",
+      "accuracy": 0.9686956521739131,
+      "macro_f1": 0.9599268590594489,
+      "stale_as_supp": 0.06976744186046512
+    },
+    {
+      "config": "A6 Full (GNN+Time)",
+      "desc": "3-layer DenseGIN + Transformer with edge bias & per-type continuous time decay",
+      "accuracy": 0.9686956521739131,
+      "macro_f1": 0.9589821682899423,
+      "stale_as_supp": 0.10465116279069768
+    },
+    {
+      "config": "A7 EHR-Only",
+      "desc": "A6 with transcript evidence excluded from candidate pool",
+      "accuracy": 0.9652173913043478,
+      "macro_f1": 0.9538807051596216,
+      "stale_as_supp": 0.10465116279069768
+    },
+    {
+      "config": "A8 No Time Feat",
+      "desc": "A6 with log gap days, date buckets, and time bias zeroed out",
+      "accuracy": 0.9008695652173913,
+      "macro_f1": 0.8093691249637768,
+      "stale_as_supp": 0.011627906976744186
+    }
+  ],
+  "k_sweep": [
+    {
+      "k": 3,
+      "accuracy": 0.9565217391304348,
+      "macro_f1": 0.9438968126328819,
+      "stale_as_supported_rate": 0.19767441860465115
+    },
+    {
+      "k": 5,
+      "accuracy": 0.9721739130434782,
+      "macro_f1": 0.9647188851968608,
+      "stale_as_supported_rate": 0.11627906976744186
+    },
+    {
+      "k": 10,
+      "accuracy": 0.9652173913043478,
+      "macro_f1": 0.9543076977698298,
+      "stale_as_supported_rate": 0.09302325581395349
+    },
+    {
+      "k": 15,
+      "accuracy": 0.9686956521739131,
+      "macro_f1": 0.9589821682899423,
+      "stale_as_supported_rate": 0.10465116279069768
+    },
+    {
+      "k": 20,
+      "accuracy": 0.9721739130434782,
+      "macro_f1": 0.9638531056023512,
+      "stale_as_supported_rate": 0.09302325581395349
+    }
+  ]
+}
