@@ -100,26 +100,70 @@ def _eval_model_on_dataset(
     }
 
 
-def _reliability_bins(probs: np.ndarray, y_idx: np.ndarray, num_bins: int = 5) -> Dict[str, List[float]]:
-    """Uses quantile-based binning so every bin has ~N/num_bins samples (no 1-sample spikes)."""
+def _uniform_reliability_bins(probs: np.ndarray, y_idx: np.ndarray, num_bins: int = 10) -> Dict[str, Any]:
+    """Computes standard M-bin uniform reliability stats + 95% binomial CIs + counts."""
     confidences = np.max(probs, axis=1)
     accuracies = (np.argmax(probs, axis=1) == y_idx).astype(float)
-    quantiles = np.linspace(0.0, 1.0, num_bins + 1)
-    edges = np.quantile(confidences, quantiles)
-    # Fallback to uniform edges if quantiles collapse near 1.0
-    if len(np.unique(np.round(edges, 4))) < 3:
-        edges = np.array([0.0, 0.75, 0.88, 0.94, 0.98, 1.01])
+    edges = np.linspace(0.0, 1.0, num_bins + 1)
 
-    bin_centers, bin_accs, bin_counts = [], [], []
-    for i in range(len(edges) - 1):
+    centers, accs, confs, counts, ci95 = [], [], [], [], []
+    for i in range(num_bins):
         lo, hi = edges[i], edges[i + 1]
-        mask = (confidences >= lo) & (confidences <= hi) if i == len(edges) - 2 else (confidences >= lo) & (confidences < hi)
+        mask = (confidences >= lo) & (confidences <= hi) if i == 0 else (confidences > lo) & (confidences <= hi)
         cnt = int(np.sum(mask))
+        counts.append(cnt)
+        centers.append(float((lo + hi) / 2.0))
         if cnt > 0:
-            bin_counts.append(cnt)
-            bin_centers.append(float(np.mean(confidences[mask])))
-            bin_accs.append(float(np.mean(accuracies[mask])))
-    return {"conf_centers": bin_centers, "empirical_acc": bin_accs, "counts": bin_counts}
+            p = float(np.mean(accuracies[mask]))
+            c = float(np.mean(confidences[mask]))
+            accs.append(p)
+            confs.append(c)
+            ci95.append(float(1.96 * np.sqrt(max(p * (1.0 - p), 1e-6) / cnt)))
+        else:
+            accs.append(None)
+            confs.append(None)
+            ci95.append(0.0)
+    return {
+        "num_bins": num_bins,
+        "bin_centers": centers,
+        "conf_centers": confs,
+        "empirical_acc": accs,
+        "counts": counts,
+        "ci95": ci95,
+    }
+
+
+def _compute_retrieval_metrics(claims: List[Dict[str, Any]], cands_by_cid: Dict[str, List[Dict[str, Any]]]) -> Dict[str, Any]:
+    """Computes Acc@K (K=1,3,5,10,15) and MRR against gold_evidence_ids."""
+    k_list = [1, 3, 5, 10, 15]
+    hits_at_k = {k: 0 for k in k_list}
+    rr_sum = 0.0
+    eval_count = 0
+
+    for c in claims:
+        gold = set(c.get("gold_evidence_ids") or [])
+        if not gold:
+            continue
+        eval_count += 1
+        cands = cands_by_cid.get(c["claim_id"], [])
+        cand_ids = [cand.get("record_id") or cand.get("utterance_id") or "" for cand in cands]
+
+        first_rank = None
+        for idx, cid_ev in enumerate(cand_ids, start=1):
+            if cid_ev in gold:
+                first_rank = idx
+                break
+        if first_rank is not None:
+            rr_sum += 1.0 / first_rank
+            for k in k_list:
+                if first_rank <= k:
+                    hits_at_k[k] += 1
+
+    return {
+        "evaluated_claims_with_gold": eval_count,
+        "mrr": float(rr_sum / max(1, eval_count)),
+        "acc_at_k": {str(k): float(hits_at_k[k] / max(1, eval_count)) for k in k_list},
+    }
 
 
 def _load_verifier(ckpt_path: str, use_gnn: bool, use_edge_bias: bool, time_bias: str, device: str) -> tuple:
@@ -273,12 +317,14 @@ def main():
         "full_model_metrics": res_a6["metrics"],
         "transformer_only_metrics": res_a3["metrics"],
         "calibration": {
+            "num_bins": 10,
             "temperature": temp_a6,
             "ece_uncalibrated": res_a6["ece_uncalibrated"],
             "ece_calibrated": res_a6["ece_calibrated"],
-            "uncalibrated_bins": _reliability_bins(res_a6["uncal_probs"], res_a6["y_idx"]),
-            "calibrated_bins": _reliability_bins(res_a6["cal_probs"], res_a6["y_idx"]),
+            "uncalibrated_bins": _uniform_reliability_bins(res_a6["uncal_probs"], res_a6["y_idx"], num_bins=10),
+            "calibrated_bins": _uniform_reliability_bins(res_a6["cal_probs"], res_a6["y_idx"], num_bins=10),
         },
+        "retrieval_metrics": _compute_retrieval_metrics(test_claims, cands_k15),
         "date_shuffle_sensitivity": {
             "original_history_f1": res_a6["metrics"]["per_class"]["HISTORY_SUPPORTED"]["f1"],
             "shuffled_history_f1": res_shuff["metrics"]["per_class"]["HISTORY_SUPPORTED"]["f1"],

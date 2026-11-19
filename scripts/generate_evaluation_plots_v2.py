@@ -175,38 +175,133 @@ def plot_date_shuffle_sensitivity(data: dict, output_path: Path):
 
 
 def plot_calibration_reliability(data: dict, output_path: Path):
+    """
+    Thesis-grade Reliability Diagram with:
+      - Top panel: Full [0, 1] reliability bars & curve (M=10 uniform ECE bins) + 95% CIs
+      - Bottom panel: Histogram of prediction counts per bin (log/linear with exact n labels)
+    """
     cal = data["calibration"]
+    m_bins = cal.get("num_bins", 10)
     ub = cal["uncalibrated_bins"]
     cb = cal["calibrated_bins"]
     ece_drop_pct = (cal["ece_uncalibrated"] - cal["ece_calibrated"]) / max(cal["ece_uncalibrated"], 1e-9) * 100.0
 
-    fig, ax = plt.subplots(figsize=(7.5, 6), dpi=300)
-    ax.plot([0.89, 1.005], [0.89, 1.005], "k--", label="Perfect Calibration (Ideal)", alpha=0.75, linewidth=1.6)
-    ax.plot(ub["conf_centers"], ub["empirical_acc"], "o-",
-            label=f"Uncalibrated (ECE = {cal['ece_uncalibrated']:.4f})", color="#e76f51", linewidth=2.4, markersize=8)
-    ax.plot(cb["conf_centers"], cb["empirical_acc"], "s-",
-            label=f"Temp Scaled T={cal['temperature']:.2f} (ECE = {cal['ece_calibrated']:.4f})",
-            color="#2a9d8f", linewidth=2.6, markersize=8)
+    fig, (ax1, ax2) = plt.subplots(
+        2, 1, figsize=(8.5, 7.5), dpi=300, sharex=True,
+        gridspec_kw={"height_ratios": [2.2, 1.0]},
+    )
 
-    ax.fill_between(cb["conf_centers"], cb["conf_centers"], cb["empirical_acc"],
-                    color="#2a9d8f", alpha=0.14, label="Calibrated Gap")
+    centers = np.array(cb["bin_centers"])
+    width = 0.08
 
-    ax.annotate(
-        f"Temperature Scaling\nECE: {cal['ece_uncalibrated']:.4f} → {cal['ece_calibrated']:.4f} (-{ece_drop_pct:.1f}%)",
-        xy=(cb["conf_centers"][0], cb["empirical_acc"][0]),
-        xytext=(0.912, 0.968),
-        arrowprops=dict(facecolor="#2a9d8f", shrink=0.06, width=1.6, headwidth=6),
+    # Plot empirical accuracy bars for populated bins (Temp-Scaled) + 95% CI
+    pop_idx = [i for i, v in enumerate(cb["empirical_acc"]) if v is not None]
+    pop_x = [centers[i] for i in pop_idx]
+    pop_y = [cb["empirical_acc"][i] for i in pop_idx]
+    pop_ci = [cb["ci95"][i] for i in pop_idx]
+    pop_n = [cb["counts"][i] for i in pop_idx]
+
+    ax1.bar(pop_x, pop_y, width=width, color="#2a9d8f", alpha=0.65, edgecolor="#14524a",
+            yerr=pop_ci, capsize=4, label=f"Temp-Scaled T={cal['temperature']:.2f} (ECE={cal['ece_calibrated']:.4f}, M={m_bins} bins)")
+    ax1.plot([0, 1], [0, 1], "k--", linewidth=1.5, label="Perfect Calibration (Ideal)")
+
+    # Overlay uncalibrated populated points
+    u_idx = [i for i, v in enumerate(ub["conf_centers"]) if v is not None]
+    ax1.plot([ub["conf_centers"][i] for i in u_idx], [ub["empirical_acc"][i] for i in u_idx],
+             "o-", color="#e76f51", linewidth=2, markersize=6.5,
+             label=f"Uncalibrated (ECE={cal['ece_uncalibrated']:.4f})")
+
+    ax1.annotate(
+        f"M = {m_bins} Uniform Bins\nECE: {cal['ece_uncalibrated']:.4f} → {cal['ece_calibrated']:.4f} (-{ece_drop_pct:.1f}%)",
+        xy=(0.04, 0.74), xycoords="axes fraction",
         fontweight="bold", color="#1b6b61", fontsize=9.5,
         bbox=dict(boxstyle="round,pad=0.35", facecolor="#eefaf8", edgecolor="#2a9d8f", alpha=0.95),
     )
 
-    ax.set_xlabel("Mean Predicted Confidence (Zoomed High-Confidence Region)")
-    ax.set_ylabel("Empirical Accuracy (Fraction Correct)")
-    ax.set_title("Confidence Calibration Reliability Diagram v2\n(Zoomed [0.89–1.00] — Synthea + Gemini Test Set)")
-    ax.set_xlim(0.895, 1.004)
-    ax.set_ylim(0.895, 1.004)
+    ax1.set_ylabel("Empirical Accuracy (±95% CI)")
+    ax1.set_title(f"Confidence Calibration Reliability & Sample Distribution (Full [0–1] Range, M={m_bins} Bins)")
+    ax1.set_xlim(0.0, 1.02)
+    ax1.set_ylim(0.0, 1.08)
+    ax1.grid(True, linestyle="--", alpha=0.4)
+    ax1.legend(loc="upper left", fontsize=8.8)
+
+    # Bottom panel: Histogram of prediction counts per bin
+    counts = cb["counts"]
+    bars_h = ax2.bar(centers, counts, width=width, color="#457b9d", edgecolor="#1d3557", alpha=0.88)
+    ax2.set_xlabel("Predicted Confidence Bin [0.0 – 1.0]")
+    ax2.set_ylabel("Sample Count (N)")
+    ax2.set_yscale("log")
+    ax2.set_ylim(0.8, max(counts) * 2.5)
+    ax2.grid(axis="y", linestyle="--", alpha=0.4)
+    for b, cnt in zip(bars_h, counts):
+        if cnt > 0:
+            ax2.annotate(f"n={cnt}", xy=(b.get_x() + b.get_width() / 2, cnt),
+                         xytext=(0, 3), textcoords="offset points", ha="center", va="bottom",
+                         fontsize=8, fontweight="semibold")
+
+    fig.tight_layout()
+    fig.savefig(output_path)
+    plt.close(fig)
+    print(f"[+] Saved: {output_path}")
+
+
+def plot_retrieval_metrics(data: dict, output_path: Path):
+    """Plots Top-K Accuracy (Acc@K) and Mean Reciprocal Rank (MRR) on held-out test claims."""
+    ret = data["retrieval_metrics"]
+    ks = [1, 3, 5, 10, 15]
+    accs = [ret["acc_at_k"][str(k)] for k in ks]
+    mrr = ret["mrr"]
+
+    fig, ax = plt.subplots(figsize=(7.8, 5.5), dpi=300)
+    ax.plot(ks, accs, "o-", color="#1f77b4", linewidth=2.4, markersize=8, label="Top-K Retrieval Accuracy (Acc@K)")
+    ax.axhline(mrr, color="#e76f51", linestyle="--", linewidth=2, label=f"Mean Reciprocal Rank (MRR = {mrr:.4f})")
+
+    for k, a in zip(ks, accs):
+        ax.annotate(f"{a:.3f}", (k, a), textcoords="offset points", xytext=(0, 8),
+                    ha="center", fontsize=9, fontweight="semibold")
+
+    ax.set_xlabel("Retrieval Cutoff (Top-K)")
+    ax.set_ylabel("Score")
+    ax.set_title(f"Information Retrieval Performance (Acc@K & MRR)\n(N={ret['evaluated_claims_with_gold']} Test Claims with Gold Evidence)")
+    ax.set_xticks(ks)
+    ax.set_ylim(0.5, 1.05)
     ax.grid(True, linestyle="--", alpha=0.4)
-    ax.legend(loc="lower right", frameon=True, fontsize=9.5)
+    ax.legend(loc="lower right", frameon=True)
+
+    fig.tight_layout()
+    fig.savefig(output_path)
+    plt.close(fig)
+    print(f"[+] Saved: {output_path}")
+
+
+def plot_per_class_f1(data: dict, output_path: Path):
+    """Plots Precision, Recall, and F1 across all 6 verification classes."""
+    per_cls = data["full_model_metrics"]["per_class"]
+    classes = data["classes"]
+    short_names = ["TRANS\nSUPP", "HIST\nSUPP", "CLIN\nINFR", "CLIN\nCONF", "STALE", "HALLUC"]
+    p_vals = [per_cls[c]["precision"] for c in classes]
+    r_vals = [per_cls[c]["recall"] for c in classes]
+    f_vals = [per_cls[c]["f1"] for c in classes]
+    supps = [per_cls[c]["support"] for c in classes]
+
+    x = np.arange(len(classes))
+    w = 0.26
+    fig, ax = plt.subplots(figsize=(10.5, 5.8), dpi=300)
+    ax.bar(x - w, p_vals, w, label="Precision", color="#457b9d", edgecolor="#1d3557")
+    ax.bar(x, r_vals, w, label="Recall", color="#2a9d8f", edgecolor="#14524a")
+    b_f1 = ax.bar(x + w, f_vals, w, label="F1 Score", color="#e76f51", edgecolor="#94331a")
+
+    for b, f in zip(b_f1, f_vals):
+        ax.annotate(f"{f:.3f}", xy=(b.get_x() + b.get_width() / 2, f),
+                    xytext=(0, 3), textcoords="offset points", ha="center", fontsize=8.5, fontweight="semibold")
+
+    ax.set_xticks(x)
+    ax.set_xticklabels([f"{s}\n(n={n})" for s, n in zip(short_names, supps)], fontweight="semibold")
+    ax.set_ylabel("Score")
+    ax.set_ylim(0.7, 1.08)
+    ax.set_title("Per-Class Verification Performance (Precision, Recall, F1 — Test Set N=575)")
+    ax.grid(axis="y", linestyle="--", alpha=0.4)
+    ax.legend(loc="lower right", frameon=True)
 
     fig.tight_layout()
     fig.savefig(output_path)
@@ -318,30 +413,37 @@ def plot_evaluation_dashboard(data: dict, output_path: Path):
         axs[1, 0].annotate(f"{h:.3f}", xy=(r.get_x() + r.get_width() / 2, h), xytext=(0, 2),
                            textcoords="offset points", ha="center", va="bottom", fontsize=8.5)
 
-    # Panel D: Calibration Curve (Zoomed High-Confidence Region)
+    # Panel D: Calibration Curve (Full [0-1] M=10 Bins with 95% CI & Sample Counts)
     cal = data["calibration"]
+    m_bins = cal.get("num_bins", 10)
     ub = cal["uncalibrated_bins"]
     cb = cal["calibrated_bins"]
     ece_drop_pct = (cal["ece_uncalibrated"] - cal["ece_calibrated"]) / max(cal["ece_uncalibrated"], 1e-9) * 100.0
-    axs[1, 1].plot([0.89, 1.005], [0.89, 1.005], "k--", label="Ideal Calibration", alpha=0.75)
-    axs[1, 1].plot(ub["conf_centers"], ub["empirical_acc"], "o-",
-                   label=f"Uncalibrated (ECE = {cal['ece_uncalibrated']:.4f})", color="#e76f51", linewidth=2.2, markersize=7)
-    axs[1, 1].plot(cb["conf_centers"], cb["empirical_acc"], "s-",
-                   label=f"Temp-Scaled T={cal['temperature']:.2f} (ECE = {cal['ece_calibrated']:.4f})", color="#2a9d8f", linewidth=2.4, markersize=7)
+    pop_idx = [i for i, v in enumerate(cb["empirical_acc"]) if v is not None]
+    pop_x = [cb["bin_centers"][i] for i in pop_idx]
+    pop_y = [cb["empirical_acc"][i] for i in pop_idx]
+    pop_ci = [cb["ci95"][i] for i in pop_idx]
+    pop_n = [cb["counts"][i] for i in pop_idx]
+    axs[1, 1].bar(pop_x, pop_y, width=0.08, color="#2a9d8f", alpha=0.65, edgecolor="#14524a",
+                  yerr=pop_ci, capsize=3, label=f"Temp-Scaled T={cal['temperature']:.2f} (ECE={cal['ece_calibrated']:.4f})")
+    axs[1, 1].plot([0, 1], [0, 1], "k--", label="Ideal Calibration", alpha=0.75)
+    u_idx = [i for i, v in enumerate(ub["conf_centers"]) if v is not None]
+    axs[1, 1].plot([ub["conf_centers"][i] for i in u_idx], [ub["empirical_acc"][i] for i in u_idx],
+                   "o-", label=f"Uncalibrated (ECE={cal['ece_uncalibrated']:.4f})", color="#e76f51", linewidth=2)
+    for bx, by, bn in zip(pop_x, pop_y, pop_n):
+        axs[1, 1].annotate(f"n={bn}", xy=(bx, max(0.05, by - 0.12)), ha="center", fontsize=7.5, fontweight="bold", color="white")
     axs[1, 1].annotate(
-        f"ECE -{ece_drop_pct:.1f}%\n({cal['ece_uncalibrated']:.4f} → {cal['ece_calibrated']:.4f})",
-        xy=(cb["conf_centers"][0], cb["empirical_acc"][0]),
-        xytext=(0.915, 0.965),
-        arrowprops=dict(facecolor="#2a9d8f", shrink=0.06, width=1.4, headwidth=5),
+        f"M={m_bins} Uniform Bins\nECE -{ece_drop_pct:.1f}%",
+        xy=(0.05, 0.65), xycoords="axes fraction",
         fontweight="bold", color="#1b6b61", fontsize=8.5,
         bbox=dict(boxstyle="round,pad=0.3", facecolor="#eefaf8", edgecolor="#2a9d8f", alpha=0.95),
     )
-    axs[1, 1].set_xlim(0.895, 1.004)
-    axs[1, 1].set_ylim(0.895, 1.004)
-    axs[1, 1].set_xlabel("Confidence (Zoomed [0.895–1.00])")
-    axs[1, 1].set_ylabel("Empirical Accuracy")
+    axs[1, 1].set_xlim(0.0, 1.02)
+    axs[1, 1].set_ylim(0.0, 1.08)
+    axs[1, 1].set_xlabel(f"Confidence (Full [0–1] Range, M={m_bins} Bins)")
+    axs[1, 1].set_ylabel("Empirical Accuracy (±95% CI)")
     axs[1, 1].set_title("(D) Confidence Calibration Reliability Curve")
-    axs[1, 1].legend(loc="lower right", fontsize=8.5)
+    axs[1, 1].legend(loc="upper left", fontsize=8.5)
     axs[1, 1].grid(True, linestyle="--", alpha=0.4)
 
     fig.tight_layout(rect=[0, 0.03, 1, 0.94])
@@ -358,6 +460,8 @@ if __name__ == "__main__":
     plot_ablation_study(ablation_data, PLOTS_DIR / "ablation_study_v2.png")
     plot_date_shuffle_sensitivity(ablation_data, PLOTS_DIR / "date_shuffle_sensitivity_v2.png")
     plot_calibration_reliability(ablation_data, PLOTS_DIR / "calibration_reliability_v2.png")
+    plot_retrieval_metrics(ablation_data, PLOTS_DIR / "retrieval_metrics_v2.png")
+    plot_per_class_f1(ablation_data, PLOTS_DIR / "per_class_f1_v2.png")
     plot_candidate_pool_sweep(ablation_data, PLOTS_DIR / "candidate_pool_sweep_v2.png")
     plot_evaluation_dashboard(ablation_data, PLOTS_DIR / "evaluation_dashboard_v2.png")
     print("\n[+] All v2 evaluation plots generated successfully in results/plots_v2/!")
