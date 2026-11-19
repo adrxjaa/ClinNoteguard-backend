@@ -178,25 +178,35 @@ def plot_calibration_reliability(data: dict, output_path: Path):
     cal = data["calibration"]
     ub = cal["uncalibrated_bins"]
     cb = cal["calibrated_bins"]
+    ece_drop_pct = (cal["ece_uncalibrated"] - cal["ece_calibrated"]) / max(cal["ece_uncalibrated"], 1e-9) * 100.0
 
-    fig, ax = plt.subplots(figsize=(7.2, 6), dpi=300)
-    ax.plot([0.5, 1.0], [0.5, 1.0], "k--", label="Perfect Calibration (Ideal)", alpha=0.75)
+    fig, ax = plt.subplots(figsize=(7.5, 6), dpi=300)
+    ax.plot([0.89, 1.005], [0.89, 1.005], "k--", label="Perfect Calibration (Ideal)", alpha=0.75, linewidth=1.6)
     ax.plot(ub["conf_centers"], ub["empirical_acc"], "o-",
-            label=f"Uncalibrated (ECE = {cal['ece_uncalibrated']:.4f})", color="#e76f51", linewidth=2.2, markersize=7)
+            label=f"Uncalibrated (ECE = {cal['ece_uncalibrated']:.4f})", color="#e76f51", linewidth=2.4, markersize=8)
     ax.plot(cb["conf_centers"], cb["empirical_acc"], "s-",
             label=f"Temp Scaled T={cal['temperature']:.2f} (ECE = {cal['ece_calibrated']:.4f})",
-            color="#2a9d8f", linewidth=2.4, markersize=7)
+            color="#2a9d8f", linewidth=2.6, markersize=8)
 
     ax.fill_between(cb["conf_centers"], cb["conf_centers"], cb["empirical_acc"],
-                    color="#2a9d8f", alpha=0.14, label="Calibration Gap (Calibrated)")
+                    color="#2a9d8f", alpha=0.14, label="Calibrated Gap")
 
-    ax.set_xlabel("Mean Predicted Confidence (Quantile Bins)")
+    ax.annotate(
+        f"Temperature Scaling\nECE: {cal['ece_uncalibrated']:.4f} → {cal['ece_calibrated']:.4f} (-{ece_drop_pct:.1f}%)",
+        xy=(cb["conf_centers"][0], cb["empirical_acc"][0]),
+        xytext=(0.912, 0.968),
+        arrowprops=dict(facecolor="#2a9d8f", shrink=0.06, width=1.6, headwidth=6),
+        fontweight="bold", color="#1b6b61", fontsize=9.5,
+        bbox=dict(boxstyle="round,pad=0.35", facecolor="#eefaf8", edgecolor="#2a9d8f", alpha=0.95),
+    )
+
+    ax.set_xlabel("Mean Predicted Confidence (Zoomed High-Confidence Region)")
     ax.set_ylabel("Empirical Accuracy (Fraction Correct)")
-    ax.set_title("Confidence Calibration Reliability Diagram v2\n(Quantile-Binned Synthea + Gemini Test Set)")
-    ax.set_xlim(0.55, 1.01)
-    ax.set_ylim(0.55, 1.01)
+    ax.set_title("Confidence Calibration Reliability Diagram v2\n(Zoomed [0.89–1.00] — Synthea + Gemini Test Set)")
+    ax.set_xlim(0.895, 1.004)
+    ax.set_ylim(0.895, 1.004)
     ax.grid(True, linestyle="--", alpha=0.4)
-    ax.legend(loc="upper left", frameon=True, fontsize=9.5)
+    ax.legend(loc="lower right", frameon=True, fontsize=9.5)
 
     fig.tight_layout()
     fig.savefig(output_path)
@@ -308,21 +318,30 @@ def plot_evaluation_dashboard(data: dict, output_path: Path):
         axs[1, 0].annotate(f"{h:.3f}", xy=(r.get_x() + r.get_width() / 2, h), xytext=(0, 2),
                            textcoords="offset points", ha="center", va="bottom", fontsize=8.5)
 
-    # Panel D: Calibration Curve
+    # Panel D: Calibration Curve (Zoomed High-Confidence Region)
     cal = data["calibration"]
     ub = cal["uncalibrated_bins"]
     cb = cal["calibrated_bins"]
-    axs[1, 1].plot([0.5, 1.0], [0.5, 1.0], "k--", label="Ideal Calibration", alpha=0.75)
+    ece_drop_pct = (cal["ece_uncalibrated"] - cal["ece_calibrated"]) / max(cal["ece_uncalibrated"], 1e-9) * 100.0
+    axs[1, 1].plot([0.89, 1.005], [0.89, 1.005], "k--", label="Ideal Calibration", alpha=0.75)
     axs[1, 1].plot(ub["conf_centers"], ub["empirical_acc"], "o-",
-                   label=f"Uncalibrated (ECE = {cal['ece_uncalibrated']:.4f})", color="#e76f51", linewidth=2)
+                   label=f"Uncalibrated (ECE = {cal['ece_uncalibrated']:.4f})", color="#e76f51", linewidth=2.2, markersize=7)
     axs[1, 1].plot(cb["conf_centers"], cb["empirical_acc"], "s-",
-                   label=f"Temp-Scaled T={cal['temperature']:.2f} (ECE = {cal['ece_calibrated']:.4f})", color="#2a9d8f", linewidth=2.2)
-    axs[1, 1].set_xlim(0.55, 1.01)
-    axs[1, 1].set_ylim(0.55, 1.01)
-    axs[1, 1].set_xlabel("Confidence (Quantile Bins)")
+                   label=f"Temp-Scaled T={cal['temperature']:.2f} (ECE = {cal['ece_calibrated']:.4f})", color="#2a9d8f", linewidth=2.4, markersize=7)
+    axs[1, 1].annotate(
+        f"ECE -{ece_drop_pct:.1f}%\n({cal['ece_uncalibrated']:.4f} → {cal['ece_calibrated']:.4f})",
+        xy=(cb["conf_centers"][0], cb["empirical_acc"][0]),
+        xytext=(0.915, 0.965),
+        arrowprops=dict(facecolor="#2a9d8f", shrink=0.06, width=1.4, headwidth=5),
+        fontweight="bold", color="#1b6b61", fontsize=8.5,
+        bbox=dict(boxstyle="round,pad=0.3", facecolor="#eefaf8", edgecolor="#2a9d8f", alpha=0.95),
+    )
+    axs[1, 1].set_xlim(0.895, 1.004)
+    axs[1, 1].set_ylim(0.895, 1.004)
+    axs[1, 1].set_xlabel("Confidence (Zoomed [0.895–1.00])")
     axs[1, 1].set_ylabel("Empirical Accuracy")
     axs[1, 1].set_title("(D) Confidence Calibration Reliability Curve")
-    axs[1, 1].legend(loc="upper left")
+    axs[1, 1].legend(loc="lower right", fontsize=8.5)
     axs[1, 1].grid(True, linestyle="--", alpha=0.4)
 
     fig.tight_layout(rect=[0, 0.03, 1, 0.94])
