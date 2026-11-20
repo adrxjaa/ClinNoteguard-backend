@@ -417,21 +417,6 @@ class Command(BaseCommand):
         atomic_claims = claim_extractor.extract_claims(soap_note, transcript_db)
         logger.info(f"Extracted {len(atomic_claims)} atomic claims for session {session_code}")
 
-        # 2.6 Retrieve Candidate EHR Evidence (Stage 3 Hybrid Retrieval)
-        try:
-            from api.retrieval.pipeline import retrieve_evidence_for_claims
-            session_obj = ConsultationSession.objects.filter(code=session_code).first()
-            patient_id = str(session_obj.patient.id) if session_obj and session_obj.patient else None
-            atomic_claims = retrieve_evidence_for_claims(
-                atomic_claims,
-                patient_id=patient_id,
-                session_code=session_code,
-                top_k=3
-            )
-            logger.info(f"Enriched {len(atomic_claims)} atomic claims with candidate EHR evidence.")
-        except Exception as ret_err:
-            logger.warning(f"Retrieval step encountered non-blocking issue: {ret_err}")
-
         # 3. Save audio buffer to media file if audio data exists
         audio_file_path = None
         if len(full_audio_data) > 0:
@@ -447,13 +432,25 @@ class Command(BaseCommand):
             except Exception as aud_err:
                 logger.error(f"Failed to save audio file: {aud_err}")
 
-        # 4. Update the ConsultationSession object in DB (using sync_to_async or running in executor)
+        # 4. Update the ConsultationSession object in DB (running sync ORM & retrieval inside executor)
         def db_update():
             try:
                 session = ConsultationSession.objects.get(code=session_code)
+                enriched_claims = atomic_claims
+                try:
+                    from api.retrieval.pipeline import retrieve_evidence_for_claims
+                    patient_id = str(session.patient.id) if session.patient else None
+                    enriched_claims = retrieve_evidence_for_claims(
+                        atomic_claims,
+                        patient_id=patient_id,
+                        session_code=session_code,
+                        top_k=3,
+                    )
+                except Exception as ret_err:
+                    logger.warning(f"Retrieval step encountered non-blocking issue: {ret_err}")
                 session.transcript_json = transcript_db
                 session.soap_note_json = soap_note
-                session.atomic_claims_json = atomic_claims
+                session.atomic_claims_json = enriched_claims
                 if audio_file_path:
                     session.audio_file = audio_file_path
                 session.status = ConsultationSession.Status.ENDED
@@ -538,10 +535,10 @@ class Command(BaseCommand):
             return self.generate_fallback_soap_note(transcript)
             
         try:
-            logger.info("Requesting SOAP note generation from Google GenAI SDK (gemini-3.5-flash)...")
+            logger.info("Requesting SOAP note generation from Google GenAI SDK (gemini-3.1-flash-lite)...")
             client = genai.Client(api_key=api_key)
             response = client.models.generate_content(
-                model="gemini-3.5-flash",
+                model="gemini-3.1-flash-lite",
                 contents=prompt,
             )
             text_response = response.text.strip()
@@ -570,23 +567,38 @@ class Command(BaseCommand):
         return self.generate_fallback_soap_note(transcript)
 
     def generate_fallback_soap_note(self, transcript):
-        """Generates a structured medical SOAP note from transcription segments (Fallback)."""
+        import re
         subjective_lines = []
+        objective_lines = []
+        assessment_lines = []
         plan_lines = []
-        
+
         for seg in transcript:
-            text = seg["text"].lower()
-            if "pain" in text or "feel" in text or "worse" in text or "hurt" in text:
-                subjective_lines.append(seg["text"])
-            elif "take" in text or "prescription" in text or "mg" in text or "refer" in text or "exercise" in text:
-                plan_lines.append(seg["text"])
-                
-        subjective = " ".join(subjective_lines) if subjective_lines else "Patient reports feeling unwell. No detailed symptoms recorded in text."
-        plan = "\n".join([f"- {line}" for line in plan_lines]) if plan_lines else "- Recommended standard follow-up check as required."
-        
+            raw = (seg.get("text") or "").strip()
+            if not raw:
+                continue
+            low = raw.lower()
+            spk = (seg.get("speaker") or "").lower()
+            if any(k in low for k in ("bp", "blood pressure", "hba1c", "hr ", "temp", "allergy", "lab")):
+                objective_lines.append(raw)
+            if any(k in low for k in ("continue", "start", "add ", "prescribe", "take ", "mg", "mcg", "follow")):
+                plan_lines.append(raw)
+            elif any(k in low for k in ("diagnosis", "hypertension", "diabetes", "infection", "control", "assessment")):
+                assessment_lines.append(raw)
+            elif "patient" in spk or any(k in low for k in ("pain", "feel", "fatigue", "tired", "cough", "fever", "dizzy")):
+                subjective_lines.append(raw)
+
+        if not subjective_lines and transcript:
+            subjective_lines = [(s.get("text") or "").strip() for s in transcript if "patient" in (s.get("speaker") or "").lower()]
+        subjective = " ".join(subjective_lines) or "Patient attended clinical consultation."
+
+        objective = " ".join(objective_lines) if objective_lines else "Vitals reviewed during encounter."
+        assessment = " ".join(assessment_lines) if assessment_lines else "Ongoing chronic disease & symptom management."
+        plan = "\n".join(f"- {line}" for line in plan_lines) if plan_lines else "- Continue current regimen and follow up as scheduled."
+
         return {
             "Subjective": subjective,
-            "Objective": "BP: 120/80 mmHg  •  HR: 70 bpm  •  Temp: 98.6°F  •  O2 Sat: 99% (Default Clinical Record)",
-            "Assessment": "Clinical assessment pending detailed physician review.",
-            "Plan": plan
+            "Objective": objective,
+            "Assessment": assessment,
+            "Plan": plan,
         }

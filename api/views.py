@@ -6,7 +6,12 @@ from rest_framework.authtoken.models import Token
 from django.http import JsonResponse
 from django.db import models
 from django.utils import timezone
-from datetime import datetime, date as dt_date, time as dt_time
+import hashlib
+import hmac
+import json
+from pathlib import Path
+from datetime import datetime, timedelta, date as dt_date, time as dt_time
+from django.conf import settings
 from .models import ConsultationSession, DoctorProfile, PatientProfile, DoctorClinicSlot, Appointment, User
 from .serializers import (
     DoctorRegisterSerializer,
@@ -73,10 +78,6 @@ class LoginView(APIView):
 
 
 class DemoLoginView(APIView):
-    """
-    Creates or fetches a real verified demo Doctor or Patient user in the database
-    and returns a real DRF Auth Token so Demo Login works end-to-end with all APIs.
-    """
     permission_classes = [AllowAny]
 
     def post(self, request):
@@ -176,53 +177,6 @@ class DemoLoginView(APIView):
                 'role': User.Role.DOCTOR,
             }
         )
-        if not ConsultationSession.objects.filter(code='882910').exists():
-            s = ConsultationSession.objects.create(
-                patient=pat_user,
-                doctor=doc_user,
-                code='882910',
-                clinic_name='Govt. Medical College Hospital',
-                status=ConsultationSession.Status.ENDED,
-                qr_code_token='RX-882910',
-                prescriptions_json=[
-                    {
-                        'name': 'Atorvastatin',
-                        'dosage': '20mg',
-                        'frequency': '0-0-1 (Night)',
-                        'duration': '30 Days',
-                        'instructions': 'Take 1 tablet orally after dinner',
-                    },
-                    {
-                        'name': 'Lisinopril',
-                        'dosage': '10mg',
-                        'frequency': '1-0-0 (Morning)',
-                        'duration': '30 Days',
-                        'instructions': 'Continue 1 tablet every morning for BP',
-                    },
-                    {
-                        'name': 'Metformin',
-                        'dosage': '500mg',
-                        'frequency': '1-0-1 (With Meals)',
-                        'duration': '30 Days',
-                        'instructions': 'Take twice daily with meals',
-                    },
-                ],
-            )
-            _run_full_pipeline_on_session(s)
-            s.qr_payload_json = {
-                'rx_token': 'RX-882910',
-                'session_code': '882910',
-                'patient_name': 'Sabari Krishnan',
-                'patient_id': f"PT-{pat_user.id:05d}",
-                'doctor_name': 'Dr. Suresh Nambiar',
-                'doctor_reg_no': 'KMC-48291',
-                'doctor_verified': True,
-                'clinic_name': 'Govt. Medical College Hospital',
-                'issued_at': timezone.now().strftime('%Y-%m-%d %H:%M'),
-                'medications': s.prescriptions_json,
-            }
-            s.save()
-
         token, _ = Token.objects.get_or_create(user=user)
         return Response({
             'token': token.key,
@@ -376,31 +330,26 @@ class DoctorJoinSessionView(APIView):
     def post(self, request):
         user = request.user
         code = request.data.get('code', '').strip()
+        if not code:
+            return Response({'error': 'Pairing code is required.'}, status=status.HTTP_400_BAD_REQUEST)
+
         try:
-            session = ConsultationSession.objects.get(
-                code=code,
-                status__in=[ConsultationSession.Status.CREATED, ConsultationSession.Status.CONNECTED]
-            )
+            session = ConsultationSession.objects.get(code=code)
         except ConsultationSession.DoesNotExist:
-            # Auto-create session on the fly if doctor enters a valid 6-8 char code during testing/demo
-            pat_user, _ = User.objects.get_or_create(
-                email='demo.patient@clinnote.org',
-                defaults={
-                    'username': 'demo.patient@clinnote.org',
-                    'first_name': 'Sabari',
-                    'last_name': 'Krishnan',
-                    'phone': '+91 9876501234',
-                    'role': User.Role.PATIENT,
-                }
+            return Response(
+                {
+                    'error': (
+                        'Invalid pairing code. Patient must either book an appointment '
+                        'or start an emergency session to generate a valid code.'
+                    )
+                },
+                status=status.HTTP_404_NOT_FOUND,
             )
-            session, _ = ConsultationSession.objects.update_or_create(
-                code=code,
-                defaults={
-                    'patient': pat_user,
-                    'doctor': user if user.role == 'DOCTOR' else None,
-                    'clinic_name': 'Govt. Medical College Hospital',
-                    'status': ConsultationSession.Status.CONNECTED,
-                }
+
+        if session.status == ConsultationSession.Status.ENDED:
+            return Response(
+                {'error': 'This consultation session has already ended.'},
+                status=status.HTTP_400_BAD_REQUEST,
             )
 
         if user.role == 'DOCTOR':
@@ -434,7 +383,6 @@ def _get_verification_pipeline():
 
 
 def _load_patient_ehr_records(patient_user, selected_ehr=None):
-    """Loads structured EHR records for a patient (combining rendered_ehr.jsonl + profile + past visits)."""
     import json
     from pathlib import Path
     from django.conf import settings
@@ -471,7 +419,17 @@ def _load_patient_ehr_records(patient_user, selected_ehr=None):
                         "source": "EHR",
                     })
 
-    # 3. Load canonical longitudinal EHR records from verify_data/rendered_ehr.jsonl (default P_D2N001)
+    # 3. Load seeded Synthea longitudinal EHR records for demo patient if available
+    synthea_demo_path = Path(settings.BASE_DIR) / "data" / "demo_patient_synthea_ehr.json"
+    if synthea_demo_path.exists():
+        try:
+            with open(synthea_demo_path, "r", encoding="utf-8") as f:
+                sdata = json.load(f)
+                records.extend(sdata.get("ehr_records", []))
+        except Exception:
+            pass
+
+    # 4. Load canonical longitudinal EHR records from verify_data/rendered_ehr.jsonl (default P_D2N001)
     rendered_path = Path(settings.BASE_DIR) / "verify_data" / "rendered_ehr.jsonl"
     if rendered_path.exists():
         try:
@@ -488,8 +446,9 @@ def _load_patient_ehr_records(patient_user, selected_ehr=None):
 
 
 def _run_full_pipeline_on_session(session, transcript_override=None, soap_override=None):
-    """Runs Stages 2-8 on a ConsultationSession and updates soap_note_json and atomic_claims_json."""
     transcript_data = transcript_override if transcript_override is not None else (session.transcript_json or [])
+    if transcript_override is not None:
+        session.transcript_json = transcript_override
     if not transcript_data:
         # Provide a realistic clinical dialogue fallback if no audio/WS transcript was captured
         transcript_data = [
@@ -526,56 +485,62 @@ def _run_full_pipeline_on_session(session, transcript_override=None, soap_overri
                 {
                     "claim_id": "CLM_001",
                     "section": "Subjective",
-                    "text": "Patient reports home BP around 138/88 mmHg and mild fatigue.",
-                    "prediction": "TRANSCRIPT_SUPPORTED",
-                    "confidence": 0.96,
+                    "claim_text": "Patient reports home BP around 138/88 mmHg and mild fatigue.",
+                    "label": "TRANSCRIPT_SUPPORTED",
+                    "calibrated_confidence": 0.96,
                     "concepts": [{"cui": "C0005823", "name": "Blood Pressure"}, {"cui": "C0015672", "name": "Fatigue"}],
-                    "temporal_validity": "CURRENT",
+                    "validity_status": "CURRENT",
+                    "top_evidence": [],
                 },
                 {
                     "claim_id": "CLM_002",
                     "section": "Subjective",
-                    "text": "Currently taking Lisinopril 10 mg daily and Metformin 500 mg twice daily.",
-                    "prediction": "HISTORY_SUPPORTED",
-                    "confidence": 0.94,
+                    "claim_text": "Currently taking Lisinopril 10 mg daily and Metformin 500 mg twice daily.",
+                    "label": "HISTORY_SUPPORTED",
+                    "calibrated_confidence": 0.94,
                     "concepts": [{"cui": "C0065374", "name": "Lisinopril"}, {"cui": "C0025598", "name": "Metformin"}],
-                    "temporal_validity": "ACTIVE_CHRONIC",
+                    "validity_status": "CURRENT",
+                    "top_evidence": [],
                 },
                 {
                     "claim_id": "CLM_003",
                     "section": "Objective",
-                    "text": "HbA1c 7.8% and known Sulfa Drug Allergy.",
-                    "prediction": "HISTORY_SUPPORTED",
-                    "confidence": 0.92,
+                    "claim_text": "HbA1c 7.8% and known Sulfa Drug Allergy.",
+                    "label": "HISTORY_SUPPORTED",
+                    "calibrated_confidence": 0.92,
                     "concepts": [{"cui": "C0202054", "name": "Hemoglobin A1c"}, {"cui": "C0038820", "name": "Sulfonamide Allergy"}],
-                    "temporal_validity": "VALID_RECENT_LAB",
+                    "validity_status": "CURRENT",
+                    "top_evidence": [],
                 },
                 {
                     "claim_id": "CLM_004",
                     "section": "Assessment",
-                    "text": "Essential Hypertension (I10) and Type 2 Diabetes Mellitus (E11.9).",
-                    "prediction": "CLINICAL_INFERENCE",
-                    "confidence": 0.91,
+                    "claim_text": "Essential Hypertension (I10) and Type 2 Diabetes Mellitus (E11.9).",
+                    "label": "CLINICAL_INFERENCE",
+                    "calibrated_confidence": 0.91,
                     "concepts": [{"cui": "C0020538", "name": "Hypertension"}, {"cui": "C0011860", "name": "Type 2 Diabetes"}],
-                    "temporal_validity": "ACTIVE_CHRONIC",
+                    "validity_status": "CURRENT",
+                    "top_evidence": [],
                 },
                 {
                     "claim_id": "CLM_005",
                     "section": "Plan",
-                    "text": "Start Atorvastatin 20 mg oral daily at night.",
-                    "prediction": "TRANSCRIPT_SUPPORTED",
-                    "confidence": 0.95,
+                    "claim_text": "Start Atorvastatin 20 mg oral daily at night.",
+                    "label": "TRANSCRIPT_SUPPORTED",
+                    "calibrated_confidence": 0.95,
                     "concepts": [{"cui": "C0286651", "name": "Atorvastatin"}],
-                    "temporal_validity": "CURRENT",
+                    "validity_status": "CURRENT",
+                    "top_evidence": [],
                 },
                 {
                     "claim_id": "CLM_006",
                     "section": "Subjective",
-                    "text": "Patient reports recent appendectomy 2 weeks ago.",
-                    "prediction": "HALLUCINATED",
-                    "confidence": 0.89,
+                    "claim_text": "Patient reports recent appendectomy 2 weeks ago.",
+                    "label": "HALLUCINATED",
+                    "calibrated_confidence": 0.89,
                     "concepts": [{"cui": "C0003611", "name": "Appendectomy"}],
-                    "temporal_validity": "UNSUPPORTED",
+                    "validity_status": "UNSUPPORTED",
+                    "top_evidence": [],
                 },
             ]
     session.save()
@@ -609,6 +574,12 @@ class DoctorEndSessionView(APIView):
                 status=ConsultationSession.Status.ENDED,
             )
 
+        if session.doctor is None and request.user.role == 'DOCTOR':
+            session.doctor = request.user
+        if not session.clinic_name and session.doctor:
+            doc_prof = getattr(session.doctor, 'doctor_profile', None)
+            if doc_prof and doc_prof.hospital:
+                session.clinic_name = doc_prof.hospital
         session.status = ConsultationSession.Status.ENDED
         session.is_paused = False
         _run_full_pipeline_on_session(session, transcript_override=transcript_override)
@@ -630,23 +601,34 @@ class ActiveSessionStatusView(APIView):
         # Find any active (created/connected) session involving this user
         if user.role == 'PATIENT':
             session = ConsultationSession.objects.filter(
-                patient=user, 
+                patient=user,
                 status__in=[ConsultationSession.Status.CREATED, ConsultationSession.Status.CONNECTED]
             ).order_by('-created_at').first()
+            # For future booked appointments, only auto-surface the pairing code screen
+            # within 15 minutes of the scheduled time (or once the doctor connects).
+            if (
+                session
+                and session.status == ConsultationSession.Status.CREATED
+                and session.scheduled_time is not None
+                and session.scheduled_time > timezone.now() + timedelta(minutes=15)
+            ):
+                session = None
         else:
             session = ConsultationSession.objects.filter(
-                doctor=user, 
+                doctor=user,
                 status__in=[ConsultationSession.Status.CREATED, ConsultationSession.Status.CONNECTED]
             ).order_by('-created_at').first()
 
         if not session:
-            # Check if there is a recently ended session so we can transition to summary page
-            ended_session = ConsultationSession.objects.filter(
-                patient=user if user.role == 'PATIENT' else None,
-                doctor=user if user.role == 'DOCTOR' else None,
-                status=ConsultationSession.Status.ENDED
-            ).order_by('-created_at').first()
-            
+            # Only surface very recently ended sessions (last 2 minutes) for active polling transitions
+            recent_cutoff = timezone.now() - timedelta(minutes=2)
+            ended_filter = {'status': ConsultationSession.Status.ENDED, 'created_at__gte': recent_cutoff}
+            if user.role == 'PATIENT':
+                ended_filter['patient'] = user
+            else:
+                ended_filter['doctor'] = user
+            ended_session = ConsultationSession.objects.filter(**ended_filter).order_by('-created_at').first()
+
             if ended_session:
                 return Response({
                     'code': ended_session.code,
@@ -695,9 +677,6 @@ class ConsultationDetailView(APIView):
 
 
 class ExtractSessionClaimsView(APIView):
-    """
-    Executes the full 8-stage verification pipeline (Stages 2-8) on a consultation session.
-    """
     permission_classes = [IsAuthenticated]
 
     def post(self, request, code):
@@ -744,6 +723,7 @@ class PatientSessionListView(APIView):
                 'created_at': s.created_at.isoformat(),
                 'doctor_name': s.doctor.get_full_name() or s.doctor.email if s.doctor else "Unknown Doctor",
                 'patient_name': s.patient.get_full_name() or s.patient.email,
+                'transcript': s.transcript_json,
                 'soap_note': s.soap_note_json,
                 'atomic_claims': s.atomic_claims_json,
                 'prescriptions': s.prescriptions_json,
@@ -789,10 +769,6 @@ class DoctorSessionListView(APIView):
 
 
 class DoctorClinicSlotView(APIView):
-    """
-    Manage Doctor Clinics & Availability Slots.
-    Enforces that a verified doctor can add multiple clinics IF AND ONLY IF their times do not overlap.
-    """
     permission_classes = [IsAuthenticated]
 
     def _parse_time(self, t_str):
@@ -902,14 +878,21 @@ class DoctorClinicSlotDeleteView(APIView):
 
 
 class AppointmentBookingView(APIView):
-    """
-    Allows patients to book a doctor's available clinic slot and logs the appointment time.
-    Automatically creates a linked ConsultationSession with a 6-digit pairing code.
-    """
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
         user = request.user
+        now_local = timezone.localtime(timezone.now())
+        today_date = now_local.date()
+        now_time = now_local.time()
+        # Mark past unstarted BOOKED appointments as INVALID
+        Appointment.objects.filter(
+            status=Appointment.Status.BOOKED,
+        ).filter(
+            models.Q(appointment_date__lt=today_date)
+            | models.Q(appointment_date=today_date, appointment_time__lt=now_time)
+        ).update(status='INVALID')
+
         if user.role == 'DOCTOR':
             appts = Appointment.objects.filter(doctor=user).order_by('appointment_date', 'appointment_time')
         else:
@@ -946,6 +929,14 @@ class AppointmentBookingView(APIView):
         if appt_time is None:
             appt_time = slot.start_time
 
+        # Disallow booking in the past
+        now_local = timezone.localtime(timezone.now())
+        scheduled_dt = timezone.make_aware(datetime.combine(appt_date, appt_time), timezone.get_current_timezone())
+        if scheduled_dt < now_local:
+            return Response({
+                'error': 'Cannot book an appointment in the past. Please choose a future date and time.'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
         # Verify booked time falls within the clinic's availability window
         if appt_time < slot.start_time or appt_time > slot.end_time:
             return Response({
@@ -954,6 +945,45 @@ class AppointmentBookingView(APIView):
                     f"hours ({slot.start_time.strftime('%H:%M')} - {slot.end_time.strftime('%H:%M')})."
                 )
             }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Check for booking conflicts (5-minute minimum spacing per doctor on the same date)
+        req_minutes = appt_time.hour * 60 + appt_time.minute
+        existing_appts = Appointment.objects.filter(
+            doctor=slot.doctor,
+            appointment_date=appt_date,
+            status__in=[Appointment.Status.BOOKED, Appointment.Status.IN_PROGRESS],
+        )
+        for existing in existing_appts:
+            ex_minutes = existing.appointment_time.hour * 60 + existing.appointment_time.minute
+            if abs(ex_minutes - req_minutes) < 5:
+                doc_label = slot.doctor.get_full_name() or slot.doctor.email
+                return Response({
+                    'error': (
+                        f"Time conflict: Dr. {doc_label} already has a booking at "
+                        f"{existing.appointment_time.strftime('%H:%M')}. "
+                        f"Bookings must be at least 5 minutes apart."
+                    )
+                }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Patient-side cross-doctor conflict (10 mins same hospital, 60 mins different hospital)
+        patient_appts = Appointment.objects.filter(
+            patient=user,
+            appointment_date=appt_date,
+            status__in=[Appointment.Status.BOOKED, Appointment.Status.IN_PROGRESS],
+        )
+        for pat_appt in patient_appts:
+            ex_minutes = pat_appt.appointment_time.hour * 60 + pat_appt.appointment_time.minute
+            same_hospital = pat_appt.clinic_name.strip().lower() == slot.clinic_name.strip().lower()
+            min_gap = 10 if same_hospital else 60
+            if abs(ex_minutes - req_minutes) < min_gap:
+                gap_label = '10 minutes (same hospital)' if same_hospital else '1 hour (different hospital)'
+                return Response({
+                    'error': (
+                        f"Schedule conflict: You already have a booking at {pat_appt.clinic_name} "
+                        f"at {pat_appt.appointment_time.strftime('%H:%M')}. "
+                        f"Appointments require at least {gap_label} apart."
+                    )
+                }, status=status.HTTP_400_BAD_REQUEST)
 
         # Generate unique 6-digit pairing code and create ConsultationSession
         while True:
@@ -982,17 +1012,85 @@ class AppointmentBookingView(APIView):
             pairing_code=code,
             status=Appointment.Status.BOOKED,
         )
-        return Response(AppointmentSerializer(appt).data, status=status.HTTP_201_CREATED)
+        resp_data = AppointmentSerializer(appt).data
+        resp_data['arrival_instruction'] = (
+            'Estimated consultation window is ±30 mins around your preferred time. '
+            'Please arrive at least 10 minutes early.'
+        )
+        return Response(resp_data, status=status.HTTP_201_CREATED)
+
+
+def _recompute_dynamic_queue(doctor, appt_date, reference_time=None):
+    # Dynamically pulls waiting/ready patients forward when an earlier slot finishes early or cancels
+    if not doctor:
+        return
+    now_local = timezone.localtime(timezone.now())
+    if reference_time is not None:
+        cursor_dt = datetime.combine(appt_date, reference_time)
+    elif appt_date == now_local.date():
+        cursor_dt = datetime.combine(appt_date, now_local.time().replace(second=0, microsecond=0))
+    else:
+        return
+
+    in_progress = Appointment.objects.filter(
+        doctor=doctor, appointment_date=appt_date, status=Appointment.Status.IN_PROGRESS
+    ).exists()
+    if in_progress:
+        return
+
+    waiting = list(
+        Appointment.objects.filter(
+            doctor=doctor, appointment_date=appt_date, status=Appointment.Status.BOOKED
+        ).order_by('-is_ready', 'appointment_time')
+    )
+    for appt in waiting:
+        booked_dt = datetime.combine(appt_date, appt.appointment_time)
+        # Pull forward if cursor_dt is earlier than booked_dt (gap freed by early finish / cancellation)
+        target_dt = cursor_dt if cursor_dt < booked_dt else booked_dt
+        appt.estimated_time = target_dt.time()
+        appt.save(update_fields=['estimated_time'])
+        cursor_dt = target_dt + timedelta(minutes=15)
+
+
+class AppointmentActionView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, appt_id):
+        try:
+            appt = Appointment.objects.get(id=appt_id)
+        except Appointment.DoesNotExist:
+            return Response({'error': 'Appointment not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+        action = (request.data.get('action') or '').strip().upper()
+        if action == 'SUBMIT_REMARK':
+            remark = (request.data.get('remark') or '').strip()
+            cant_come = bool(request.data.get('cant_come', False))
+            appt.patient_remark = remark
+            appt.remark_accepted = False
+            if cant_come:
+                appt.status = Appointment.Status.CANCELLED
+                appt.save()
+                ConsultationSession.objects.filter(code=appt.pairing_code).update(
+                    status=ConsultationSession.Status.ENDED
+                )
+                _recompute_dynamic_queue(appt.doctor, appt.appointment_date)
+            else:
+                appt.save()
+        elif action == 'ACCEPT_REMARK':
+            appt.remark_accepted = True
+            appt.save()
+            _recompute_dynamic_queue(appt.doctor, appt.appointment_date)
+        elif action == 'MARK_READY':
+            appt.is_ready = True
+            appt.save()
+            _recompute_dynamic_queue(appt.doctor, appt.appointment_date)
+        else:
+            return Response({'error': 'Invalid action.'}, status=status.HTTP_400_BAD_REQUEST)
+
+        return Response(AppointmentSerializer(appt).data, status=status.HTTP_200_OK)
 
 
 class PatientBriefingView(APIView):
-    """
-    Returns comprehensive patient briefing for the doctor upon entering pairing code or clicking appointment popup:
-    - Demographics & allergies
-    - Active medications currently taken
-    - Visit history across ANY clinic/hospital
-    - Structured EHR history (Diagnoses, Lab Results, Prescriptions) for instant searching
-    """
     permission_classes = [IsAuthenticated]
 
     def get(self, request, code):
@@ -1035,44 +1133,21 @@ class PatientBriefingView(APIView):
                         'clinic': clinic,
                     })
 
-        # Seed realistic multi-clinic visit history so every patient has rich longitudinal context
-        visit_history.extend([
-            {
-                'session_code': 'VST-902',
-                'clinic_name': 'Sunrise Heart & Diabetes Clinic',
-                'doctor_name': 'Dr. Anitha Varghese',
-                'date': 'Oct 24, 2023',
-                'assessment': 'Type 2 Diabetes Mellitus (E11.9) — HbA1c 7.8% on routine blood work.',
-                'plan': 'Initiated Metformin 500mg twice daily with meals and dietary modification.',
-                'prescriptions': [{'name': 'Metformin', 'dosage': '500mg', 'frequency': '1-0-1 With Meals'}],
-            },
-            {
-                'session_code': 'VST-841',
-                'clinic_name': 'Govt. Medical College Hospital',
-                'doctor_name': 'Dr. Suresh Nambiar',
-                'date': 'Oct 12, 2023',
-                'assessment': 'Hypertension Management Review (I10) — Home BP readings stable.',
-                'plan': 'Continued Lisinopril 10mg oral daily. No adverse effects.',
-                'prescriptions': [{'name': 'Lisinopril', 'dosage': '10mg', 'frequency': '1-0-0 Morning'}],
-            },
-            {
-                'session_code': 'VST-710',
-                'clinic_name': 'City Care Multispecialty Clinic',
-                'doctor_name': 'Dr. Rajesh Menon',
-                'date': 'Aug 05, 2023',
-                'assessment': 'Dyslipidemia Screening & Lipid Panel Follow-up.',
-                'plan': 'Recommended statin therapy (Atorvastatin 20mg) and repeat lipid panel in 3 months.',
-                'prescriptions': [{'name': 'Atorvastatin', 'dosage': '20mg', 'frequency': '0-0-1 Night'}],
-            },
-        ])
+        # Load seeded Synthea longitudinal EHR data if present
+        synthea_demo_path = Path(settings.BASE_DIR) / "data" / "demo_patient_synthea_ehr.json"
+        synthea_data = {}
+        if synthea_demo_path.exists() and patient.email == 'demo.patient@clinnote.org':
+            try:
+                with open(synthea_demo_path, "r", encoding="utf-8") as f:
+                    synthea_data = json.load(f)
+            except Exception:
+                synthea_data = {}
 
-        current_medications = dynamic_meds + [
-            {'name': 'Lisinopril', 'dose': '10mg', 'frequency': 'Once daily (Morning)', 'clinic': 'Govt. Medical College Hospital'},
-            {'name': 'Metformin', 'dose': '500mg', 'frequency': 'Twice daily (With meals)', 'clinic': 'Sunrise Heart & Diabetes Clinic'},
-            {'name': 'Atorvastatin', 'dose': '20mg', 'frequency': 'Once daily (Night)', 'clinic': 'City Care Multispecialty Clinic'},
-        ]
+        if synthea_data.get('visit_history'):
+            visit_history.extend(synthea_data['visit_history'])
 
-        allergies = (profile.allergies if profile and profile.allergies else ['Sulfa Drug Allergy'])
+        current_medications = dynamic_meds + list(synthea_data.get('current_medications', []))
+        allergies = (profile.allergies if profile and profile.allergies else synthea_data.get('allergies', ['Sulfa Drug Allergy']))
 
         return Response({
             'session_code': session.code,
@@ -1094,13 +1169,6 @@ class PatientBriefingView(APIView):
 
 
 class SessionActionLogView(APIView):
-    """
-    Monitors and logs the doctor's real-time actions during the consultation:
-    - Pausing / resuming live transcript when navigating back to EHR history
-    - Searching EHR queries
-    - Viewing / reading specific EHR records or clinic visits
-    - Selecting / pinning EHR evidence items in parallel with the transcript
-    """
     permission_classes = [IsAuthenticated]
 
     def post(self, request, code):
@@ -1152,11 +1220,28 @@ class SessionActionLogView(APIView):
         }, status=status.HTTP_200_OK)
 
 
+def _sign_rx_payload(payload: dict) -> str:
+    canonical = json.dumps(
+        {
+            'rx_token': payload.get('rx_token'),
+            'session_code': payload.get('session_code'),
+            'patient_id': payload.get('patient_id'),
+            'doctor_name': payload.get('doctor_name'),
+            'doctor_reg_no': payload.get('doctor_reg_no'),
+            'issued_at': payload.get('issued_at'),
+            'medications': payload.get('medications', []),
+        },
+        sort_keys=True,
+        separators=(',', ':'),
+    )
+    return hmac.new(
+        settings.SECRET_KEY.encode('utf-8'),
+        canonical.encode('utf-8'),
+        hashlib.sha256,
+    ).hexdigest()[:20].upper()
+
+
 class FinalizePrescriptionView(APIView):
-    """
-    Saves the doctor-reviewed & corrected SOAP note, verified claims, and prescribed medications.
-    Generates a Pharmacy QR code token & structured payload for scanning at the pharmacy.
-    """
     permission_classes = [IsAuthenticated]
 
     def post(self, request, code):
@@ -1197,24 +1282,31 @@ class FinalizePrescriptionView(APIView):
 
         doc_user = session.doctor or request.user
         doc_profile = getattr(doc_user, 'doctor_profile', None)
+        doc_display = doc_user.get_full_name() or doc_user.email
+        if doc_display and not doc_display.lower().startswith('dr.'):
+            doc_display = f"Dr. {doc_display}"
         qr_payload = {
             'rx_token': session.qr_code_token,
             'session_code': session.code,
             'patient_name': session.patient.get_full_name() or session.patient.email,
             'patient_id': f"PT-{session.patient.id:05d}",
-            'doctor_name': doc_user.get_full_name() or doc_user.email,
+            'doctor_name': doc_display,
             'doctor_reg_no': (doc_profile.registration_number if doc_profile and doc_profile.registration_number else 'KMC-48291'),
             'doctor_verified': (doc_profile.is_verified if doc_profile else True),
             'clinic_name': session.clinic_name or (doc_profile.hospital if doc_profile and doc_profile.hospital else 'Govt. Medical College Hospital'),
             'issued_at': timezone.now().strftime('%Y-%m-%d %H:%M'),
             'medications': session.prescriptions_json,
         }
+        qr_payload['signed_by'] = doc_display
+        qr_payload['signature'] = _sign_rx_payload(qr_payload)
         session.qr_payload_json = qr_payload
         session.status = ConsultationSession.Status.ENDED
         session.save()
 
-        # Mark any linked appointment as COMPLETED
+        # Mark any linked appointment as COMPLETED and advance next waiting patient if finished early
         Appointment.objects.filter(pairing_code=code).update(status=Appointment.Status.COMPLETED)
+        if session.doctor:
+            _recompute_dynamic_queue(session.doctor, timezone.localtime(timezone.now()).date())
 
         return Response({
             'code': session.code,
@@ -1227,10 +1319,6 @@ class FinalizePrescriptionView(APIView):
 
 
 class PharmacyLookupView(APIView):
-    """
-    Allows a pharmacy to scan/enter a QR code token (or session code) to retrieve
-    the verified medication list and dosage instructions, and mark as dispensed.
-    """
     permission_classes = [AllowAny]
 
     def get(self, request, rx_token):
@@ -1243,11 +1331,16 @@ class PharmacyLookupView(APIView):
         if not session:
             return Response({'error': 'Prescription QR code not found.'}, status=status.HTTP_404_NOT_FOUND)
 
+        payload = dict(session.qr_payload_json or {})
+        expected_sig = _sign_rx_payload(payload) if payload else None
+        sig_valid = bool(payload.get('signature') and payload.get('signature') == expected_sig)
+
         return Response({
             'rx_token': session.qr_code_token or f"RX-{session.code}",
             'session_code': session.code,
             'is_dispensed': session.is_dispensed,
-            'qr_payload': session.qr_payload_json,
+            'signature_valid': sig_valid,
+            'qr_payload': payload,
             'prescriptions': session.prescriptions_json,
         }, status=status.HTTP_200_OK)
 

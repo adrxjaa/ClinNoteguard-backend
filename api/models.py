@@ -69,6 +69,10 @@ class Appointment(models.Model):
     reason = models.CharField(max_length=250, blank=True, default='General Consultation')
     pairing_code = models.CharField(max_length=8, blank=True, default='')
     status = models.CharField(max_length=20, choices=Status.choices, default=Status.BOOKED)
+    patient_remark = models.CharField(max_length=300, blank=True, default='')
+    remark_accepted = models.BooleanField(default=False)
+    is_ready = models.BooleanField(default=False)
+    estimated_time = models.TimeField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:

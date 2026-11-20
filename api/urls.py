@@ -6,8 +6,8 @@ from .views import (
     ActiveSessionStatusView, ConsultationDetailView,
     PatientSessionListView, DoctorSessionListView, ExtractSessionClaimsView,
     DoctorClinicSlotView, DoctorClinicSlotDeleteView, AppointmentBookingView,
-    PatientBriefingView, SessionActionLogView, FinalizePrescriptionView,
-    PharmacyLookupView,
+    AppointmentActionView, PatientBriefingView, SessionActionLogView,
+    FinalizePrescriptionView, PharmacyLookupView,
 )
 
 urlpatterns = [
@@ -23,6 +23,7 @@ urlpatterns = [
     path('clinics/', DoctorClinicSlotView.as_view(), name='clinic_slots'),
     path('clinics/<int:slot_id>/', DoctorClinicSlotDeleteView.as_view(), name='clinic_slot_delete'),
     path('appointments/', AppointmentBookingView.as_view(), name='appointments'),
+    path('appointments/<int:appt_id>/action/', AppointmentActionView.as_view(), name='appointment_action'),
 
     path('consultation/create/', PatientCreateSessionView.as_view(), name='create_session'),
     path('consultation/join/', DoctorJoinSessionView.as_view(), name='join_session'),
@@ -37,4 +38,5 @@ urlpatterns = [
     path('consultation/doctor/list/', DoctorSessionListView.as_view(), name='doctor_sessions'),
 
     path('pharmacy/lookup/<str:rx_token>/', PharmacyLookupView.as_view(), name='pharmacy_lookup'),
+    path('pharmacy/dispense/<str:rx_token>/', PharmacyLookupView.as_view(), name='pharmacy_dispense'),
 ]

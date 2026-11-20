@@ -29,7 +29,6 @@ class PatientProfileSerializer(serializers.ModelSerializer):
 
 
 class PatientProfileUpdateSerializer(serializers.Serializer):
-    """Used for PATCH /api/auth/profile/update/ — all fields optional."""
     first_name = serializers.CharField(required=False, allow_blank=True)
     last_name  = serializers.CharField(required=False, allow_blank=True)
     phone      = serializers.CharField(required=False, allow_blank=True)
@@ -45,7 +44,6 @@ class PatientProfileUpdateSerializer(serializers.Serializer):
 
 
 class DoctorProfileUpdateSerializer(serializers.Serializer):
-    """Used for PATCH /api/auth/doctor-profile/update/ — all fields optional."""
     first_name          = serializers.CharField(required=False, allow_blank=True)
     last_name           = serializers.CharField(required=False, allow_blank=True)
     phone               = serializers.CharField(required=False, allow_blank=True)
@@ -177,21 +175,31 @@ class PatientRegisterSerializer(serializers.Serializer):
 
 
 class LoginSerializer(serializers.Serializer):
-    email = serializers.EmailField()
+    email = serializers.CharField()
     password = serializers.CharField(write_only=True)
 
     def validate(self, data):
-        email = data.get('email')
+        identifier = (data.get('email') or '').strip()
         password = data.get('password')
 
-        if email and password:
-            user = authenticate(username=email, password=password)
+        if identifier and password:
+            lookup_username = identifier
+            if '@' not in identifier:
+                matched = User.objects.filter(phone=identifier).first()
+                if matched:
+                    lookup_username = matched.username
+            else:
+                matched = User.objects.filter(email__iexact=identifier).first()
+                if matched:
+                    lookup_username = matched.username
+
+            user = authenticate(username=lookup_username, password=password)
             if not user:
                 raise serializers.ValidationError("Unable to log in with provided credentials.")
             if not user.is_active:
                 raise serializers.ValidationError("User is deactivated.")
         else:
-            raise serializers.ValidationError("Must include both email and password.")
+            raise serializers.ValidationError("Must include both email/phone and password.")
 
         data['user'] = user
         return data
@@ -231,7 +239,8 @@ class AppointmentSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'patient', 'patient_name', 'doctor', 'doctor_name',
             'clinic_slot', 'clinic_name', 'appointment_date', 'appointment_time',
-            'reason', 'pairing_code', 'status', 'created_at'
+            'reason', 'pairing_code', 'status', 'patient_remark', 'remark_accepted',
+            'is_ready', 'estimated_time', 'created_at'
         ]
         read_only_fields = ['id', 'patient', 'patient_name', 'doctor_name', 'pairing_code', 'created_at']
 
