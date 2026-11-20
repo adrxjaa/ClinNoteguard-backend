@@ -85,6 +85,18 @@ class Stage78VerifierService:
                 gap_days_tensor=gap_days,
             )
             cal_logits = self.model.calibrator(logits)
+            conflict_boost = float(os.environ.get("VERIFIER_CONFLICT_BOOST", "0.0"))
+            hallucination_boost = float(os.environ.get("VERIFIER_HALLUCINATION_BOOST", "0.0"))
+            if conflict_boost != 0.0 or hallucination_boost != 0.0:
+                cal_logits = cal_logits.clone()
+                has_dose_mismatch = bool((scalars[:, 3] > 0.5).any().item()) if num_ev > 0 else False
+                max_ce = float(scalars[:, 0].max().item()) if num_ev > 0 else 0.0
+                if conflict_boost != 0.0 and has_dose_mismatch:
+                    conflict_idx = VERIFICATION_CLASSES.index("CLINICAL_CONFLICT")
+                    cal_logits[0, conflict_idx] = cal_logits[0, conflict_idx] + conflict_boost
+                if hallucination_boost != 0.0 and (num_ev == 0 or max_ce < 0.25):
+                    hall_idx = VERIFICATION_CLASSES.index("HALLUCINATED")
+                    cal_logits[0, hall_idx] = cal_logits[0, hall_idx] + hallucination_boost
             probs = torch.softmax(cal_logits, dim=-1).cpu().numpy()[0]
 
         pred_idx = int(np.argmax(probs))

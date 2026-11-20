@@ -77,55 +77,69 @@ class CuratedDictionaryLinker:
             self.term_to_canonical[parent.lower()] = parent
 
         # Sort terms by length descending to match longest phrases first
-        self.sorted_terms = sorted(self.term_to_canonical.keys(), key=len, reverse=True)
+        self.sorted_terms = [t for t in sorted(self.term_to_canonical.keys(), key=len, reverse=True) if t]
+        # Pre-compile single combined regex for O(1) pass + memoize link() calls
+        self._compiled_pattern = (
+            re.compile(r"\b(" + "|".join(re.escape(t) for t in self.sorted_terms) + r")\b")
+            if self.sorted_terms
+            else None
+        )
+        self._link_cache: Dict[str, List[Mention]] = {}
 
     def link(self, text: str) -> List[Mention]:
-        mentions: List[Mention] = []
         if not text:
+            return []
+        if text in self._link_cache:
+            return self._link_cache[text]
+
+        mentions: List[Mention] = []
+        if self._compiled_pattern is None:
             return mentions
 
         text_lower = text.lower()
         occupied_spans: List[Tuple[int, int]] = []
 
-        for term in self.sorted_terms:
-            pattern = r"\b" + re.escape(term) + r"\b"
-            for match in re.finditer(pattern, text_lower):
-                start, end = match.span()
-                # Check overlap
-                if any(start < o_end and end > o_start for o_start, o_end in occupied_spans):
-                    continue
+        for match in self._compiled_pattern.finditer(text_lower):
+            term = match.group(1)
+            start, end = match.span()
+            if any(start < o_end and end > o_start for o_start, o_end in occupied_spans):
+                continue
 
-                canonical = self.term_to_canonical[term]
-                cui = self.hierarchy.resolve_cui(canonical)
-                # Assign semantic type based on concept hierarchy
-                ancestors = set(self.hierarchy.get_ancestors(canonical, max_hops=3))
-                med_ancestors = {
-                    "antibiotic", "antihypertensive", "cardiovascular_agent",
-                    "lipid_lowering_agent", "antidiabetic_agent", "nsaid", "analgesic",
-                    "diuretic", "bronchodilator", "corticosteroid", "anticonvulsant",
-                    "ssri", "ppi", "statin", "ace_inhibitor", "arb", "sulfonylurea",
-                    "beta2_agonist", "antiplatelet", "biguanide", "loop_diuretic",
-                    "thiazide_diuretic", "cephalosporin", "penicillin", "beta_lactam_antibiotic",
-                }
-                if "allergy" in canonical or "drug_allergy" in ancestors:
-                    sem_type = "T046"
-                elif canonical in med_ancestors or bool(ancestors & med_ancestors) or canonical in BRAND_TO_GENERIC.values():
-                    sem_type = "T121"
-                else:
-                    sem_type = "T047"
+            canonical = self.term_to_canonical[term]
+            cui = self.hierarchy.resolve_cui(canonical)
+            ancestors = set(self.hierarchy.get_ancestors(canonical, max_hops=3))
+            med_ancestors = {
+                "antibiotic", "antihypertensive", "cardiovascular_agent",
+                "lipid_lowering_agent", "antidiabetic_agent", "nsaid", "analgesic",
+                "diuretic", "bronchodilator", "corticosteroid", "anticonvulsant",
+                "ssri", "ppi", "statin", "ace_inhibitor", "arb", "sulfonylurea",
+                "beta2_agonist", "antiplatelet", "biguanide", "loop_diuretic",
+                "thiazide_diuretic", "cephalosporin", "penicillin", "beta_lactam_antibiotic",
+                "calcium_channel_blocker", "beta_blocker", "anticoagulant",
+                "antithrombotic", "opioid_analgesic", "insulin_therapy", "bisphosphonate",
+            }
+            if "allergy" in canonical or "drug_allergy" in ancestors:
+                sem_type = "T046"
+            elif canonical in med_ancestors or bool(ancestors & med_ancestors) or canonical in BRAND_TO_GENERIC.values():
+                sem_type = "T121"
+            else:
+                sem_type = "T047"
 
-                mentions.append(
-                    Mention(
-                        text=text[start:end],
-                        cui=cui,
-                        semantic_type=sem_type,
-                        span=(start, end),
-                        canonical_name=canonical,
-                    )
+            mentions.append(
+                Mention(
+                    text=text[start:end],
+                    cui=cui,
+                    semantic_type=sem_type,
+                    span=(start, end),
+                    canonical_name=canonical,
                 )
-                occupied_spans.append((start, end))
+            )
+            occupied_spans.append((start, end))
 
-        return sorted(mentions, key=lambda m: m.span[0])
+        res = sorted(mentions, key=lambda m: m.span[0])
+        if len(self._link_cache) < 20000:
+            self._link_cache[text] = res
+        return res
 
 
 class ScispaCyLinker:

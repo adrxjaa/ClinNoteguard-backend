@@ -167,8 +167,16 @@ class GraphDataset:
     def __len__(self):
         return len(self.samples)
 
-def train_verifier():
+def train_verifier(
+    use_gnn: bool = True,
+    use_edge_bias: bool = True,
+    time_bias: str = "per_type",
+    epochs: int = 12,
+    save_path: str = "checkpoints/verifier_demo.pt",
+    report_out: str = "",
+):
     print(BANNER)
+    print(f"[+] Config: use_gnn={use_gnn}, use_edge_bias={use_edge_bias}, time_bias={time_bias}, epochs={epochs}")
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"[+] Compute Device: {device.upper()}")
 
@@ -226,18 +234,23 @@ def train_verifier():
         num_layers=3,
         n_heads=4,
         dropout=0.1,
-        use_gnn=True,
-        use_edge_bias=True,
-        time_bias="per_type",
+        use_gnn=use_gnn,
+        use_edge_bias=use_edge_bias,
+        time_bias=time_bias,
     ).to(device)
 
     optimizer = torch.optim.AdamW(model.parameters(), lr=3e-4, weight_decay=1e-2)
-    criterion = nn.CrossEntropyLoss()
+    scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(optimizer, T_max=epochs, eta_min=1e-5)
+
+    # Smoothed inverse-frequency class weights to balance HISTORY_SUPPORTED / STALE
+    class_counts = np.bincount([s["label_idx"] for s in ds_train.samples], minlength=len(VERIFICATION_CLASSES))
+    raw_w = len(ds_train.samples) / (len(VERIFICATION_CLASSES) * np.maximum(class_counts, 1))
+    cls_weights = torch.tensor(np.sqrt(raw_w), dtype=torch.float32, device=device)
+    criterion = nn.CrossEntropyLoss(weight=cls_weights)
 
     print("[+] Training Claim-Conditioned Transformer Verifier on GPU/CPU...")
     best_val_f1 = -1.0
     best_state = None
-    epochs = 12
 
     for ep in range(1, epochs + 1):
         model.train()
@@ -298,6 +311,7 @@ def train_verifier():
                 val_targets.append(s["label_str"])
 
         val_metrics = compute_verification_metrics(val_targets, val_preds)
+        scheduler.step()
         print(f"  Epoch {ep:2d}/{epochs:2d} - Train Loss: {train_loss / len(ds_train):.4f} | Val Macro-F1: {val_metrics['macro_f1']:.4f}")
 
         if val_metrics["macro_f1"] > best_val_f1:
@@ -439,15 +453,57 @@ def train_verifier():
     print("  [✓] Verified: Temporal validity decay significantly impacts classification when encounter dates change.")
 
     # 7. Save checkpoint
-    os.makedirs("checkpoints", exist_ok=True)
-    save_path = "checkpoints/verifier_demo.pt"
+    os.makedirs(os.path.dirname(save_path) or "checkpoints", exist_ok=True)
     torch.save({
         "model_state_dict": model.state_dict(),
         "temperature": learned_T,
         "classes": VERIFICATION_CLASSES,
         "metrics": m_test,
+        "config": {
+            "use_gnn": use_gnn,
+            "use_edge_bias": use_edge_bias,
+            "time_bias": time_bias,
+            "epochs": epochs,
+        },
     }, save_path)
     print(f"\n[+] Checkpoint successfully saved to {save_path}")
 
+    if report_out:
+        os.makedirs(os.path.dirname(report_out) or "results", exist_ok=True)
+        with open(report_out, "w", encoding="utf-8") as f:
+            json.dump({
+                "config": {
+                    "use_gnn": use_gnn,
+                    "use_edge_bias": use_edge_bias,
+                    "time_bias": time_bias,
+                    "epochs": epochs,
+                },
+                "temperature": learned_T,
+                "ece": ece,
+                "metrics": m_test,
+                "date_shuffle": {
+                    "history_f1_drop": hist_drop,
+                    "stale_f1_drop": stale_drop,
+                },
+                "checkpoint": save_path,
+            }, f, indent=2)
+        print(f"[+] Report saved to {report_out}")
+
 if __name__ == "__main__":
-    train_verifier()
+    import argparse
+    parser = argparse.ArgumentParser(description="Train ClaimConditionedVerifier (GNN + Temporal Transformer)")
+    parser.add_argument("--no-gnn", action="store_true", help="Disable 3-layer DenseGIN (Transformer-only ablation)")
+    parser.add_argument("--no-edge-bias", action="store_true", help="Disable graph edge attention bias")
+    parser.add_argument("--time-bias", type=str, default="per_type", choices=["per_type", "shared", "off", "none"])
+    parser.add_argument("--epochs", type=int, default=12)
+    parser.add_argument("--save-path", type=str, default="checkpoints/verifier_demo.pt")
+    parser.add_argument("--report-out", type=str, default="")
+    args = parser.parse_args()
+    train_verifier(
+        use_gnn=not args.no_gnn,
+        use_edge_bias=not args.no_edge_bias,
+        time_bias=args.time_bias,
+        epochs=args.epochs,
+        save_path=args.save_path,
+        report_out=args.report_out,
+    )

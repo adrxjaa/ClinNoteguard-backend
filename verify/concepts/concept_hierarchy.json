@@ -1,78 +1,2953 @@
 {
   "parents": {
-    "amoxicillin": ["penicillin", "antibiotic"],
-    "ampicillin": ["penicillin", "antibiotic"],
-    "penicillin": ["beta_lactam_antibiotic", "antibiotic"],
-    "cephalexin": ["cephalosporin", "antibiotic"],
-    "cefuroxime": ["cephalosporin", "antibiotic"],
-    "cephalosporin": ["beta_lactam_antibiotic", "antibiotic"],
-    "beta_lactam_antibiotic": ["antibiotic"],
-    "lisinopril": ["ace_inhibitor", "antihypertensive"],
-    "enalapril": ["ace_inhibitor", "antihypertensive"],
-    "ramipril": ["ace_inhibitor", "antihypertensive"],
-    "ace_inhibitor": ["antihypertensive", "cardiovascular_agent"],
-    "losartan": ["arb", "antihypertensive"],
-    "valsartan": ["arb", "antihypertensive"],
-    "arb": ["antihypertensive", "cardiovascular_agent"],
-    "atorvastatin": ["statin", "lipid_lowering_agent"],
-    "simvastatin": ["statin", "lipid_lowering_agent"],
-    "rosuvastatin": ["statin", "lipid_lowering_agent"],
-    "statin": ["lipid_lowering_agent", "cardiovascular_agent"],
-    "metformin": ["biguanide", "antidiabetic_agent"],
-    "biguanide": ["antidiabetic_agent"],
-    "glipizide": ["sulfonylurea", "antidiabetic_agent"],
-    "glimepiride": ["sulfonylurea", "antidiabetic_agent"],
-    "sulfonylurea": ["antidiabetic_agent"],
-    "empagliflozin": ["sglt2_inhibitor", "antidiabetic_agent"],
-    "sglt2_inhibitor": ["antidiabetic_agent"],
-    "ibuprofen": ["nsaid", "analgesic"],
-    "naproxen": ["nsaid", "analgesic"],
-    "meloxicam": ["nsaid", "analgesic"],
-    "celecoxib": ["nsaid", "analgesic"],
-    "nsaid": ["analgesic", "anti_inflammatory"],
-    "aspirin": ["antiplatelet", "nsaid"],
-    "clopidogrel": ["antiplatelet"],
-    "antiplatelet": ["antithrombotic", "cardiovascular_agent"],
-    "furosemide": ["loop_diuretic", "diuretic"],
-    "hydrochlorothiazide": ["thiazide_diuretic", "diuretic"],
-    "loop_diuretic": ["diuretic", "antihypertensive"],
-    "thiazide_diuretic": ["diuretic", "antihypertensive"],
-    "diuretic": ["antihypertensive", "cardiovascular_agent"],
-    "albuterol": ["beta2_agonist", "bronchodilator"],
-    "salmeterol": ["beta2_agonist", "bronchodilator"],
-    "beta2_agonist": ["bronchodilator", "respiratory_agent"],
-    "prednisone": ["corticosteroid"],
-    "dexamethasone": ["corticosteroid"],
-    "methylprednisolone": ["corticosteroid"],
-    "corticosteroid": ["anti_inflammatory", "immunosuppressive_agent"],
-    "levetiracetam": ["anticonvulsant"],
-    "lamotrigine": ["anticonvulsant"],
-    "carbamazepine": ["anticonvulsant"],
-    "anticonvulsant": ["neurological_agent"],
-    "sertraline": ["ssri", "antidepressant"],
-    "fluoxetine": ["ssri", "antidepressant"],
-    "escitalopram": ["ssri", "antidepressant"],
-    "ssri": ["antidepressant", "psychiatric_agent"],
-    "omeprazole": ["ppi", "antacid"],
-    "pantoprazole": ["ppi", "antacid"],
-    "esomeprazole": ["ppi", "antacid"],
-    "ppi": ["gastrointestinal_agent"],
-    "type_2_diabetes": ["diabetes_mellitus", "endocrine_disorder"],
-    "type_1_diabetes": ["diabetes_mellitus", "endocrine_disorder"],
-    "diabetes_mellitus": ["endocrine_disorder", "metabolic_disease"],
-    "hypertension": ["cardiovascular_disease", "vascular_disorder"],
-    "heart_failure": ["cardiovascular_disease", "heart_disease"],
-    "atrial_fibrillation": ["cardiac_arrhythmia", "cardiovascular_disease"],
-    "cardiac_arrhythmia": ["cardiovascular_disease"],
-    "asthma": ["obstructive_lung_disease", "respiratory_disease"],
-    "copd": ["obstructive_lung_disease", "respiratory_disease"],
-    "obstructive_lung_disease": ["respiratory_disease"],
-    "chronic_kidney_disease": ["kidney_disease"],
-    "penicillin_allergy": ["beta_lactam_allergy", "drug_allergy"],
-    "beta_lactam_allergy": ["drug_allergy"],
-    "sulfa_allergy": ["drug_allergy"],
-    "nsaid_allergy": ["drug_allergy"],
-    "drug_allergy": ["allergy_adverse_reaction"]
+    "amoxicillin": [
+      "penicillin",
+      "antibiotic"
+    ],
+    "ampicillin": [
+      "penicillin",
+      "antibiotic"
+    ],
+    "penicillin": [
+      "beta_lactam_antibiotic",
+      "antibiotic"
+    ],
+    "cephalexin": [
+      "cephalosporin",
+      "antibiotic"
+    ],
+    "cefuroxime": [
+      "cephalosporin",
+      "antibiotic"
+    ],
+    "cephalosporin": [
+      "beta_lactam_antibiotic",
+      "antibiotic"
+    ],
+    "beta_lactam_antibiotic": [
+      "antibiotic"
+    ],
+    "lisinopril": [
+      "ace_inhibitor",
+      "antihypertensive"
+    ],
+    "enalapril": [
+      "ace_inhibitor",
+      "antihypertensive"
+    ],
+    "ramipril": [
+      "ace_inhibitor",
+      "antihypertensive"
+    ],
+    "ace_inhibitor": [
+      "antihypertensive",
+      "cardiovascular_agent"
+    ],
+    "losartan": [
+      "arb",
+      "antihypertensive"
+    ],
+    "valsartan": [
+      "arb",
+      "antihypertensive"
+    ],
+    "arb": [
+      "antihypertensive",
+      "cardiovascular_agent"
+    ],
+    "atorvastatin": [
+      "statin",
+      "lipid_lowering_agent"
+    ],
+    "simvastatin": [
+      "statin",
+      "lipid_lowering_agent"
+    ],
+    "rosuvastatin": [
+      "statin",
+      "lipid_lowering_agent"
+    ],
+    "statin": [
+      "lipid_lowering_agent",
+      "cardiovascular_agent"
+    ],
+    "metformin": [
+      "biguanide",
+      "antidiabetic_agent"
+    ],
+    "biguanide": [
+      "antidiabetic_agent"
+    ],
+    "glipizide": [
+      "sulfonylurea",
+      "antidiabetic_agent"
+    ],
+    "glimepiride": [
+      "sulfonylurea",
+      "antidiabetic_agent"
+    ],
+    "sulfonylurea": [
+      "antidiabetic_agent"
+    ],
+    "empagliflozin": [
+      "sglt2_inhibitor",
+      "antidiabetic_agent"
+    ],
+    "sglt2_inhibitor": [
+      "antidiabetic_agent"
+    ],
+    "ibuprofen": [
+      "nsaid",
+      "analgesic"
+    ],
+    "naproxen": [
+      "nsaid",
+      "analgesic"
+    ],
+    "meloxicam": [
+      "nsaid",
+      "analgesic"
+    ],
+    "celecoxib": [
+      "nsaid",
+      "analgesic"
+    ],
+    "nsaid": [
+      "analgesic",
+      "anti_inflammatory"
+    ],
+    "aspirin": [
+      "antiplatelet",
+      "nsaid"
+    ],
+    "clopidogrel": [
+      "antiplatelet"
+    ],
+    "antiplatelet": [
+      "antithrombotic",
+      "cardiovascular_agent"
+    ],
+    "furosemide": [
+      "loop_diuretic",
+      "diuretic"
+    ],
+    "hydrochlorothiazide": [
+      "thiazide_diuretic",
+      "diuretic"
+    ],
+    "loop_diuretic": [
+      "diuretic",
+      "antihypertensive"
+    ],
+    "thiazide_diuretic": [
+      "diuretic",
+      "antihypertensive"
+    ],
+    "diuretic": [
+      "antihypertensive",
+      "cardiovascular_agent"
+    ],
+    "albuterol": [
+      "beta2_agonist",
+      "bronchodilator"
+    ],
+    "salmeterol": [
+      "beta2_agonist",
+      "bronchodilator"
+    ],
+    "beta2_agonist": [
+      "bronchodilator",
+      "respiratory_agent"
+    ],
+    "prednisone": [
+      "corticosteroid"
+    ],
+    "dexamethasone": [
+      "corticosteroid"
+    ],
+    "methylprednisolone": [
+      "corticosteroid"
+    ],
+    "corticosteroid": [
+      "anti_inflammatory",
+      "immunosuppressive_agent"
+    ],
+    "levetiracetam": [
+      "anticonvulsant"
+    ],
+    "lamotrigine": [
+      "anticonvulsant"
+    ],
+    "carbamazepine": [
+      "anticonvulsant"
+    ],
+    "anticonvulsant": [
+      "neurological_agent"
+    ],
+    "sertraline": [
+      "ssri",
+      "antidepressant"
+    ],
+    "fluoxetine": [
+      "ssri",
+      "antidepressant"
+    ],
+    "escitalopram": [
+      "ssri",
+      "antidepressant"
+    ],
+    "ssri": [
+      "antidepressant",
+      "psychiatric_agent"
+    ],
+    "omeprazole": [
+      "ppi",
+      "antacid"
+    ],
+    "pantoprazole": [
+      "ppi",
+      "antacid"
+    ],
+    "esomeprazole": [
+      "ppi",
+      "antacid"
+    ],
+    "ppi": [
+      "gastrointestinal_agent"
+    ],
+    "type_2_diabetes": [
+      "diabetes_mellitus",
+      "endocrine_disorder"
+    ],
+    "type_1_diabetes": [
+      "diabetes_mellitus",
+      "endocrine_disorder"
+    ],
+    "diabetes_mellitus": [
+      "endocrine_disorder",
+      "metabolic_disease"
+    ],
+    "hypertension": [
+      "cardiovascular_disease",
+      "vascular_disorder"
+    ],
+    "heart_failure": [
+      "cardiovascular_disease",
+      "heart_disease"
+    ],
+    "atrial_fibrillation": [
+      "cardiac_arrhythmia",
+      "cardiovascular_disease"
+    ],
+    "cardiac_arrhythmia": [
+      "cardiovascular_disease"
+    ],
+    "asthma": [
+      "obstructive_lung_disease",
+      "respiratory_disease"
+    ],
+    "copd": [
+      "obstructive_lung_disease",
+      "respiratory_disease"
+    ],
+    "obstructive_lung_disease": [
+      "respiratory_disease"
+    ],
+    "chronic_kidney_disease": [
+      "kidney_disease"
+    ],
+    "penicillin_allergy": [
+      "beta_lactam_allergy",
+      "drug_allergy"
+    ],
+    "beta_lactam_allergy": [
+      "drug_allergy"
+    ],
+    "sulfa_allergy": [
+      "drug_allergy"
+    ],
+    "nsaid_allergy": [
+      "drug_allergy"
+    ],
+    "drug_allergy": [
+      "allergy_adverse_reaction"
+    ],
+    "amlodipine": [
+      "calcium_channel_blocker",
+      "antihypertensive"
+    ],
+    "calcium_channel_blocker": [
+      "antihypertensive",
+      "cardiovascular_agent"
+    ],
+    "metoprolol": [
+      "beta_blocker",
+      "antihypertensive"
+    ],
+    "atenolol": [
+      "beta_blocker",
+      "antihypertensive"
+    ],
+    "carvedilol": [
+      "beta_blocker",
+      "antihypertensive"
+    ],
+    "beta_blocker": [
+      "antihypertensive",
+      "cardiovascular_agent"
+    ],
+    "warfarin": [
+      "anticoagulant",
+      "antithrombotic"
+    ],
+    "apixaban": [
+      "anticoagulant",
+      "antithrombotic"
+    ],
+    "rivaroxaban": [
+      "anticoagulant",
+      "antithrombotic"
+    ],
+    "heparin": [
+      "anticoagulant",
+      "antithrombotic"
+    ],
+    "anticoagulant": [
+      "antithrombotic",
+      "cardiovascular_agent"
+    ],
+    "digoxin": [
+      "cardiac_glycoside",
+      "cardiovascular_agent"
+    ],
+    "amiodarone": [
+      "antiarrhythmic",
+      "cardiovascular_agent"
+    ],
+    "acetaminophen": [
+      "non_opioid_analgesic",
+      "analgesic"
+    ],
+    "oxycodone": [
+      "opioid_analgesic",
+      "analgesic"
+    ],
+    "hydrocodone": [
+      "opioid_analgesic",
+      "analgesic"
+    ],
+    "tramadol": [
+      "opioid_analgesic",
+      "analgesic"
+    ],
+    "morphine": [
+      "opioid_analgesic",
+      "analgesic"
+    ],
+    "opioid_analgesic": [
+      "analgesic"
+    ],
+    "non_opioid_analgesic": [
+      "analgesic"
+    ],
+    "insulin": [
+      "insulin_therapy",
+      "antidiabetic_agent"
+    ],
+    "insulin_therapy": [
+      "antidiabetic_agent"
+    ],
+    "alendronic_acid": [
+      "bisphosphonate",
+      "bone_metabolism_agent"
+    ],
+    "bisphosphonate": [
+      "bone_metabolism_agent"
+    ],
+    "epoetin_alfa": [
+      "erythropoiesis_stimulating_agent",
+      "hematologic_agent"
+    ],
+    "sodium_fluoride": [
+      "dental_caries_preventive",
+      "dental_agent"
+    ],
+    "methotrexate": [
+      "dmard",
+      "immunosuppressive_agent"
+    ],
+    "lithium_carbonate": [
+      "mood_stabilizer",
+      "psychiatric_agent"
+    ],
+    "viral_sinusitis": [
+      "upper_respiratory_infection",
+      "respiratory_disease"
+    ],
+    "acute_viral_pharyngitis": [
+      "upper_respiratory_infection",
+      "respiratory_disease"
+    ],
+    "acute_bronchitis": [
+      "lower_respiratory_infection",
+      "respiratory_disease"
+    ],
+    "pneumonia": [
+      "lower_respiratory_infection",
+      "respiratory_disease"
+    ],
+    "upper_respiratory_infection": [
+      "acute_respiratory_disorder",
+      "respiratory_disease"
+    ],
+    "lower_respiratory_infection": [
+      "acute_respiratory_disorder",
+      "respiratory_disease"
+    ],
+    "acute_respiratory_disorder": [
+      "respiratory_disease"
+    ],
+    "gingivitis": [
+      "periodontal_disease",
+      "dental_disorder"
+    ],
+    "gingival_disease": [
+      "periodontal_disease",
+      "dental_disorder"
+    ],
+    "primary_dental_caries": [
+      "dental_disorder"
+    ],
+    "periodontal_disease": [
+      "dental_disorder"
+    ],
+    "prediabetes": [
+      "glycemic_disorder",
+      "metabolic_disease"
+    ],
+    "hyperlipidemia": [
+      "lipid_disorder",
+      "metabolic_disease"
+    ],
+    "obesity": [
+      "metabolic_disease"
+    ],
+    "anemia": [
+      "hematologic_disorder"
+    ],
+    "coronary_heart_disease": [
+      "cardiovascular_disease",
+      "heart_disease"
+    ],
+    "myocardial_infarction": [
+      "cardiovascular_disease",
+      "heart_disease"
+    ],
+    "stroke": [
+      "cerebrovascular_disease",
+      "cardiovascular_disease"
+    ],
+    "osteoarthritis": [
+      "musculoskeletal_disorder"
+    ],
+    "sprain": [
+      "musculoskeletal_injury",
+      "musculoskeletal_disorder"
+    ],
+    "stress": [
+      "psychosocial_finding"
+    ],
+    "social_isolation": [
+      "psychosocial_finding"
+    ],
+    "limited_social_contact": [
+      "psychosocial_finding"
+    ],
+    "full_time_employment": [
+      "employment_finding"
+    ],
+    "part_time_employment": [
+      "employment_finding"
+    ],
+    "medication_review_due": [
+      "clinical_administration"
+    ],
+    "systemic_lupus_erythematosus": [
+      "autoimmune_disease"
+    ],
+    "rheumatoid_arthritis": [
+      "autoimmune_disease",
+      "musculoskeletal_disorder"
+    ],
+    "pulmonary_embolism": [
+      "vascular_disorder",
+      "respiratory_disease"
+    ],
+    "acute_pancreatitis": [
+      "gastrointestinal_disorder"
+    ],
+    "ulcerative_colitis": [
+      "gastrointestinal_disorder"
+    ],
+    "cirrhosis_of_liver": [
+      "hepatic_disorder",
+      "gastrointestinal_disorder"
+    ],
+    "systolic_blood_pressure": [
+      "blood_pressure",
+      "vital_sign"
+    ],
+    "diastolic_blood_pressure": [
+      "blood_pressure",
+      "vital_sign"
+    ],
+    "blood_pressure": [
+      "vital_sign",
+      "clinical_measurement"
+    ],
+    "heart_rate": [
+      "vital_sign",
+      "clinical_measurement"
+    ],
+    "respiratory_rate": [
+      "vital_sign",
+      "clinical_measurement"
+    ],
+    "body_weight": [
+      "anthropometry",
+      "vital_sign"
+    ],
+    "body_height": [
+      "anthropometry",
+      "vital_sign"
+    ],
+    "body_mass_index": [
+      "anthropometry",
+      "clinical_measurement"
+    ],
+    "pain_severity": [
+      "symptom_score",
+      "clinical_measurement"
+    ],
+    "hemoglobin_a1c": [
+      "glycemic_lab",
+      "lab_test"
+    ],
+    "glucose": [
+      "glycemic_lab",
+      "lab_test"
+    ],
+    "creatinine": [
+      "renal_panel",
+      "lab_test"
+    ],
+    "urea_nitrogen": [
+      "renal_panel",
+      "lab_test"
+    ],
+    "potassium": [
+      "electrolyte_panel",
+      "lab_test"
+    ],
+    "sodium": [
+      "electrolyte_panel",
+      "lab_test"
+    ],
+    "calcium": [
+      "electrolyte_panel",
+      "lab_test"
+    ],
+    "total_cholesterol": [
+      "lipid_panel",
+      "lab_test"
+    ],
+    "ldl_cholesterol": [
+      "lipid_panel",
+      "lab_test"
+    ],
+    "hdl_cholesterol": [
+      "lipid_panel",
+      "lab_test"
+    ],
+    "triglycerides": [
+      "lipid_panel",
+      "lab_test"
+    ],
+    "renal_panel": [
+      "lab_test"
+    ],
+    "electrolyte_panel": [
+      "lab_test"
+    ],
+    "glycemic_lab": [
+      "lab_test"
+    ],
+    "lipid_panel": [
+      "lab_test"
+    ],
+    "otitis_media": [
+      "synthea_condition"
+    ],
+    "risk_activity_involvement": [
+      "synthea_condition"
+    ],
+    "seizure_disorder": [
+      "synthea_condition"
+    ],
+    "history_of_seizure": [
+      "synthea_condition"
+    ],
+    "leaking_dental_filling": [
+      "synthea_condition"
+    ],
+    "sprain_of_wrist": [
+      "sprain"
+    ],
+    "headache": [
+      "synthea_condition"
+    ],
+    "sputum_finding": [
+      "synthea_condition"
+    ],
+    "fever": [
+      "synthea_condition"
+    ],
+    "concussion_injury_of_brain": [
+      "synthea_condition"
+    ],
+    "concussion_with_no_loss_of_consciousness": [
+      "synthea_condition"
+    ],
+    "acute_infective_cystitis": [
+      "synthea_condition"
+    ],
+    "infection_of_tooth": [
+      "synthea_condition"
+    ],
+    "recurrent_urinary_tract_infection": [
+      "synthea_condition"
+    ],
+    "educated_to_high_school_level": [
+      "synthea_condition"
+    ],
+    "sprain_of_ankle": [
+      "sprain"
+    ],
+    "not_in_labor_force": [
+      "synthea_condition"
+    ],
+    "laceration_injury": [
+      "synthea_condition"
+    ],
+    "laceration_of_thigh": [
+      "synthea_condition"
+    ],
+    "housing_unsatisfactory": [
+      "synthea_condition"
+    ],
+    "normal_pregnancy": [
+      "synthea_condition"
+    ],
+    "received_higher_education": [
+      "synthea_condition"
+    ],
+    "aortic_valve_stenosis": [
+      "synthea_condition"
+    ],
+    "transport_problem": [
+      "synthea_condition"
+    ],
+    "lack_of_access_to_transportation": [
+      "synthea_condition"
+    ],
+    "past_pregnancy_history_of_miscarriage": [
+      "synthea_condition"
+    ],
+    "has_a_criminal_record": [
+      "synthea_condition"
+    ],
+    "eclampsia_in_pregnancy": [
+      "synthea_condition"
+    ],
+    "reports_of_violence_in_the_environment": [
+      "synthea_condition"
+    ],
+    "misuses_drugs": [
+      "synthea_condition"
+    ],
+    "laceration_of_forearm": [
+      "synthea_condition"
+    ],
+    "fractured_dental_filling": [
+      "synthea_condition"
+    ],
+    "severe_anxiety": [
+      "synthea_condition"
+    ],
+    "victim_of_intimate_partner_abuse": [
+      "synthea_condition"
+    ],
+    "body_mass_index_30_obesity": [
+      "obesity",
+      "body_mass_index"
+    ],
+    "unhealthy_alcohol_drinking_behavior": [
+      "synthea_condition"
+    ],
+    "miscarriage_in_first_trimester": [
+      "synthea_condition"
+    ],
+    "complete_miscarriage": [
+      "synthea_condition"
+    ],
+    "chronic_sinusitis": [
+      "synthea_condition"
+    ],
+    "chronic_pain": [
+      "synthea_condition"
+    ],
+    "chronic_low_back_pain": [
+      "synthea_condition"
+    ],
+    "streptococcal_sore_throat": [
+      "synthea_condition"
+    ],
+    "diabetes_mellitus_type_2": [
+      "synthea_condition"
+    ],
+    "dental_filling_lost": [
+      "synthea_condition"
+    ],
+    "hyperglycemia": [
+      "synthea_condition"
+    ],
+    "hypertriglyceridemia": [
+      "synthea_condition"
+    ],
+    "metabolic_syndrome_x": [
+      "synthea_condition"
+    ],
+    "essential_hypertension": [
+      "synthea_condition"
+    ],
+    "unemployed": [
+      "synthea_condition"
+    ],
+    "impacted_molars": [
+      "synthea_condition"
+    ],
+    "dependent_drug_abuse": [
+      "synthea_condition"
+    ],
+    "polyp_of_colon": [
+      "synthea_condition"
+    ],
+    "overdose": [
+      "synthea_condition"
+    ],
+    "loss_of_teeth": [
+      "synthea_condition"
+    ],
+    "cough": [
+      "synthea_condition"
+    ],
+    "loss_of_taste": [
+      "synthea_condition"
+    ],
+    "laceration_of_foot": [
+      "synthea_condition"
+    ],
+    "seasonal_allergic_rhinitis": [
+      "synthea_condition"
+    ],
+    "chronic_neck_pain": [
+      "synthea_condition"
+    ],
+    "chronic_intractable_migraine_without_aura": [
+      "synthea_condition"
+    ],
+    "only_received_primary_school_education": [
+      "synthea_condition"
+    ],
+    "loose_dental_filling": [
+      "synthea_condition"
+    ],
+    "refugee": [
+      "synthea_condition"
+    ],
+    "sinusitis": [
+      "synthea_condition"
+    ],
+    "history_of_tubal_ligation": [
+      "synthea_condition"
+    ],
+    "idiopathic_atrophic_hypothyroidism": [
+      "synthea_condition"
+    ],
+    "malignant_neoplasm_of_breast": [
+      "synthea_condition"
+    ],
+    "chronic_congestive_heart_failure": [
+      "synthea_condition"
+    ],
+    "shock": [
+      "synthea_condition"
+    ],
+    "resorption_of_alveolar_process_due_to_dental_trauma": [
+      "synthea_condition"
+    ],
+    "serving_in_military_service": [
+      "synthea_condition"
+    ],
+    "opioid_abuse": [
+      "synthea_condition"
+    ],
+    "localized_primary_osteoarthritis_of_the_hand": [
+      "osteoarthritis"
+    ],
+    "ischemic_heart_disease": [
+      "synthea_condition"
+    ],
+    "abnormal_findings_diagnostic_imaging_heart_coronary_circulat": [
+      "synthea_condition"
+    ],
+    "fracture_of_bone": [
+      "synthea_condition"
+    ],
+    "fracture_of_ankle": [
+      "synthea_condition"
+    ],
+    "history_of_coronary_artery_bypass_grafting": [
+      "synthea_condition"
+    ],
+    "facial_laceration": [
+      "synthea_condition"
+    ],
+    "fracture_of_clavicle": [
+      "synthea_condition"
+    ],
+    "injury_of_neck": [
+      "synthea_condition"
+    ],
+    "whiplash_injury_to_neck": [
+      "synthea_condition"
+    ],
+    "epilepsy": [
+      "synthea_condition"
+    ],
+    "acute_non_st_segment_elevation_myocardial_infarction": [
+      "myocardial_infarction"
+    ],
+    "history_of_myocardial_infarction": [
+      "myocardial_infarction"
+    ],
+    "suspected_prostate_cancer": [
+      "synthea_condition"
+    ],
+    "neoplasm_of_prostate": [
+      "synthea_condition"
+    ],
+    "carcinoma_in_situ_of_prostate": [
+      "synthea_condition"
+    ],
+    "childhood_asthma": [
+      "synthea_condition"
+    ],
+    "perennial_allergic_rhinitis_with_seasonal_variation": [
+      "synthea_condition"
+    ],
+    "chronic_kidney_disease_stage_1": [
+      "synthea_condition"
+    ],
+    "disorder_of_kidney_due_to_diabetes_mellitus": [
+      "synthea_condition"
+    ],
+    "fracture_subluxation_of_wrist": [
+      "synthea_condition"
+    ],
+    "chronic_kidney_disease_stage_2": [
+      "synthea_condition"
+    ],
+    "microalbuminuria_due_to_type_2_diabetes_mellitus": [
+      "synthea_condition"
+    ],
+    "acute_st_segment_elevation_myocardial_infarction": [
+      "myocardial_infarction"
+    ],
+    "alveolitis_of_jaw": [
+      "synthea_condition"
+    ],
+    "torus_palatinus": [
+      "synthea_condition"
+    ],
+    "sleep_disorder": [
+      "synthea_condition"
+    ],
+    "obstructive_sleep_apnea_syndrome": [
+      "synthea_condition"
+    ],
+    "nasal_congestion": [
+      "synthea_condition"
+    ],
+    "dyspnea": [
+      "synthea_condition"
+    ],
+    "wheezing": [
+      "synthea_condition"
+    ],
+    "fracture_of_forearm": [
+      "synthea_condition"
+    ],
+    "smokes_tobacco_daily": [
+      "synthea_condition"
+    ],
+    "mitral_valve_regurgitation": [
+      "synthea_condition"
+    ],
+    "adolescent_idiopathic_scoliosis": [
+      "synthea_condition"
+    ],
+    "perennial_allergic_rhinitis": [
+      "synthea_condition"
+    ],
+    "child_attention_deficit_disorder": [
+      "synthea_condition"
+    ],
+    "fatigue": [
+      "synthea_condition"
+    ],
+    "muscle_pain": [
+      "synthea_condition"
+    ],
+    "joint_pain": [
+      "synthea_condition"
+    ],
+    "hypoxemia": [
+      "synthea_condition"
+    ],
+    "respiratory_distress": [
+      "stress"
+    ],
+    "acute_respiratory_failure": [
+      "synthea_condition"
+    ],
+    "sepsis_caused_by_virus": [
+      "synthea_condition"
+    ],
+    "acute_deep_venous_thrombosis": [
+      "synthea_condition"
+    ],
+    "acute_bacterial_sinusitis": [
+      "synthea_condition"
+    ],
+    "burn_injury": [
+      "synthea_condition"
+    ],
+    "epidermal_burn_of_skin": [
+      "synthea_condition"
+    ],
+    "history_of_appendectomy": [
+      "synthea_condition"
+    ],
+    "acute_allergic_reaction": [
+      "synthea_condition"
+    ],
+    "traumatic_or_nontraumatic_brain_injury": [
+      "synthea_condition"
+    ],
+    "concussion_with_loss_of_consciousness": [
+      "synthea_condition"
+    ],
+    "pulmonary_emphysema": [
+      "synthea_condition"
+    ],
+    "atopic_dermatitis": [
+      "synthea_condition"
+    ],
+    "major_depressive_disorder": [
+      "synthea_condition"
+    ],
+    "recurrent_rectal_polyp": [
+      "synthea_condition"
+    ],
+    "homeless": [
+      "synthea_condition"
+    ],
+    "injury_of_knee": [
+      "synthea_condition"
+    ],
+    "tear_of_meniscus_of_knee": [
+      "synthea_condition"
+    ],
+    "fracture_of_rib": [
+      "synthea_condition"
+    ],
+    "transformed_migraine": [
+      "synthea_condition"
+    ],
+    "pre_eclampsia": [
+      "synthea_condition"
+    ],
+    "chronic_obstructive_bronchitis": [
+      "synthea_condition"
+    ],
+    "injury_of_tendon_of_the_rotator_cuff_of_shoulder": [
+      "synthea_condition"
+    ],
+    "closed_fracture_of_hip": [
+      "synthea_condition"
+    ],
+    "osteoporosis": [
+      "synthea_condition"
+    ],
+    "osteoporotic_fracture_of_bone": [
+      "synthea_condition"
+    ],
+    "sepsis": [
+      "synthea_condition"
+    ],
+    "alzheimer_s_disease": [
+      "synthea_condition"
+    ],
+    "injury_of_medial_collateral_ligament_of_knee": [
+      "synthea_condition"
+    ],
+    "miscarriage_in_second_trimester": [
+      "synthea_condition"
+    ],
+    "fetus_with_chromosomal_abnormality": [
+      "synthea_condition"
+    ],
+    "acute_respiratory_distress_syndrome": [
+      "stress"
+    ],
+    "sterilization_requested": [
+      "synthea_condition"
+    ],
+    "suspected_lung_cancer": [
+      "synthea_condition"
+    ],
+    "non_small_cell_lung_cancer": [
+      "synthea_condition"
+    ],
+    "non_small_cell_carcinoma_of_lung_tnm_stage_1": [
+      "synthea_condition"
+    ],
+    "cerebrovascular_accident": [
+      "synthea_condition"
+    ],
+    "chronic_kidney_disease_stage_3": [
+      "synthea_condition"
+    ],
+    "proteinuria_due_to_type_2_diabetes_mellitus": [
+      "synthea_condition"
+    ],
+    "traumatic_injury_of_spinal_cord_and_or_vertebral_column": [
+      "synthea_condition"
+    ],
+    "fracture_of_vertebral_column_without_spinal_cord_injury": [
+      "synthea_condition"
+    ],
+    "traumatic_dislocation_of_temporomandibular_joint": [
+      "synthea_condition"
+    ],
+    "sore_throat": [
+      "synthea_condition"
+    ],
+    "osteoarthritis_of_knee": [
+      "osteoarthritis"
+    ],
+    "rupture_of_patellar_tendon": [
+      "synthea_condition"
+    ],
+    "osteoarthritis_of_hip": [
+      "osteoarthritis"
+    ],
+    "diarrhea_symptom": [
+      "synthea_condition"
+    ],
+    "awaiting_transplantation_of_kidney": [
+      "synthea_condition"
+    ],
+    "chronic_kidney_disease_stage_4": [
+      "synthea_condition"
+    ],
+    "laceration_of_hand": [
+      "synthea_condition"
+    ],
+    "blighted_ovum": [
+      "synthea_condition"
+    ],
+    "injury_of_anterior_cruciate_ligament": [
+      "synthea_condition"
+    ],
+    "acute_cholecystitis": [
+      "synthea_condition"
+    ],
+    "gallbladder_calculus": [
+      "synthea_condition"
+    ],
+    "partial_thickness_burn": [
+      "synthea_condition"
+    ],
+    "bleeding_from_anus": [
+      "synthea_condition"
+    ],
+    "protracted_diarrhea": [
+      "synthea_condition"
+    ],
+    "metastatic_malignant_neoplasm_to_colon": [
+      "synthea_condition"
+    ],
+    "died_in_hospice": [
+      "synthea_condition"
+    ],
+    "neuropathy_due_to_type_2_diabetes_mellitus": [
+      "synthea_condition"
+    ],
+    "alcoholism": [
+      "synthea_condition"
+    ],
+    "end_stage_renal_disease": [
+      "synthea_condition"
+    ],
+    "history_of_renal_transplant": [
+      "synthea_condition"
+    ],
+    "medication_reconciliation": [
+      "synthea_procedure"
+    ],
+    "patient_referral_for_dental_care": [
+      "synthea_procedure"
+    ],
+    "dental_consultation_and_report": [
+      "synthea_procedure"
+    ],
+    "dental_care": [
+      "synthea_procedure"
+    ],
+    "examination_of_gingivae": [
+      "synthea_procedure"
+    ],
+    "dental_surgical_procedure": [
+      "synthea_procedure"
+    ],
+    "dental_plain_x_ray_bitewing": [
+      "synthea_procedure"
+    ],
+    "dental_fluoride_treatment": [
+      "synthea_procedure"
+    ],
+    "oral_health_education": [
+      "synthea_procedure"
+    ],
+    "dental_application_of_desensitizing_medicament": [
+      "synthea_procedure"
+    ],
+    "gingivectomy_or_gingivoplasty_per_tooth": [
+      "synthea_procedure"
+    ],
+    "postoperative_care_for_dental_procedure": [
+      "synthea_procedure"
+    ],
+    "measurement_of_respiratory_function": [
+      "synthea_procedure"
+    ],
+    "throat_culture": [
+      "synthea_procedure"
+    ],
+    "assessment_of_anxiety": [
+      "synthea_procedure"
+    ],
+    "assessment_of_substance_use": [
+      "synthea_procedure"
+    ],
+    "health_risks_education": [
+      "synthea_procedure"
+    ],
+    "depression_screening": [
+      "synthea_procedure"
+    ],
+    "electroencephalogram": [
+      "synthea_procedure"
+    ],
+    "anticipatory_guidance": [
+      "synthea_procedure"
+    ],
+    "sputum_examination": [
+      "synthea_procedure"
+    ],
+    "face_mask": [
+      "synthea_procedure"
+    ],
+    "history_taking": [
+      "synthea_procedure"
+    ],
+    "discussion_about_signs_and_symptoms": [
+      "synthea_procedure"
+    ],
+    "history_and_physical_examination_limited": [
+      "synthea_procedure"
+    ],
+    "evaluation_procedure": [
+      "synthea_procedure"
+    ],
+    "discussion_about_pregnancy": [
+      "synthea_procedure"
+    ],
+    "urine_specimen_collection": [
+      "synthea_procedure"
+    ],
+    "urinalysis_with_reflex_to_microscopy_and_culture": [
+      "synthea_procedure"
+    ],
+    "antibiotic_therapy": [
+      "synthea_procedure"
+    ],
+    "simple_extraction_of_tooth": [
+      "synthea_procedure"
+    ],
+    "assessment_of_health_and_social_care_needs": [
+      "synthea_procedure"
+    ],
+    "screening_for_drug_abuse": [
+      "synthea_procedure"
+    ],
+    "telemedicine_consultation_with_patient": [
+      "synthea_procedure"
+    ],
+    "standard_pregnancy_test": [
+      "synthea_procedure"
+    ],
+    "referral_for_laboratory_tests": [
+      "synthea_procedure"
+    ],
+    "patient_informed_test_result": [
+      "synthea_procedure"
+    ],
+    "lab_findings_education_guidance_and_counseling": [
+      "synthea_procedure"
+    ],
+    "discussion_about_treatment": [
+      "synthea_procedure"
+    ],
+    "evaluating_response_to_treatment": [
+      "synthea_procedure"
+    ],
+    "peripheral_blood_smear_interpretation": [
+      "synthea_procedure"
+    ],
+    "review_of_systems": [
+      "synthea_procedure"
+    ],
+    "brief_general_examination": [
+      "synthea_procedure"
+    ],
+    "suture_open_wound": [
+      "synthea_procedure"
+    ],
+    "injection_of_tetanus_antitoxin": [
+      "synthea_procedure"
+    ],
+    "ultrasound_scan_for_fetal_viability": [
+      "synthea_procedure"
+    ],
+    "counseling_for_termination_of_pregnancy": [
+      "synthea_procedure"
+    ],
+    "induced_termination_of_pregnancy": [
+      "synthea_procedure"
+    ],
+    "pregnancy_termination_care": [
+      "synthea_procedure"
+    ],
+    "physical_examination_procedure": [
+      "synthea_procedure"
+    ],
+    "evaluation_of_uterine_fundal_height": [
+      "synthea_procedure"
+    ],
+    "auscultation_of_the_fetal_heart": [
+      "synthea_procedure"
+    ],
+    "blood_group_typing": [
+      "synthea_procedure"
+    ],
+    "hepatitis_b_surface_antigen_measurement": [
+      "synthea_procedure"
+    ],
+    "human_immunodeficiency_virus_antigen_test": [
+      "synthea_procedure"
+    ],
+    "chlamydia_antigen_test": [
+      "synthea_procedure"
+    ],
+    "gonorrhea_infection_titer_test": [
+      "synthea_procedure"
+    ],
+    "syphilis_infectious_titer_test": [
+      "synthea_procedure"
+    ],
+    "urine_culture": [
+      "synthea_procedure"
+    ],
+    "cytopathology_procedure_preparation_of_smear_genital_source": [
+      "synthea_procedure"
+    ],
+    "urine_screening_test_for_diabetes": [
+      "synthea_procedure"
+    ],
+    "hepatitis_c_antibody_confirmatory_test": [
+      "synthea_procedure"
+    ],
+    "rubella_screening_test": [
+      "synthea_procedure"
+    ],
+    "measurement_of_varicella_zoster_virus_antibody": [
+      "synthea_procedure"
+    ],
+    "skin_test_for_tuberculosis_tine_test": [
+      "synthea_procedure"
+    ],
+    "urinalysis_protein_qualitative": [
+      "synthea_procedure"
+    ],
+    "fetal_anatomy_study": [
+      "synthea_procedure"
+    ],
+    "alpha_fetoprotein_test_antenatal": [
+      "synthea_procedure"
+    ],
+    "allergy_screening_test": [
+      "synthea_procedure"
+    ],
+    "streptococcus_pneumoniae_group_b_antigen_assay": [
+      "pneumonia"
+    ],
+    "augmentation_of_labor": [
+      "synthea_procedure"
+    ],
+    "human_parturition_function": [
+      "synthea_procedure"
+    ],
+    "referral_for_echocardiography": [
+      "synthea_procedure"
+    ],
+    "transthoracic_echocardiography": [
+      "synthea_procedure"
+    ],
+    "screening_for_domestic_abuse": [
+      "synthea_procedure"
+    ],
+    "insertion_of_intrauterine_contraceptive_device": [
+      "synthea_procedure"
+    ],
+    "urine_screening_for_glucose": [
+      "glucose"
+    ],
+    "epidural_anesthesia": [
+      "synthea_procedure"
+    ],
+    "intramuscular_injection": [
+      "synthea_procedure"
+    ],
+    "replacement_of_contraceptive_intrauterine_device": [
+      "synthea_procedure"
+    ],
+    "removal_of_intrauterine_contraceptive_device": [
+      "synthea_procedure"
+    ],
+    "medical_induction_of_labor": [
+      "synthea_procedure"
+    ],
+    "implantation_of_subcutaneous_contraceptive": [
+      "synthea_procedure"
+    ],
+    "instrumental_delivery": [
+      "synthea_procedure"
+    ],
+    "cesarean_section": [
+      "synthea_procedure"
+    ],
+    "visual_acuity_testing": [
+      "synthea_procedure"
+    ],
+    "intraocular_pressure_test": [
+      "synthea_procedure"
+    ],
+    "ocular_slit_lamp_examination": [
+      "synthea_procedure"
+    ],
+    "indirect_gonioscopy": [
+      "synthea_procedure"
+    ],
+    "camera_fundoscopy": [
+      "synthea_procedure"
+    ],
+    "diabetic_retinal_eye_exam": [
+      "synthea_procedure"
+    ],
+    "extraction_of_wisdom_tooth": [
+      "synthea_procedure"
+    ],
+    "referral_to_hypertension_clinic": [
+      "synthea_procedure"
+    ],
+    "colonoscopy": [
+      "synthea_procedure"
+    ],
+    "screening_for_occult_blood_in_feces": [
+      "synthea_procedure"
+    ],
+    "rectal_polypectomy": [
+      "synthea_procedure"
+    ],
+    "removal_of_subcutaneous_contraceptive": [
+      "synthea_procedure"
+    ],
+    "rehabilitation_therapy": [
+      "synthea_procedure"
+    ],
+    "subcutaneous_immunotherapy": [
+      "synthea_procedure"
+    ],
+    "intravenous_blood_transfusion_of_packed_cells": [
+      "synthea_procedure"
+    ],
+    "take_oral_or_dental_impression": [
+      "synthea_procedure"
+    ],
+    "fitting_of_denture": [
+      "synthea_procedure"
+    ],
+    "triage_emergency_center": [
+      "synthea_procedure"
+    ],
+    "taking_patient_vital_signs": [
+      "synthea_procedure"
+    ],
+    "complete_blood_count": [
+      "synthea_procedure"
+    ],
+    "comprehensive_metabolic_panel": [
+      "synthea_procedure"
+    ],
+    "patient_discharge": [
+      "synthea_procedure"
+    ],
+    "screening_mammography": [
+      "synthea_procedure"
+    ],
+    "magnetic_resonance_imaging_of_breast": [
+      "synthea_procedure"
+    ],
+    "biopsy_of_breast": [
+      "synthea_procedure"
+    ],
+    "discussion_about_options": [
+      "synthea_procedure"
+    ],
+    "lumpectomy_of_breast": [
+      "synthea_procedure"
+    ],
+    "external_beam_radiation_therapy_procedure": [
+      "synthea_procedure"
+    ],
+    "physical_examination_complete": [
+      "synthea_procedure"
+    ],
+    "electrocardiographic_procedure": [
+      "synthea_procedure"
+    ],
+    "cardiovascular_stress_testing": [
+      "stress"
+    ],
+    "assessment_using_new_york_heart_association_classification": [
+      "synthea_procedure"
+    ],
+    "echocardiography": [
+      "synthea_procedure"
+    ],
+    "certification_procedure": [
+      "synthea_procedure"
+    ],
+    "notifications": [
+      "synthea_procedure"
+    ],
+    "initial_patient_assessment": [
+      "synthea_procedure"
+    ],
+    "development_of_individualized_plan_of_care": [
+      "synthea_procedure"
+    ],
+    "hospice_care": [
+      "synthea_procedure"
+    ],
+    "mammography": [
+      "synthea_procedure"
+    ],
+    "bone_density_scan": [
+      "synthea_procedure"
+    ],
+    "oxygen_administration_by_mask": [
+      "synthea_procedure"
+    ],
+    "placing_subject_in_prone_position": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_chest": [
+      "synthea_procedure"
+    ],
+    "assessment_using_morse_fall_scale": [
+      "synthea_procedure"
+    ],
+    "grafting_of_periodontal_bone_defect": [
+      "synthea_procedure"
+    ],
+    "heart_failure_education": [
+      "synthea_procedure"
+    ],
+    "referral_to_cardiology_service": [
+      "synthea_procedure"
+    ],
+    "consultation_for_treatment": [
+      "synthea_procedure"
+    ],
+    "angiography_of_coronary_artery": [
+      "synthea_procedure"
+    ],
+    "post_anesthesia_care_management": [
+      "synthea_procedure"
+    ],
+    "referral_to_cardiac_surgery_service": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_ankle_region": [
+      "synthea_procedure"
+    ],
+    "bone_immobilization": [
+      "synthea_procedure"
+    ],
+    "pre_surgery_testing": [
+      "synthea_procedure"
+    ],
+    "notification_of_treatment_plan": [
+      "synthea_procedure"
+    ],
+    "scheduling": [
+      "synthea_procedure"
+    ],
+    "transfusion_of_fresh_frozen_plasma": [
+      "synthea_procedure"
+    ],
+    "insertion_of_catheter_into_artery": [
+      "synthea_procedure"
+    ],
+    "administration_of_anesthesia_for_procedure": [
+      "synthea_procedure"
+    ],
+    "intubation": [
+      "synthea_procedure"
+    ],
+    "pulmonary_catheterization_with_swan_ganz_catheter": [
+      "synthea_procedure"
+    ],
+    "preparation_of_patient_for_procedure": [
+      "synthea_procedure"
+    ],
+    "cannulation": [
+      "synthea_procedure"
+    ],
+    "cardiopulmonary_bypass_operation": [
+      "synthea_procedure"
+    ],
+    "placement_of_aortic_cross_clamp": [
+      "synthea_procedure"
+    ],
+    "induced_cardioplegia": [
+      "synthea_procedure"
+    ],
+    "median_sternotomy": [
+      "synthea_procedure"
+    ],
+    "coronary_artery_bypass_grafting": [
+      "synthea_procedure"
+    ],
+    "cardioassist_by_aortic_balloon_pump": [
+      "synthea_procedure"
+    ],
+    "removal_of_aortic_cross_clamp": [
+      "synthea_procedure"
+    ],
+    "vascular_cannula_removal": [
+      "synthea_procedure"
+    ],
+    "documentation_procedure": [
+      "synthea_procedure"
+    ],
+    "removal_of_endotracheal_tube": [
+      "synthea_procedure"
+    ],
+    "discharge_to_ward": [
+      "synthea_procedure"
+    ],
+    "postoperative_procedure_education": [
+      "synthea_procedure"
+    ],
+    "walking_exercise_test": [
+      "synthea_procedure"
+    ],
+    "stair_climbing_test": [
+      "synthea_procedure"
+    ],
+    "discharge_from_hospital": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_clavicle": [
+      "synthea_procedure"
+    ],
+    "admission_to_orthopedic_department": [
+      "synthea_procedure"
+    ],
+    "history_and_physical_examination": [
+      "synthea_procedure"
+    ],
+    "nursing_care_supplementary_surveillance": [
+      "synthea_procedure"
+    ],
+    "physical_therapy_procedure": [
+      "synthea_procedure"
+    ],
+    "professional_ancillary_services_care": [
+      "synthea_procedure"
+    ],
+    "pre_discharge_assessment": [
+      "synthea_procedure"
+    ],
+    "digital_examination_of_rectum": [
+      "synthea_procedure"
+    ],
+    "biopsy_of_prostate": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_wrist_region": [
+      "synthea_procedure"
+    ],
+    "prostatectomy": [
+      "synthea_procedure"
+    ],
+    "tooth_socket_procedure": [
+      "synthea_procedure"
+    ],
+    "excision_of_maxillary_torus_palatinus": [
+      "synthea_procedure"
+    ],
+    "sleep_apnea_assessment": [
+      "synthea_procedure"
+    ],
+    "referral_to_sleep_apnea_clinic": [
+      "synthea_procedure"
+    ],
+    "sleep_apnea_monitoring_with_alarm": [
+      "synthea_procedure"
+    ],
+    "sentinel_lymph_node_biopsy": [
+      "synthea_procedure"
+    ],
+    "excision_of_sentinel_lymph_node": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_humerus": [
+      "synthea_procedure"
+    ],
+    "manual_pelvic_examination": [
+      "synthea_procedure"
+    ],
+    "child_examination_school_screening": [
+      "synthea_procedure"
+    ],
+    "referral_to_orthopedic_surgeon": [
+      "synthea_procedure"
+    ],
+    "osteopathic_postural_examination": [
+      "synthea_procedure"
+    ],
+    "referral_for_x_ray": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_spine_and_pelvis": [
+      "synthea_procedure"
+    ],
+    "measurement_procedure": [
+      "synthea_procedure"
+    ],
+    "referral_for_further_care": [
+      "synthea_procedure"
+    ],
+    "speech_and_language_therapy_regime": [
+      "synthea_procedure"
+    ],
+    "referral_to_home_health_care_service": [
+      "synthea_procedure"
+    ],
+    "comprehensive_interview_and_evaluation": [
+      "synthea_procedure"
+    ],
+    "coordination_of_care_plan": [
+      "synthea_procedure"
+    ],
+    "cognitive_and_behavioral_therapy": [
+      "synthea_procedure"
+    ],
+    "occupational_therapy": [
+      "synthea_procedure"
+    ],
+    "injection_of_epinephrine": [
+      "synthea_procedure"
+    ],
+    "movement_therapy": [
+      "synthea_procedure"
+    ],
+    "spirometry": [
+      "synthea_procedure"
+    ],
+    "pulmonary_rehabilitation": [
+      "synthea_procedure"
+    ],
+    "information_gathering": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_knee_region": [
+      "synthea_procedure"
+    ],
+    "treatment_changed": [
+      "synthea_procedure"
+    ],
+    "antenatal_rhd_antibody_screening": [
+      "synthea_procedure"
+    ],
+    "passive_immunization": [
+      "synthea_procedure"
+    ],
+    "episiotomy": [
+      "synthea_procedure"
+    ],
+    "premature_birth_of_newborn": [
+      "synthea_procedure"
+    ],
+    "lung_volume_reduction_surgery": [
+      "synthea_procedure"
+    ],
+    "postoperative_care": [
+      "synthea_procedure"
+    ],
+    "surgical_manipulation_of_shoulder_joint": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_pelvis": [
+      "synthea_procedure"
+    ],
+    "care_regimes_assessment": [
+      "synthea_procedure"
+    ],
+    "resuscitation_using_intravenous_fluid": [
+      "synthea_procedure"
+    ],
+    "transfer_to_stepdown_unit": [
+      "synthea_procedure"
+    ],
+    "admission_to_intensive_care_unit": [
+      "synthea_procedure"
+    ],
+    "asthma_screening": [
+      "synthea_procedure"
+    ],
+    "sterilization_education": [
+      "synthea_procedure"
+    ],
+    "ligation_of_bilateral_fallopian_tubes": [
+      "synthea_procedure"
+    ],
+    "computed_tomography_of_chest_and_abdomen": [
+      "synthea_procedure"
+    ],
+    "fiberoptic_bronchoscopy": [
+      "synthea_procedure"
+    ],
+    "magnetic_resonance_imaging_for_measurement_of_brain_volume": [
+      "synthea_procedure"
+    ],
+    "hearing_examination": [
+      "synthea_procedure"
+    ],
+    "combined_chemotherapy_and_radiation_therapy": [
+      "synthea_procedure"
+    ],
+    "high_resolution_computed_tomography_of_chest_without_contrast": [
+      "synthea_procedure"
+    ],
+    "optical_coherence_tomography_of_retina": [
+      "synthea_procedure"
+    ],
+    "percutaneous_coronary_intervention": [
+      "synthea_procedure"
+    ],
+    "surgical_manipulation_of_joint_of_knee": [
+      "synthea_procedure"
+    ],
+    "psychosocial_care": [
+      "synthea_procedure"
+    ],
+    "ultrasonography_of_bilateral_breasts": [
+      "synthea_procedure"
+    ],
+    "excision_of_lesion_of_breast": [
+      "synthea_procedure"
+    ],
+    "chemotherapy": [
+      "synthea_procedure"
+    ],
+    "plain_x_ray_of_mandible": [
+      "synthea_procedure"
+    ],
+    "closed_reduction_of_dislocation_of_temporomandibular_joint": [
+      "synthea_procedure"
+    ],
+    "posttreatment_stabilization_orthodontic_device": [
+      "synthea_procedure"
+    ],
+    "oral_examination": [
+      "synthea_procedure"
+    ],
+    "range_of_motion_testing": [
+      "synthea_procedure"
+    ],
+    "assessment_of_cardiac_status_using_monitoring_device": [
+      "synthea_procedure"
+    ],
+    "laboratory_test": [
+      "synthea_procedure"
+    ],
+    "diagnostic_assessment": [
+      "synthea_procedure"
+    ],
+    "renal_dialysis": [
+      "synthea_procedure"
+    ],
+    "referral_to_transplant_surgeon": [
+      "synthea_procedure"
+    ],
+    "serum_metabolic_panel": [
+      "synthea_procedure"
+    ],
+    "ultrasonography_of_abdomen_right_upper_quadrant_and_epigastrium": [
+      "synthea_procedure"
+    ],
+    "laparoscopic_cholecystectomy": [
+      "synthea_procedure"
+    ],
+    "risk_assessment": [
+      "synthea_procedure"
+    ],
+    "continuous_subcutaneous_infusion_of_insulin": [
+      "insulin"
+    ],
+    "transfusion_of_packed_red_blood_cells": [
+      "synthea_procedure"
+    ],
+    "direct_current_cardioversion": [
+      "synthea_procedure"
+    ],
+    "off_pump_coronary_artery_bypass": [
+      "synthea_procedure"
+    ],
+    "doppler_ultrasonography_of_artery": [
+      "synthea_procedure"
+    ],
+    "computed_tomography_of_head": [
+      "synthea_procedure"
+    ],
+    "platelet_transfusion": [
+      "synthea_procedure"
+    ],
+    "pretransplant_evaluation_of_kidney_recipient": [
+      "synthea_procedure"
+    ],
+    "transplant_of_kidney": [
+      "synthea_procedure"
+    ],
+    "transplantation_of_kidney_regime": [
+      "synthea_procedure"
+    ],
+    "renal_disorder_medication_review": [
+      "synthea_procedure"
+    ],
+    "referral_to_service": [
+      "synthea_procedure"
+    ],
+    "sodium_fluoride_0_0272_mg_mg_oral_gel": [
+      "sodium_fluoride",
+      "sodium"
+    ],
+    "acetaminophen_325_mg_oral_tablet": [
+      "acetaminophen"
+    ],
+    "diazepam_5_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "21_7_pack_levora_0_15_30_28_day": [
+      "synthea_medication"
+    ],
+    "amoxicillin_250_mg_clavulanate_125_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "amoxicillin_500_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "ibuprofen_100_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "28_pack_jolivette_28_day": [
+      "synthea_medication"
+    ],
+    "acetaminophen_160_mg_chewable_tablet": [
+      "acetaminophen"
+    ],
+    "24_4_pack_yaz_28_day": [
+      "synthea_medication"
+    ],
+    "sulfamethoxazole_800_mg_trimethoprim_160_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "ibuprofen_200_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "fosfomycin_3000_mg_granules_for_oral_solution": [
+      "synthea_medication"
+    ],
+    "7_84_pack_seasonique": [
+      "synthea_medication"
+    ],
+    "7_7_7_7_pack_trinessa_28_day": [
+      "synthea_medication"
+    ],
+    "naproxen_sodium_220_mg_oral_tablet": [
+      "sodium"
+    ],
+    "albuterol_0_83_mg_ml_inhalation_solution": [
+      "synthea_medication"
+    ],
+    "fexofenadine_hydrochloride_30_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "nda020800_0_3_ml_epinephrine_1_mg_ml_auto_injector": [
+      "synthea_medication"
+    ],
+    "1_ml_medroxyprogesterone_acetate_150_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "etonogestrel_68_mg_drug_implant": [
+      "synthea_medication"
+    ],
+    "72_hr_fentanyl_0_025_mg_hr_transdermal_system": [
+      "synthea_medication"
+    ],
+    "acetaminophen_300_mg_hydrocodone_bitartrate_5_mg_oral_tablet": [
+      "acetaminophen",
+      "hydrocodone"
+    ],
+    "penicillin_v_potassium_500_mg_oral_tablet": [
+      "potassium"
+    ],
+    "ibuprofen_400_mg_oral_tablet_ibu": [
+      "synthea_medication"
+    ],
+    "tropicamide_5_mg_ml_ophthalmic_solution": [
+      "synthea_medication"
+    ],
+    "amlodipine_2_5_mg_oral_tablet": [
+      "amlodipine"
+    ],
+    "simvastatin_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "lisinopril_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "hydrochlorothiazide_25_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "levonorgestrel_0_000813_mg_hr_intrauterine_system_liletta": [
+      "synthea_medication"
+    ],
+    "levonorgestrel_0_000729_mg_hr_intrauterine_system_kyleena": [
+      "synthea_medication"
+    ],
+    "hydrocortisone_10_mg_ml_topical_cream": [
+      "synthea_medication"
+    ],
+    "loratadine_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "ferrous_sulfate_325_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "vitamin_b12_5_mg_ml_injectable_solution": [
+      "synthea_medication"
+    ],
+    "budesonide_0_25_mg_ml_inhalation_suspension": [
+      "synthea_medication"
+    ],
+    "albuterol_0_21_mg_ml_inhalation_solution": [
+      "synthea_medication"
+    ],
+    "albuterol_5_mg_ml_inhalation_solution": [
+      "synthea_medication"
+    ],
+    "budesonide_0_125_mg_ml_inhalation_suspension": [
+      "synthea_medication"
+    ],
+    "28_pack_camila_28_day": [
+      "synthea_medication"
+    ],
+    "acetaminophen_325_mg_oxycodone_hydrochloride_5_mg_oral_tablet": [
+      "acetaminophen",
+      "oxycodone"
+    ],
+    "5_17_2_2_2_pack_natazia_28_day": [
+      "synthea_medication"
+    ],
+    "cephalexin_500_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "amoxicillin_500_mg_clavulanate_125_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "meperidine_hydrochloride_50_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "levothyroxine_sodium_0_075_mg_oral_tablet": [
+      "sodium"
+    ],
+    "anastrozole_1_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "abemaciclib_100_mg_oral_tablet_verzenio": [
+      "synthea_medication"
+    ],
+    "furosemide_40_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "10_ml_furosemide_10_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "loratadine_5_mg_chewable_tablet": [
+      "synthea_medication"
+    ],
+    "penicillin_v_potassium_250_mg_oral_tablet": [
+      "potassium"
+    ],
+    "amoxicillin_250_mg_oral_capsule": [
+      "synthea_medication"
+    ],
+    "clopidogrel_75_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "simvastatin_20_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "24_hr_metoprolol_succinate_100_mg_extended_release_oral_tablet": [
+      "metoprolol"
+    ],
+    "nitroglycerin_0_4_mg_actuat_mucosal_spray": [
+      "synthea_medication"
+    ],
+    "cefazolin_2000_mg_injection": [
+      "synthea_medication"
+    ],
+    "1_ml_heparin_sodium_porcine_5000_unt_ml_injection": [
+      "heparin",
+      "sodium"
+    ],
+    "25_ml_protamine_sulfate_10_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "2_ml_ondansetron_2_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "midazolam_1_mg_ml_injectable_solution": [
+      "synthea_medication"
+    ],
+    "100_ml_propofol_10_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "rocuronium_bromide_10_mg_ml_injectable_solution": [
+      "synthea_medication"
+    ],
+    "isoflurane_999_mg_ml_inhalation_solution": [
+      "synthea_medication"
+    ],
+    "10_ml_fentanyl_0_05_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "aspirin_81_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "24_hr_metoprolol_succinate_25_mg_extended_release_oral_tablet": [
+      "metoprolol"
+    ],
+    "atorvastatin_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "hydrochlorothiazide_12_5_mg_lisinopril_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "prasugrel_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "terfenadine_60_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "cetirizine_hydrochloride_5_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "diphenhydramine_hydrochloride_25_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "1_ml_docetaxel_20_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "0_25_ml_leuprolide_acetate_30_mg_ml_prefilled_syringe": [
+      "synthea_medication"
+    ],
+    "carvedilol_6_25_mg_oral_tablet": [
+      "carvedilol"
+    ],
+    "atorvastatin_40_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "acetaminophen_325_mg_hydrocodone_bitartrate_7_5_mg_oral_tablet": [
+      "acetaminophen",
+      "hydrocodone"
+    ],
+    "astemizole_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "24_hr_nicotine_0_292_mg_hr_transdermal_system": [
+      "synthea_medication"
+    ],
+    "tamoxifen_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "atomoxetine_100_mg_oral_capsule": [
+      "synthea_medication"
+    ],
+    "cefuroxime_250_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "0_4_ml_enoxaparin_sodium_100_mg_ml_prefilled_syringe": [
+      "sodium"
+    ],
+    "acetaminophen_500_mg_oral_tablet": [
+      "acetaminophen"
+    ],
+    "1_ml_enoxaparin_sodium_150_mg_ml_prefilled_syringe": [
+      "sodium"
+    ],
+    "28_pack_errin_28_day": [
+      "synthea_medication"
+    ],
+    "levonorgestrel_0_000833_mg_hr_intrauterine_system_mirena": [
+      "synthea_medication"
+    ],
+    "doxycycline_hyclate_100_mg": [
+      "synthea_medication"
+    ],
+    "prednisone_5_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "ciprofloxacin_250_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "tramadol_hydrochloride_50_mg_oral_tablet": [
+      "tramadol"
+    ],
+    "labetalol_hydrochloride_300_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "losartan_potassium_100_mg_oral_tablet": [
+      "potassium"
+    ],
+    "acetaminophen_300_mg_codeine_phosphate_15_mg_oral_tablet": [
+      "acetaminophen"
+    ],
+    "fluoxetine_20_mg_oral_capsule": [
+      "synthea_medication"
+    ],
+    "chlorpheniramine_maleate_2_mg_ml_oral_solution": [
+      "synthea_medication"
+    ],
+    "cyclosporine_modified_100_mg_oral_capsule": [
+      "synthea_medication"
+    ],
+    "acetaminophen_325_mg_oral_tablet_tylenol": [
+      "acetaminophen"
+    ],
+    "12_hr_hydrocodone_bitartrate_10_mg_extended_release_oral_capsule": [
+      "hydrocodone"
+    ],
+    "atenolol_50_mg_oral_tablet": [
+      "atenolol"
+    ],
+    "enalapril_maleate_2_5_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "piperacillin_2000_mg_tazobactam_250_mg_injection": [
+      "synthea_medication"
+    ],
+    "150_ml_vancomycin_5_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "alendronic_acid_10_mg_oral_tablet": [
+      "alendronic_acid"
+    ],
+    "galantamine_4_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "memantine_hydrochloride_2_mg_ml_oral_solution": [
+      "synthea_medication"
+    ],
+    "lisinopril_20_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "clonazepam_0_25_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "cisplatin_50_mg_injection": [
+      "synthea_medication"
+    ],
+    "paclitaxel_100_mg_injection": [
+      "synthea_medication"
+    ],
+    "buprenorphine_2_mg_naloxone_0_5_mg_sublingual_tablet": [
+      "synthea_medication"
+    ],
+    "alteplase_100_mg_injection": [
+      "synthea_medication"
+    ],
+    "methylphenidate_hydrochloride_20_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "100_ml_epirubicin_hydrochloride_2_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "ciprofloxacin_500_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "aspirin_325_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "nitroglycerin_0_4_mg_sublingual_tablet": [
+      "synthea_medication"
+    ],
+    "50_ml_bivalirudin_5_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "ticagrelor_90_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "metoprolol_tartrate_50_mg_oral_tablet": [
+      "metoprolol"
+    ],
+    "pravastatin_sodium_40_mg_oral_tablet": [
+      "sodium"
+    ],
+    "1_ml_epoetin_alfa_4000_unt_ml_injection_epogen": [
+      "epoetin_alfa"
+    ],
+    "penicillin_g_375_mg_ml_injectable_solution": [
+      "synthea_medication"
+    ],
+    "donepezil_hydrochloride_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "donepezil_hydrochloride_23_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "sodium_chloride_9_mg_ml_injectable_solution": [
+      "sodium"
+    ],
+    "1_ml_morphine_sulfate_5_mg_ml_injection": [
+      "morphine"
+    ],
+    "piperacillin_4000_mg_tazobactam_500_mg_injection": [
+      "synthea_medication"
+    ],
+    "10_ml_alfentanil_0_5_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "2_ml_morphine_sulfate_1_mg_ml_injection": [
+      "morphine"
+    ],
+    "heparin_sodium_porcine_100_unt_ml_injectable_solution": [
+      "heparin",
+      "sodium"
+    ],
+    "24_hr_metoprolol_succinate_50_mg_extended_release_oral_tablet": [
+      "metoprolol"
+    ],
+    "atorvastatin_20_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "enalapril_maleate_10_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "leucovorin_100_mg_injection": [
+      "synthea_medication"
+    ],
+    "10_ml_oxaliplatin_5_mg_ml_injection": [
+      "synthea_medication"
+    ],
+    "insulin_regular_human_100_unt_ml_injectable_solution": [
+      "insulin"
+    ],
+    "verapamil_hydrochloride_80_mg_oral_tablet_calan": [
+      "synthea_medication"
+    ],
+    "warfarin_sodium_5_mg_oral_tablet": [
+      "warfarin",
+      "sodium"
+    ],
+    "digoxin_0_125_mg_oral_tablet": [
+      "digoxin"
+    ],
+    "sevoflurane_1000_mg_ml_inhalation_solution": [
+      "synthea_medication"
+    ],
+    "remifentanil_2_mg_injection": [
+      "synthea_medication"
+    ],
+    "losartan_potassium_25_mg_oral_tablet": [
+      "potassium"
+    ],
+    "amlodipine_2_5_mg_benazepril_hydrochloride_10_mg_oral_capsule": [
+      "amlodipine"
+    ],
+    "1_ml_tacrolimus_5_mg_ml_injection_prograf": [
+      "synthea_medication"
+    ],
+    "24_hr_tacrolimus_1_mg_extended_release_oral_tablet_envarsus": [
+      "synthea_medication"
+    ],
+    "atorvastatin_80_mg_oral_tablet": [
+      "synthea_medication"
+    ],
+    "atenolol_100_mg_oral_tablet": [
+      "atenolol"
+    ],
+    "pain_severity_0_10_verbal_numeric_rating_score_reported": [
+      "pain_severity"
+    ],
+    "weight_for_length_per_age_and_sex": [
+      "synthea_observation"
+    ],
+    "head_occipital_frontal_circumference_percentile": [
+      "synthea_observation"
+    ],
+    "head_occipital_frontal_circumference": [
+      "synthea_observation"
+    ],
+    "leukocytes_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "erythrocytes_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "hemoglobin_mass_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "hematocrit_volume_fraction_of_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "mcv_entitic_mean_volume_in_red_blood_cells_by_automated_count": [
+      "synthea_observation"
+    ],
+    "mch_entitic_mass_by_automated_count": [
+      "synthea_observation"
+    ],
+    "body_mass_index_ratio": [
+      "body_mass_index"
+    ],
+    "body_mass_index_percentile_per_age_and_sex": [
+      "body_mass_index"
+    ],
+    "tobacco_smoking_status": [
+      "synthea_observation"
+    ],
+    "mchc_entitic_mass_volume_in_red_blood_cells_by_automated_count": [
+      "synthea_observation"
+    ],
+    "erythrocyte_distwidth_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "platelets_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "platelet_entitic_mean_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "body_temperature": [
+      "synthea_observation"
+    ],
+    "generalized_anxiety_disorder_7_item_total_score_reported_phq": [
+      "synthea_observation"
+    ],
+    "qaly": [
+      "synthea_observation"
+    ],
+    "daly": [
+      "synthea_observation"
+    ],
+    "qols": [
+      "synthea_observation"
+    ],
+    "oxygen_saturation_in_arterial_blood": [
+      "synthea_observation"
+    ],
+    "glucose_mass_volume_in_urine_by_test_strip": [
+      "glucose"
+    ],
+    "ketones_presence_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "specific_gravity_of_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "ph_of_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "protein_mass_volume_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "nitrite_presence_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "hemoglobin_presence_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "leukocyte_esterase_presence_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "leukocytes_area_in_urine_sediment_by_microscopy_high_power_field": [
+      "synthea_observation"
+    ],
+    "casts_presence_in_urine_sediment_by_light_microscopy": [
+      "synthea_observation"
+    ],
+    "mucus_presence_in_urine_sediment_by_light_microscopy": [
+      "synthea_observation"
+    ],
+    "bacteria_area_in_urine_sediment_by_microscopy_high_power_field": [
+      "synthea_observation"
+    ],
+    "bacteria_identified_in_urine_by_culture": [
+      "synthea_observation"
+    ],
+    "are_you_a_refugee": [
+      "synthea_observation"
+    ],
+    "stress_level": [
+      "stress"
+    ],
+    "primary_insurance": [
+      "synthea_observation"
+    ],
+    "employment_status_current": [
+      "synthea_observation"
+    ],
+    "highest_level_of_education": [
+      "synthea_observation"
+    ],
+    "address": [
+      "synthea_observation"
+    ],
+    "are_you_worried_about_losing_your_housing_prapare": [
+      "synthea_observation"
+    ],
+    "housing_status": [
+      "synthea_observation"
+    ],
+    "how_many_people_are_living_or_staying_at_this_address": [
+      "synthea_observation"
+    ],
+    "preferred_language": [
+      "synthea_observation"
+    ],
+    "discharged_from_the_u_s_armed_forces": [
+      "synthea_observation"
+    ],
+    "race": [
+      "synthea_observation"
+    ],
+    "hispanic_or_latino": [
+      "synthea_observation"
+    ],
+    "patient_health_questionnaire_2_item_total_score_reported": [
+      "synthea_observation"
+    ],
+    "total_score_dast_10": [
+      "synthea_observation"
+    ],
+    "choriogonadotropin_presence_in_urine": [
+      "synthea_observation"
+    ],
+    "hemoglobin_a1c_hemoglobin_total_in_blood": [
+      "hemoglobin_a1c"
+    ],
+    "glucose_mass_volume_in_blood": [
+      "glucose"
+    ],
+    "urea_nitrogen_mass_volume_in_blood": [
+      "urea_nitrogen"
+    ],
+    "creatinine_mass_volume_in_blood": [
+      "creatinine"
+    ],
+    "calcium_mass_volume_in_blood": [
+      "calcium"
+    ],
+    "sodium_moles_volume_in_blood": [
+      "sodium"
+    ],
+    "potassium_moles_volume_in_blood": [
+      "potassium"
+    ],
+    "chloride_moles_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "carbon_dioxide_total_moles_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "hematocrit_volume_fraction_of_blood_by_calculation": [
+      "synthea_observation"
+    ],
+    "patient_health_questionnaire_9_item_total_score_reported": [
+      "synthea_observation"
+    ],
+    "pregnancy_status": [
+      "synthea_observation"
+    ],
+    "peanut_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "walnut_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "codfish_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "shrimp_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "wheat_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "egg_white_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "soybean_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "cow_milk_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "white_oak_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "common_ragweed_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "cat_dander_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "american_house_dust_mite_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "cladosporium_herbarum_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "honey_bee_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "latex_ige_ab_units_volume_in_serum": [
+      "synthea_observation"
+    ],
+    "total_score_hark": [
+      "synthea_observation"
+    ],
+    "total_score_audit_c": [
+      "synthea_observation"
+    ],
+    "cholesterol_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "triglyceride_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "cholesterol_in_hdl_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "microalbumin_creatinine_mass_ratio_in_urine": [
+      "creatinine"
+    ],
+    "logmar_visual_acuity_left_eye": [
+      "synthea_observation"
+    ],
+    "logmar_visual_acuity_right_eye": [
+      "synthea_observation"
+    ],
+    "left_eye_intraocular_pressure": [
+      "synthea_observation"
+    ],
+    "right_eye_intraocular_pressure": [
+      "synthea_observation"
+    ],
+    "left_eye_diabetic_retinopathy_severity_level_by_ophthalmoscopy": [
+      "synthea_observation"
+    ],
+    "right_eye_diabetic_retinopathy_severity_level_by_ophthalmoscopy": [
+      "synthea_observation"
+    ],
+    "protein_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "albumin_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "globulin_mass_volume_in_serum_by_calculation": [
+      "synthea_observation"
+    ],
+    "bilirubin_total_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "polyp_size_greatest_dimension": [
+      "synthea_observation"
+    ],
+    "cause_of_death_us_standard_certificate_of_death": [
+      "synthea_observation"
+    ],
+    "emergency_severity_index_esi": [
+      "synthea_observation"
+    ],
+    "glucose_mass_volume_in_serum_or_plasma": [
+      "glucose"
+    ],
+    "urea_nitrogen_mass_volume_in_serum_or_plasma": [
+      "urea_nitrogen"
+    ],
+    "creatinine_mass_volume_in_serum_or_plasma": [
+      "creatinine"
+    ],
+    "calcium_mass_volume_in_serum_or_plasma": [
+      "calcium"
+    ],
+    "sodium_moles_volume_in_serum_or_plasma": [
+      "sodium"
+    ],
+    "potassium_moles_volume_in_serum_or_plasma": [
+      "potassium"
+    ],
+    "chloride_moles_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "carbon_dioxide_total_moles_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "site_of_distant_metastasis_in_breast_tumor": [
+      "synthea_observation"
+    ],
+    "distant_metastases_clinical_class_cancer": [
+      "synthea_observation"
+    ],
+    "size_maximum_dimension_in_tumor": [
+      "synthea_observation"
+    ],
+    "primary_tumor_clinical_class_cancer": [
+      "synthea_observation"
+    ],
+    "regional_lymph_nodes_clinical_class_cancer": [
+      "synthea_observation"
+    ],
+    "her2_presence_in_breast_cancer_specimen_by_immune_stain": [
+      "synthea_observation"
+    ],
+    "stage_group_clinical_cancer": [
+      "synthea_observation"
+    ],
+    "treatment_status_cancer": [
+      "synthea_observation"
+    ],
+    "response_to_cancer_treatment": [
+      "synthea_observation"
+    ],
+    "symptom": [
+      "synthea_observation"
+    ],
+    "magnesium_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "ferritin_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "iron_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "iron_binding_capacity_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "iron_saturation_mass_fraction_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "functional_capacity_nyha": [
+      "synthea_observation"
+    ],
+    "objective_assessment_of_cardiovascular_disease_nyha": [
+      "synthea_observation"
+    ],
+    "left_ventricular_ejection_fraction": [
+      "synthea_observation"
+    ],
+    "fall_risk_total_morse_fall_scale": [
+      "synthea_observation"
+    ],
+    "fall_risk_level_morse_fall_scale": [
+      "synthea_observation"
+    ],
+    "priority_level": [
+      "synthea_observation"
+    ],
+    "operative_status_value": [
+      "synthea_observation"
+    ],
+    "phosphate_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "prothrombin_time": [
+      "synthea_observation"
+    ],
+    "inr_in_platelet_poor_plasma_by_coagulation_assay": [
+      "synthea_observation"
+    ],
+    "aptt_in_blood_by_coagulation_assay": [
+      "synthea_observation"
+    ],
+    "ph_of_arterial_blood": [
+      "synthea_observation"
+    ],
+    "carbon_dioxide_partial_pressure_in_arterial_blood": [
+      "synthea_observation"
+    ],
+    "oxygen_partial_pressure_in_arterial_blood": [
+      "synthea_observation"
+    ],
+    "bicarbonate_moles_volume_in_arterial_blood": [
+      "synthea_observation"
+    ],
+    "thyrotropin_units_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "glucose_presence_in_urine_by_test_strip": [
+      "glucose"
+    ],
+    "bilirubin_total_presence_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "protein_presence_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "activated_clotting_time_of_blood_by_coagulation_assay": [
+      "synthea_observation"
+    ],
+    "ph_of_venous_blood": [
+      "synthea_observation"
+    ],
+    "carbon_dioxide_partial_pressure_in_venous_blood": [
+      "synthea_observation"
+    ],
+    "oxygen_partial_pressure_in_venous_blood": [
+      "synthea_observation"
+    ],
+    "bicarbonate_moles_volume_in_venous_blood": [
+      "synthea_observation"
+    ],
+    "carbon_dioxide_total_moles_volume_in_venous_blood": [
+      "synthea_observation"
+    ],
+    "procedure_narrative": [
+      "synthea_observation"
+    ],
+    "physical_findings_of_prostate": [
+      "synthea_observation"
+    ],
+    "prostate_specific_ag_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "us_guidance_for_biopsy_of_prostate": [
+      "synthea_observation"
+    ],
+    "appearance_of_urine": [
+      "synthea_observation"
+    ],
+    "odor_of_urine": [
+      "synthea_observation"
+    ],
+    "clarity_of_urine": [
+      "synthea_observation"
+    ],
+    "color_of_urine": [
+      "synthea_observation"
+    ],
+    "bilirubin_total_mass_volume_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "ketones_mass_volume_in_urine_by_test_strip": [
+      "synthea_observation"
+    ],
+    "dxa_radius_and_ulna_t_score_bone_density": [
+      "synthea_observation"
+    ],
+    "position_of_body_and_posture": [
+      "synthea_observation"
+    ],
+    "cobb_angle": [
+      "synthea_observation"
+    ],
+    "risser_sign": [
+      "synthea_observation"
+    ],
+    "neutrophils_leukocytes_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "lymphocytes_leukocytes_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "monocytes_leukocytes_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "eosinophils_leukocytes_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "basophils_leukocytes_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "neutrophils_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "lymphocytes_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "monocytes_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "eosinophils_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "basophils_volume_in_blood_by_automated_count": [
+      "synthea_observation"
+    ],
+    "oxygen_total_gas_setting_volume_fraction_ventilator": [
+      "synthea_observation"
+    ],
+    "fibrin_d_dimer_feu_mass_volume_in_platelet_poor_plasma": [
+      "synthea_observation"
+    ],
+    "creatine_kinase_enzymatic_activity_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "c_reactive_protein_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "procalcitonin_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "pain_severity_in_the_past_week_0_10_numeric_rating_reported": [
+      "pain_severity"
+    ],
+    "drugs_of_abuse_5_panel_urine_by_screen_method": [
+      "synthea_observation"
+    ],
+    "pain_severity_reported": [
+      "pain_severity"
+    ],
+    "thyroxine_free_mass_volume_in_serum_or_plasma": [
+      "synthea_observation"
+    ],
+    "fev1_fvc": [
+      "synthea_observation"
+    ],
+    "sexual_orientation": [
+      "synthea_observation"
+    ],
+    "hiv_status": [
+      "synthea_observation"
+    ],
+    "abuse_status_omaha": [
+      "synthea_observation"
+    ],
+    "history_of_hospitalizations_outpatient_visits_narrative": [
+      "synthea_observation"
+    ],
+    "capillary_refill_time_of_nail_bed": [
+      "synthea_observation"
+    ],
+    "lactate_moles_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "mean_blood_pressure": [
+      "blood_pressure"
+    ],
+    "total_score_mmse": [
+      "synthea_observation"
+    ],
+    "study_observation_left_retina_by_oct": [
+      "synthea_observation"
+    ],
+    "study_observation_right_retina_by_oct": [
+      "synthea_observation"
+    ],
+    "craving_or_a_strong_desire_to_use_opioids": [
+      "synthea_observation"
+    ],
+    "magnesium_mass_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "weight_difference_mass_difference_pre_dialysis_post_dialysis": [
+      "synthea_observation"
+    ],
+    "leukocytes_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "erythrocytes_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "mcv_entitic_mean_volume_in_red_blood_cells": [
+      "synthea_observation"
+    ],
+    "erythrocyte_distwidth_in_blood": [
+      "synthea_observation"
+    ],
+    "platelets_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "bilirubin_total_mass_volume_in_blood": [
+      "synthea_observation"
+    ],
+    "anion_gap_in_serum_or_plasma_by_calculation": [
+      "synthea_observation"
+    ],
+    "physical_findings_of_abdomen_by_palpation": [
+      "synthea_observation"
+    ]
   },
   "cui_map": {
     "amoxicillin": "C0002645",
@@ -135,6 +3010,918 @@
     "chronic_kidney_disease": "C1561643",
     "penicillin_allergy": "C0241940",
     "sulfa_allergy": "C0570533",
-    "drug_allergy": "C0013182"
+    "drug_allergy": "C0013182",
+    "amlodipine": "SYN_037718",
+    "calcium_channel_blocker": "SYN_303155",
+    "antihypertensive": "SYN_128107",
+    "cardiovascular_agent": "SYN_609303",
+    "metoprolol": "SYN_414533",
+    "beta_blocker": "SYN_397043",
+    "atenolol": "SYN_346365",
+    "carvedilol": "SYN_626733",
+    "warfarin": "SYN_896508",
+    "anticoagulant": "SYN_946640",
+    "antithrombotic": "SYN_605058",
+    "apixaban": "SYN_893519",
+    "rivaroxaban": "SYN_673037",
+    "heparin": "SYN_360486",
+    "digoxin": "SYN_276039",
+    "cardiac_glycoside": "SYN_664568",
+    "amiodarone": "SYN_276773",
+    "antiarrhythmic": "SYN_398275",
+    "acetaminophen": "SYN_536521",
+    "non_opioid_analgesic": "SYN_039325",
+    "analgesic": "SYN_858579",
+    "oxycodone": "SYN_647781",
+    "opioid_analgesic": "SYN_423452",
+    "hydrocodone": "SYN_205421",
+    "tramadol": "SYN_773575",
+    "morphine": "SYN_052014",
+    "insulin": "SYN_818851",
+    "insulin_therapy": "SYN_801962",
+    "antidiabetic_agent": "SYN_514687",
+    "alendronic_acid": "SYN_990364",
+    "bisphosphonate": "SYN_245845",
+    "bone_metabolism_agent": "SYN_822270",
+    "epoetin_alfa": "SYN_432226",
+    "erythropoiesis_stimulating_agent": "SYN_196165",
+    "hematologic_agent": "SYN_303842",
+    "sodium_fluoride": "SYN_300184",
+    "dental_caries_preventive": "SYN_756393",
+    "dental_agent": "SYN_376570",
+    "methotrexate": "SYN_039665",
+    "dmard": "SYN_102843",
+    "immunosuppressive_agent": "SYN_444802",
+    "lithium_carbonate": "SYN_500379",
+    "mood_stabilizer": "SYN_271201",
+    "psychiatric_agent": "SYN_018309",
+    "viral_sinusitis": "SYN_558917",
+    "upper_respiratory_infection": "SYN_677074",
+    "respiratory_disease": "SYN_739239",
+    "acute_viral_pharyngitis": "SYN_976687",
+    "acute_bronchitis": "SYN_715102",
+    "lower_respiratory_infection": "SYN_751130",
+    "pneumonia": "SYN_259840",
+    "acute_respiratory_disorder": "SYN_006951",
+    "gingivitis": "SYN_222329",
+    "periodontal_disease": "SYN_996276",
+    "dental_disorder": "SYN_134588",
+    "gingival_disease": "SYN_602340",
+    "primary_dental_caries": "SYN_903568",
+    "prediabetes": "SYN_232385",
+    "glycemic_disorder": "SYN_022700",
+    "metabolic_disease": "SYN_826812",
+    "hyperlipidemia": "SYN_696485",
+    "lipid_disorder": "SYN_337540",
+    "obesity": "SYN_848824",
+    "anemia": "SYN_971853",
+    "hematologic_disorder": "SYN_893402",
+    "coronary_heart_disease": "SYN_650420",
+    "cardiovascular_disease": "SYN_281594",
+    "heart_disease": "SYN_087484",
+    "myocardial_infarction": "SYN_364447",
+    "stroke": "SYN_259062",
+    "cerebrovascular_disease": "SYN_773636",
+    "osteoarthritis": "SYN_963804",
+    "musculoskeletal_disorder": "SYN_062397",
+    "sprain": "SYN_629872",
+    "musculoskeletal_injury": "SYN_911496",
+    "stress": "SYN_478583",
+    "psychosocial_finding": "SYN_196628",
+    "social_isolation": "SYN_718247",
+    "limited_social_contact": "SYN_608774",
+    "full_time_employment": "SYN_741260",
+    "employment_finding": "SYN_679629",
+    "part_time_employment": "SYN_004370",
+    "medication_review_due": "SYN_059217",
+    "clinical_administration": "SYN_903921",
+    "systemic_lupus_erythematosus": "SYN_528464",
+    "autoimmune_disease": "SYN_307595",
+    "rheumatoid_arthritis": "SYN_271343",
+    "pulmonary_embolism": "SYN_921106",
+    "vascular_disorder": "SYN_261730",
+    "acute_pancreatitis": "SYN_787245",
+    "gastrointestinal_disorder": "SYN_855045",
+    "ulcerative_colitis": "SYN_010749",
+    "cirrhosis_of_liver": "SYN_800846",
+    "hepatic_disorder": "SYN_797910",
+    "systolic_blood_pressure": "SYN_645552",
+    "blood_pressure": "SYN_214678",
+    "vital_sign": "SYN_206923",
+    "diastolic_blood_pressure": "SYN_084259",
+    "clinical_measurement": "SYN_051723",
+    "heart_rate": "SYN_676709",
+    "respiratory_rate": "SYN_879880",
+    "body_weight": "SYN_583694",
+    "anthropometry": "SYN_101653",
+    "body_height": "SYN_335124",
+    "body_mass_index": "SYN_920758",
+    "pain_severity": "SYN_888716",
+    "symptom_score": "SYN_772610",
+    "hemoglobin_a1c": "SYN_217643",
+    "glycemic_lab": "SYN_928283",
+    "lab_test": "SYN_505146",
+    "glucose": "SYN_544642",
+    "creatinine": "SYN_363742",
+    "renal_panel": "SYN_142989",
+    "urea_nitrogen": "SYN_679984",
+    "potassium": "SYN_318995",
+    "electrolyte_panel": "SYN_872663",
+    "sodium": "SYN_431032",
+    "calcium": "SYN_617536",
+    "total_cholesterol": "SYN_559224",
+    "lipid_panel": "SYN_317325",
+    "ldl_cholesterol": "SYN_271416",
+    "hdl_cholesterol": "SYN_854695",
+    "triglycerides": "SYN_413409",
+    "synthea_condition": "SYN_CAT_CONDITION",
+    "otitis_media": "SNOMED-CT_65363002",
+    "risk_activity_involvement": "SNOMED-CT_160968000",
+    "seizure_disorder": "SNOMED-CT_128613002",
+    "history_of_seizure": "SNOMED-CT_1290882004",
+    "leaking_dental_filling": "SNOMED-CT_278598003",
+    "sprain_of_wrist": "SNOMED-CT_70704007",
+    "headache": "SNOMED-CT_25064002",
+    "sputum_finding": "SNOMED-CT_248595008",
+    "fever": "SNOMED-CT_386661006",
+    "concussion_injury_of_brain": "SNOMED-CT_110030002",
+    "concussion_with_no_loss_of_consciousness": "SNOMED-CT_62106007",
+    "acute_infective_cystitis": "SNOMED-CT_307426000",
+    "infection_of_tooth": "SNOMED-CT_427898007",
+    "recurrent_urinary_tract_infection": "SNOMED-CT_197927001",
+    "educated_to_high_school_level": "SNOMED-CT_473461003",
+    "sprain_of_ankle": "SNOMED-CT_44465007",
+    "not_in_labor_force": "SNOMED-CT_741062008",
+    "laceration_injury": "SNOMED-CT_312608009",
+    "laceration_of_thigh": "SNOMED-CT_283385000",
+    "housing_unsatisfactory": "SNOMED-CT_105531004",
+    "normal_pregnancy": "SNOMED-CT_72892002",
+    "received_higher_education": "SNOMED-CT_224299000",
+    "aortic_valve_stenosis": "SNOMED-CT_60573004",
+    "transport_problem": "SNOMED-CT_266934004",
+    "lack_of_access_to_transportation": "SNOMED-CT_713458007",
+    "past_pregnancy_history_of_miscarriage": "SNOMED-CT_161744009",
+    "has_a_criminal_record": "SNOMED-CT_266948004",
+    "eclampsia_in_pregnancy": "SNOMED-CT_198992004",
+    "reports_of_violence_in_the_environment": "SNOMED-CT_424393004",
+    "misuses_drugs": "SNOMED-CT_361055000",
+    "laceration_of_forearm": "SNOMED-CT_283371005",
+    "fractured_dental_filling": "SNOMED-CT_278588009",
+    "severe_anxiety": "SNOMED-CT_80583007",
+    "victim_of_intimate_partner_abuse": "SNOMED-CT_706893006",
+    "body_mass_index_30_obesity": "SNOMED-CT_162864005",
+    "unhealthy_alcohol_drinking_behavior": "SNOMED-CT_10939881000119105",
+    "miscarriage_in_first_trimester": "SNOMED-CT_19169002",
+    "complete_miscarriage": "SNOMED-CT_156073000",
+    "chronic_sinusitis": "SNOMED-CT_40055000",
+    "chronic_pain": "SNOMED-CT_82423001",
+    "chronic_low_back_pain": "SNOMED-CT_278860009",
+    "streptococcal_sore_throat": "SNOMED-CT_43878008",
+    "diabetes_mellitus_type_2": "SNOMED-CT_44054006",
+    "dental_filling_lost": "SNOMED-CT_278558000",
+    "hyperglycemia": "SNOMED-CT_80394007",
+    "hypertriglyceridemia": "SNOMED-CT_302870006",
+    "metabolic_syndrome_x": "SNOMED-CT_237602007",
+    "essential_hypertension": "SNOMED-CT_59621000",
+    "unemployed": "SNOMED-CT_73438004",
+    "impacted_molars": "SNOMED-CT_196416002",
+    "dependent_drug_abuse": "SNOMED-CT_6525002",
+    "polyp_of_colon": "SNOMED-CT_68496003",
+    "overdose": "SNOMED-CT_1149222004",
+    "loss_of_teeth": "SNOMED-CT_37320007",
+    "cough": "SNOMED-CT_49727002",
+    "loss_of_taste": "SNOMED-CT_36955009",
+    "laceration_of_foot": "SNOMED-CT_284551006",
+    "seasonal_allergic_rhinitis": "SNOMED-CT_367498001",
+    "chronic_neck_pain": "SNOMED-CT_1121000119107",
+    "chronic_intractable_migraine_without_aura": "SNOMED-CT_124171000119105",
+    "only_received_primary_school_education": "SNOMED-CT_224295006",
+    "loose_dental_filling": "SNOMED-CT_278602001",
+    "refugee": "SNOMED-CT_446654005",
+    "sinusitis": "SNOMED-CT_36971009",
+    "history_of_tubal_ligation": "SNOMED-CT_267020005",
+    "idiopathic_atrophic_hypothyroidism": "SNOMED-CT_83664006",
+    "malignant_neoplasm_of_breast": "SNOMED-CT_254837009",
+    "chronic_congestive_heart_failure": "SNOMED-CT_88805009",
+    "shock": "SNOMED-CT_27942005",
+    "resorption_of_alveolar_process_due_to_dental_trauma": "SNOMED-CT_1255252008",
+    "serving_in_military_service": "SNOMED-CT_1187604002",
+    "opioid_abuse": "SNOMED-CT_5602001",
+    "localized_primary_osteoarthritis_of_the_hand": "SNOMED-CT_201834006",
+    "ischemic_heart_disease": "SNOMED-CT_414545008",
+    "abnormal_findings_diagnostic_imaging_heart_coronary_circulat": "SNOMED-CT_274531002",
+    "fracture_of_bone": "SNOMED-CT_125605004",
+    "fracture_of_ankle": "SNOMED-CT_16114001",
+    "history_of_coronary_artery_bypass_grafting": "SNOMED-CT_399261000",
+    "facial_laceration": "SNOMED-CT_370247008",
+    "fracture_of_clavicle": "SNOMED-CT_58150001",
+    "injury_of_neck": "SNOMED-CT_90460009",
+    "whiplash_injury_to_neck": "SNOMED-CT_39848009",
+    "epilepsy": "SNOMED-CT_84757009",
+    "acute_non_st_segment_elevation_myocardial_infarction": "SNOMED-CT_401314000",
+    "history_of_myocardial_infarction": "SNOMED-CT_399211009",
+    "suspected_prostate_cancer": "SNOMED-CT_315268008",
+    "neoplasm_of_prostate": "SNOMED-CT_126906006",
+    "carcinoma_in_situ_of_prostate": "SNOMED-CT_92691004",
+    "childhood_asthma": "SNOMED-CT_233678006",
+    "perennial_allergic_rhinitis_with_seasonal_variation": "SNOMED-CT_232353008",
+    "chronic_kidney_disease_stage_1": "SNOMED-CT_431855005",
+    "disorder_of_kidney_due_to_diabetes_mellitus": "SNOMED-CT_127013003",
+    "fracture_subluxation_of_wrist": "SNOMED-CT_263102004",
+    "chronic_kidney_disease_stage_2": "SNOMED-CT_431856006",
+    "microalbuminuria_due_to_type_2_diabetes_mellitus": "SNOMED-CT_90781000119102",
+    "acute_st_segment_elevation_myocardial_infarction": "SNOMED-CT_401303003",
+    "alveolitis_of_jaw": "SNOMED-CT_61804006",
+    "torus_palatinus": "SNOMED-CT_46752004",
+    "sleep_disorder": "SNOMED-CT_39898005",
+    "obstructive_sleep_apnea_syndrome": "SNOMED-CT_78275009",
+    "nasal_congestion": "SNOMED-CT_68235000",
+    "dyspnea": "SNOMED-CT_267036007",
+    "wheezing": "SNOMED-CT_56018004",
+    "fracture_of_forearm": "SNOMED-CT_65966004",
+    "smokes_tobacco_daily": "SNOMED-CT_449868002",
+    "mitral_valve_regurgitation": "SNOMED-CT_48724000",
+    "adolescent_idiopathic_scoliosis": "SNOMED-CT_203646004",
+    "perennial_allergic_rhinitis": "SNOMED-CT_446096008",
+    "child_attention_deficit_disorder": "SNOMED-CT_192127007",
+    "fatigue": "SNOMED-CT_84229001",
+    "muscle_pain": "SNOMED-CT_68962001",
+    "joint_pain": "SNOMED-CT_57676002",
+    "hypoxemia": "SNOMED-CT_389087006",
+    "respiratory_distress": "SNOMED-CT_271825005",
+    "acute_respiratory_failure": "SNOMED-CT_65710008",
+    "sepsis_caused_by_virus": "SNOMED-CT_770349000",
+    "acute_deep_venous_thrombosis": "SNOMED-CT_132281000119108",
+    "acute_bacterial_sinusitis": "SNOMED-CT_75498004",
+    "burn_injury": "SNOMED-CT_48333001",
+    "epidermal_burn_of_skin": "SNOMED-CT_403190006",
+    "history_of_appendectomy": "SNOMED-CT_428251008",
+    "acute_allergic_reaction": "SNOMED-CT_241929008",
+    "traumatic_or_nontraumatic_brain_injury": "SNOMED-CT_127294003",
+    "concussion_with_loss_of_consciousness": "SNOMED-CT_62564004",
+    "pulmonary_emphysema": "SNOMED-CT_87433001",
+    "atopic_dermatitis": "SNOMED-CT_24079001",
+    "major_depressive_disorder": "SNOMED-CT_370143000",
+    "recurrent_rectal_polyp": "SNOMED-CT_713197008",
+    "homeless": "SNOMED-CT_32911000",
+    "injury_of_knee": "SNOMED-CT_125601008",
+    "tear_of_meniscus_of_knee": "SNOMED-CT_239720000",
+    "fracture_of_rib": "SNOMED-CT_33737001",
+    "transformed_migraine": "SNOMED-CT_427419006",
+    "pre_eclampsia": "SNOMED-CT_398254007",
+    "chronic_obstructive_bronchitis": "SNOMED-CT_185086009",
+    "injury_of_tendon_of_the_rotator_cuff_of_shoulder": "SNOMED-CT_307731004",
+    "closed_fracture_of_hip": "SNOMED-CT_359817006",
+    "osteoporosis": "SNOMED-CT_64859006",
+    "osteoporotic_fracture_of_bone": "SNOMED-CT_443165006",
+    "sepsis": "SNOMED-CT_91302008",
+    "alzheimer_s_disease": "SNOMED-CT_26929004",
+    "injury_of_medial_collateral_ligament_of_knee": "SNOMED-CT_444448004",
+    "miscarriage_in_second_trimester": "SNOMED-CT_85116003",
+    "fetus_with_chromosomal_abnormality": "SNOMED-CT_267253006",
+    "acute_respiratory_distress_syndrome": "SNOMED-CT_67782005",
+    "sterilization_requested": "SNOMED-CT_183996000",
+    "suspected_lung_cancer": "SNOMED-CT_162573006",
+    "non_small_cell_lung_cancer": "SNOMED-CT_254637007",
+    "non_small_cell_carcinoma_of_lung_tnm_stage_1": "SNOMED-CT_424132000",
+    "cerebrovascular_accident": "SNOMED-CT_230690007",
+    "chronic_kidney_disease_stage_3": "SNOMED-CT_433144002",
+    "proteinuria_due_to_type_2_diabetes_mellitus": "SNOMED-CT_157141000119108",
+    "traumatic_injury_of_spinal_cord_and_or_vertebral_column": "SNOMED-CT_262521009",
+    "fracture_of_vertebral_column_without_spinal_cord_injury": "SNOMED-CT_15724005",
+    "traumatic_dislocation_of_temporomandibular_joint": "SNOMED-CT_81629009",
+    "sore_throat": "SNOMED-CT_267102003",
+    "osteoarthritis_of_knee": "SNOMED-CT_239873007",
+    "rupture_of_patellar_tendon": "SNOMED-CT_30832001",
+    "osteoarthritis_of_hip": "SNOMED-CT_239872002",
+    "diarrhea_symptom": "SNOMED-CT_267060006",
+    "awaiting_transplantation_of_kidney": "SNOMED-CT_698306007",
+    "chronic_kidney_disease_stage_4": "SNOMED-CT_431857002",
+    "laceration_of_hand": "SNOMED-CT_284549007",
+    "blighted_ovum": "SNOMED-CT_35999006",
+    "injury_of_anterior_cruciate_ligament": "SNOMED-CT_444470001",
+    "acute_cholecystitis": "SNOMED-CT_65275009",
+    "gallbladder_calculus": "SNOMED-CT_235919008",
+    "partial_thickness_burn": "SNOMED-CT_403191005",
+    "bleeding_from_anus": "SNOMED-CT_6072007",
+    "protracted_diarrhea": "SNOMED-CT_236077008",
+    "metastatic_malignant_neoplasm_to_colon": "SNOMED-CT_94260004",
+    "died_in_hospice": "SNOMED-CT_876882001",
+    "neuropathy_due_to_type_2_diabetes_mellitus": "SNOMED-CT_368581000119106",
+    "alcoholism": "SNOMED-CT_7200002",
+    "end_stage_renal_disease": "SNOMED-CT_46177005",
+    "history_of_renal_transplant": "SNOMED-CT_161665007",
+    "medication_reconciliation": "SNOMED-CT_430193006",
+    "synthea_procedure": "SYN_CAT_PROCEDURE",
+    "patient_referral_for_dental_care": "SNOMED-CT_103697008",
+    "dental_consultation_and_report": "SNOMED-CT_34043003",
+    "dental_care": "SNOMED-CT_225362009",
+    "examination_of_gingivae": "SNOMED-CT_274788003",
+    "dental_surgical_procedure": "SNOMED-CT_81733005",
+    "dental_plain_x_ray_bitewing": "SNOMED-CT_241046008",
+    "dental_fluoride_treatment": "SNOMED-CT_68071007",
+    "oral_health_education": "SNOMED-CT_243085009",
+    "dental_application_of_desensitizing_medicament": "SNOMED-CT_3802001",
+    "gingivectomy_or_gingivoplasty_per_tooth": "SNOMED-CT_64544008",
+    "postoperative_care_for_dental_procedure": "SNOMED-CT_456191000124101",
+    "measurement_of_respiratory_function": "SNOMED-CT_23426006",
+    "throat_culture": "SNOMED-CT_117015009",
+    "assessment_of_anxiety": "SNOMED-CT_710841007",
+    "assessment_of_substance_use": "SNOMED-CT_428211000124100",
+    "health_risks_education": "SNOMED-CT_370995009",
+    "depression_screening": "SNOMED-CT_171207006",
+    "electroencephalogram": "SNOMED-CT_54550000",
+    "anticipatory_guidance": "SNOMED-CT_386516004",
+    "sputum_examination": "SNOMED-CT_269911007",
+    "face_mask": "SNOMED-CT_261352009",
+    "history_taking": "SNOMED-CT_84100007",
+    "discussion_about_signs_and_symptoms": "SNOMED-CT_223470000",
+    "history_and_physical_examination_limited": "SNOMED-CT_67879005",
+    "evaluation_procedure": "SNOMED-CT_386053000",
+    "discussion_about_pregnancy": "SNOMED-CT_440546007",
+    "urine_specimen_collection": "SNOMED-CT_57617002",
+    "urinalysis_with_reflex_to_microscopy_and_culture": "SNOMED-CT_441550005",
+    "antibiotic_therapy": "SNOMED-CT_281789004",
+    "simple_extraction_of_tooth": "SNOMED-CT_173291009",
+    "assessment_of_health_and_social_care_needs": "SNOMED-CT_710824005",
+    "screening_for_drug_abuse": "SNOMED-CT_713106006",
+    "telemedicine_consultation_with_patient": "SNOMED-CT_448337001",
+    "standard_pregnancy_test": "SNOMED-CT_252160004",
+    "referral_for_laboratory_tests": "SNOMED-CT_266753000",
+    "patient_informed_test_result": "SNOMED-CT_165355002",
+    "lab_findings_education_guidance_and_counseling": "SNOMED-CT_410299006",
+    "discussion_about_treatment": "SNOMED-CT_223484005",
+    "evaluating_response_to_treatment": "SNOMED-CT_225953001",
+    "peripheral_blood_smear_interpretation": "SNOMED-CT_14768001",
+    "review_of_systems": "SNOMED-CT_415300000",
+    "brief_general_examination": "SNOMED-CT_162676008",
+    "suture_open_wound": "SNOMED-CT_288086009",
+    "injection_of_tetanus_antitoxin": "SNOMED-CT_384700001",
+    "ultrasound_scan_for_fetal_viability": "SNOMED-CT_169230002",
+    "counseling_for_termination_of_pregnancy": "SNOMED-CT_10383002",
+    "induced_termination_of_pregnancy": "SNOMED-CT_714812005",
+    "pregnancy_termination_care": "SNOMED-CT_386394001",
+    "physical_examination_procedure": "SNOMED-CT_5880005",
+    "evaluation_of_uterine_fundal_height": "SNOMED-CT_274804006",
+    "auscultation_of_the_fetal_heart": "SNOMED-CT_225158009",
+    "blood_group_typing": "SNOMED-CT_44608003",
+    "hepatitis_b_surface_antigen_measurement": "SNOMED-CT_47758006",
+    "human_immunodeficiency_virus_antigen_test": "SNOMED-CT_31676001",
+    "chlamydia_antigen_test": "SNOMED-CT_310861008",
+    "gonorrhea_infection_titer_test": "SNOMED-CT_165829005",
+    "syphilis_infectious_titer_test": "SNOMED-CT_269828009",
+    "urine_culture": "SNOMED-CT_117010004",
+    "cytopathology_procedure_preparation_of_smear_genital_source": "SNOMED-CT_90226004",
+    "urine_screening_test_for_diabetes": "SNOMED-CT_395123002",
+    "hepatitis_c_antibody_confirmatory_test": "SNOMED-CT_104375008",
+    "rubella_screening_test": "SNOMED-CT_314098000",
+    "measurement_of_varicella_zoster_virus_antibody": "SNOMED-CT_104326007",
+    "skin_test_for_tuberculosis_tine_test": "SNOMED-CT_28163009",
+    "urinalysis_protein_qualitative": "SNOMED-CT_60218003",
+    "fetal_anatomy_study": "SNOMED-CT_271442007",
+    "alpha_fetoprotein_test_antenatal": "SNOMED-CT_275833003",
+    "allergy_screening_test": "SNOMED-CT_395142003",
+    "streptococcus_pneumoniae_group_b_antigen_assay": "SNOMED-CT_118001005",
+    "augmentation_of_labor": "SNOMED-CT_237001001",
+    "human_parturition_function": "SNOMED-CT_386216000",
+    "referral_for_echocardiography": "SNOMED-CT_390791001",
+    "transthoracic_echocardiography": "SNOMED-CT_433236007",
+    "screening_for_domestic_abuse": "SNOMED-CT_866148006",
+    "insertion_of_intrauterine_contraceptive_device": "SNOMED-CT_65200003",
+    "urine_screening_for_glucose": "SNOMED-CT_268556000",
+    "epidural_anesthesia": "SNOMED-CT_18946005",
+    "intramuscular_injection": "SNOMED-CT_76601001",
+    "replacement_of_contraceptive_intrauterine_device": "SNOMED-CT_46706006",
+    "removal_of_intrauterine_contraceptive_device": "SNOMED-CT_1263416007",
+    "medical_induction_of_labor": "SNOMED-CT_31208007",
+    "implantation_of_subcutaneous_contraceptive": "SNOMED-CT_169553002",
+    "instrumental_delivery": "SNOMED-CT_236974004",
+    "cesarean_section": "SNOMED-CT_11466000",
+    "visual_acuity_testing": "SNOMED-CT_16830007",
+    "intraocular_pressure_test": "SNOMED-CT_252832004",
+    "ocular_slit_lamp_examination": "SNOMED-CT_55468007",
+    "indirect_gonioscopy": "SNOMED-CT_389153003",
+    "camera_fundoscopy": "SNOMED-CT_314971001",
+    "diabetic_retinal_eye_exam": "SNOMED-CT_722161008",
+    "extraction_of_wisdom_tooth": "SNOMED-CT_65546002",
+    "referral_to_hypertension_clinic": "SNOMED-CT_183856001",
+    "colonoscopy": "SNOMED-CT_73761001",
+    "screening_for_occult_blood_in_feces": "SNOMED-CT_104435004",
+    "rectal_polypectomy": "SNOMED-CT_274031008",
+    "removal_of_subcutaneous_contraceptive": "SNOMED-CT_301807007",
+    "rehabilitation_therapy": "SNOMED-CT_52052004",
+    "subcutaneous_immunotherapy": "SNOMED-CT_180256009",
+    "intravenous_blood_transfusion_of_packed_cells": "SNOMED-CT_180207008",
+    "take_oral_or_dental_impression": "SNOMED-CT_234745004",
+    "fitting_of_denture": "SNOMED-CT_1269321004",
+    "triage_emergency_center": "SNOMED-CT_386478007",
+    "taking_patient_vital_signs": "SNOMED-CT_61746007",
+    "complete_blood_count": "SNOMED-CT_26604007",
+    "comprehensive_metabolic_panel": "SNOMED-CT_371361000119107",
+    "patient_discharge": "SNOMED-CT_58000006",
+    "screening_mammography": "SNOMED-CT_24623002",
+    "magnetic_resonance_imaging_of_breast": "SNOMED-CT_241615005",
+    "biopsy_of_breast": "SNOMED-CT_122548005",
+    "discussion_about_options": "SNOMED-CT_223487003",
+    "lumpectomy_of_breast": "SNOMED-CT_392021009",
+    "external_beam_radiation_therapy_procedure": "SNOMED-CT_33195004",
+    "physical_examination_complete": "SNOMED-CT_25656009",
+    "electrocardiographic_procedure": "SNOMED-CT_29303009",
+    "cardiovascular_stress_testing": "SNOMED-CT_76746007",
+    "assessment_using_new_york_heart_association_classification": "SNOMED-CT_762998009",
+    "echocardiography": "SNOMED-CT_40701008",
+    "certification_procedure": "SNOMED-CT_310417005",
+    "notifications": "SNOMED-CT_185087000",
+    "initial_patient_assessment": "SNOMED-CT_315639002",
+    "development_of_individualized_plan_of_care": "SNOMED-CT_370789001",
+    "hospice_care": "SNOMED-CT_385763009",
+    "mammography": "SNOMED-CT_71651007",
+    "bone_density_scan": "SNOMED-CT_312681000",
+    "oxygen_administration_by_mask": "SNOMED-CT_371908008",
+    "placing_subject_in_prone_position": "SNOMED-CT_431182000",
+    "plain_x_ray_of_chest": "SNOMED-CT_399208008",
+    "assessment_using_morse_fall_scale": "SNOMED-CT_762993000",
+    "grafting_of_periodontal_bone_defect": "SNOMED-CT_234687006",
+    "heart_failure_education": "SNOMED-CT_423475008",
+    "referral_to_cardiology_service": "SNOMED-CT_183519002",
+    "consultation_for_treatment": "SNOMED-CT_698314001",
+    "angiography_of_coronary_artery": "SNOMED-CT_33367005",
+    "post_anesthesia_care_management": "SNOMED-CT_736169004",
+    "referral_to_cardiac_surgery_service": "SNOMED-CT_306185001",
+    "plain_x_ray_of_ankle_region": "SNOMED-CT_1290459008",
+    "bone_immobilization": "SNOMED-CT_274474001",
+    "pre_surgery_testing": "SNOMED-CT_110467000",
+    "notification_of_treatment_plan": "SNOMED-CT_709138001",
+    "scheduling": "SNOMED-CT_410538000",
+    "transfusion_of_fresh_frozen_plasma": "SNOMED-CT_116861002",
+    "insertion_of_catheter_into_artery": "SNOMED-CT_392247006",
+    "administration_of_anesthesia_for_procedure": "SNOMED-CT_410770002",
+    "intubation": "SNOMED-CT_52765003",
+    "pulmonary_catheterization_with_swan_ganz_catheter": "SNOMED-CT_65677008",
+    "preparation_of_patient_for_procedure": "SNOMED-CT_223495004",
+    "cannulation": "SNOMED-CT_42825003",
+    "cardiopulmonary_bypass_operation": "SNOMED-CT_63697000",
+    "placement_of_aortic_cross_clamp": "SNOMED-CT_301882004",
+    "induced_cardioplegia": "SNOMED-CT_8290005",
+    "median_sternotomy": "SNOMED-CT_359672006",
+    "coronary_artery_bypass_grafting": "SNOMED-CT_232717009",
+    "cardioassist_by_aortic_balloon_pump": "SNOMED-CT_399217008",
+    "removal_of_aortic_cross_clamp": "SNOMED-CT_301884003",
+    "vascular_cannula_removal": "SNOMED-CT_233553003",
+    "documentation_procedure": "SNOMED-CT_23745001",
+    "removal_of_endotracheal_tube": "SNOMED-CT_271280005",
+    "discharge_to_ward": "SNOMED-CT_306706006",
+    "postoperative_procedure_education": "SNOMED-CT_243063003",
+    "walking_exercise_test": "SNOMED-CT_302761001",
+    "stair_climbing_test": "SNOMED-CT_252482003",
+    "discharge_from_hospital": "SNOMED-CT_308283009",
+    "plain_x_ray_of_clavicle": "SNOMED-CT_168594001",
+    "admission_to_orthopedic_department": "SNOMED-CT_305428000",
+    "history_and_physical_examination": "SNOMED-CT_63332003",
+    "nursing_care_supplementary_surveillance": "SNOMED-CT_410401003",
+    "physical_therapy_procedure": "SNOMED-CT_91251008",
+    "professional_ancillary_services_care": "SNOMED-CT_409023009",
+    "pre_discharge_assessment": "SNOMED-CT_225386006",
+    "digital_examination_of_rectum": "SNOMED-CT_410006001",
+    "biopsy_of_prostate": "SNOMED-CT_65575008",
+    "plain_x_ray_of_wrist_region": "SNOMED-CT_713024005",
+    "prostatectomy": "SNOMED-CT_90470006",
+    "tooth_socket_procedure": "SNOMED-CT_284053004",
+    "excision_of_maxillary_torus_palatinus": "SNOMED-CT_79345008",
+    "sleep_apnea_assessment": "SNOMED-CT_103750000",
+    "referral_to_sleep_apnea_clinic": "SNOMED-CT_698560000",
+    "sleep_apnea_monitoring_with_alarm": "SNOMED-CT_82808001",
+    "sentinel_lymph_node_biopsy": "SNOMED-CT_396487001",
+    "excision_of_sentinel_lymph_node": "SNOMED-CT_443497002",
+    "plain_x_ray_of_humerus": "SNOMED-CT_713026007",
+    "manual_pelvic_examination": "SNOMED-CT_35025007",
+    "child_examination_school_screening": "SNOMED-CT_170245002",
+    "referral_to_orthopedic_surgeon": "SNOMED-CT_308481009",
+    "osteopathic_postural_examination": "SNOMED-CT_417656005",
+    "referral_for_x_ray": "SNOMED-CT_183830008",
+    "plain_x_ray_of_spine_and_pelvis": "SNOMED-CT_1290953004",
+    "measurement_procedure": "SNOMED-CT_122869004",
+    "referral_for_further_care": "SNOMED-CT_183444007",
+    "speech_and_language_therapy_regime": "SNOMED-CT_311555007",
+    "referral_to_home_health_care_service": "SNOMED-CT_417511005",
+    "comprehensive_interview_and_evaluation": "SNOMED-CT_200619008",
+    "coordination_of_care_plan": "SNOMED-CT_711069006",
+    "cognitive_and_behavioral_therapy": "SNOMED-CT_228557008",
+    "occupational_therapy": "SNOMED-CT_84478008",
+    "injection_of_epinephrine": "SNOMED-CT_313191000",
+    "movement_therapy": "SNOMED-CT_229064008",
+    "spirometry": "SNOMED-CT_127783003",
+    "pulmonary_rehabilitation": "SNOMED-CT_15081005",
+    "information_gathering": "SNOMED-CT_311791003",
+    "plain_x_ray_of_knee_region": "SNOMED-CT_1290407002",
+    "treatment_changed": "SNOMED-CT_445528004",
+    "antenatal_rhd_antibody_screening": "SNOMED-CT_169673001",
+    "passive_immunization": "SNOMED-CT_51116004",
+    "episiotomy": "SNOMED-CT_85548006",
+    "premature_birth_of_newborn": "SNOMED-CT_367494004",
+    "lung_volume_reduction_surgery": "SNOMED-CT_429609002",
+    "postoperative_care": "SNOMED-CT_133899007",
+    "surgical_manipulation_of_shoulder_joint": "SNOMED-CT_387685009",
+    "plain_x_ray_of_pelvis": "SNOMED-CT_713021002",
+    "care_regimes_assessment": "SNOMED-CT_392091000",
+    "resuscitation_using_intravenous_fluid": "SNOMED-CT_430701006",
+    "transfer_to_stepdown_unit": "SNOMED-CT_449214001",
+    "admission_to_intensive_care_unit": "SNOMED-CT_305351004",
+    "asthma_screening": "SNOMED-CT_171231001",
+    "sterilization_education": "SNOMED-CT_268533009",
+    "ligation_of_bilateral_fallopian_tubes": "SNOMED-CT_287664005",
+    "computed_tomography_of_chest_and_abdomen": "SNOMED-CT_418891003",
+    "fiberoptic_bronchoscopy": "SNOMED-CT_85765000",
+    "magnetic_resonance_imaging_for_measurement_of_brain_volume": "SNOMED-CT_698354004",
+    "hearing_examination": "SNOMED-CT_398171003",
+    "combined_chemotherapy_and_radiation_therapy": "SNOMED-CT_703423002",
+    "high_resolution_computed_tomography_of_chest_without_contrast": "SNOMED-CT_16335031000119103",
+    "optical_coherence_tomography_of_retina": "SNOMED-CT_700070005",
+    "percutaneous_coronary_intervention": "SNOMED-CT_415070008",
+    "surgical_manipulation_of_joint_of_knee": "SNOMED-CT_699253003",
+    "psychosocial_care": "SNOMED-CT_408919008",
+    "ultrasonography_of_bilateral_breasts": "SNOMED-CT_1571000087109",
+    "excision_of_lesion_of_breast": "SNOMED-CT_392023007",
+    "chemotherapy": "SNOMED-CT_367336001",
+    "plain_x_ray_of_mandible": "SNOMED-CT_1290789000",
+    "closed_reduction_of_dislocation_of_temporomandibular_joint": "SNOMED-CT_179632003",
+    "posttreatment_stabilization_orthodontic_device": "SNOMED-CT_37542007",
+    "oral_examination": "SNOMED-CT_122856003",
+    "range_of_motion_testing": "SNOMED-CT_69212005",
+    "assessment_of_cardiac_status_using_monitoring_device": "SNOMED-CT_710839006",
+    "laboratory_test": "SNOMED-CT_15220000",
+    "diagnostic_assessment": "SNOMED-CT_165197003",
+    "renal_dialysis": "SNOMED-CT_265764009",
+    "referral_to_transplant_surgeon": "SNOMED-CT_306316000",
+    "serum_metabolic_panel": "SNOMED-CT_866146005",
+    "ultrasonography_of_abdomen_right_upper_quadrant_and_epigastrium": "SNOMED-CT_426701000119108",
+    "laparoscopic_cholecystectomy": "SNOMED-CT_45595009",
+    "risk_assessment": "SNOMED-CT_225338004",
+    "continuous_subcutaneous_infusion_of_insulin": "SNOMED-CT_180178009",
+    "transfusion_of_packed_red_blood_cells": "SNOMED-CT_71493000",
+    "direct_current_cardioversion": "SNOMED-CT_180325003",
+    "off_pump_coronary_artery_bypass": "SNOMED-CT_418824004",
+    "doppler_ultrasonography_of_artery": "SNOMED-CT_709979004",
+    "computed_tomography_of_head": "SNOMED-CT_303653007",
+    "platelet_transfusion": "SNOMED-CT_12719002",
+    "pretransplant_evaluation_of_kidney_recipient": "SNOMED-CT_428830000",
+    "transplant_of_kidney": "SNOMED-CT_70536003",
+    "transplantation_of_kidney_regime": "SNOMED-CT_711446003",
+    "renal_disorder_medication_review": "SNOMED-CT_473231009",
+    "referral_to_service": "SNOMED-CT_306206005",
+    "sodium_fluoride_0_0272_mg_mg_oral_gel": "RxNorm_1535362",
+    "synthea_medication": "SYN_CAT_MEDICATION",
+    "acetaminophen_325_mg_oral_tablet": "RxNorm_313782",
+    "diazepam_5_mg_oral_tablet": "RxNorm_197591",
+    "21_7_pack_levora_0_15_30_28_day": "RxNorm_748879",
+    "amoxicillin_250_mg_clavulanate_125_mg_oral_tablet": "RxNorm_562251",
+    "amoxicillin_500_mg_oral_tablet": "RxNorm_308192",
+    "ibuprofen_100_mg_oral_tablet": "RxNorm_198405",
+    "28_pack_jolivette_28_day": "RxNorm_757594",
+    "acetaminophen_160_mg_chewable_tablet": "RxNorm_313820",
+    "24_4_pack_yaz_28_day": "RxNorm_748856",
+    "sulfamethoxazole_800_mg_trimethoprim_160_mg_oral_tablet": "RxNorm_198335",
+    "ibuprofen_200_mg_oral_tablet": "RxNorm_310965",
+    "fosfomycin_3000_mg_granules_for_oral_solution": "RxNorm_808917",
+    "7_84_pack_seasonique": "RxNorm_749762",
+    "7_7_7_7_pack_trinessa_28_day": "RxNorm_751905",
+    "naproxen_sodium_220_mg_oral_tablet": "RxNorm_849574",
+    "albuterol_0_83_mg_ml_inhalation_solution": "RxNorm_630208",
+    "fexofenadine_hydrochloride_30_mg_oral_tablet": "RxNorm_997488",
+    "nda020800_0_3_ml_epinephrine_1_mg_ml_auto_injector": "RxNorm_1870230",
+    "1_ml_medroxyprogesterone_acetate_150_mg_ml_injection": "RxNorm_1000126",
+    "etonogestrel_68_mg_drug_implant": "RxNorm_389221",
+    "72_hr_fentanyl_0_025_mg_hr_transdermal_system": "RxNorm_245134",
+    "acetaminophen_300_mg_hydrocodone_bitartrate_5_mg_oral_tablet": "RxNorm_856987",
+    "penicillin_v_potassium_500_mg_oral_tablet": "RxNorm_834102",
+    "ibuprofen_400_mg_oral_tablet_ibu": "RxNorm_206905",
+    "tropicamide_5_mg_ml_ophthalmic_solution": "RxNorm_313521",
+    "amlodipine_2_5_mg_oral_tablet": "RxNorm_308136",
+    "simvastatin_10_mg_oral_tablet": "RxNorm_314231",
+    "lisinopril_10_mg_oral_tablet": "RxNorm_314076",
+    "hydrochlorothiazide_25_mg_oral_tablet": "RxNorm_310798",
+    "levonorgestrel_0_000813_mg_hr_intrauterine_system_liletta": "RxNorm_1605257",
+    "levonorgestrel_0_000729_mg_hr_intrauterine_system_kyleena": "RxNorm_1856546",
+    "hydrocortisone_10_mg_ml_topical_cream": "RxNorm_106258",
+    "loratadine_10_mg_oral_tablet": "RxNorm_311372",
+    "ferrous_sulfate_325_mg_oral_tablet": "RxNorm_310325",
+    "vitamin_b12_5_mg_ml_injectable_solution": "RxNorm_2001499",
+    "budesonide_0_25_mg_ml_inhalation_suspension": "RxNorm_351109",
+    "albuterol_0_21_mg_ml_inhalation_solution": "RxNorm_351137",
+    "albuterol_5_mg_ml_inhalation_solution": "RxNorm_245314",
+    "budesonide_0_125_mg_ml_inhalation_suspension": "RxNorm_349094",
+    "28_pack_camila_28_day": "RxNorm_748962",
+    "acetaminophen_325_mg_oxycodone_hydrochloride_5_mg_oral_tablet": "RxNorm_1049221",
+    "5_17_2_2_2_pack_natazia_28_day": "RxNorm_978950",
+    "cephalexin_500_mg_oral_tablet": "RxNorm_197454",
+    "amoxicillin_500_mg_clavulanate_125_mg_oral_tablet": "RxNorm_617296",
+    "meperidine_hydrochloride_50_mg_oral_tablet": "RxNorm_861467",
+    "levothyroxine_sodium_0_075_mg_oral_tablet": "RxNorm_966222",
+    "anastrozole_1_mg_oral_tablet": "RxNorm_199224",
+    "abemaciclib_100_mg_oral_tablet_verzenio": "RxNorm_1946840",
+    "furosemide_40_mg_oral_tablet": "RxNorm_313988",
+    "10_ml_furosemide_10_mg_ml_injection": "RxNorm_1719286",
+    "loratadine_5_mg_chewable_tablet": "RxNorm_665078",
+    "penicillin_v_potassium_250_mg_oral_tablet": "RxNorm_834061",
+    "amoxicillin_250_mg_oral_capsule": "RxNorm_308182",
+    "clopidogrel_75_mg_oral_tablet": "RxNorm_309362",
+    "simvastatin_20_mg_oral_tablet": "RxNorm_312961",
+    "24_hr_metoprolol_succinate_100_mg_extended_release_oral_tablet": "RxNorm_866412",
+    "nitroglycerin_0_4_mg_actuat_mucosal_spray": "RxNorm_705129",
+    "cefazolin_2000_mg_injection": "RxNorm_1665060",
+    "1_ml_heparin_sodium_porcine_5000_unt_ml_injection": "RxNorm_1659263",
+    "25_ml_protamine_sulfate_10_mg_ml_injection": "RxNorm_1796676",
+    "2_ml_ondansetron_2_mg_ml_injection": "RxNorm_1740467",
+    "midazolam_1_mg_ml_injectable_solution": "RxNorm_311700",
+    "100_ml_propofol_10_mg_ml_injection": "RxNorm_1808217",
+    "rocuronium_bromide_10_mg_ml_injectable_solution": "RxNorm_1234995",
+    "isoflurane_999_mg_ml_inhalation_solution": "RxNorm_542347",
+    "10_ml_fentanyl_0_05_mg_ml_injection": "RxNorm_1735006",
+    "aspirin_81_mg_oral_tablet": "RxNorm_243670",
+    "24_hr_metoprolol_succinate_25_mg_extended_release_oral_tablet": "RxNorm_866427",
+    "atorvastatin_10_mg_oral_tablet": "RxNorm_617312",
+    "hydrochlorothiazide_12_5_mg_lisinopril_10_mg_oral_tablet": "RxNorm_197885",
+    "prasugrel_10_mg_oral_tablet": "RxNorm_855812",
+    "terfenadine_60_mg_oral_tablet": "RxNorm_141918",
+    "cetirizine_hydrochloride_5_mg_oral_tablet": "RxNorm_1014676",
+    "diphenhydramine_hydrochloride_25_mg_oral_tablet": "RxNorm_1049630",
+    "1_ml_docetaxel_20_mg_ml_injection": "RxNorm_1860480",
+    "0_25_ml_leuprolide_acetate_30_mg_ml_prefilled_syringe": "RxNorm_752899",
+    "carvedilol_6_25_mg_oral_tablet": "RxNorm_200031",
+    "atorvastatin_40_mg_oral_tablet": "RxNorm_617311",
+    "acetaminophen_325_mg_hydrocodone_bitartrate_7_5_mg_oral_tablet": "RxNorm_857005",
+    "astemizole_10_mg_oral_tablet": "RxNorm_197378",
+    "24_hr_nicotine_0_292_mg_hr_transdermal_system": "RxNorm_198031",
+    "tamoxifen_10_mg_oral_tablet": "RxNorm_198240",
+    "atomoxetine_100_mg_oral_capsule": "RxNorm_608139",
+    "cefuroxime_250_mg_oral_tablet": "RxNorm_309097",
+    "0_4_ml_enoxaparin_sodium_100_mg_ml_prefilled_syringe": "RxNorm_854235",
+    "acetaminophen_500_mg_oral_tablet": "RxNorm_198440",
+    "1_ml_enoxaparin_sodium_150_mg_ml_prefilled_syringe": "RxNorm_854252",
+    "28_pack_errin_28_day": "RxNorm_831533",
+    "levonorgestrel_0_000833_mg_hr_intrauterine_system_mirena": "RxNorm_807283",
+    "doxycycline_hyclate_100_mg": "RxNorm_1649987",
+    "prednisone_5_mg_oral_tablet": "RxNorm_312617",
+    "ciprofloxacin_250_mg_oral_tablet": "RxNorm_197511",
+    "tramadol_hydrochloride_50_mg_oral_tablet": "RxNorm_835603",
+    "labetalol_hydrochloride_300_mg_oral_tablet": "RxNorm_896766",
+    "losartan_potassium_100_mg_oral_tablet": "RxNorm_979480",
+    "acetaminophen_300_mg_codeine_phosphate_15_mg_oral_tablet": "RxNorm_993770",
+    "fluoxetine_20_mg_oral_capsule": "RxNorm_310385",
+    "chlorpheniramine_maleate_2_mg_ml_oral_solution": "RxNorm_477045",
+    "cyclosporine_modified_100_mg_oral_capsule": "RxNorm_241834",
+    "acetaminophen_325_mg_oral_tablet_tylenol": "RxNorm_209387",
+    "12_hr_hydrocodone_bitartrate_10_mg_extended_release_oral_capsule": "RxNorm_1860491",
+    "atenolol_50_mg_oral_tablet": "RxNorm_197381",
+    "enalapril_maleate_2_5_mg_oral_tablet": "RxNorm_858804",
+    "piperacillin_2000_mg_tazobactam_250_mg_injection": "RxNorm_1659131",
+    "150_ml_vancomycin_5_mg_ml_injection": "RxNorm_1807510",
+    "alendronic_acid_10_mg_oral_tablet": "RxNorm_904419",
+    "galantamine_4_mg_oral_tablet": "RxNorm_310436",
+    "memantine_hydrochloride_2_mg_ml_oral_solution": "RxNorm_996740",
+    "lisinopril_20_mg_oral_tablet": "RxNorm_314077",
+    "clonazepam_0_25_mg_oral_tablet": "RxNorm_204892",
+    "cisplatin_50_mg_injection": "RxNorm_1736854",
+    "paclitaxel_100_mg_injection": "RxNorm_583214",
+    "buprenorphine_2_mg_naloxone_0_5_mg_sublingual_tablet": "RxNorm_351266",
+    "alteplase_100_mg_injection": "RxNorm_1804799",
+    "methylphenidate_hydrochloride_20_mg_oral_tablet": "RxNorm_1091392",
+    "100_ml_epirubicin_hydrochloride_2_mg_ml_injection": "RxNorm_1732186",
+    "ciprofloxacin_500_mg_oral_tablet": "RxNorm_309309",
+    "aspirin_325_mg_oral_tablet": "RxNorm_212033",
+    "nitroglycerin_0_4_mg_sublingual_tablet": "RxNorm_198039",
+    "50_ml_bivalirudin_5_mg_ml_injection": "RxNorm_1997015",
+    "ticagrelor_90_mg_oral_tablet": "RxNorm_1116635",
+    "metoprolol_tartrate_50_mg_oral_tablet": "RxNorm_866514",
+    "pravastatin_sodium_40_mg_oral_tablet": "RxNorm_904475",
+    "1_ml_epoetin_alfa_4000_unt_ml_injection_epogen": "RxNorm_205923",
+    "penicillin_g_375_mg_ml_injectable_solution": "RxNorm_105078",
+    "donepezil_hydrochloride_10_mg_oral_tablet": "RxNorm_997223",
+    "donepezil_hydrochloride_23_mg_oral_tablet": "RxNorm_1100184",
+    "sodium_chloride_9_mg_ml_injectable_solution": "RxNorm_313002",
+    "1_ml_morphine_sulfate_5_mg_ml_injection": "RxNorm_1732136",
+    "piperacillin_4000_mg_tazobactam_500_mg_injection": "RxNorm_1659149",
+    "10_ml_alfentanil_0_5_mg_ml_injection": "RxNorm_1723208",
+    "2_ml_morphine_sulfate_1_mg_ml_injection": "RxNorm_1728805",
+    "heparin_sodium_porcine_100_unt_ml_injectable_solution": "RxNorm_1361048",
+    "24_hr_metoprolol_succinate_50_mg_extended_release_oral_tablet": "RxNorm_866436",
+    "atorvastatin_20_mg_oral_tablet": "RxNorm_617310",
+    "enalapril_maleate_10_mg_oral_tablet": "RxNorm_858817",
+    "leucovorin_100_mg_injection": "RxNorm_1803932",
+    "10_ml_oxaliplatin_5_mg_ml_injection": "RxNorm_1736776",
+    "insulin_regular_human_100_unt_ml_injectable_solution": "RxNorm_311034",
+    "verapamil_hydrochloride_80_mg_oral_tablet_calan": "RxNorm_897685",
+    "warfarin_sodium_5_mg_oral_tablet": "RxNorm_855332",
+    "digoxin_0_125_mg_oral_tablet": "RxNorm_197604",
+    "sevoflurane_1000_mg_ml_inhalation_solution": "RxNorm_200243",
+    "remifentanil_2_mg_injection": "RxNorm_1729584",
+    "losartan_potassium_25_mg_oral_tablet": "RxNorm_979485",
+    "amlodipine_2_5_mg_benazepril_hydrochloride_10_mg_oral_capsule": "RxNorm_898350",
+    "1_ml_tacrolimus_5_mg_ml_injection_prograf": "RxNorm_108515",
+    "24_hr_tacrolimus_1_mg_extended_release_oral_tablet_envarsus": "RxNorm_1664463",
+    "atorvastatin_80_mg_oral_tablet": "RxNorm_259255",
+    "atenolol_100_mg_oral_tablet": "RxNorm_197379",
+    "synthea_observation": "SYN_CAT_OBSERVATION",
+    "pain_severity_0_10_verbal_numeric_rating_score_reported": "LOINC_72514-3",
+    "weight_for_length_per_age_and_sex": "LOINC_77606-2",
+    "head_occipital_frontal_circumference_percentile": "LOINC_8289-1",
+    "head_occipital_frontal_circumference": "LOINC_9843-4",
+    "leukocytes_volume_in_blood_by_automated_count": "LOINC_6690-2",
+    "erythrocytes_volume_in_blood_by_automated_count": "LOINC_789-8",
+    "hemoglobin_mass_volume_in_blood": "LOINC_718-7",
+    "hematocrit_volume_fraction_of_blood_by_automated_count": "LOINC_4544-3",
+    "mcv_entitic_mean_volume_in_red_blood_cells_by_automated_count": "LOINC_787-2",
+    "mch_entitic_mass_by_automated_count": "LOINC_785-6",
+    "body_mass_index_ratio": "LOINC_39156-5",
+    "body_mass_index_percentile_per_age_and_sex": "LOINC_59576-9",
+    "tobacco_smoking_status": "LOINC_72166-2",
+    "mchc_entitic_mass_volume_in_red_blood_cells_by_automated_count": "LOINC_786-4",
+    "erythrocyte_distwidth_in_blood_by_automated_count": "LOINC_788-0",
+    "platelets_volume_in_blood_by_automated_count": "LOINC_777-3",
+    "platelet_entitic_mean_volume_in_blood_by_automated_count": "LOINC_32623-1",
+    "body_temperature": "LOINC_8310-5",
+    "generalized_anxiety_disorder_7_item_total_score_reported_phq": "LOINC_70274-6",
+    "qaly": "LOINC_QALY",
+    "daly": "LOINC_DALY",
+    "qols": "LOINC_QOLS",
+    "oxygen_saturation_in_arterial_blood": "LOINC_2708-6",
+    "glucose_mass_volume_in_urine_by_test_strip": "LOINC_5792-7",
+    "ketones_presence_in_urine_by_test_strip": "LOINC_2514-8",
+    "specific_gravity_of_urine_by_test_strip": "LOINC_5811-5",
+    "ph_of_urine_by_test_strip": "LOINC_5803-2",
+    "protein_mass_volume_in_urine_by_test_strip": "LOINC_5804-0",
+    "nitrite_presence_in_urine_by_test_strip": "LOINC_5802-4",
+    "hemoglobin_presence_in_urine_by_test_strip": "LOINC_5794-3",
+    "leukocyte_esterase_presence_in_urine_by_test_strip": "LOINC_5799-2",
+    "leukocytes_area_in_urine_sediment_by_microscopy_high_power_field": "LOINC_5821-4",
+    "casts_presence_in_urine_sediment_by_light_microscopy": "LOINC_24124-0",
+    "mucus_presence_in_urine_sediment_by_light_microscopy": "LOINC_8247-9",
+    "bacteria_area_in_urine_sediment_by_microscopy_high_power_field": "LOINC_5769-5",
+    "bacteria_identified_in_urine_by_culture": "LOINC_630-4",
+    "are_you_a_refugee": "LOINC_93027-1",
+    "stress_level": "LOINC_93038-8",
+    "primary_insurance": "LOINC_76437-3",
+    "employment_status_current": "LOINC_67875-5",
+    "highest_level_of_education": "LOINC_82589-3",
+    "address": "LOINC_56799-0",
+    "are_you_worried_about_losing_your_housing_prapare": "LOINC_93033-9",
+    "housing_status": "LOINC_71802-3",
+    "how_many_people_are_living_or_staying_at_this_address": "LOINC_63512-8",
+    "preferred_language": "LOINC_54899-0",
+    "discharged_from_the_u_s_armed_forces": "LOINC_93034-7",
+    "race": "LOINC_32624-9",
+    "hispanic_or_latino": "LOINC_56051-6",
+    "patient_health_questionnaire_2_item_total_score_reported": "LOINC_55758-7",
+    "total_score_dast_10": "LOINC_82667-7",
+    "choriogonadotropin_presence_in_urine": "LOINC_2106-3",
+    "hemoglobin_a1c_hemoglobin_total_in_blood": "LOINC_4548-4",
+    "glucose_mass_volume_in_blood": "LOINC_2339-0",
+    "urea_nitrogen_mass_volume_in_blood": "LOINC_6299-2",
+    "creatinine_mass_volume_in_blood": "LOINC_38483-4",
+    "calcium_mass_volume_in_blood": "LOINC_49765-1",
+    "sodium_moles_volume_in_blood": "LOINC_2947-0",
+    "potassium_moles_volume_in_blood": "LOINC_6298-4",
+    "chloride_moles_volume_in_blood": "LOINC_2069-3",
+    "carbon_dioxide_total_moles_volume_in_blood": "LOINC_20565-8",
+    "hematocrit_volume_fraction_of_blood_by_calculation": "LOINC_20570-8",
+    "patient_health_questionnaire_9_item_total_score_reported": "LOINC_44261-6",
+    "pregnancy_status": "LOINC_82810-3",
+    "peanut_ige_ab_units_volume_in_serum": "LOINC_6206-7",
+    "walnut_ige_ab_units_volume_in_serum": "LOINC_6273-7",
+    "codfish_ige_ab_units_volume_in_serum": "LOINC_6082-2",
+    "shrimp_ige_ab_units_volume_in_serum": "LOINC_6246-3",
+    "wheat_ige_ab_units_volume_in_serum": "LOINC_6276-0",
+    "egg_white_ige_ab_units_volume_in_serum": "LOINC_6106-9",
+    "soybean_ige_ab_units_volume_in_serum": "LOINC_6248-9",
+    "cow_milk_ige_ab_units_volume_in_serum": "LOINC_7258-7",
+    "white_oak_ige_ab_units_volume_in_serum": "LOINC_6189-5",
+    "common_ragweed_ige_ab_units_volume_in_serum": "LOINC_6085-5",
+    "cat_dander_ige_ab_units_volume_in_serum": "LOINC_6833-8",
+    "american_house_dust_mite_ige_ab_units_volume_in_serum": "LOINC_6095-4",
+    "cladosporium_herbarum_ige_ab_units_volume_in_serum": "LOINC_6075-6",
+    "honey_bee_ige_ab_units_volume_in_serum": "LOINC_6844-5",
+    "latex_ige_ab_units_volume_in_serum": "LOINC_6158-0",
+    "total_score_hark": "LOINC_76504-0",
+    "total_score_audit_c": "LOINC_75626-2",
+    "cholesterol_mass_volume_in_serum_or_plasma": "LOINC_2093-3",
+    "triglyceride_mass_volume_in_serum_or_plasma": "LOINC_2571-8",
+    "cholesterol_in_hdl_mass_volume_in_serum_or_plasma": "LOINC_2085-9",
+    "microalbumin_creatinine_mass_ratio_in_urine": "LOINC_14959-1",
+    "logmar_visual_acuity_left_eye": "LOINC_413077008",
+    "logmar_visual_acuity_right_eye": "LOINC_413078003",
+    "left_eye_intraocular_pressure": "LOINC_79893-4",
+    "right_eye_intraocular_pressure": "LOINC_79892-6",
+    "left_eye_diabetic_retinopathy_severity_level_by_ophthalmoscopy": "LOINC_71490-7",
+    "right_eye_diabetic_retinopathy_severity_level_by_ophthalmoscopy": "LOINC_71491-5",
+    "protein_mass_volume_in_serum_or_plasma": "LOINC_2885-2",
+    "albumin_mass_volume_in_serum_or_plasma": "LOINC_1751-7",
+    "globulin_mass_volume_in_serum_by_calculation": "LOINC_10834-0",
+    "bilirubin_total_mass_volume_in_serum_or_plasma": "LOINC_1975-2",
+    "polyp_size_greatest_dimension": "LOINC_33756-8",
+    "cause_of_death_us_standard_certificate_of_death": "LOINC_69453-9",
+    "emergency_severity_index_esi": "LOINC_75636-1",
+    "glucose_mass_volume_in_serum_or_plasma": "LOINC_2345-7",
+    "urea_nitrogen_mass_volume_in_serum_or_plasma": "LOINC_3094-0",
+    "creatinine_mass_volume_in_serum_or_plasma": "LOINC_2160-0",
+    "calcium_mass_volume_in_serum_or_plasma": "LOINC_17861-6",
+    "sodium_moles_volume_in_serum_or_plasma": "LOINC_2951-2",
+    "potassium_moles_volume_in_serum_or_plasma": "LOINC_2823-3",
+    "chloride_moles_volume_in_serum_or_plasma": "LOINC_2075-0",
+    "carbon_dioxide_total_moles_volume_in_serum_or_plasma": "LOINC_2028-9",
+    "site_of_distant_metastasis_in_breast_tumor": "LOINC_44667-4",
+    "distant_metastases_clinical_class_cancer": "LOINC_21907-1",
+    "size_maximum_dimension_in_tumor": "LOINC_33728-7",
+    "primary_tumor_clinical_class_cancer": "LOINC_21905-5",
+    "regional_lymph_nodes_clinical_class_cancer": "LOINC_21906-3",
+    "her2_presence_in_breast_cancer_specimen_by_immune_stain": "LOINC_85319-2",
+    "stage_group_clinical_cancer": "LOINC_21908-9",
+    "treatment_status_cancer": "LOINC_59557-9",
+    "response_to_cancer_treatment": "LOINC_88040-1",
+    "symptom": "LOINC_75325-1",
+    "magnesium_mass_volume_in_serum_or_plasma": "LOINC_19123-9",
+    "ferritin_mass_volume_in_serum_or_plasma": "LOINC_2276-4",
+    "iron_mass_volume_in_serum_or_plasma": "LOINC_2498-4",
+    "iron_binding_capacity_mass_volume_in_serum_or_plasma": "LOINC_2500-7",
+    "iron_saturation_mass_fraction_in_serum_or_plasma": "LOINC_2502-3",
+    "functional_capacity_nyha": "LOINC_88020-3",
+    "objective_assessment_of_cardiovascular_disease_nyha": "LOINC_88021-1",
+    "left_ventricular_ejection_fraction": "LOINC_10230-1",
+    "fall_risk_total_morse_fall_scale": "LOINC_59460-6",
+    "fall_risk_level_morse_fall_scale": "LOINC_59461-4",
+    "priority_level": "LOINC_X9999-2",
+    "operative_status_value": "LOINC_X9999-1",
+    "phosphate_mass_volume_in_serum_or_plasma": "LOINC_2777-1",
+    "prothrombin_time": "LOINC_5902-2",
+    "inr_in_platelet_poor_plasma_by_coagulation_assay": "LOINC_6301-6",
+    "aptt_in_blood_by_coagulation_assay": "LOINC_3173-2",
+    "ph_of_arterial_blood": "LOINC_2744-1",
+    "carbon_dioxide_partial_pressure_in_arterial_blood": "LOINC_2019-8",
+    "oxygen_partial_pressure_in_arterial_blood": "LOINC_2703-7",
+    "bicarbonate_moles_volume_in_arterial_blood": "LOINC_1960-4",
+    "thyrotropin_units_volume_in_serum_or_plasma": "LOINC_3016-3",
+    "glucose_presence_in_urine_by_test_strip": "LOINC_25428-4",
+    "bilirubin_total_presence_in_urine_by_test_strip": "LOINC_5770-3",
+    "protein_presence_in_urine_by_test_strip": "LOINC_20454-5",
+    "activated_clotting_time_of_blood_by_coagulation_assay": "LOINC_3184-9",
+    "ph_of_venous_blood": "LOINC_2746-6",
+    "carbon_dioxide_partial_pressure_in_venous_blood": "LOINC_2021-4",
+    "oxygen_partial_pressure_in_venous_blood": "LOINC_2705-2",
+    "bicarbonate_moles_volume_in_venous_blood": "LOINC_14627-4",
+    "carbon_dioxide_total_moles_volume_in_venous_blood": "LOINC_2027-1",
+    "procedure_narrative": "LOINC_29554-3",
+    "physical_findings_of_prostate": "LOINC_32465-7",
+    "prostate_specific_ag_mass_volume_in_serum_or_plasma": "LOINC_2857-1",
+    "us_guidance_for_biopsy_of_prostate": "LOINC_46288-7",
+    "appearance_of_urine": "LOINC_5767-9",
+    "odor_of_urine": "LOINC_34533-0",
+    "clarity_of_urine": "LOINC_32167-9",
+    "color_of_urine": "LOINC_5778-6",
+    "bilirubin_total_mass_volume_in_urine_by_test_strip": "LOINC_20505-4",
+    "ketones_mass_volume_in_urine_by_test_strip": "LOINC_5797-6",
+    "dxa_radius_and_ulna_t_score_bone_density": "LOINC_38265-5",
+    "position_of_body_and_posture": "LOINC_271605009",
+    "cobb_angle": "LOINC_285285000",
+    "risser_sign": "LOINC_870537001",
+    "neutrophils_leukocytes_in_blood_by_automated_count": "LOINC_770-8",
+    "lymphocytes_leukocytes_in_blood_by_automated_count": "LOINC_736-9",
+    "monocytes_leukocytes_in_blood_by_automated_count": "LOINC_5905-5",
+    "eosinophils_leukocytes_in_blood_by_automated_count": "LOINC_713-8",
+    "basophils_leukocytes_in_blood_by_automated_count": "LOINC_706-2",
+    "neutrophils_volume_in_blood_by_automated_count": "LOINC_751-8",
+    "lymphocytes_volume_in_blood_by_automated_count": "LOINC_731-0",
+    "monocytes_volume_in_blood_by_automated_count": "LOINC_742-7",
+    "eosinophils_volume_in_blood_by_automated_count": "LOINC_711-2",
+    "basophils_volume_in_blood_by_automated_count": "LOINC_704-7",
+    "oxygen_total_gas_setting_volume_fraction_ventilator": "LOINC_19994-3",
+    "fibrin_d_dimer_feu_mass_volume_in_platelet_poor_plasma": "LOINC_48065-7",
+    "creatine_kinase_enzymatic_activity_volume_in_serum_or_plasma": "LOINC_2157-6",
+    "c_reactive_protein_mass_volume_in_serum_or_plasma": "LOINC_1988-5",
+    "procalcitonin_mass_volume_in_serum_or_plasma": "LOINC_33959-8",
+    "pain_severity_in_the_past_week_0_10_numeric_rating_reported": "LOINC_75893-8",
+    "drugs_of_abuse_5_panel_urine_by_screen_method": "LOINC_65750-2",
+    "pain_severity_reported": "LOINC_38208-5",
+    "thyroxine_free_mass_volume_in_serum_or_plasma": "LOINC_3024-7",
+    "fev1_fvc": "LOINC_19926-5",
+    "sexual_orientation": "LOINC_76690-7",
+    "hiv_status": "LOINC_55277-8",
+    "abuse_status_omaha": "LOINC_28245-9",
+    "history_of_hospitalizations_outpatient_visits_narrative": "LOINC_46240-8",
+    "capillary_refill_time_of_nail_bed": "LOINC_44963-7",
+    "lactate_moles_volume_in_blood": "LOINC_32693-4",
+    "mean_blood_pressure": "LOINC_8478-0",
+    "total_score_mmse": "LOINC_72106-8",
+    "study_observation_left_retina_by_oct": "LOINC_79819-9",
+    "study_observation_right_retina_by_oct": "LOINC_79818-1",
+    "craving_or_a_strong_desire_to_use_opioids": "LOINC_99999-4",
+    "magnesium_mass_volume_in_blood": "LOINC_21377-7",
+    "weight_difference_mass_difference_pre_dialysis_post_dialysis": "LOINC_74006-8",
+    "leukocytes_volume_in_blood": "LOINC_26464-8",
+    "erythrocytes_volume_in_blood": "LOINC_26453-1",
+    "mcv_entitic_mean_volume_in_red_blood_cells": "LOINC_30428-7",
+    "erythrocyte_distwidth_in_blood": "LOINC_30385-9",
+    "platelets_volume_in_blood": "LOINC_26515-7",
+    "bilirubin_total_mass_volume_in_blood": "LOINC_42719-5",
+    "anion_gap_in_serum_or_plasma_by_calculation": "LOINC_33037-3",
+    "physical_findings_of_abdomen_by_palpation": "LOINC_80271-0"
   }
 }

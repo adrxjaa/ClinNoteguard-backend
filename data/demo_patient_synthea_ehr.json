@@ -1,0 +1,1109 @@
+{
+  "synthea_patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+  "allergies": [
+    "Sulfa Drug Allergy"
+  ],
+  "current_medications": [
+    {
+      "name": "Acetaminophen 21.7 MG/ML / Dextromethorphan Hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution",
+      "dose": "As prescribed",
+      "frequency": "Started 1989-05-20",
+      "clinic": "Encounter for symptom (procedure)"
+    },
+    {
+      "name": "10 ML Furosemide 10 MG/ML Injection",
+      "dose": "As prescribed",
+      "frequency": "Started 1989-09-05",
+      "clinic": "Admission to intensive care unit (procedure)"
+    }
+  ],
+  "visit_history": [
+    {
+      "session_code": "SYN-005",
+      "clinic_name": "Death Certification",
+      "doctor_name": "Synthea Longitudinal Record",
+      "date": "1989-10-25",
+      "assessment": "Death Certification",
+      "plan": "Chronic congestive heart failure (disorder)",
+      "prescriptions": []
+    },
+    {
+      "session_code": "SYN-004",
+      "clinic_name": "Admission to hospice (procedure)",
+      "doctor_name": "Synthea Longitudinal Record",
+      "date": "1989-10-04",
+      "assessment": "Admission to hospice (procedure)",
+      "plan": "Chronic congestive heart failure (disorder)",
+      "prescriptions": []
+    },
+    {
+      "session_code": "SYN-003",
+      "clinic_name": "Encounter for problem (procedure)",
+      "doctor_name": "Synthea Longitudinal Record",
+      "date": "1989-09-05",
+      "assessment": "Shock (disorder)",
+      "plan": "Chronic congestive heart failure (disorder)",
+      "prescriptions": []
+    },
+    {
+      "session_code": "SYN-002",
+      "clinic_name": "Admission to intensive care unit (procedure)",
+      "doctor_name": "Synthea Longitudinal Record",
+      "date": "1989-09-05",
+      "assessment": "Admission to intensive care unit (procedure)",
+      "plan": "Chronic congestive heart failure (disorder)",
+      "prescriptions": [
+        {
+          "name": "10 ML Furosemide 10 MG/ML Injection",
+          "dosage": "As directed",
+          "frequency": "Daily"
+        },
+        {
+          "name": "10 ML Furosemide 10 MG/ML Injection",
+          "dosage": "As directed",
+          "frequency": "Daily"
+        },
+        {
+          "name": "10 ML Furosemide 10 MG/ML Injection",
+          "dosage": "As directed",
+          "frequency": "Daily"
+        },
+        {
+          "name": "10 ML Furosemide 10 MG/ML Injection",
+          "dosage": "As directed",
+          "frequency": "Daily"
+        },
+        {
+          "name": "10 ML Furosemide 10 MG/ML Injection",
+          "dosage": "As directed",
+          "frequency": "Daily"
+        }
+      ]
+    },
+    {
+      "session_code": "SYN-001",
+      "clinic_name": "Encounter for symptom (procedure)",
+      "doctor_name": "Synthea Longitudinal Record",
+      "date": "1989-05-20",
+      "assessment": "Acute bronchitis (disorder)",
+      "plan": "Acute bronchitis (disorder)",
+      "prescriptions": [
+        {
+          "name": "Acetaminophen 21.7 MG/ML / Dextromethorphan Hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution",
+          "dosage": "As directed",
+          "frequency": "Daily"
+        }
+      ]
+    }
+  ],
+  "ehr_records": [
+    {
+      "record_id": "SYN_COND_0_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "diagnosis",
+      "date": "1989-05-20",
+      "text": "Diagnosis: Acute bronchitis (disorder) (recorded 1989-05-20)"
+    },
+    {
+      "record_id": "SYN_MED_0_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-05-20",
+      "text": "Medication: Acetaminophen 21.7 MG/ML / Dextromethorphan Hydrobromide 1 MG/ML / doxylamine succinate 0.417 MG/ML Oral Solution (prescribed 1989-05-20)"
+    },
+    {
+      "record_id": "SYN_PROC_0_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-05-20",
+      "text": "Procedure: Measurement of respiratory function (procedure) (1989-05-20)"
+    },
+    {
+      "record_id": "SYN_MED_1_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_1",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_2",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_3",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_4",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_5",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_6",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_7",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_8",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_9",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_10",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_11",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_12",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_13",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_14",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_15",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_16",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_17",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_18",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_19",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_20",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_21",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_22",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_23",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_24",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_25",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_26",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_27",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_28",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_29",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_30",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_31",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_32",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_33",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_34",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_35",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_36",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_37",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_38",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_MED_1_39",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "medication",
+      "date": "1989-09-05",
+      "text": "Medication: 10 ML Furosemide 10 MG/ML Injection (prescribed 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_1_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Oxygen saturation in Arterial blood: 75.0 % (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_1_1",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Body Weight: 74.7 kg (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_1_2",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Natriuretic peptide.B prohormone N-Terminal [Mass/volume] in Serum or Plasma: 434.8 pg/mL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_1_3",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Leukocytes [#/volume] in Blood by Automated count: 7.5 10*3/uL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_1_4",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Erythrocytes [#/volume] in Blood by Automated count: 5.1 10*6/uL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_1_5",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Hemoglobin [Mass/volume] in Blood: 16.1 g/dL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_1_6",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Hematocrit [Volume Fraction] of Blood by Automated count: 35.4 % (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_1_7",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: MCV [Entitic mean volume] in Red Blood Cells by Automated count: 84.9 fL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Medication reconciliation (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_1",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Electrocardiographic procedure (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_2",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_3",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_4",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_5",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_6",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_7",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_8",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_9",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_10",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_11",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_12",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_13",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_14",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_15",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_16",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_17",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_18",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_19",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_20",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_21",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_22",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_23",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_24",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_25",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_26",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_27",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_28",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_29",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_30",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_31",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_32",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_33",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_34",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_35",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_36",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_37",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_38",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_39",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_40",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_41",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_1_42",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Heart failure education (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_COND_2_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "diagnosis",
+      "date": "1989-09-05",
+      "text": "Diagnosis: Shock (disorder) (recorded 1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_2_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Oxygen saturation in Arterial blood: 75.0 % (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_2_1",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Body Weight: 74.7 kg (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_2_2",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Natriuretic peptide.B prohormone N-Terminal [Mass/volume] in Serum or Plasma: 1868.2 pg/mL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_2_3",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Leukocytes [#/volume] in Blood by Automated count: 9.4 10*3/uL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_2_4",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Erythrocytes [#/volume] in Blood by Automated count: 4.0 10*6/uL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_2_5",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Hemoglobin [Mass/volume] in Blood: 16.2 g/dL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_2_6",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: Hematocrit [Volume Fraction] of Blood by Automated count: 46.7 % (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_OBS_2_7",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-09-05",
+      "text": "Observation/Lab: MCV [Entitic mean volume] in Red Blood Cells by Automated count: 95.9 fL (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_2_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Oxygen administration by mask (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_2_1",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Placing subject in prone position (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_2_2",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-09-05",
+      "text": "Procedure: Plain X-ray of chest (procedure) (1989-09-05)"
+    },
+    {
+      "record_id": "SYN_PROC_3_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Certification procedure (procedure) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_1",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Notifications (procedure) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_2",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Initial patient assessment (procedure) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_3",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Development of individualized plan of care (procedure) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_4",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_5",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_6",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_7",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_8",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_9",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_10",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_11",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_12",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_13",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_14",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_15",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_16",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_17",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_PROC_3_18",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "procedure",
+      "date": "1989-10-04",
+      "text": "Procedure: Hospice care (regime/therapy) (1989-10-04)"
+    },
+    {
+      "record_id": "SYN_OBS_4_0",
+      "patient_id": "ba419d35-0dfe-8af7-347c-eebf02485a56",
+      "source": "EHR",
+      "event_type": "lab",
+      "date": "1989-10-25",
+      "text": "Observation/Lab: Cause of Death [US Standard Certificate of Death]: Chronic congestive heart failure (disorder) (1989-10-25)"
+    }
+  ]
+}

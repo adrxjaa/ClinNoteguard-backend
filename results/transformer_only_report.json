@@ -1,0 +1,118 @@
+{
+  "config": {
+    "use_gnn": false,
+    "use_edge_bias": false,
+    "time_bias": "off",
+    "epochs": 12
+  },
+  "temperature": 1.4605199098587036,
+  "ece": 0.015799585839976486,
+  "metrics": {
+    "accuracy": 0.9686956521739131,
+    "macro_f1": 0.9599268590594489,
+    "per_class": {
+      "TRANSCRIPT_SUPPORTED": {
+        "precision": 0.9779411764705882,
+        "recall": 1.0,
+        "f1": 0.9888475836431226,
+        "support": 133
+      },
+      "HISTORY_SUPPORTED": {
+        "precision": 0.8909090909090909,
+        "recall": 0.875,
+        "f1": 0.8828828828828829,
+        "support": 56
+      },
+      "CLINICAL_INFERENCE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 70
+      },
+      "CLINICAL_CONFLICT": {
+        "precision": 1.0,
+        "recall": 0.9484536082474226,
+        "f1": 0.9735449735449735,
+        "support": 97
+      },
+      "STALE": {
+        "precision": 0.898876404494382,
+        "recall": 0.9302325581395349,
+        "f1": 0.9142857142857143,
+        "support": 86
+      },
+      "HALLUCINATED": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 133
+      }
+    },
+    "confusion_matrix": [
+      [
+        133,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        49,
+        0,
+        0,
+        7,
+        0
+      ],
+      [
+        0,
+        0,
+        70,
+        0,
+        0,
+        0
+      ],
+      [
+        3,
+        0,
+        0,
+        92,
+        2,
+        0
+      ],
+      [
+        0,
+        6,
+        0,
+        0,
+        80,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        0,
+        0,
+        133
+      ]
+    ],
+    "labels": [
+      "TRANSCRIPT_SUPPORTED",
+      "HISTORY_SUPPORTED",
+      "CLINICAL_INFERENCE",
+      "CLINICAL_CONFLICT",
+      "STALE",
+      "HALLUCINATED"
+    ],
+    "hallucination_precision": 1.0,
+    "hallucination_recall": 1.0,
+    "stale_as_supported_rate": 0.06976744186046512
+  },
+  "date_shuffle": {
+    "history_f1_drop": 0.24552024552024554,
+    "stale_f1_drop": 0.1895150720838794
+  },
+  "checkpoint": "checkpoints/transformer_only_synthea.pt"
+}

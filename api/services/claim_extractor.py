@@ -24,7 +24,7 @@ class AtomicClaimExtractor:
     into atomic, testable claims with extracted clinical entities.
     """
 
-    def __init__(self, model_name: str = "gemini-2.5-flash"):
+    def __init__(self, model_name: str = "gemini-3.8-flash"):
         self.model_name = model_name
         self.api_key = getattr(settings, "GEMINI_API_KEY", "")
 
